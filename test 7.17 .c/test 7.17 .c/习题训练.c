@@ -4085,3 +4085,40 @@ int main()
 //
 //	return 0;
 //}
+
+
+//判断一个串是否位回文串或镜像串(输入字符不包括字符0,且如果是字母都为大写)，多组输入
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+
+int main()
+{
+	char mirror[] = "A   3  HIL JM O   2TUVWXY51SE Z  8 ";
+	char* answer[] = { "not palindrome","regular palindrome","mirrored string","mirrored palindrome" };
+	char arr[30] = { 0 };
+
+	while (scanf("%s", arr) == 1)
+	{
+		int len = strlen(arr);
+		int i = 0, pal = 1, mir = 1;
+		for (i = 0; i < len / 2; i++)
+		{
+			if (arr[i] != arr[len - i - 1])
+				pal = 0;
+			if (isalpha(arr[i]))
+			{
+				if (arr[len-i-1] != mirror[arr[i] - 'A'])
+					mir = 0;
+			}
+			else
+			{
+				if (arr[len - i - 1] != mirror[arr[i] - '0' + 25])
+					mir = 0;
+			}
+		}
+		printf("%s is %s\n", arr, answer[2 * mir + pal]);
+	}
+	
+	return 0;
+}
