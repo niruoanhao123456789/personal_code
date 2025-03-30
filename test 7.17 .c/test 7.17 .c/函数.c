@@ -383,7 +383,7 @@
 //	//char arr1[20] = "abc";
 //	//char arr2[20] = "world";
 //	//strncat_s(arr1, 20, arr2, 3);
-//	////3是要追加的字符个数，在追加完后还会追加上一个\0，但之追加一个\0
+//	////3是要追加的字符个数，在追加完后还会追加上一个\0
 //
 //	char arr1[20] = "abcde";
 //	char arr2[20] = "acbde";
@@ -586,8 +586,8 @@
 //	//memcpy(arr2, arr1, 36);//36为要拷贝的字节数(9*4)
 //	//my_memcpy(arr2, arr1, 36);
 //
-//	//memmove(arr1 + 2, arr1, 20);
-//	my_memmove(arr1 + 2, arr1, 20);
+//	memmove(arr1 + 2, arr1, 20);
+//	//my_memmove(arr1 + 2, arr1, 20);
 //
 //	for (i = 0; i < sz; i++)
 //	{

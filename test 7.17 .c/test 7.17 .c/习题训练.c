@@ -4183,3 +4183,49 @@ int main()
 //	}
 //	return 0;
 //}
+
+
+//《算法入门》例3-6
+//#include<stdio.h>
+//#include<string.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	char arr[105] = { 0 };
+//	char arr1[210] = { 0 };
+//	while (n--)
+//	{
+//		scanf("%s", arr);
+//		int ans = 0;//目前字典序最小串在输入串中的起始位置
+//		int pos = 1;//要比较的的字典序的起始位置
+//		int len = strlen(arr);
+//		memcpy(arr1, arr, (len + 1) * sizeof(char));
+//		memmove(arr1+len, arr1, (len + 1) * sizeof(char));//追加后每个字串都有
+//		for (pos = 1; pos < len; pos++)
+//		{
+//			int i = 0;
+//			for (i = 0; i < len; i++)
+//			{
+//				if (arr1[pos + i] != arr1[ans + i])
+//				{
+//					if (arr1[pos + i] < arr[ans + i])
+//					{
+//						ans = pos;
+//					}
+//					break;
+//				}
+//			}
+//		}
+//		int j = 0;
+//		for (j = 0; j < len; j++)
+//		{
+//			putchar(arr1[ans + j]);
+//		}
+//		putchar('\n');
+//
+//		memset(arr1, 0, (2 * len + 2) * sizeof(char));
+//	}
+//	return 0;
+//}
