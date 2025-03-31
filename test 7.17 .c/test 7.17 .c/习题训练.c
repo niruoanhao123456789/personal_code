@@ -4229,3 +4229,100 @@ int main()
 //	}
 //	return 0;
 //}
+
+
+//算法习题3-1
+//#include<stdio.h>
+//#include<string.h>
+//
+//int main()
+//{
+//	char arr[81] = { 0 };
+//	scanf("%s", arr);
+//	int len = strlen(arr);
+//	int i = 0;
+//	int sum = 0;
+//	int score = 1;
+//	for (i = 0; i < len; i++)
+//	{
+//		if (arr[i] == 'O')
+//		{
+//			sum += score++;
+//		}
+//		else
+//			score = 1;
+//	}
+//	printf("%d\n", sum);
+//
+//	return 0;
+//}
+
+//算法习题3-2
+//#include<stdio.h>
+//#include<string.h>
+//
+//int main()
+//{
+//	char s[20] = { 0 };
+//	scanf("%s", s);
+//	int len = strlen(s);
+//	double sum = 0;
+//	int i = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		if (s[i] == 'C')
+//		{
+//			 if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
+//			 {
+//				sum += ((s[i + 1] - '0') * 12.01);
+//				i++;
+//			 }
+//			 else
+//				sum += 12.01;
+//		}
+//		else if (s[i] == 'H')
+//		{
+//			 if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
+//			 {
+//			 	sum += ((s[i + 1] - '0') * 1.008);
+//				i++;
+//			 }
+//			 else
+//				sum += 1.008;
+//		}
+//		else if (s[i] == 'O')
+//		{
+//			 if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
+//			 {
+//				sum += ((s[i + 1] - '0') * 16.00);
+//				i++;
+//			 }
+//			 else
+//				sum += 16.00;
+//		}
+//		else
+//		{
+//			if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
+//			{
+//				sum += ((s[i + 1] - '0') * 14.01);
+//				i++;
+//			}
+//			else
+//				sum += 14.01;
+//		}
+//	}
+//	printf("%lf\n", sum);
+//
+//	return 0;
+//}
+
+
+//习题3-4
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	
+	return 0;
+}

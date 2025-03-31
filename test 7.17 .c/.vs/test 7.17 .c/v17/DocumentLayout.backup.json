@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "RelativeToolTip": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
-              "ViewState": "AgIAAG4QAAAAAAAAAAAowFsQAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAANoQAAAAAAAAAAAAAHkOAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-08-28T02:13:09.247Z",
               "IsPinned": true,
@@ -48,8 +48,7 @@
               "RelativeToolTip": "test 7.17 .c\\learn.c",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-22T02:55:33.281Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-22T02:55:33.281Z"
             },
             {
               "$type": "Document",
@@ -61,8 +60,7 @@
               "RelativeToolTip": "test 7.17 .c\\\u51FD\u6570.c",
               "ViewState": "AgIAAEACAAAAAAAAAAAAAEYCAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-23T03:24:59.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T03:24:59.931Z"
             }
           ]
         }
