@@ -1,3 +1,3 @@
 ﻿  习题训练.c
-D:\code\c语言\初学\gitee_my_personal_code\test 7.17 .c\test 7.17 .c\习题训练.c(4268,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\c语言\初学\gitee_my_personal_code\test 7.17 .c\test 7.17 .c\习题训练.c(4329,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   test 7.17 .c.vcxproj -> D:\code\c语言\初学\gitee_my_personal_code\test 7.17 .c\x64\Debug\test 7.17 .c.exe

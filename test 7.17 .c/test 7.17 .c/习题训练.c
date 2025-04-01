@@ -4323,6 +4323,36 @@ int main()
 
 int main()
 {
-	
+	char s[81] = { 0 };
+	while (scanf("%s", s) != EOF)
+	{
+		int len = strlen(s);
+		int k = 1;
+		int flag = 1;//标记是否为周期数
+		for (k = 1; k <= len; k++)//历遍所有可能的周期长度k(1<=k<=len)
+		{
+			flag = 1;
+			if (len % k)//len不能被k整除，说明k不是周期长度
+				continue;
+			int i = 0;
+			for (i = k; i < len; i++)
+			{
+				if (s[i] != s[i % k])
+				{
+					flag = 0;
+					break;
+				}
+			}
+			if (flag)
+			{
+				printf("%d\n", k);
+				break;
+			}
+		}
+		if (!flag)
+		{
+			printf("%d\n", len);
+		}
+	}
 	return 0;
 }
