@@ -4318,41 +4318,129 @@ int main()
 
 
 //习题3-4
-#include<stdio.h>
-#include<string.h>
+//#include<stdio.h>
+//#include<string.h>
+//
+//int main()
+//{
+//	char s[81] = { 0 };
+//	while (scanf("%s", s) != EOF)
+//	{
+//		int len = strlen(s);
+//		int k = 1;
+//		int flag = 1;//标记是否为周期数
+//		for (k = 1; k <= len; k++)//历遍所有可能的周期长度k(1<=k<=len)
+//		{
+//			flag = 1;
+//			if (len % k)//len不能被k整除，说明k不是周期长度
+//				continue;
+//			int i = 0;
+//			for (i = k; i < len; i++)
+//			{
+//				if (s[i] != s[i % k])
+//				{
+//					flag = 0;
+//					break;
+//				}
+//			}
+//			if (flag)
+//			{
+//				printf("%d\n", k);
+//				break;
+//			}
+//		}
+//		if (!flag)
+//		{
+//			printf("%d\n", len);
+//		}
+//	}
+//	return 0;
+//}
 
-int main()
-{
-	char s[81] = { 0 };
-	while (scanf("%s", s) != EOF)
-	{
-		int len = strlen(s);
-		int k = 1;
-		int flag = 1;//标记是否为周期数
-		for (k = 1; k <= len; k++)//历遍所有可能的周期长度k(1<=k<=len)
-		{
-			flag = 1;
-			if (len % k)//len不能被k整除，说明k不是周期长度
-				continue;
-			int i = 0;
-			for (i = k; i < len; i++)
-			{
-				if (s[i] != s[i % k])
-				{
-					flag = 0;
-					break;
-				}
-			}
-			if (flag)
-			{
-				printf("%d\n", k);
-				break;
-			}
-		}
-		if (!flag)
-		{
-			printf("%d\n", len);
-		}
-	}
-	return 0;
-}
+
+//算法习题3-5
+//#include<stdio.h>
+//#include<ctype.h>
+//
+//void Findspacelocation(char arr[5][5], int* x, int* y)
+//{
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < 5; j++)
+//		{
+//			if (isspace(arr[i][j]))
+//			{
+//				*x = i;
+//				*y = j;
+//				return;
+//			}
+//		}
+//	}
+//}
+//
+//void Swap(char arr[5][5], int x, int y, int i, int j)
+//{
+//	arr[x][y] = arr[x + i][y + j];
+//	arr[x + i][y + j] = ' ';
+//}
+//
+//int main()
+//{
+//	char arr[5][5] = { 0 };
+//	char input = 0;
+//	int x = 0, y = 0;
+//	int i = 0, j = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		for (j = 0; j < 5; j++)
+//		{
+//			arr[i][j]=getchar();
+//		}
+//		getchar();
+//	}
+//	do
+//	{
+//		i = 0;
+//		j = 0;
+//		scanf("%c", &input);
+//		Findspacelocation(arr, &x, &y);
+//		switch (input)
+//		{
+//		case 'A':
+//			i = -1;
+//			Swap(arr, x, y, i, j);
+//			break;
+//		case 'B':
+//			i = 1;
+//			Swap(arr, x, y, i, j);
+//			break;
+//		case 'L':
+//			j = -1;
+//			Swap(arr, x, y, i, j);
+//			break;
+//		case 'R':
+//			j = 1;
+//			Swap(arr, x, y, i, j);
+//			break;
+//		case '0':
+//			input = 0;
+//			break;
+//		default:
+//			printf("This puzzle has no final configuration.\n");
+//			input = 1;
+//			break;
+//		}
+//	} while (input);
+//
+//	for (i = 0; i < 5; i++)
+//	{
+//		for (j = 0; j < 5; j++)
+//		{
+//			printf("%c ", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
