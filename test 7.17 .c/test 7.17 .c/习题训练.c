@@ -4444,3 +4444,71 @@ int main()
 //	}
 //	return 0;
 //}
+
+
+//
+#include <stdio.h>
+
+int main()
+{
+	int m = 0, n = 0;
+	char dna[50][1001] = { 0 };
+	char answer[1001] = { 0 };
+	int distance = 0;
+	while (scanf("%d %d", &m, &n) != EOF)
+	{
+		int i = 0;
+		for (i = 0; i < m; i++)
+		{
+			scanf("%s", dna[i]);
+		}
+
+		int col = 0;
+		for (col = 0; col < n; col++)
+		{
+			int count[4] = { 0 };//分别计量A C G T
+			char nuc[] = "ACGT";
+
+			//统计当前每列核苷酸的次数
+			int row = 0;
+			for (row = 0; row < m; row++)
+			{
+				switch (dna[row][col])
+				{
+				case 'A':
+					count[0]++;
+					break;
+				case 'C':
+					count[1]++;
+					break;
+				case 'G':
+					count[2]++;
+					break;
+				case 'T':
+					count[3]++;
+					break;
+				}
+			}
+
+			//找出出现次数最多的核苷酸，次数相同选字典序最小的
+			int max = 0;
+			for (i = 1; i < 4; i++)
+			{
+				if (count[i] > count[max])
+				{
+					max = i;
+				}
+			}
+
+			answer[col] = nuc[max];
+			distance += (m - count[max]);
+			
+		}
+		answer[n] = '\0';
+
+		printf("%s\n", answer);
+		printf("%d\n", distance);
+	}
+
+	return 0;
+}
