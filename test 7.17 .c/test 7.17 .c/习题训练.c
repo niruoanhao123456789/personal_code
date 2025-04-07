@@ -4446,69 +4446,119 @@ int main()
 //}
 
 
+////
+
+
+//习题3-8
+//#include<stdio.h>
 //
-#include <stdio.h>
+//int main()
+//{
+//	int a = 0, b = 0;
+//	while (scanf("%d %d", &a, &b) == 2)
+//	{
+//		long long result = 0;
+//		int len = 0;
+//		a *= 10;
+//		result = a / b;
+//		a = a % b;
+//		
+//	}
+//	return 0;
+//}
+
+
+//习题3-9 子序列
+//
+
+
+//习题3-10
+#include<stdio.h>
+#include<stdlib.h>
+
+struct box
+{
+	int w;
+	int h;
+};
+
+void swap(struct box* arr, size_t sz)
+{
+	size_t i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		if ((*(arr+i)).w < (*(arr + i)).h)
+		{
+			int tmp = (*(arr + i)).w;
+			(*(arr + i)).w = (*(arr + i)).h;
+			(*(arr + i)).h = tmp;
+		}
+	}
+}
+
+int cmp_size(const void* e1,const void* e2)
+{
+	return ((*(struct box*)e1).w - (*(struct box*)e1).w);
+}
 
 int main()
 {
-	int m = 0, n = 0;
-	char dna[50][1001] = { 0 };
-	char answer[1001] = { 0 };
-	int distance = 0;
-	while (scanf("%d %d", &m, &n) != EOF)
+	struct box arr[6] = { 0 };
+	int i = 0;
+	for (i = 0; i < 6; i++)
 	{
-		int i = 0;
-		for (i = 0; i < m; i++)
+		scanf("%d %d", &arr[i].w, &arr[i].h);
+	}
+	int flag1 = 0, flag2 = 0;
+	for (i = 0; i < 6; i++)
+	{
+		flag1 ^= arr[i].w;
+		flag2 ^= arr[i].h;
+	}
+	if (flag1 && flag2)
+	{
+		printf("NO\n");
+	}
+	else
+	{
+		size_t sz = sizeof(arr) / sizeof(arr[0]);
+		swap(arr,sz);
+		qsort(arr,sz, sizeof(struct box), cmp_size);
+		struct box arr1[3] = { 0 };
+		for (i = 0; i < sz; i += 2)
 		{
-			scanf("%s", dna[i]);
+			arr1[i] = arr[i];
 		}
-
-		int col = 0;
-		for (col = 0; col < n; col++)
+		if ((arr1[0].w==arr1[1].w&&arr1[1].w==arr1[2].w))
 		{
-			int count[4] = { 0 };//分别计量A C G T
-			char nuc[] = "ACGT";
-
-			//统计当前每列核苷酸的次数
-			int row = 0;
-			for (row = 0; row < m; row++)
+			printf("NO\n");
+		}
+		else
+		{
+			int a = arr1[0].w;
+			int b = arr1[0].h;
+			int c = 0;
+			if (arr1[1].w == a)
+				c = arr1[1].h;
+			else if (arr1[1].h == a)
+				c = arr1[1].w;
+			else if (arr1[1].w == b)
+				c = arr1[1].h;
+			else if (arr1[1].h == b)
+				c = arr1[1].w;
+			else
 			{
-				switch (dna[row][col])
-				{
-				case 'A':
-					count[0]++;
-					break;
-				case 'C':
-					count[1]++;
-					break;
-				case 'G':
-					count[2]++;
-					break;
-				case 'T':
-					count[3]++;
-					break;
-				}
+				printf("NO\n");
+				return 0;
 			}
-
-			//找出出现次数最多的核苷酸，次数相同选字典序最小的
-			int max = 0;
-			for (i = 1; i < 4; i++)
-			{
-				if (count[i] > count[max])
-				{
-					max = i;
-				}
-			}
-
-			answer[col] = nuc[max];
-			distance += (m - count[max]);
+			if ((arr1[2].w == a && arr1[2].h == b) || (arr1[2].h == a && arr1[2].w == b))
+				printf("YES\n");
+			if ((arr1[2].w == a && arr1[2].h == c) || (arr1[2].h == a && arr1[2].w == c))
+				printf("YES\n");
+			if ((arr1[2].w == b && arr1[2].h == c) || (arr1[2].h == c && arr1[2].w == b))
+				printf("YES\n");
 			
 		}
-		answer[n] = '\0';
-
-		printf("%s\n", answer);
-		printf("%d\n", distance);
 	}
-
 	return 0;
 }
