@@ -261,7 +261,7 @@ void load_score_list(const char *filename)
     while (fgets(line_buffer, LINE_BUFFER_SIZE, f) != NULL)
     {
         sscanf(line_buffer, "%s %d %d %d", name, &course_id, &student_id, &score);
-        printf("%s %d %d %d\n", name, course_id, student_id, score);
+        //printf("%s %d %d %d\n", name, course_id, student_id, score);
         tmp = (struct score_node *)malloc(sizeof(struct score_node));
         if (tmp == NULL)
         {
@@ -346,6 +346,14 @@ void CourseListDestory(course_node** pphead)
     while (cur)
     {
         next = cur->next;
+        score_node* cur1 = cur->score_head;
+        score_node* next1 = cur1->next;
+        while (cur1)
+        {
+            next1 = cur1->next;
+            free(cur1);
+            cur1 = next1;
+        }
         free(cur);
         cur = next;
     }

@@ -3,12 +3,11 @@
 #include"userdata.h"
 #include"score.h"
 
-//ç™»å½•å‡½æ•°ï¼Œç™»å½•æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›false
-bool login(Users* user, int *user_id, int identity);
+//Éí·İÎªteacher£¬identityÎª1
+//Éí·İÎªstudent£¬identityÎª2
+//µÇÂ¼º¯Êı£¬³É¹¦Ôò·µ»Øtrue£¬Ê§°Ü·µ»Øfalse
+bool login(Users* user, int* user_id, int identity);
 
-//ä¸‹é¢æ˜¯ç”¨æˆ·äº¤äº’å‡½æ•°
-//teacherçš„identityä¸º1
-//studentçš„identityä¸º2
 void user_interface(Users* user, int identity);
 
 void tea_interface(int user_id);
