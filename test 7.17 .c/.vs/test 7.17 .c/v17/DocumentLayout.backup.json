@@ -1,21 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\",
+  "WorkspaceRootPath": "D:\\code\\c\\learn\\test 7.17 .c\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u6307\u9488.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u51FD\u6570.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -32,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "\u4E60\u9898\u8BAD\u7EC3.c",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "RelativeDocumentMoniker": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
+              "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "RelativeToolTip": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
-              "ViewState": "AgIAAJMDAAAAAAAAAAAAAKgCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGsQAAAAAAAAAAAAAGwQAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-08-28T02:13:09.247Z",
               "IsPinned": true,
@@ -45,40 +41,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "\u6307\u9488.c",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c",
-              "RelativeDocumentMoniker": "test 7.17 .c\\\u6307\u9488.c",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c",
-              "RelativeToolTip": "test 7.17 .c\\\u6307\u9488.c",
-              "ViewState": "AgIAABUDAAAAAAAAAAAgwD0DAAASAAAAAAAAAA==",
+              "Title": "learn.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\learn.c",
+              "RelativeDocumentMoniker": "test 7.17 .c\\learn.c",
+              "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\learn.c",
+              "RelativeToolTip": "test 7.17 .c\\learn.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-04-04T08:37:11.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-26T01:17:14.962Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "learn.c",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\learn.c",
-              "RelativeDocumentMoniker": "test 7.17 .c\\learn.c",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\learn.c",
-              "RelativeToolTip": "test 7.17 .c\\learn.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-22T02:55:33.281Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "\u51FD\u6570.c",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c",
               "RelativeDocumentMoniker": "test 7.17 .c\\\u51FD\u6570.c",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c",
+              "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c",
               "RelativeToolTip": "test 7.17 .c\\\u51FD\u6570.c",
-              "ViewState": "AgIAACkBAAAAAAAAAAAAAEYCAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAAAOkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-23T03:24:59.931Z"
+              "WhenOpened": "2025-04-25T04:41:28.294Z"
             }
           ]
         }

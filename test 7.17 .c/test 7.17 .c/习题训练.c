@@ -4087,7 +4087,7 @@ int main()
 //}
 
 
-//判断一个串是否位回文串或镜像串(输入字符不包括字符0,且如果是字母都为大写)，多组输入
+////判断一个串是否位回文串或镜像串(输入字符不包括字符0,且如果是字母都为大写)，多组输入
 //#include<stdio.h>
 //#include<string.h>
 //#include<ctype.h>
@@ -4184,291 +4184,22 @@ int main()
 //	return 0;
 //}
 
-
-//《算法入门》例3-6
+//求Sn = a + aa + aaa + aaaa + aaaaa 这样的前五项之和，a是个数字
 //#include<stdio.h>
-//#include<string.h>
 //
 //int main()
 //{
-//	int n = 0;
-//	scanf("%d", &n);
-//	char arr[105] = { 0 };
-//	char arr1[210] = { 0 };
-//	while (n--)
-//	{
-//		scanf("%s", arr);
-//		int ans = 0;//目前字典序最小串在输入串中的起始位置
-//		int pos = 1;//要比较的的字典序的起始位置
-//		int len = strlen(arr);
-//		memcpy(arr1, arr, (len + 1) * sizeof(char));
-//		memmove(arr1+len, arr1, (len + 1) * sizeof(char));//追加后每个字串都有
-//		for (pos = 1; pos < len; pos++)
-//		{
-//			int i = 0;
-//			for (i = 0; i < len; i++)
-//			{
-//				if (arr1[pos + i] != arr1[ans + i])
-//				{
-//					if (arr1[pos + i] < arr[ans + i])
-//					{
-//						ans = pos;
-//					}
-//					break;
-//				}
-//			}
-//		}
-//		int j = 0;
-//		for (j = 0; j < len; j++)
-//		{
-//			putchar(arr1[ans + j]);
-//		}
-//		putchar('\n');
-//
-//		memset(arr1, 0, (2 * len + 2) * sizeof(char));
-//	}
-//	return 0;
-//}
-
-
-//算法习题3-1
-//#include<stdio.h>
-//#include<string.h>
-//
-//int main()
-//{
-//	char arr[81] = { 0 };
-//	scanf("%s", arr);
-//	int len = strlen(arr);
-//	int i = 0;
+//	int a = 0;
+//	scanf("%d", &a);
 //	int sum = 0;
-//	int score = 1;
-//	for (i = 0; i < len; i++)
+//	int i = 0;
+//	int tmp = a;
+//	for (i = 0; i < 5; i++)
 //	{
-//		if (arr[i] == 'O')
-//		{
-//			sum += score++;
-//		}
-//		else
-//			score = 1;
+//		sum += tmp;
+//		tmp = tmp * 10 + a;
 //	}
 //	printf("%d\n", sum);
 //
 //	return 0;
 //}
-
-//算法习题3-2
-//#include<stdio.h>
-//#include<string.h>
-//
-//int main()
-//{
-//	char s[20] = { 0 };
-//	scanf("%s", s);
-//	int len = strlen(s);
-//	double sum = 0;
-//	int i = 0;
-//	for (i = 0; i < len; i++)
-//	{
-//		if (s[i] == 'C')
-//		{
-//			 if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
-//			 {
-//				sum += ((s[i + 1] - '0') * 12.01);
-//				i++;
-//			 }
-//			 else
-//				sum += 12.01;
-//		}
-//		else if (s[i] == 'H')
-//		{
-//			 if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
-//			 {
-//			 	sum += ((s[i + 1] - '0') * 1.008);
-//				i++;
-//			 }
-//			 else
-//				sum += 1.008;
-//		}
-//		else if (s[i] == 'O')
-//		{
-//			 if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
-//			 {
-//				sum += ((s[i + 1] - '0') * 16.00);
-//				i++;
-//			 }
-//			 else
-//				sum += 16.00;
-//		}
-//		else
-//		{
-//			if ((s[i + 1] - '0') > 0 && (s[i + 1] - '0') <= 9)
-//			{
-//				sum += ((s[i + 1] - '0') * 14.01);
-//				i++;
-//			}
-//			else
-//				sum += 14.01;
-//		}
-//	}
-//	printf("%lf\n", sum);
-//
-//	return 0;
-//}
-
-
-//习题3-4
-//#include<stdio.h>
-//#include<string.h>
-//
-//int main()
-//{
-//	char s[81] = { 0 };
-//	while (scanf("%s", s) != EOF)
-//	{
-//		int len = strlen(s);
-//		int k = 1;
-//		int flag = 1;//标记是否为周期数
-//		for (k = 1; k <= len; k++)//历遍所有可能的周期长度k(1<=k<=len)
-//		{
-//			flag = 1;
-//			if (len % k)//len不能被k整除，说明k不是周期长度
-//				continue;
-//			int i = 0;
-//			for (i = k; i < len; i++)
-//			{
-//				if (s[i] != s[i % k])
-//				{
-//					flag = 0;
-//					break;
-//				}
-//			}
-//			if (flag)
-//			{
-//				printf("%d\n", k);
-//				break;
-//			}
-//		}
-//		if (!flag)
-//		{
-//			printf("%d\n", len);
-//		}
-//	}
-//	return 0;
-//}
-
-
-//算法习题3-5
-//#include<stdio.h>
-//#include<ctype.h>
-//
-//void Findspacelocation(char arr[5][5], int* x, int* y)
-//{
-//	int i = 0;
-//	for (i = 0; i < 5; i++)
-//	{
-//		int j = 0;
-//		for (j = 0; j < 5; j++)
-//		{
-//			if (isspace(arr[i][j]))
-//			{
-//				*x = i;
-//				*y = j;
-//				return;
-//			}
-//		}
-//	}
-//}
-//
-//void Swap(char arr[5][5], int x, int y, int i, int j)
-//{
-//	arr[x][y] = arr[x + i][y + j];
-//	arr[x + i][y + j] = ' ';
-//}
-//
-//int main()
-//{
-//	char arr[5][5] = { 0 };
-//	char input = 0;
-//	int x = 0, y = 0;
-//	int i = 0, j = 0;
-//	for (i = 0; i < 5; i++)
-//	{
-//		for (j = 0; j < 5; j++)
-//		{
-//			arr[i][j]=getchar();
-//		}
-//		getchar();
-//	}
-//	do
-//	{
-//		i = 0;
-//		j = 0;
-//		scanf("%c", &input);
-//		Findspacelocation(arr, &x, &y);
-//		switch (input)
-//		{
-//		case 'A':
-//			i = -1;
-//			Swap(arr, x, y, i, j);
-//			break;
-//		case 'B':
-//			i = 1;
-//			Swap(arr, x, y, i, j);
-//			break;
-//		case 'L':
-//			j = -1;
-//			Swap(arr, x, y, i, j);
-//			break;
-//		case 'R':
-//			j = 1;
-//			Swap(arr, x, y, i, j);
-//			break;
-//		case '0':
-//			input = 0;
-//			break;
-//		default:
-//			printf("This puzzle has no final configuration.\n");
-//			input = 1;
-//			break;
-//		}
-//	} while (input);
-//
-//	for (i = 0; i < 5; i++)
-//	{
-//		for (j = 0; j < 5; j++)
-//		{
-//			printf("%c ", arr[i][j]);
-//		}
-//		printf("\n");
-//	}
-//	return 0;
-//}
-
-
-////
-
-
-//习题3-8
-//#include<stdio.h>
-//
-//int main()
-//{
-//	int a = 0, b = 0;
-//	while (scanf("%d %d", &a, &b) == 2)
-//	{
-//		long long result = 0;
-//		int len = 0;
-//		a *= 10;
-//		result = a / b;
-//		a = a % b;
-//		
-//	}
-//	return 0;
-//}
-
-
-//习题3-9 子序列
-//
-
-
