@@ -1,34 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\",
+  "WorkspaceRootPath": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\chian.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\chian.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\score.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\interface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\interface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\userdata.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\userdata.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\chain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\score.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\interface.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\interface.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\chain.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\chain.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\chain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\chain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\score.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\score.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\userdata.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\userdata.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\userdata.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6E42C5C-0AB8-4CCC-BF78-B8E9D4640636}|Project1\\Project1.vcxproj|solutionrelative:Project1\\userdata.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,98 +46,117 @@
       "DocumentGroups": [
         {
           "DockedWidth": 328,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "chian.c",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\chian.c",
-              "RelativeDocumentMoniker": "Project1\\chian.c",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\chian.c*",
-              "RelativeToolTip": "Project1\\chian.c*",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAnwP4AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-04-23T10:50:33.913Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "functions.h",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\functions.h",
-              "RelativeDocumentMoniker": "Project1\\functions.h",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\functions.h",
-              "RelativeToolTip": "Project1\\functions.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-23T12:45:05.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "interface.h",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\interface.h",
-              "RelativeDocumentMoniker": "Project1\\interface.h",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\interface.h",
-              "RelativeToolTip": "Project1\\interface.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwYAAAAXAAAAAAAAAA==",
+              "Title": "functions.h",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h",
+              "RelativeDocumentMoniker": "Project1\\functions.h",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h",
+              "RelativeToolTip": "Project1\\functions.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-23T12:45:04.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T15:39:10.432Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "userdata.h",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\userdata.h",
-              "RelativeDocumentMoniker": "Project1\\userdata.h",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\userdata.h",
-              "RelativeToolTip": "Project1\\userdata.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-23T12:43:36.233Z",
+              "DocumentIndex": 1,
+              "Title": "score.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c",
+              "RelativeDocumentMoniker": "Project1\\score.c",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c",
+              "RelativeToolTip": "Project1\\score.c",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAADIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-04-25T09:39:52.92Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "score.h",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\score.h",
-              "RelativeDocumentMoniker": "Project1\\score.h",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\score.h",
-              "RelativeToolTip": "Project1\\score.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-23T09:15:26.428Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "chain.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\chain.c",
+              "RelativeDocumentMoniker": "Project1\\chain.c",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\chain.c",
+              "RelativeToolTip": "Project1\\chain.c",
+              "ViewState": "AgIAAEkBAAAAAAAAAAAowA8BAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-04-25T13:57:42.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "chain.h",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\chain.h",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\chain.h",
               "RelativeDocumentMoniker": "Project1\\chain.h",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\chain.h",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\chain.h",
               "RelativeToolTip": "Project1\\chain.h",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-23T09:15:33.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T09:15:33.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "interface.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\interface.c",
+              "RelativeDocumentMoniker": "Project1\\interface.c",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\interface.c",
+              "RelativeToolTip": "Project1\\interface.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-04-25T09:38:55.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "userdata.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\userdata.c",
+              "RelativeDocumentMoniker": "Project1\\userdata.c",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\userdata.c",
+              "RelativeToolTip": "Project1\\userdata.c",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAswEoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-04-25T12:24:17.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "userdata.h",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\userdata.h",
+              "RelativeDocumentMoniker": "Project1\\userdata.h",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\userdata.h",
+              "RelativeToolTip": "Project1\\userdata.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-23T12:43:36.233Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.c",
-              "DocumentMoniker": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\main.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\main.c",
               "RelativeDocumentMoniker": "Project1\\main.c",
-              "ToolTip": "D:\\code\\c\u8BED\u8A00\\\u521D\u5B66\\student gpa management.c\\Project1\\Project1\\main.c",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\main.c",
               "RelativeToolTip": "Project1\\main.c",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAswBQAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAACwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-04-23T11:34:08.32Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "score.h",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.h",
+              "RelativeDocumentMoniker": "Project1\\score.h",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.h",
+              "RelativeToolTip": "Project1\\score.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-23T09:15:26.428Z"
             }
           ]
         }

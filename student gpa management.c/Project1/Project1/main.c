@@ -1,9 +1,16 @@
 #include "functions.h"
 
-void test(Users* plist)
+void test1(Users* plist)
+{
+	SeqListPushBack(plist, "students.txt");
+	SeqListPrint(plist);
+	save_user_data(plist, "students.txt");
+}
+
+void test2(Users* plist)
 {
 	SeqListPushBack(plist, "teachers.txt");
-
+	SeqListPrint(plist);
 	save_user_data(plist, "teachers.txt");
 }
 
@@ -21,7 +28,8 @@ int main() {
 	load_course_list("courselist.txt");
 	load_score_list("scorelist.txt");
 
-	//test(&tea);//用来进行用户数据操作的临时函数，添加用户用这个
+	//test1(&stu);//用来进行用户数据操作的临时函数，添加用户用这个
+	//test2(&tea);
 
 	do
 	{

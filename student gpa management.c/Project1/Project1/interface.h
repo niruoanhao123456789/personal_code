@@ -1,5 +1,6 @@
 #pragma once
 #include<stdbool.h>
+#include<math.h>
 #include"userdata.h"
 #include"score.h"
 

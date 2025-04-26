@@ -64,4 +64,4 @@ void save_course_list(const char *filename);
 void save_score_list(const char *filename);
 
 ////ÊÍ·ÅÉêÇëÄÚ´æ
-void CourseListDestory(course_node** pphead);
+void CourseListDestory(course_node **pphead);

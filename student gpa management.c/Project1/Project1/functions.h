@@ -13,7 +13,7 @@
 #include"chain.h"
 #include"score.h"
 
-#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1//vsÒªÓÃµÄ
 #define STR_BUFFER_SIZE 50
 #define LINE_BUFFER_SIZE 1000
 

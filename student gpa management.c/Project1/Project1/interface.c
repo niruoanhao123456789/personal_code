@@ -34,23 +34,37 @@ static void forget(Users* user,int identity)
 	int flag = 0;
 	int user_id = 0;
 	long long phone_num = 0;
+	char id[5] = { 0 };
+	char phone[20] = { 0 };
 	char name[STR_BUFFER_SIZE] = { 0 };
-	printf("\n———————————————————————忘记密码——————————————————————-\n");
+	printf("\n———————————————————————忘记密码——————————————————————-\n\n");
 	do
 	{
 		printf("请输入你的真实姓名：");
 		scanf("%s", name);
 		printf("请输入工号或学号：");
-		scanf("%d", &user_id);
+		scanf("%s", id);
 		printf("请输入手机号：");
-		scanf("%lld", &phone_num);
+		scanf("%s", phone);
 		int i = 0;
+		int len1 = strlen(id);
+		int len2 = strlen(phone);
+		int sum1 = 0;
+		long long sum2 = 0;
+		for (i = 0; i < len1; i++)
+		{
+			sum1 += (*(id + i) - '0') * pow(10, len1 - i - 1);
+		}
+		for (i = 0; i < len1; i++)
+		{
+			sum2 += (long long)((*(id + i) - '0') * pow(10, len1 - i - 1));
+		}
 		int flag1 = 1;
 		for (i = 0; i < user->count; i++)
 		{
 			if ((strcmp(user->data[i].name, name) == 0) 
-				&& user->data[i].user_id == user_id
-				&& user->data[i].phone_num == phone_num)
+				&& user->data[i].user_id == sum1
+				&& user->data[i].phone_num == sum2)
 			{
 				flag1 = 0;
 				change_password(user->data[i].password);
@@ -139,7 +153,7 @@ void tea_interface(int user_id)
 	do
 	{
 		printf("\n******* 1.成绩录入 2.删除错误数据  3.查找学生成绩 *******\n");
-		printf("******* 4.修改成绩 5.显示课程全部成绩 6.添加课程  *******\n");
+		printf("******* 4.修改成绩 5.显示课程学生成绩 6.添加课程  *******\n");
         printf("******* 7.删除课程 8.列出全部课程     0.退出      *******\n\n");
 		printf("请输入：");
 		scanf("%d", &input);
@@ -182,8 +196,8 @@ void tea_interface(int user_id)
                 printf("未查询到成绩\n");
                 break;
             }
-			printf("学生姓名为%s\n", now_score->student_name);
-            printf("成绩为%.1f分\n", ((float)now_score->score)/10);
+			printf("学生姓名为：%s\n", now_score->student_name);
+            printf("成绩为：%.1f分\n", ((float)now_score->score)/10);
 			break;
 		case 4:
             course_id = input_course_id(user_id);
@@ -223,7 +237,7 @@ void tea_interface(int user_id)
 			printf("学生姓名     学生ID     分数\n");
             while (now_score != NULL) 
 			{
-				printf("%s     %d     %.1f分\n", 
+				printf("%-8s     %-6d     %-1f分\n", 
 				now_score->student_name, now_score->student_id, ((float)now_score->score) / 10);
                 now_score = now_score->next;
             }
@@ -253,13 +267,12 @@ void tea_interface(int user_id)
 				printf("课程ID   课程名称\n");
 				if (course->teacher_id == user_id) 
 				{
-					printf("%d         %s\n", course->course_id, course->course_name);
+					printf("%-10d%s\n", course->course_id, course->course_name);
 				}
 				course = course->next;
 			}
 			break;
 		case 0:
-			printf("退出\n");
 			break;
 		default:
 			printf("输入错误，请重新输入\n");
@@ -314,7 +327,6 @@ void stu_interface(int user_id)
 			}
 			break;
 		case 0:
-			printf("退出\n");
 			break;
 		default:
 			printf("输入错误，请重新输入\n");
@@ -341,12 +353,15 @@ void user_interface(Users* user,int identity)
 		int flag = 0;
 		do
 		{
-			printf("是否退出登录？ 1.是 2.否\n");
+			printf("是否真退出登录？ 1.是 2.否\n");
 			printf("请输入：");
 			scanf("%d", &input);
 			input -= 1;
 			if (input == 0)
+			{
 				flag = 0;
+				printf("退出\n");
+			}
 			if ((input != 1) && (input != 0))
 			{
 				printf("输入错误，请重新输入\n");
