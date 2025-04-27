@@ -1,0 +1,3 @@
+﻿  stack.c
+D:\code\c语言\初学\stack\Stack.c\Stack.c\stack.c(58,30): warning C4028: 形参 1 与声明不同
+  Stack.c.vcxproj -> D:\code\c语言\初学\stack\Stack.c\x64\Debug\Stack.c.exe
