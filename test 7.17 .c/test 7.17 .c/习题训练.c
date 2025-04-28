@@ -32,8 +32,24 @@
 //}
 
 
-//计算n!的阶乘(for循环)
+//计算n!的阶乘(for循环与递归实现)
 //#include<stdio.h>
+// 
+// //n! = n * (n-1)!
+// * …… * 2 * 1
+//int factorial(int n)
+//{
+//	int ret = 1;
+//	if (n > 2)
+//	{
+//		ret = n * factorial(n - 1);
+//	}
+//	else
+//	{
+//		ret *= n;
+//	}
+//	return ret;
+//}
 // 
 //int main()
 //{
@@ -591,7 +607,7 @@ int main()
 //	}
 //}
 //
-//int Fib(int n)
+//int Fib1(int n)
 //{
 //	int a = 1;
 //	int b = 1;
@@ -611,6 +627,8 @@ int main()
 //	int n = 0;
 //	scanf_s("%d", &n);
 //	int ret = Fib(n);
+//	printf("%d\n", ret);
+//	ret = Fib1(n);
 //	printf("%d\n", ret);
 //
 //	return 0;
@@ -1051,19 +1069,19 @@ int main()
 //	//printf("交换后a = %d, b = %d\n", a, b);
 //	//以上存在溢出问题
 //	// 0 ^ a = a	a ^ a = 0
-//	printf("打印前a = %d b = %d\n");
+//	printf("打印前a = %d b = %d\n",a,b);
 //	a = a ^ b;//6
 //	b = a ^ b;//3
 //	a = a ^ b;
-// 0011
-// 0101
-// 0110  6
-// 0101  
-// 0011  3
-// 0110
-// 0101  5
+// //0011
+// //0101
+// //0110  6
+// //0101  
+// //0011  3
+// //0110
+// //0101  5
 // 
-//	printf("打印前a = %d b = %d\n");
+//	printf("打印前a = %d b = %d\n",a,b);
 //
 //	return 0;
 //}
@@ -1073,6 +1091,17 @@ int main()
 //a & 1 为a补码末位的数
 //#include<stdio.h>
 //
+// int NumberOf1(int n ) 
+//{
+//	int num = 0;
+//	while (n)
+//	{
+//		n = n & (n - 1);
+//		num++;
+//	}
+//	return num;
+//}
+// 
 //int main()
 //{
 //	int a = 0;
@@ -4181,25 +4210,5 @@ int main()
 //			printf("(A = %d,B = %d)\n", A, B);
 //		}
 //	}
-//	return 0;
-//}
-
-//求Sn = a + aa + aaa + aaaa + aaaaa 这样的前五项之和，a是个数字
-//#include<stdio.h>
-//
-//int main()
-//{
-//	int a = 0;
-//	scanf("%d", &a);
-//	int sum = 0;
-//	int i = 0;
-//	int tmp = a;
-//	for (i = 0; i < 5; i++)
-//	{
-//		sum += tmp;
-//		tmp = tmp * 10 + a;
-//	}
-//	printf("%d\n", sum);
-//
 //	return 0;
 //}
