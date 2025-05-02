@@ -4044,6 +4044,7 @@ int main()
 //	return 0;
 //}
 
+
 //ÉßÐÎ·½Õó
 //#include<stdio.h>
 //
@@ -4210,5 +4211,48 @@ int main()
 //			printf("(A = %d,B = %d)\n", A, B);
 //		}
 //	}
+//	return 0;
+//}
+
+
+//½«×Ö·û´®×óÄæÖÃk¸ö×Ö·û
+//#include<stdio.h>
+//#include<stdlib.h>
+//#include<assert.h>
+//
+//void left_reverse(char* str,int k)
+//{
+//	assert(str);
+//	while (k--)
+//	{
+//		char tmp = *str;
+//		char* cur = str;
+//		while (*(cur+1)!= '\0')
+//		{
+//			*cur = *(cur + 1);
+//			cur++;
+//		}
+//		*cur = tmp;
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d", &n);
+//	char* ch = (char*)calloc(n, sizeof(char));
+//	if (ch == NULL)
+//	{
+//		exit(-1);
+//	}
+//	scanf("%s", ch);
+//	scanf("%d", &k);
+//	left_reverse(ch,k);
+//	printf("%s\n", ch);
+//
+//	free(ch);
+//	ch = NULL;
+//
 //	return 0;
 //}
