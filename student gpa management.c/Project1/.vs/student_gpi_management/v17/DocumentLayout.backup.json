@@ -46,33 +46,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 328,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "functions.h",
-              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h",
-              "RelativeDocumentMoniker": "Project1\\functions.h",
-              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h",
-              "RelativeToolTip": "Project1\\functions.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-25T15:39:10.432Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "score.c",
-              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c",
-              "RelativeDocumentMoniker": "Project1\\score.c",
-              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c",
-              "RelativeToolTip": "Project1\\score.c",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAADIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-04-25T09:39:52.92Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 5,
@@ -141,10 +116,35 @@
               "RelativeDocumentMoniker": "Project1\\main.c",
               "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\main.c",
               "RelativeToolTip": "Project1\\main.c",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAACwAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAACcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-04-23T11:34:08.32Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "score.c",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c",
+              "RelativeDocumentMoniker": "Project1\\score.c",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\score.c",
+              "RelativeToolTip": "Project1\\score.c",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAADIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-04-25T09:39:52.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "functions.h",
+              "DocumentMoniker": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h",
+              "RelativeDocumentMoniker": "Project1\\functions.h",
+              "ToolTip": "D:\\code\\c\\learn\\student gpa management.c\\Project1\\Project1\\functions.h",
+              "RelativeToolTip": "Project1\\functions.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-25T15:39:10.432Z"
             },
             {
               "$type": "Document",
