@@ -1285,3 +1285,123 @@ void SListDestoey(SLTNode** pphead)
 //			如果用头做栈顶，头插头删，设计成单链表
 //
 //考虑缓存等因素，栈设计成数组栈会更好
+
+
+//队列
+//先进先出
+//队头出队 队尾进队
+
+
+//力扣20	有效括号
+//typedef char STDataType;
+//typedef struct Stack
+//{
+//	STDataType* data;
+//	int top;
+//	int capacity;
+//}Stack;
+//
+//bool StackEmpty(Stack* ps)
+//{
+//	assert(ps);
+//	if (ps->top > 0)
+//	{
+//		return false;
+//	}
+//	return true;
+//}
+//
+//void StackInit(Stack* ps)
+//{
+//	assert(ps);
+//	ps->data = NULL;
+//	ps->capacity = 0;
+//	ps->top = 0;//这里如果top = 0，意味着top指向栈顶的下一个；top = -1,top指向栈顶
+//}
+//
+//void StackDestroy(Stack* ps)
+//{
+//	assert(ps);
+//	free(ps->data);
+//	ps->data = NULL;
+//	ps->top = 0;
+//	ps->capacity = 0;
+//}
+//
+//static void CheckCapacity(Stack** ps)
+//{
+//	assert(ps);
+//	if ((*ps)->capacity == (*ps)->top)
+//	{
+//		int newcapacity = (*ps)->capacity == 0 ? 4 : (*ps)->capacity * 2;
+//		STDataType* tmp = (STDataType*)realloc((*ps)->data, newcapacity * sizeof(STDataType));
+//		if (tmp == NULL)
+//		{
+//			exit(-1);
+//		}
+//		(*ps)->data = tmp;
+//		(*ps)->capacity = newcapacity;
+//		tmp = NULL;
+//	}
+//}
+//
+//void StackPush(Stack* ps, STDataType x)
+//{
+//	assert(ps);
+//	CheckCapacity(&ps);
+//	ps->data[ps->top] = x;
+//	ps->top++;
+//}
+//
+//void StackPop(Stack* ps)
+//{
+//	assert(ps);
+//	assert(!StackEmpty(ps));
+//	(ps->top)--;
+//}
+//
+//STDataType StackTop(Stack* ps)
+//{
+//	assert(ps);
+//	assert(!StackEmpty(ps));
+//	return (ps->data[ps->top - 1]);
+//
+//}
+//
+//bool isValid(char* s)
+//{
+//	Stack st;
+//	StackInit(&st);
+//	while (*s)
+//	{
+//		if ((*s == '(') || (*s == '{') || (*s == '['))
+//		{
+//			StackPush(&st, *s);
+//			s++;
+//		}
+//		else
+//		{
+//			if (StackEmpty(&st))
+//			{
+//				StackDestroy(&st);
+//				return false;
+//			}
+//			STDataType top = StackTop(&st);
+//			StackPop(&st);
+//			if ((top != '(' && *s == ')')
+//				|| (top != '{' && *s == '}')
+//				|| (top != '[' && *s == ']'))
+//			{
+//				StackDestroy(&st);
+//				return false;
+//			}
+//			else
+//			{
+//				s++;
+//			}
+//		}
+//	}
+//	bool ret = StackEmpty(&st);
+//	StackDestroy(&st);
+//	return ret;
+//}
