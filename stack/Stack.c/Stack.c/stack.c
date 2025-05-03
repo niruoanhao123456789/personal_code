@@ -34,6 +34,16 @@ static void CheckCapacity(Stack** ps)
 	}
 }
 
+bool StackEmpty(Stack* ps)
+{
+	assert(ps);
+	if (ps->top > 0)
+	{
+		return false;
+	}
+	return true;
+}
+
 void StackPush(Stack* ps, STDataType x)
 {
 	assert(ps);
@@ -45,13 +55,14 @@ void StackPush(Stack* ps, STDataType x)
 void StackPop(Stack* ps)
 {
 	assert(ps);
-	assert(ps->top > 0);
+	assert(!StackEmpty(ps));
 	ps->top--;
 }
 
 STDataType StackTop(Stack* ps)
 {
-	assert(ps && ps->top > 0);
+	assert(ps);
+	assert(!StackEmpty(ps));
 	return (ps->data[ps->top - 1]);
 }
 
@@ -64,4 +75,10 @@ void StackPrint(const Stack* ps)
 		printf("%d ", ps->data[i]);
 	}
 	printf("\n");
+}
+
+int StackSize(Stack* ps)
+{
+	assert(ps);
+	return ps->top;
 }

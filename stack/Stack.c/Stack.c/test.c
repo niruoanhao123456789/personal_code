@@ -9,7 +9,12 @@ void test1()
 	{
 		StackPush(&st, i);
 	}
-	StackPrint(&st);
+	//StackPrint(&st);
+	while (!StackEmpty(&st))
+	{
+		printf("%d ", StackTop(&st));
+		StackPop(&st);
+	}
 	StackDestroy(&st);
 }
 
