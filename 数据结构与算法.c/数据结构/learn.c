@@ -1290,6 +1290,7 @@ void SListDestoey(SLTNode** pphead)
 //队列
 //先进先出
 //队头出队 队尾进队
+//链式队列会更优
 
 
 //力扣20	有效括号
