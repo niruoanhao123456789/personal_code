@@ -11,14 +11,12 @@ void QueueDestroy(Queue* pq)
 {
 	assert(pq);
 	QueueNode* cur = pq->head;
-	while (cur != (pq->tail))
+	while (cur)
 	{
 		QueueNode* next = cur->next;
 		free(cur);
 		cur = next;
 	}
-	free(pq->tail);
-	cur = NULL;
 	pq->head = NULL;
 	pq->tail = NULL;
 }
@@ -49,6 +47,10 @@ void QueuePop(Queue* pq)
 	assert(pq);
 	assert(pq->head);
 	QueueNode* next = pq->head->next;
+	if (pq->head == pq->tail)
+	{
+		pq->tail = NULL;
+	}
 	free(pq->head);
 	pq->head = next;
 }
