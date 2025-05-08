@@ -32,8 +32,6 @@ static void forget(Users* user,int identity)
 	assert(user);
 	assert(identity == 1 || identity == 2);
 	int flag = 0;
-	int user_id = 0;
-	long long phone_num = 0;
 	char id[5] = { 0 };
 	char phone[20] = { 0 };
 	char name[STR_BUFFER_SIZE] = { 0 };
@@ -49,15 +47,15 @@ static void forget(Users* user,int identity)
 		int i = 0;
 		int len1 = strlen(id);
 		int len2 = strlen(phone);
-		int sum1 = 0;
+		long long sum1 = 0;
 		long long sum2 = 0;
 		for (i = 0; i < len1; i++)
 		{
-			sum1 += (*(id + i) - '0') * pow(10, len1 - i - 1);
+			sum1 += (long long)((*(id + i) - '0') * pow(10, len1 - i - 1));
 		}
-		for (i = 0; i < len1; i++)
+		for (i = 0; i < len2; i++)
 		{
-			sum2 += (long long)((*(id + i) - '0') * pow(10, len1 - i - 1));
+			sum2 += (long long)((*(phone + i) - '0') * pow(10, len2 - i - 1));
 		}
 		int flag1 = 1;
 		for (i = 0; i < user->count; i++)
@@ -80,12 +78,12 @@ static void forget(Users* user,int identity)
 	} while (flag);
 }
 
-bool login(Users* user, int *user_id, int identity)
+bool login(Users* user, long long*user_id, int identity)
 {
 	assert(user);
 	assert(identity == 1 || identity == 2);
 	int input = 0;
-	int now_user_id;
+	long long now_user_id;
 	char password[STR_BUFFER_SIZE] = { 0 };
 	printf("\n————————————————————————登录———————————————————————-\n");
 	if (identity == 1)
@@ -106,7 +104,7 @@ bool login(Users* user, int *user_id, int identity)
 		{
 		case 1:
 			printf("请输入工号或学号：");
-			scanf("%d", &now_user_id);
+			scanf("%lld", &now_user_id);
 			printf("请输入密码：");
 			scanf("%s", password);
 			int i = 0;
@@ -141,11 +139,11 @@ bool login(Users* user, int *user_id, int identity)
 	return false;
 }
 
-void tea_interface(int user_id)
+void tea_interface(long long user_id)
 {
 	int input = 0;
     int course_id = 0;
-    int student_id = 0;
+	long long student_id = 0;
     struct score_node *now_score = NULL;
 	char course_name[STR_BUFFER_SIZE] = { 0 };
 	struct course_node* course = course_head;
@@ -176,7 +174,7 @@ void tea_interface(int user_id)
                 break;
             }
             printf("请输入要删除成绩的学生id：");
-            scanf("%d", &student_id);
+            scanf("%lld", &student_id);
             delete_score(course_id, student_id);
 			save_score_list("scorelist.txt");
             printf("删除成功\n");
@@ -189,7 +187,7 @@ void tea_interface(int user_id)
                 break;
             }
             printf("请输入学生id：");
-            scanf("%d", &student_id);
+            scanf("%lld", &student_id);
             now_score = get_score_by_id(course_id, student_id);
             if (now_score == NULL)
 			{
@@ -207,7 +205,7 @@ void tea_interface(int user_id)
                 break;
             }
             printf("请输入要修改成绩的学生id：");
-            scanf("%d", &student_id);
+            scanf("%lld", &student_id);
             printf("请输入新成绩：");
             float score = 0;
             scanf("%f", &score);
@@ -281,7 +279,7 @@ void tea_interface(int user_id)
 	} while (input);
 }
 
-void stu_interface(int user_id)
+void stu_interface(long long user_id)
 {
 	int input = 0;
 	printf("\n———————————————————————学生端———————————————————————-\n");
@@ -290,7 +288,7 @@ void stu_interface(int user_id)
 		printf("\n******* 1.单科成绩查询 2.全科成绩查询 0.退出 *******\n\n");
 		printf("请输入：");
 		scanf("%d", &input);
-		int course_id;
+		int course_id = 0;
 		struct score_node *now_score = NULL;
 		struct course_node *now_course = NULL;
 		switch (input)
@@ -339,7 +337,7 @@ void user_interface(Users* user,int identity)
 {
 	assert(user);
 	assert(identity == 1 || identity == 2);
-	int user_id;
+	long long user_id = 0;
 	int input = 1;
 	while (input)
 	{

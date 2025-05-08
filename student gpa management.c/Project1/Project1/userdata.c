@@ -33,7 +33,7 @@ static void LoadUserData(SeqList* ps,const char* filename)
     while (fgets(line_buffer, LINE_BUFFER_SIZE, pfread) != NULL) //读文件一行数据
 	{
 		SLCeckcapacity(ps);
-        sscanf(line_buffer, "%s %s %lld %d", &tmp.password, &tmp.name, &tmp.phone_num, &tmp.user_id);
+        sscanf(line_buffer, "%s %s %lld %lld", &tmp.password, &tmp.name, &tmp.phone_num, &tmp.user_id);
         ps->data[ps->count] = tmp;
 		ps->count++;
     }
@@ -53,10 +53,10 @@ void save_user_data(SeqList* ps, const char* filename)
 	int i = 0;
 	for (i = 0; i < ps->count; i++)
 	{
-		fprintf(f, "%s %s %lld %d\n", ps->data[i].password,
-			ps->data[i].name,
-			ps->data[i].phone_num,
-			ps->data[i].user_id);
+		fprintf(f, "%s %s %lld %lld\n", ps->data[i].password,
+										ps->data[i].name,
+										ps->data[i].phone_num,
+										ps->data[i].user_id);
 	}
 	fclose(f);
 	f = NULL;
@@ -80,7 +80,7 @@ void SeqListPushBack(SeqList* ps, const char* filename)
 	printf("用户添加\n请输入姓名：");
 	scanf("%s", &ps->data[ps->count].name);
 	printf("请输入工号或学号：");
-	scanf("%d", &ps->data[ps->count].user_id);
+	scanf("%lld", &ps->data[ps->count].user_id);
 	printf("请输入电话号码：");
 	scanf("%lld", &ps->data[ps->count].phone_num);
 	printf("请输入登陆密码：");
@@ -93,10 +93,10 @@ void SeqListPushBack(SeqList* ps, const char* filename)
 		perror(pfwrite);
 		return;
 	}
-    fprintf(pfwrite, "%s %s %lld %d", ps->data[ps->count].password, 
-									  ps->data[ps->count].name, 
-									  ps->data[ps->count].phone_num,
-									  ps->data[ps->count].user_id);
+    fprintf(pfwrite, "%s %s %lld %lld", ps->data[ps->count].password, 
+									    ps->data[ps->count].name, 
+									    ps->data[ps->count].phone_num,
+									    ps->data[ps->count].user_id);
 	//fwrite(ps->data, sizeof(SLDataType), 1, pfwrite);
 	fclose(pfwrite);
 	pfwrite = NULL;
@@ -133,7 +133,7 @@ void SeqListModify(SeqList* ps, int pos)
 	printf("用户修改\n请输入姓名：");
 	scanf("%s", &ps->data[pos].name);
 	printf("请输入工号或学号：");
-	scanf("%d", &ps->data[pos].user_id);
+	scanf("%lld", &ps->data[pos].user_id);
 	printf("请输入电话号码：");
 	scanf("%lld", &ps->data[pos].phone_num);
 	printf("请输入登陆密码：");
@@ -161,10 +161,10 @@ void SeqListPrint(const SeqList* ps)
 	printf("name  ID  password  phone\n");
 	for (i = 0; i < ps->count; i++)
 	{
-		printf("%s %d %s %lld\n", ps->data[i].name, 
-								  ps->data[i].user_id,
-								  ps->data[i].password,
-								  ps->data[i].phone_num);
+		printf("%s %lld %s %lld\n", ps->data[i].name, 
+								    ps->data[i].user_id,
+								    ps->data[i].password,
+								    ps->data[i].phone_num);
 	}
 }
 

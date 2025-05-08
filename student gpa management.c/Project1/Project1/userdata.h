@@ -13,7 +13,7 @@ typedef struct Userdata
 	char password[STR_BUFFER_SIZE];
 	char name[STR_BUFFER_SIZE];
 	long long phone_num;
-	int user_id;
+	long long user_id;
 }Userdata;
 typedef Userdata SLDataType;
 

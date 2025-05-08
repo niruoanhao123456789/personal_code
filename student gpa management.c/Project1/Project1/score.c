@@ -1,6 +1,6 @@
 #include"score.h"
 
-int input_course_id(int teacher_id) 
+int input_course_id(long long teacher_id)
 {
     int course_id = 0;
     char arr[10] = { 0 };
@@ -41,13 +41,13 @@ int teacher_input_score(int course_id)
         return -1;
     }
     int i = 0;
-    int student_id = 0;
+    long long student_id = 0;
     float score = 0.0f;
     char stu_name[10] = { 0 };
     printf("请在下面依次输入学生姓名、id和成绩(例子：xxx 114514 90)，一行一个数据，输入0 -1 -1为结束：\n请输入：\n");
-    scanf("%s%d%f",stu_name, &student_id, &score);
+    scanf("%s%lld%f",stu_name, &student_id, &score);
     int len = strlen(stu_name);
-    int sum = 0;
+    long long sum = 0;
     for (i = 0; i < len; i++)
     {
         sum += (*(stu_name + i) - '0') * pow(10, len - i - 1);
@@ -63,7 +63,7 @@ int teacher_input_score(int course_id)
             printf("输入错误\n");
         }
         insert_score(course_id, stu_name, student_id, (int)floor(score * 10));
-        scanf("%s%d%f", stu_name, &student_id, &score);
+        scanf("%s%lld%f", stu_name, &student_id, &score);
         len = strlen(stu_name);
         sum = 0;
         for (i = 0; i < len; i++)
@@ -75,7 +75,7 @@ int teacher_input_score(int course_id)
     printf("录入完成\n");
 }
 
-int input_course_id_student(int student_id) 
+int input_course_id_student(long long student_id)
 {
     int course_id;
     printf("\n课程ID      课程名称\n\n");
@@ -84,7 +84,7 @@ int input_course_id_student(int student_id)
     {
         if (get_score_by_course(course, student_id) != NULL) 
         {
-            printf("%-10d  %-10s%d: %s\n", course->course_id, course->course_name);
+            printf("%-10d  %-10s\n", course->course_id, course->course_name);
         }
         course = course->next;
     }

@@ -9,7 +9,7 @@ void test1(Users* plist)
 
 void test2(Users* plist)
 {
-	SeqListPushBack(plist, "teachers.txt");
+	//SeqListPushBack(plist, "teachers.txt");
 	SeqListPrint(plist);
 	save_user_data(plist, "teachers.txt");
 }
