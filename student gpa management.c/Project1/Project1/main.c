@@ -2,19 +2,27 @@
 
 void test1(Users* plist)
 {
+	int input = 0;
 	printf("学生用户添加\n");
-	SeqListPushBack(plist, "students.txt");
-	SeqListPushBack(plist, "students.txt");
-	SeqListPushBack(plist, "students.txt");
+	do
+	{
+		SeqListPushBack(plist, "students.txt");
+		printf("非零数字:继续添加 0:取消添加\n");
+		scanf("%d", &input);
+	} while (input);
 	SeqListPrint(plist);
 }
 
 void test2(Users* plist)
 {
+	int input = 0;
 	printf("教师用户添加\n");
-	SeqListPushBack(plist, "teachers.txt");
-	SeqListPushBack(plist, "teachers.txt");
-	SeqListPushBack(plist, "teachers.txt");
+	do
+	{
+		SeqListPushBack(plist, "students.txt");
+		printf("非零数字:继续添加 0:取消添加\n");
+		scanf("%d", &input);
+	} while (input);
 	SeqListPrint(plist);
 }
 
@@ -62,7 +70,7 @@ int main() {
 	load_course_list("courselist.txt");
 	load_score_list("scorelist.txt");
 
-	//UsersManage(&stu, &tea);//用来进行用户数据操作的临时函数，添加用户用这个
+	UsersManage(&stu, &tea);//用来进行用户数据操作的临时函数，添加用户用这个
 
 	do
 	{
