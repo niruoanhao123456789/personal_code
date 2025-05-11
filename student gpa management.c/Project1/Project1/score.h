@@ -1,6 +1,5 @@
 #pragma once
 #include<math.h>
-#include<string.h>
 #include"chain.h"
 
 //返回课程ID，无该课程则返回-1

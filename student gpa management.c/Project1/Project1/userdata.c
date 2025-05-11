@@ -76,7 +76,7 @@ void SeqListPushBack(SeqList* ps, const char* filename)
 {
 	assert(ps && filename);
 	SLCeckcapacity(ps);
-
+	
 	printf("用户添加\n请输入姓名：");
 	scanf("%s", &ps->data[ps->count].name);
 	printf("请输入工号或学号：");

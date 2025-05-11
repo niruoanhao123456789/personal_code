@@ -71,7 +71,6 @@ int teacher_input_score(int course_id)
             sum += (*(stu_name + i) - '0') * pow(10, len - i - 1);
         }
     }
-    save_score_list("scorelist.txt");
     printf("Â¼ÈëÍê³É\n");
 }
 

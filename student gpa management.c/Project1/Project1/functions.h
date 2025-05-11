@@ -1,13 +1,4 @@
 #pragma once
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<assert.h>
-#include<errno.h>
-#include<math.h>
-#include<limits.h>
-#include<stdbool.h>
-
 #include"userdata.h"
 #include"interface.h"
 #include"chain.h"

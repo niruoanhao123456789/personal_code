@@ -2,6 +2,9 @@
 
 void test1(Users* plist)
 {
+	printf("学生用户添加\n");
+	SeqListPushBack(plist, "students.txt");
+	SeqListPushBack(plist, "students.txt");
 	SeqListPushBack(plist, "students.txt");
 	SeqListPrint(plist);
 	save_user_data(plist, "students.txt");
@@ -9,7 +12,10 @@ void test1(Users* plist)
 
 void test2(Users* plist)
 {
-	//SeqListPushBack(plist, "teachers.txt");
+	printf("教师用户添加\n");
+	SeqListPushBack(plist, "teachers.txt");
+	SeqListPushBack(plist, "teachers.txt");
+	SeqListPushBack(plist, "teachers.txt");
 	SeqListPrint(plist);
 	save_user_data(plist, "teachers.txt");
 }
@@ -55,6 +61,8 @@ int main() {
 
 	save_user_data(&tea, "teachers.txt");
 	save_user_data(&stu, "students.txt");
+	save_score_list("scorelist.txt");
+	save_course_list("courselist.txt");
 	SeqListDestory(&tea);
 	SeqListDestory(&stu);
 	CourseListDestory(&course_head);

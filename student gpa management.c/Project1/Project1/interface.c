@@ -155,6 +155,8 @@ void tea_interface(long long user_id)
         printf("******* 7.删除课程 8.列出全部课程     0.退出      *******\n\n");
 		printf("请输入：");
 		scanf("%d", &input);
+		course = course_head;
+		struct course_node* now_course = NULL;
 		switch (input)
 		{
 		case 1:
@@ -173,11 +175,23 @@ void tea_interface(long long user_id)
 				printf("该课程不存在\n");
                 break;
             }
-            printf("请输入要删除成绩的学生id：");
+			now_course = get_course_by_id(course_id);
+			now_score = now_course->score_head;
+			if (now_score == NULL)
+			{
+				printf("暂无成绩\n");
+			}
+			printf("课程%s：\n", now_course->course_name);
+			printf("学生姓名     学生ID     分数\n");
+			while (now_score != NULL)
+			{
+				printf("%-8s     %-6lld     %-1f分\n",
+					now_score->student_name, now_score->student_id, ((float)now_score->score) / 10);
+				now_score = now_score->next;
+			}
+            printf("\n请输入要删除成绩的学生id：");
             scanf("%lld", &student_id);
             delete_score(course_id, student_id);
-			save_score_list("scorelist.txt");
-            printf("删除成功\n");
 			break;
 		case 3:
             course_id = input_course_id(user_id);
@@ -186,7 +200,21 @@ void tea_interface(long long user_id)
 				printf("该课程不存在\n");
                 break;
             }
-            printf("请输入学生id：");
+			now_course = get_course_by_id(course_id);
+			now_score = now_course->score_head;
+			if (now_score == NULL)
+			{
+				printf("暂无成绩\n");
+			}
+			printf("课程%s：\n", now_course->course_name);
+			printf("学生姓名     学生ID\n");
+			while (now_score != NULL)
+			{
+				printf("%-8s     %-6lld\n",
+					now_score->student_name, now_score->student_id);
+				now_score = now_score->next;
+			}
+            printf("\n请输入学生id：");
             scanf("%lld", &student_id);
             now_score = get_score_by_id(course_id, student_id);
             if (now_score == NULL)
@@ -204,7 +232,21 @@ void tea_interface(long long user_id)
 				printf("该课程不存在\n");
                 break;
             }
-            printf("请输入要修改成绩的学生id：");
+			now_course = get_course_by_id(course_id);
+			now_score = now_course->score_head;
+			if (now_score == NULL)
+			{
+				printf("暂无成绩\n");
+			}
+			printf("课程%s：\n", now_course->course_name);
+			printf("学生姓名     学生ID     分数\n");
+			while (now_score != NULL)
+			{
+				printf("%-8s     %-6lld     %-1f分\n",
+					now_score->student_name, now_score->student_id, ((float)now_score->score) / 10);
+				now_score = now_score->next;
+			}
+            printf("\n请输入要修改成绩的学生id：");
             scanf("%lld", &student_id);
             printf("请输入新成绩：");
             float score = 0;
@@ -215,7 +257,6 @@ void tea_interface(long long user_id)
                 printf("不存在该学生的成绩\n");
                 break;
             }
-			save_score_list("scorelist.txt");
             printf("更新成功\n");
 			break;
 		case 5:
@@ -225,7 +266,7 @@ void tea_interface(long long user_id)
 				printf("该课程不存在\n");
 				break;
 			}
-            struct course_node *now_course = get_course_by_id(course_id);
+            now_course = get_course_by_id(course_id);
             now_score = now_course->score_head;
             if (now_score == NULL) 
 			{
@@ -235,7 +276,7 @@ void tea_interface(long long user_id)
 			printf("学生姓名     学生ID     分数\n");
             while (now_score != NULL) 
 			{
-				printf("%-8s     %-6d     %-1f分\n", 
+				printf("%-8s     %-6lld     %-1f分\n", 
 				now_score->student_name, now_score->student_id, ((float)now_score->score) / 10);
                 now_score = now_score->next;
             }
@@ -246,23 +287,23 @@ void tea_interface(long long user_id)
             printf("请输入课程id：");
             scanf("%d", &course_id);
             new_course(course_name, course_id, user_id);
-			save_course_list("courselist.txt");
             printf("课程添加成功\n");
             break;
 		case 7:
 			course_id = input_course_id(user_id);
-			if (course_id == -1) {
+			if (course_id == -1) 
+			{
+				printf("该课程不存在\n");
 				break;
 			}
 			delete_course(course_id);
-			save_course_list("courselist.txt");
 			printf("课程删除成功\n");
 			break;
 		case 8:
 			printf("\n课程列表：\n");
+			printf("课程ID   课程名称\n");
 			while (course != NULL) 
 			{
-				printf("课程ID   课程名称\n");
 				if (course->teacher_id == user_id) 
 				{
 					printf("%-10d%s\n", course->course_id, course->course_name);
@@ -338,34 +379,11 @@ void user_interface(Users* user,int identity)
 	assert(user);
 	assert(identity == 1 || identity == 2);
 	long long user_id = 0;
-	int input = 1;
-	while (input)
+	if (login(user, &user_id, identity))
 	{
-		if (login(user, &user_id, identity))
-		{
-			if (identity == 1)
-				tea_interface(user_id);
-			else if (identity == 2)
-				stu_interface(user_id);
-		}
-		int flag = 0;
-		do
-		{
-			printf("是否真退出登录？ 1.是 2.否\n");
-			printf("请输入：");
-			scanf("%d", &input);
-			input -= 1;
-			if (input == 0)
-			{
-				flag = 0;
-				printf("退出\n");
-			}
-			if ((input != 1) && (input != 0))
-			{
-				printf("输入错误，请重新输入\n");
-				flag = 1;
-			}
-		} while (flag);
-        
+		if (identity == 1)
+			tea_interface(user_id);
+		else if (identity == 2)
+			stu_interface(user_id);
 	}
 }

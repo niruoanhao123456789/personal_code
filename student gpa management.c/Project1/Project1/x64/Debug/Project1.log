@@ -1,6 +1,11 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(Project1.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
-  main.c
-D:\code\c\learn\student gpa management.c\Project1\Project1\userdata.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“main.c”)
-  
+  chain.c
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(213,16): warning C4047: “函数”:“const char *”与“FILE *(__cdecl *)(const char *,const char *)”的间接级别不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(213,16): warning C4024: “perror”: 形参和实参 1 的类型不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(255,16): warning C4047: “函数”:“const char *”与“FILE *(__cdecl *)(const char *,const char *)”的间接级别不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(255,16): warning C4024: “perror”: 形参和实参 1 的类型不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(307,16): warning C4047: “函数”:“const char *”与“FILE *(__cdecl *)(const char *,const char *)”的间接级别不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(307,16): warning C4024: “perror”: 形参和实参 1 的类型不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(326,16): warning C4047: “函数”:“const char *”与“FILE *(__cdecl *)(const char *,const char *)”的间接级别不同
+D:\code\c\learn\student gpa management.c\Project1\Project1\chain.c(326,16): warning C4024: “perror”: 形参和实参 1 的类型不同
   Project1.vcxproj -> D:\code\c\learn\student gpa management.c\Project1\x64\Debug\student_gpi_management.exe

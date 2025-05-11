@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include<errno.h>
-#include<assert.h>
+#include <errno.h>
+#include <assert.h>
 
 #define STR_BUFFER_SIZE 50
 #define LINE_BUFFER_SIZE 1000
