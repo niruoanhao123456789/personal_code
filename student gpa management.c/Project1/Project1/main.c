@@ -7,7 +7,6 @@ void test1(Users* plist)
 	SeqListPushBack(plist, "students.txt");
 	SeqListPushBack(plist, "students.txt");
 	SeqListPrint(plist);
-	save_user_data(plist, "students.txt");
 }
 
 void test2(Users* plist)
@@ -17,7 +16,36 @@ void test2(Users* plist)
 	SeqListPushBack(plist, "teachers.txt");
 	SeqListPushBack(plist, "teachers.txt");
 	SeqListPrint(plist);
-	save_user_data(plist, "teachers.txt");
+}
+
+void UsersManage(Users* stu, Users* tea)
+{
+	int input = 0;
+	int user = 0;
+	do
+	{
+		printf("是否添加新用户：1、是 0、否\n");
+		printf("请输入：");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			printf("请输入新用户身份：1、教师	2、学生\n请输入：");
+			scanf("%d", &user);
+			if (user == 1)
+				test2(tea);
+			else if (user == 2)
+				test1(stu);
+			else
+				printf("输入错误\n");
+			break;
+		case 0:
+			break;
+		default:
+			printf("输入错误，请重新输入\n");
+			continue;
+		}
+	} while (input);
 }
 
 void menu() {
@@ -34,8 +62,7 @@ int main() {
 	load_course_list("courselist.txt");
 	load_score_list("scorelist.txt");
 
-	//test1(&stu);//用来进行用户数据操作的临时函数，添加用户用这个
-	//test2(&tea);
+	//UsersManage(&stu, &tea);//用来进行用户数据操作的临时函数，添加用户用这个
 
 	do
 	{
