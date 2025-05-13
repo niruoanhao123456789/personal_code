@@ -1417,204 +1417,208 @@ void SListDestoey(SLTNode** pphead)
 //永远保持一个队列为空
 //往非空队列入数据
 //出数据时，依次出队头数据，将其转移到另一个队列中，剩最后一个数据时把它pop或将其结点返回
-
-typedef int QDataType;
-
-typedef struct QueueNode
-{
-	QDataType val;
-	struct QueueNode* next;
-}QueueNode;
-
-typedef struct Queue
-{
-	QueueNode* head;
-	QueueNode* tail;
-}Queue;
-
-void QueueInit(Queue* pq)
-{
-	assert(pq);
-	pq->head = NULL;
-	pq->tail = NULL;
-}
-
-void QueueDestroy(Queue* pq)
-{
-	assert(pq);
-	QueueNode* cur = pq->head;
-	while (cur)
-	{
-		QueueNode* next = cur->next;
-		free(cur);
-		cur = next;
-	}
-	pq->head = NULL;
-	pq->tail = NULL;
-}
-
-void QueuePush(Queue* pq, QDataType x)
-{
-	assert(pq);
-	QueueNode* newnode = (QueueNode*)malloc(sizeof(QueueNode));
-	if (newnode == NULL)
-	{
-		exit(-1);
-	}
-	newnode->val = x;
-	newnode->next = NULL;
-	if (pq->head == NULL)
-	{
-		pq->head = newnode;
-	}
-	else
-	{
-		pq->tail->next = newnode;
-	}
-	pq->tail = newnode;
-}
-
-void QueuePop(Queue* pq)
-{
-	assert(pq);
-	assert(pq->head);
-	QueueNode* next = pq->head->next;
-	if (pq->head == pq->tail)
-	{
-		pq->tail = NULL;
-	}
-	free(pq->head);
-	pq->head = next;
-}
-
-QDataType QueueFront(Queue* pq)
-{
-	assert(pq);
-	assert(pq->head);
-	return pq->head->val;
-}
-
-QDataType QueueBack(Queue* pq)
-{
-	assert(pq && pq->tail && pq->head);
-	return pq->tail->val;
-}
-
-int QueueSize(Queue* pq)
-{
-	assert(pq);
-	int count = 0;
-	if (pq->head == NULL)
-	{
-		count = 0;
-	}
-	else
-	{
-		QueueNode* cur = pq->head;
-		while (cur != NULL)
-		{
-			QueueNode* next = cur->next;
-			count++;
-			cur = next;
-		}
-	}
-	return count;
-}
-
-bool QueueEmpty(Queue* pq)
-{
-	assert(pq);
-	if (pq->head)
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-}
-
-//匿名结构体
-//struct 
-//{
 //
-//} MyStack;//此时MyStack为变量
+//typedef int QDataType;
+//
+//typedef struct QueueNode
+//{
+//	QDataType val;
+//	struct QueueNode* next;
+//}QueueNode;
+//
+//typedef struct Queue
+//{
+//	QueueNode* head;
+//	QueueNode* tail;
+//}Queue;
+//
+//void QueueInit(Queue* pq)
+//{
+//	assert(pq);
+//	pq->head = NULL;
+//	pq->tail = NULL;
+//}
+//
+//void QueueDestroy(Queue* pq)
+//{
+//	assert(pq);
+//	QueueNode* cur = pq->head;
+//	while (cur)
+//	{
+//		QueueNode* next = cur->next;
+//		free(cur);
+//		cur = next;
+//	}
+//	pq->head = NULL;
+//	pq->tail = NULL;
+//}
+//
+//void QueuePush(Queue* pq, QDataType x)
+//{
+//	assert(pq);
+//	QueueNode* newnode = (QueueNode*)malloc(sizeof(QueueNode));
+//	if (newnode == NULL)
+//	{
+//		exit(-1);
+//	}
+//	newnode->val = x;
+//	newnode->next = NULL;
+//	if (pq->head == NULL)
+//	{
+//		pq->head = newnode;
+//	}
+//	else
+//	{
+//		pq->tail->next = newnode;
+//	}
+//	pq->tail = newnode;
+//}
+//
+//void QueuePop(Queue* pq)
+//{
+//	assert(pq);
+//	assert(pq->head);
+//	QueueNode* next = pq->head->next;
+//	if (pq->head == pq->tail)
+//	{
+//		pq->tail = NULL;
+//	}
+//	free(pq->head);
+//	pq->head = next;
+//}
+//
+//QDataType QueueFront(Queue* pq)
+//{
+//	assert(pq);
+//	assert(pq->head);
+//	return pq->head->val;
+//}
+//
+//QDataType QueueBack(Queue* pq)
+//{
+//	assert(pq && pq->tail && pq->head);
+//	return pq->tail->val;
+//}
+//
+//int QueueSize(Queue* pq)
+//{
+//	assert(pq);
+//	int count = 0;
+//	if (pq->head == NULL)
+//	{
+//		count = 0;
+//	}
+//	else
+//	{
+//		QueueNode* cur = pq->head;
+//		while (cur != NULL)
+//		{
+//			QueueNode* next = cur->next;
+//			count++;
+//			cur = next;
+//		}
+//	}
+//	return count;
+//}
+//
+//bool QueueEmpty(Queue* pq)
+//{
+//	assert(pq);
+//	if (pq->head)
+//	{
+//		return false;
+//	}
+//	else
+//	{
+//		return true;
+//	}
+//}
+//
+////匿名结构体
+////struct 
+////{
+////
+////} MyStack;//此时MyStack为变量
+//
+//typedef struct
+//{
+//	Queue q1;
+//	Queue q2;
+//} MyStack;
+//
+//MyStack* myStackCreate() 
+//{
+//	MyStack* st = (MyStack*)malloc(sizeof(MyStack));//为避免返回个野指针，需将为其申请空间，并初始化队列
+//	if (st == NULL)
+//	{
+//		exit(-1);
+//	}
+//	QueueInit(&st->q1);
+//	QueueInit(&st->q2);
+//	return st;
+//}
+//
+//void myStackPush(MyStack* obj, int x)
+//{
+//	if (QueueEmpty(&obj->q1))
+//	{
+//		QueuePush(&obj->q2, x);
+//	}
+//	else
+//	{
+//		QueuePush(&obj->q1,x);
+//	}
+//}
+//
+//int myStackPop(MyStack* obj) 
+//{
+//	Queue* emptyqueue = &obj->q1;
+//	Queue* nonemptyqueue = &obj->q2;
+//	//借鉴相交链表的思路
+//	//先默认q1为空，q2非空
+//	if (!QueueEmpty(emptyqueue))
+//	{
+//		emptyqueue = &obj->q2;
+//		nonemptyqueue = &obj->q1;
+//	}
+//	//确保emptyqueue为空，nonemptyqueue为非空
+//
+//	while (QueueSize(nonemptyqueue) > 1)
+//	{
+//		QueuePush(emptyqueue, QueueFront(nonemptyqueue));
+//		QueuePop(nonemptyqueue);
+//	}
+//	int top = QueueFront(nonemptyqueue);
+//	QueuePop(nonemptyqueue);
+//	return top;
+//}
+//
+//int myStackTop(MyStack* obj) 
+//{
+//	if (!QueueEmpty(&obj->q1))
+//	{
+//		return QueueBack(&obj->q1);
+//	}
+//	else
+//	{
+//		return QueueBack(&obj->q2);
+//	}
+//}
+//
+//bool myStackEmpty(MyStack* obj)
+//{
+//	return (QueueEmpty(&obj->q1) && QueueEmpty(&obj->q2));
+//}
+//
+//
+//void myStackFree(MyStack* obj) 
+//{
+//	QueueDestroy(&obj->q1);
+//	QueueDestroy(&obj->q2);
+//	free(obj);
+//	obj = NULL;
+//}
 
-typedef struct
-{
-	Queue q1;
-	Queue q2;
-} MyStack;
 
-MyStack* myStackCreate() 
-{
-	MyStack* st = (MyStack*)malloc(sizeof(MyStack));//为避免返回个野指针，需将为其申请空间，并初始化队列
-	if (st == NULL)
-	{
-		exit(-1);
-	}
-	QueueInit(&st->q1);
-	QueueInit(&st->q2);
-	return st;
-}
-
-void myStackPush(MyStack* obj, int x)
-{
-	if (QueueEmpty(&obj->q1))
-	{
-		QueuePush(&obj->q2, x);
-	}
-	else
-	{
-		QueuePush(&obj->q1,x);
-	}
-}
-
-int myStackPop(MyStack* obj) 
-{
-	Queue* emptyqueue = &obj->q1;
-	Queue* nonemptyqueue = &obj->q2;
-	//借鉴相交链表的思路
-	//先默认q1为空，q2非空
-	if (!QueueEmpty(emptyqueue))
-	{
-		emptyqueue = &obj->q2;
-		nonemptyqueue = &obj->q1;
-	}
-	//确保emptyqueue为空，nonemptyqueue为非空
-
-	while (QueueSize(nonemptyqueue) > 1)
-	{
-		QueuePush(emptyqueue, QueueFront(nonemptyqueue));
-		QueuePop(nonemptyqueue);
-	}
-	int top = QueueFront(nonemptyqueue);
-	QueuePop(nonemptyqueue);
-	return top;
-}
-
-int myStackTop(MyStack* obj) 
-{
-	if (!QueueEmpty(&obj->q1))
-	{
-		return QueueBack(&obj->q1);
-	}
-	else
-	{
-		return QueueBack(&obj->q2);
-	}
-}
-
-bool myStackEmpty(MyStack* obj)
-{
-	return (QueueEmpty(&obj->q1) && QueueEmpty(&obj->q2));
-}
-
-
-void myStackFree(MyStack* obj) 
-{
-	QueueDestroy(&obj->q1);
-	QueueDestroy(&obj->q2);
-	free(obj);
-	obj = NULL;
-}
+//力扣 P232
+//用两个栈实现队列
