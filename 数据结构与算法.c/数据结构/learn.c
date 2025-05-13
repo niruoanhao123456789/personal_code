@@ -1586,22 +1586,35 @@ int myStackPop(MyStack* obj)
 	while (QueueSize(nonemptyqueue) > 1)
 	{
 		QueuePush(emptyqueue, QueueFront(nonemptyqueue));
-
+		QueuePop(nonemptyqueue);
 	}
+	int top = QueueFront(nonemptyqueue);
+	QueuePop(nonemptyqueue);
+	return top;
 }
 
 int myStackTop(MyStack* obj) 
 {
-
+	if (!QueueEmpty(&obj->q1))
+	{
+		return QueueBack(&obj->q1);
+	}
+	else
+	{
+		return QueueBack(&obj->q2);
+	}
 }
 
 bool myStackEmpty(MyStack* obj)
 {
-
+	return (QueueEmpty(&obj->q1) && QueueEmpty(&obj->q2));
 }
 
 
 void myStackFree(MyStack* obj) 
 {
-
+	QueueDestroy(&obj->q1);
+	QueueDestroy(&obj->q2);
+	free(obj);
+	obj = NULL;
 }
