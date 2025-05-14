@@ -243,12 +243,25 @@
 //尝试自己模拟实现这些字符串库函数
 // 
 //strlen()求字符串长度，计算\0之前的字符个数，返回值是个无符号整型
-// 
+//size_t my_strlen(const char* str)
+//{
+//	assert(str);
+//	char* cur = str;
+//	size_t count = 0;
+//	while (*cur != '\0')
+//	{
+//		count++;
+//		cur++;
+//	}
+//	return count;
+// }
+//
 //strcpy()拷贝字符串到另外一个数组，拷贝内容包括\0，字符数组不能直接赋值，因数组名是个地址，是个常量不能被修改
 //strcpy()返回值是目标空间的地址
 //int main()
 //{
-//	char name[5] = "xxxxx";
+//	char name[6] = "xxxxx";
+//	//printf("%zu\n", my_strlen(name));
 //
 //	char arr[] = { 'a','b','c' };
 //	//strcpy_s(name, 5, arr);

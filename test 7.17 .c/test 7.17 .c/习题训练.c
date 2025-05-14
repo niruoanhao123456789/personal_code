@@ -3242,7 +3242,7 @@ int main()
 //	}
 //	return p;
 //}
-
+//
 //法二：
 //px py此时为返回型参数
 //int find_num(int arr[3][3], int* px, int* py, int n)
@@ -4253,6 +4253,64 @@ int main()
 //
 //	free(ch);
 //	ch = NULL;
+//
+//	return 0;
+//}
+
+
+//其他数字都出现两次情况下，找出只出现一次的两个数字
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//cmp_bylarge(const void* e1, const void* e2)
+//{
+//	return (*(int*)e1 - *(int*)e2);
+//}
+//
+//two_singlenum(int arr[10], int sz, int* n1, int* n2)
+//{
+//	if (!arr)
+//		return NULL;
+//	//法一
+//	/*qsort(arr, sz, sizeof(int), cmp_bylarge);
+//	int i = 0;
+//	int found = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		if (arr[i] != arr[i + 1] && i == 0)
+//		{
+//			*n1 = arr[i];
+//			found++;
+//		}
+//		if (arr[i] != arr[i + 1] && arr[i+1] != arr[i + 2])
+//		{
+//			if (found)
+//			{
+//				*n2 = arr[i+1];
+//			}
+//			else
+//			{
+//				*n1 = arr[i+1];
+//				found++;
+//			}
+//		}
+//		if (arr[i] != arr[i + 1] && i < sz - 1)
+//		{
+//			*n2 = arr[i + 1];
+//		}
+//	}*/
+//
+//	//法二
+//
+//}
+//
+//int main()
+//{
+//	int n1 = 0, n2 = 0;
+//	int arr[10] = { 1,2,1,2,6,3,5,4,4,3 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	two_singlenum(arr, sz, &n1, &n2);
+//	printf("%d %d\n", n1, n2);
 //
 //	return 0;
 //}

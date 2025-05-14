@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u51FD\u6570.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u6307\u9488.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u6307\u9488.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u6570\u7EC4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,17 +34,16 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "\u4E60\u9898\u8BAD\u7EC3.c",
               "DocumentMoniker": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "RelativeDocumentMoniker": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "RelativeToolTip": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
-              "ViewState": "AgIAALsJAAAAAAAAAAAswNQJAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAKUQAAAAAAAAAAAswLIQAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-08-28T02:13:09.247Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -60,19 +59,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "\u6307\u9488.c",
               "DocumentMoniker": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c",
               "RelativeDocumentMoniker": "test 7.17 .c\\\u6307\u9488.c",
               "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u6307\u9488.c",
               "RelativeToolTip": "test 7.17 .c\\\u6307\u9488.c",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAEgBAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAGoDAAAAAAAAAAAAAD4DAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-05-02T02:09:05.427Z"
+              "WhenOpened": "2025-05-02T02:09:05.427Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "learn.c",
               "DocumentMoniker": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\learn.c",
               "RelativeDocumentMoniker": "test 7.17 .c\\learn.c",
@@ -90,7 +90,7 @@
               "RelativeDocumentMoniker": "test 7.17 .c\\\u51FD\u6570.c",
               "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c",
               "RelativeToolTip": "test 7.17 .c\\\u51FD\u6570.c",
-              "ViewState": "AgIAAN4AAAAAAAAAAAAAAO4AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAACwBAAAAAAAAAAAQwDIBAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-04-25T04:41:28.294Z",
               "EditorCaption": ""
