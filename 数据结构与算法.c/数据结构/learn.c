@@ -1622,137 +1622,169 @@ void SListDestoey(SLTNode** pphead)
 
 //力扣 P232
 //用两个栈实现队列
-typedef int STDataType;
-typedef struct Stack
-{
-	STDataType* data;
-	int top;
-	int capacity;
-}Stack;
+//思路
+//一个栈用来入数据，另一个栈用来出数据
+//typedef int STDataType;
+//typedef struct Stack
+//{
+//	STDataType* data;
+//	int top;
+//	int capacity;
+//}Stack;
+//
+//void StackInit(Stack* ps)
+//{
+//	assert(ps);
+//	ps->data = NULL;
+//	ps->capacity = 0;
+//	ps->top = 0;//这里如果top = 0，意味着top指向栈顶的下一个；top = -1,top指向栈顶
+//}
+//
+//void StackDestroy(Stack* ps)
+//{
+//	assert(ps);
+//	free(ps->data);
+//	ps->data = NULL;
+//	ps->top = 0;
+//	ps->capacity = 0;
+//}
+//
+//static void CheckCapacity(Stack** ps)
+//{
+//	assert(ps);
+//	if ((*ps)->capacity == (*ps)->top)
+//	{
+//		int newcapacity = (*ps)->capacity == 0 ? 4 : (*ps)->capacity * 2;
+//		STDataType* tmp = (STDataType*)realloc((*ps)->data, newcapacity * sizeof(STDataType));
+//		if (tmp == NULL)
+//		{
+//			exit(-1);
+//		}
+//		(*ps)->data = tmp;
+//		(*ps)->capacity = newcapacity;
+//		tmp = NULL;
+//	}
+//}
+//
+//bool StackEmpty(Stack* ps)
+//{
+//	assert(ps);
+//	if (ps->top > 0)
+//	{
+//		return false;
+//	}
+//	return true;
+//}
+//
+//void StackPush(Stack* ps, STDataType x)
+//{
+//	assert(ps);
+//	CheckCapacity(&ps);
+//	ps->data[ps->top] = x;
+//	ps->top++;
+//}
+//
+//void StackPop(Stack* ps)
+//{
+//	assert(ps);
+//	assert(!StackEmpty(ps));
+//	ps->top--;
+//}
+//
+//STDataType StackTop(Stack* ps)
+//{
+//	assert(ps);
+//	assert(!StackEmpty(ps));
+//	return (ps->data[ps->top - 1]);
+//}
+//
+//void StackPrint(const Stack* ps)
+//{
+//	assert(ps);
+//	int i = 0;
+//	for (i = 0; i < ps->top; i++)
+//	{
+//		printf("%d ", ps->data[i]);
+//	}
+//	printf("\n");
+//}
+//
+//int StackSize(Stack* ps)
+//{
+//	assert(ps);
+//	return ps->top;
+//}
+//
+//typedef struct {
+//	Stack Pushst;
+//	Stack Popst;
+//
+//} MyQueue;
+//
+//
+//MyQueue* myQueueCreate() {
+//	MyQueue* q = (MyQueue*)malloc(sizeof(MyQueue));
+//	if (q == NULL)
+//	{
+//		exit(-1);
+//	}
+//	StackInit(&q->Pushst);
+//	StackInit(&q->Pushst);
+//	return q;
+//}
+//
+//void myQueuePush(MyQueue* obj, int x) {
+//	StackPush(&obj->Pushst, x);
+//}
+//
+//int myQueuePop(MyQueue* obj) {
+//	//如果Popst没有数据就将Pushst导入Popst
+//	//这样弹出就符合先入先出了
+//	if (StackEmpty(&obj->Popst))
+//	{
+//		while (!StackEmpty(&obj->Pushst))
+//		{
+//			StackPush(&obj->Popst, StackTop(&obj->Pushst));
+//			StackPop(&obj->Pushst);
+//		}
+//	}
+//	int front = StackTop(&obj->Popst);
+//	StackPop(&obj->Popst);
+//	return front;
+//}
+//
+//int myQueuePeek(MyQueue* obj) {
+//	if (StackEmpty(&obj->Popst))
+//	{
+//		while (!StackEmpty(&obj->Pushst))
+//		{
+//			StackPush(&obj->Popst, StackTop(&obj->Pushst));
+//			StackPop(&obj->Pushst);
+//		}
+//	}
+//	int front = StackTop(&obj->Popst);
+//	return front;
+//}
+//
+//bool myQueueEmpty(MyQueue* obj) {
+//	if (StackEmpty(&obj->Popst) && StackEmpty(&obj->Pushst))
+//		return true;
+//	else
+//		return false;
+//}
+//
+//void myQueueFree(MyQueue* obj) {
+//	StackDestroy(&obj->Popst);
+//	StackDestroy(&obj->Pushst);
+//	free(obj);
+//	obj = NULL;
+//}
 
-void StackInit(Stack* ps)
-{
-	assert(ps);
-	ps->data = NULL;
-	ps->capacity = 0;
-	ps->top = 0;//这里如果top = 0，意味着top指向栈顶的下一个；top = -1,top指向栈顶
-}
 
-void StackDestroy(Stack* ps)
-{
-	assert(ps);
-	free(ps->data);
-	ps->data = NULL;
-	ps->top = 0;
-	ps->capacity = 0;
-}
-
-static void CheckCapacity(Stack** ps)
-{
-	assert(ps);
-	if ((*ps)->capacity == (*ps)->top)
-	{
-		int newcapacity = (*ps)->capacity == 0 ? 4 : (*ps)->capacity * 2;
-		STDataType* tmp = (STDataType*)realloc((*ps)->data, newcapacity * sizeof(STDataType));
-		if (tmp == NULL)
-		{
-			exit(-1);
-		}
-		(*ps)->data = tmp;
-		(*ps)->capacity = newcapacity;
-		tmp = NULL;
-	}
-}
-
-bool StackEmpty(Stack* ps)
-{
-	assert(ps);
-	if (ps->top > 0)
-	{
-		return false;
-	}
-	return true;
-}
-
-void StackPush(Stack* ps, STDataType x)
-{
-	assert(ps);
-	CheckCapacity(&ps);
-	ps->data[ps->top] = x;
-	ps->top++;
-}
-
-void StackPop(Stack* ps)
-{
-	assert(ps);
-	assert(!StackEmpty(ps));
-	ps->top--;
-}
-
-STDataType StackTop(Stack* ps)
-{
-	assert(ps);
-	assert(!StackEmpty(ps));
-	return (ps->data[ps->top - 1]);
-}
-
-void StackPrint(const Stack* ps)
-{
-	assert(ps);
-	int i = 0;
-	for (i = 0; i < ps->top; i++)
-	{
-		printf("%d ", ps->data[i]);
-	}
-	printf("\n");
-}
-
-int StackSize(Stack* ps)
-{
-	assert(ps);
-	return ps->top;
-}
-
-typedef struct {
-	Stack Pushst;
-	Stack Popst;
-
-} MyQueue;
-
-
-MyQueue* myQueueCreate() {
-	MyQueue* q = (MyQueue*)malloc(sizeof(MyQueue));
-	StackInit(&q->Pushst);
-	StackInit(&q->Pushst);
-	return q;
-}
-
-void myQueuePush(MyQueue* obj, int x) {
-	StackPush(&obj->Pushst, x);
-}
-
-int myQueuePop(MyQueue* obj) {
-	if (StackEmpty(&obj->Popst))
-	{
-		while (!StackEmpty(&obj->Pushst))
-		{
-			StackPush(&obj->Popst, StackTop(&obj->Pushst));
-			StackPop(&obj->Pushst);
-		}
-	}
-	int Stacktop = StackTop(&obj->Popst);
-	StackPop(&obj->Popst);
-	return Stacktop;
-}
-
-int myQueuePeek(MyQueue* obj) {
-
-}
-
-bool myQueueEmpty(MyQueue* obj) {
-
-}
-
-void myQueueFree(MyQueue* obj) {
-
-}
+//力扣 P622
+//循环队列
+//在符合队列先进先出的原则下，队首与队尾相连，形成个循环，其也被称为环形缓冲器
+//循环队列的大小是固定的
+//
+//实现思路：
+//顺序表：头尾下标的操作
