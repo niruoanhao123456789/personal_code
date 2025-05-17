@@ -1,2 +1,7 @@
-﻿  时间与空间复杂度.c
-  数据结构.vcxproj -> D:\code\c语言\初学\数据结构与算法.c\x64\Debug\数据结构.exe
+﻿  learn.c
+D:\code\c\learn\数据结构与算法.c\数据结构\learn.c(1853,1): warning C4716: “myCircularQueueRear”: 必须返回一个值
+D:\code\c\learn\数据结构与算法.c\数据结构\learn.c(1841,1): warning C4716: “myCircularQueueEnQueue”: 必须返回一个值
+D:\code\c\learn\数据结构与算法.c\数据结构\learn.c(1845,1): warning C4716: “myCircularQueueDeQueue”: 必须返回一个值
+D:\code\c\learn\数据结构与算法.c\数据结构\learn.c(1849,1): warning C4716: “myCircularQueueFront”: 必须返回一个值
+MSVCRTD.lib(exe_main.obj) : error LNK2019: 无法解析的外部符号 main，函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中引用了该符号
+D:\code\c\learn\数据结构与算法.c\x64\Debug\数据结构.exe : fatal error LNK1120: 1 个无法解析的外部命令

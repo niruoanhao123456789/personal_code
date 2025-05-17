@@ -1787,4 +1787,193 @@ void SListDestoey(SLTNode** pphead)
 //循环队列的大小是固定的
 //
 //实现思路：
-//顺序表：头尾下标的操作
+//顺序表：用两个变量表示头尾使用下标来操作
+//链表：循环链表
+//要存n个数据的循环队列，需要开n+1个空间，否则无法判空与判满
+//
+//假定n==4，队列是在tail处插入数据
+//顺序表：
+//front == tail 为空
+// front
+// tail
+//|     |     |     |     |     |
+//
+//(tail+1)%(n+1) == front 为满
+//		   tail  front
+//|  2   |     |   1  |   3  |   5  |
+//
+//链表：
+//front == tail 为空
+// 
+// tail->next = front 为满
+// front
+// tail
+//|     | -> |     | -> |     | -> |     | -> |     |
+//
+//|   1  | -> |  2   | -> |  3   | -> |  4   | -> |     |
+//
+//数组版
+//typedef struct {
+//	int* arr;
+//	int front;
+//	int tail;
+//	int capacity;
+//} MyCircularQueue;
+//
+//
+//MyCircularQueue* myCircularQueueCreate(int k) {
+//	MyCircularQueue* q = (MyCircularQueue*)malloc(sizeof(MyCircularQueue));
+//	if (q == NULL)
+//		exit(-1);
+//	q->arr = (int*)malloc((k + 1) * sizeof(int));
+//	if (q->arr == NULL)
+//		exit(-1);
+//	q->front = 0;
+//	q->tail = 0;
+//	q->capacity = k;
+//	return q;
+//}
+//
+//bool myCircularQueueIsEmpty(MyCircularQueue* obj) {
+//	return (obj->front == obj->tail);
+//}
+//
+//bool myCircularQueueIsFull(MyCircularQueue* obj) {
+//	return ((obj->tail + 1) % (obj->capacity + 1) == obj->front);
+//}
+//
+//bool myCircularQueueEnQueue(MyCircularQueue* obj, int value) {
+//	if (myCircularQueueIsFull(obj))
+//		return false;
+//
+//	obj->arr[obj->tail] = value;
+//	obj->tail = (++(obj->tail) % (obj->capacity+1));
+//	return true;
+//}
+//
+//bool myCircularQueueDeQueue(MyCircularQueue* obj) {
+//	if (myCircularQueueIsEmpty(obj))
+//		return false;
+//
+//	obj->front = (++obj->front % (obj->capacity + 1));
+//	return true;
+//}
+//
+//int myCircularQueueFront(MyCircularQueue* obj) {
+//	if (myCircularQueueIsEmpty(obj))
+//		return -1;
+//	return (obj->arr[obj->front]);
+//}
+//
+//int myCircularQueueRear(MyCircularQueue* obj) {
+//	if (myCircularQueueIsEmpty(obj))
+//		return -1;
+//	//这里一般情况下返回下标tail-1的数据，但tail下标为0时就不适用，所以要特殊处理
+//	//写法一
+//	/*if (obj->tail == 0)
+//		return obj->arr[obj->capacity];
+//	else
+//		return obj->arr[obj->tail - 1];*/
+//	//写法二
+//	int rearPos = (obj->tail + obj->capacity) % (obj->capacity + 1);
+//	return obj->arr[rearPos];
+//}
+//
+//void myCircularQueueFree(MyCircularQueue* obj) {
+//	free(obj->arr);
+//	obj->arr = NULL;
+//	obj->capacity = 0;
+//	obj->front = 0;
+//	obj->tail = 0;
+//	free(obj);
+//	obj = NULL;
+//}
+//
+//链表版（未完成）
+typedef struct QueueNode {
+	int val;
+	struct QueueNode* next;
+} QueueNode;
+
+typedef struct {
+	QueueNode* front;
+	QueueNode* tail;
+	QueueNode* nowfront;
+	QueueNode* nowtail;
+} MyCircularQueue;
+
+
+MyCircularQueue* myCircularQueueCreate(int k) {
+	MyCircularQueue* q = (MyCircularQueue*)malloc(sizeof(MyCircularQueue));
+	if (q==NULL)
+		exit(-1);
+	q->front = NULL;
+	q->tail = NULL;
+	while (k+1)
+	{
+		QueueNode* newnode = (QueueNode*)malloc(sizeof(QueueNode));
+		if (newnode == NULL)
+			exit(-1);
+		if (q->front == NULL)
+		{
+			q->front = newnode;
+		}
+		else
+		{
+			q->tail->next = newnode;
+		}
+		q->tail = newnode;
+		k--;
+	}
+	q->tail->next = q->front;
+	q->nowfront = q->front;
+	q->nowtail = q->nowfront;
+	return q;
+}
+
+bool myCircularQueueIsEmpty(MyCircularQueue* obj) {
+	return (obj->nowfront == obj->nowtail);
+}
+
+bool myCircularQueueIsFull(MyCircularQueue* obj) {
+	return (obj->nowtail->next == obj->nowfront);
+}
+
+bool myCircularQueueEnQueue(MyCircularQueue* obj, int value) {
+	if (myCircularQueueIsFull(obj))
+		return false;
+
+	if (obj->nowfront == obj->nowtail)
+		obj->nowfront->val = value;
+	else
+		obj->nowtail->next->val = value;
+	obj->nowtail = obj->nowtail->next;
+	return true;
+}
+
+bool myCircularQueueDeQueue(MyCircularQueue* obj) {
+	if (myCircularQueueIsEmpty(obj))
+		return false;
+
+	obj->nowfront = obj->nowfront->next;
+	return true;
+}
+
+int myCircularQueueFront(MyCircularQueue* obj) {
+	if (myCircularQueueIsEmpty(obj))
+		return -1;
+
+	return obj->nowfront->val;
+}
+
+int myCircularQueueRear(MyCircularQueue* obj) {
+	if (myCircularQueueIsEmpty(obj))
+		return -1;
+	
+	return obj->nowtail->val;
+}
+
+void myCircularQueueFree(MyCircularQueue* obj) {
+	free(obj->front);
+	free(obj);
+}
