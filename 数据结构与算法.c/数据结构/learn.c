@@ -1810,7 +1810,7 @@ void SListDestoey(SLTNode** pphead)
 // tail
 //|     | -> |     | -> |     | -> |     | -> |     |
 //
-//|   1  | -> |  2   | -> |  3   | -> |  4   | -> |     |
+//|   1  | -> |  2   | -> |     | -> |  4   | -> |   5  |
 //
 //数组版
 //typedef struct {
@@ -1889,91 +1889,94 @@ void SListDestoey(SLTNode** pphead)
 //	obj = NULL;
 //}
 //
-//链表版（未完成）
-typedef struct QueueNode {
-	int val;
-	struct QueueNode* next;
-} QueueNode;
-
-typedef struct {
-	QueueNode* front;
-	QueueNode* tail;
-	QueueNode* nowfront;
-	QueueNode* nowtail;
-} MyCircularQueue;
-
-
-MyCircularQueue* myCircularQueueCreate(int k) {
-	MyCircularQueue* q = (MyCircularQueue*)malloc(sizeof(MyCircularQueue));
-	if (q==NULL)
-		exit(-1);
-	q->front = NULL;
-	q->tail = NULL;
-	while (k+1)
-	{
-		QueueNode* newnode = (QueueNode*)malloc(sizeof(QueueNode));
-		if (newnode == NULL)
-			exit(-1);
-		if (q->front == NULL)
-		{
-			q->front = newnode;
-		}
-		else
-		{
-			q->tail->next = newnode;
-		}
-		q->tail = newnode;
-		k--;
-	}
-	q->tail->next = q->front;
-	q->nowfront = q->front;
-	q->nowtail = q->nowfront;
-	return q;
-}
-
-bool myCircularQueueIsEmpty(MyCircularQueue* obj) {
-	return (obj->nowfront == obj->nowtail);
-}
-
-bool myCircularQueueIsFull(MyCircularQueue* obj) {
-	return (obj->nowtail->next == obj->nowfront);
-}
-
-bool myCircularQueueEnQueue(MyCircularQueue* obj, int value) {
-	if (myCircularQueueIsFull(obj))
-		return false;
-
-	if (obj->nowfront == obj->nowtail)
-		obj->nowfront->val = value;
-	else
-		obj->nowtail->next->val = value;
-	obj->nowtail = obj->nowtail->next;
-	return true;
-}
-
-bool myCircularQueueDeQueue(MyCircularQueue* obj) {
-	if (myCircularQueueIsEmpty(obj))
-		return false;
-
-	obj->nowfront = obj->nowfront->next;
-	return true;
-}
-
-int myCircularQueueFront(MyCircularQueue* obj) {
-	if (myCircularQueueIsEmpty(obj))
-		return -1;
-
-	return obj->nowfront->val;
-}
-
-int myCircularQueueRear(MyCircularQueue* obj) {
-	if (myCircularQueueIsEmpty(obj))
-		return -1;
-	
-	return obj->nowtail->val;
-}
-
-void myCircularQueueFree(MyCircularQueue* obj) {
-	free(obj->front);
-	free(obj);
-}
+//链表版
+//typedef struct QueueNode {
+//	int val;
+//	struct QueueNode* next;
+//
+//} QueueNode;
+//
+//typedef struct {
+//	QueueNode* front;
+//	QueueNode* tail;
+//	QueueNode* nowfront;
+//	QueueNode* nowtail;
+//} MyCircularQueue;
+//
+//
+//MyCircularQueue* myCircularQueueCreate(int k) {
+//	MyCircularQueue* q = (MyCircularQueue*)malloc(sizeof(MyCircularQueue));
+//	if (q==NULL)
+//		exit(-1);
+//	q->front = NULL;
+//	q->tail = NULL;
+//	while (k+1)
+//	{
+//		QueueNode* newnode = (QueueNode*)malloc(sizeof(QueueNode));
+//		if (newnode == NULL)
+//			exit(-1);
+//		if (q->front == NULL)
+//		{
+//			q->front = newnode;
+//		}
+//		else
+//		{
+//			q->tail->next = newnode;
+//		}
+//		q->tail = newnode;
+//		k--;
+//	}
+//	q->tail->next = q->front;
+//	q->nowfront = q->front;
+//	q->nowtail = q->nowfront;
+//	return q;
+//}
+//
+//bool myCircularQueueIsEmpty(MyCircularQueue* obj) {
+//	return (obj->nowfront == obj->nowtail);
+//}
+//
+//bool myCircularQueueIsFull(MyCircularQueue* obj) {
+//	return (obj->nowtail->next == obj->nowfront);
+//}
+//
+//bool myCircularQueueEnQueue(MyCircularQueue* obj, int value) {
+//	if (myCircularQueueIsFull(obj))
+//		return false;
+//
+//	obj->nowtail->val = value;
+//	obj->nowtail = obj->nowtail->next;
+//	return true;
+//}
+//
+//bool myCircularQueueDeQueue(MyCircularQueue* obj) {
+//	if (myCircularQueueIsEmpty(obj))
+//		return false;
+//
+//	obj->nowfront = obj->nowfront->next;
+//	return true;
+//}
+//
+//int myCircularQueueFront(MyCircularQueue* obj) {
+//	if (myCircularQueueIsEmpty(obj))
+//		return -1;
+//
+//	return obj->nowfront->val;
+//}
+//
+//int myCircularQueueRear(MyCircularQueue* obj) {
+//	if (myCircularQueueIsEmpty(obj))
+//		return -1;
+//	
+//	QueueNode* cur = obj->nowfront;
+//	while (cur->next != obj->nowtail)
+//	{
+//		cur = cur->next;
+//	}
+//	return cur->val;
+//}
+//
+//void myCircularQueueFree(MyCircularQueue* obj) {
+//	free(obj->front);
+//	free(obj);
+//}
