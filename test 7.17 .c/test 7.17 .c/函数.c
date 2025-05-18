@@ -384,7 +384,7 @@
 //	}
 //	else if (ret == 0)
 //	{
-//		printf("==\n");
+//		printf("==0\n");
 //	}
 //	else
 //	{
@@ -398,34 +398,89 @@
 //strncpy
 //strncat
 //strncmp
+//char* my_strncpy(char* dest, const char* source, size_t num)
+//{
+//	assert(source);
+//	assert(dest);
+//	char* str1 = dest;
+//	char* str2 = source;
+//	while (num)
+//	{
+//		*str1 = *str2;
+//		if (*str2 == '\0')
+//		{
+//			str1++;
+//			num--;
+//			continue;
+//		}
+//		str1++;
+//		str2++;
+//		num--;
+//	}
+//	*str1 = '\0';
+//
+//	return dest;
+//}
+//
+//char* my_strncat(char* dest, const char* source, size_t num)
+//{
+//	assert(dest);
+//	assert(source);
+//	char* str1 = dest;
+//	char* str2 = source;
+//	while (*str1 != '\0')
+//	{
+//		str1++;
+//	}
+//	while (num)
+//	{
+//		*str1 = *str2;
+//		if (*str2 == '\0')
+//		{
+//			str1++;
+//			num--;
+//			continue;
+//		}
+//		str1++;
+//		str2++;
+//		num--;
+//	}
+//	*str1 = '\0';
+//
+//	return dest;
+//}
+//
 //int main()
 //{
 //	//char arr1[10] = "abcdef";
 //	//char arr2[10] = "hello bit";
-//	//strncpy_s(arr1,10, arr2, 5);
+//	////strncpy_s(arr1,10, arr2, 5);
 //	////5是要拷贝的字符个数，如果arr2里元素不够则在拷贝时将缺少的部分设为\0
+//	//my_strncpy(arr1, arr2, 5);
 //	//printf("%s\n", arr1);
 //
-//	//char arr1[20] = "abc";
-//	//char arr2[20] = "world";
+//	char arr1[20] = "abc";
+//	char arr2[20] = "world";
 //	//strncat_s(arr1, 20, arr2, 3);
-//	////3是要追加的字符个数，在追加完后还会追加上一个\0，但之追加一个\0
+//	//3是要追加的字符个数，在追加完后还会追加上一个\0
+//	/*my_strncat(arr1, arr2, 3);
+//	printf("%s\n", arr1);*/
 //
-//	char arr1[20] = "abcde";
-//	char arr2[20] = "acbde";
-//	int ret = strncmp(arr1, arr2, 3);
-//	if (ret > 0)
-//	{
-//		printf(">0\n");
-//	}
-//	else if (ret == 0)
-//	{
-//		printf("=0\n");
-//	}
-//	else
-//	{
-//		printf("<0\n");
-//	}
+//	//char arr1[20] = "abcde";
+//	//char arr2[20] = "acbde";
+//	//int ret = strncmp(arr1, arr2, 3);
+//	//if (ret > 0)
+//	//{
+//	//	printf(">0\n");
+//	//}
+//	//else if (ret == 0)
+//	//{
+//	//	printf("=0\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("<0\n");
+//	//}
 //
 //	return 0;
 //}
@@ -462,7 +517,7 @@
 //{
 //	char arr1[5] = "abcd";
 //	char arr2[20] = "aderabcdefg";
-//	char* ret = strstr(arr2, arr1);
+//	//char* ret = strstr(arr2, arr1);
 //	char* ret = my_strstr(arr2, arr1);
 //	if (ret == NULL)
 //	{
@@ -610,10 +665,10 @@
 //	int arr2[10] = { 0 };
 //	int sz = sizeof(arr1) / sizeof(arr1[0]);
 //	//memcpy(arr2, arr1, 36);//36为要拷贝的字节数(9*4)
-//	//my_memcpy(arr2, arr1, 36);
+//	my_memcpy(arr2, arr1, 36);
 //
 //	//memmove(arr1 + 2, arr1, 20);
-//	my_memmove(arr1 + 2, arr1, 20);
+//	//my_memmove(arr1 + 2, arr1, 20);
 //
 //	for (i = 0; i < sz; i++)
 //	{

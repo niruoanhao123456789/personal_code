@@ -43,8 +43,7 @@
               "ViewState": "AgIAAMkQAAAAAAAAAAAswLIQAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-08-28T02:13:09.247Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -56,8 +55,7 @@
               "RelativeToolTip": "test 7.17 .c\\\u6570\u7EC4.c",
               "ViewState": "AgIAAMMAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-05-02T02:10:51.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-02T02:10:51.876Z"
             },
             {
               "$type": "Document",
@@ -69,8 +67,7 @@
               "RelativeToolTip": "test 7.17 .c\\\u6307\u9488.c",
               "ViewState": "AgIAAMwDAAAAAAAAAAAAAOYDAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-05-02T02:09:05.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-02T02:09:05.427Z"
             },
             {
               "$type": "Document",
@@ -82,8 +79,7 @@
               "RelativeToolTip": "test 7.17 .c\\learn.c",
               "ViewState": "AgIAAHcBAAAAAAAAAAAAABMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-04-26T01:17:14.962Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-26T01:17:14.962Z"
             },
             {
               "$type": "Document",
@@ -93,7 +89,7 @@
               "RelativeDocumentMoniker": "test 7.17 .c\\\u51FD\u6570.c",
               "ToolTip": "D:\\code\\c\\learn\\test 7.17 .c\\test 7.17 .c\\\u51FD\u6570.c",
               "RelativeToolTip": "test 7.17 .c\\\u51FD\u6570.c",
-              "ViewState": "AgIAAG0CAAAAAAAAAAAQwKUBAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAOoCAAAAAAAAAAAswHICAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-04-25T04:41:28.294Z",
               "EditorCaption": ""
