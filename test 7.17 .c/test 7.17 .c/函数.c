@@ -658,6 +658,7 @@
 //	}
 //	return ret;
 //}
+//
 //int main()
 //{
 //	int i = 0;
@@ -665,10 +666,10 @@
 //	int arr2[10] = { 0 };
 //	int sz = sizeof(arr1) / sizeof(arr1[0]);
 //	//memcpy(arr2, arr1, 36);//36为要拷贝的字节数(9*4)
-//	my_memcpy(arr2, arr1, 36);
+//	//my_memcpy(arr2, arr1, 36);
 //
 //	//memmove(arr1 + 2, arr1, 20);
-//	//my_memmove(arr1 + 2, arr1, 20);
+//	my_memmove(arr1 + 2, arr1, 20);
 //
 //	for (i = 0; i < sz; i++)
 //	{
