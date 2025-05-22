@@ -102,6 +102,42 @@
 //}
 //
 //像在写菜单时，枚举可增加代码的可读性
+//以加减法为例
+//enum Cal
+//{
+//	Exit,
+//	Add,
+//	Sub
+//};
+//
+//void meun()
+//{
+//	ptintf("1、Add  2、Sub");
+//}
+//
+//int main()
+//{
+//	int input = 0;
+//	do
+//	{
+//		meun();
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case Add:
+//			//
+//		case Sub:
+//			//
+//		case Exit:
+//			//
+//		default:
+//			printf("重新输入\n");
+//		}
+//	} while (input);
+//
+//	return 0;
+//}
+//在规定权限、单片机引脚定义等枚举也有作用
 
 
 //联合（共用体）
@@ -151,6 +187,18 @@
 //联合体的应用
 //商品兑换单
 //对于结构体中存在重复信息时，为避免内存空间的浪费，可将不重复且和其他礼品的不会同时存在的信息放在联合体中
+//struct gift_list
+//{
+//	float price;
+//	int num;
+//	int size;
+//	union
+//	{
+//		int characteristic1;
+//		int characteristic2;
+//		int characteristic3;
+//	};
+//};
 
 //用联合来判断编译器的大小端存储
 //int check_sys1()
