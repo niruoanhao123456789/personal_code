@@ -212,10 +212,10 @@
 //	union //ÄäÃû
 //	{
 //		int i;
-//		char a;
+//		char j;
 //	}u;
 //	u.i = 1;
-//	return u.a;
+//	return u.j;
 //}
 //
 //int main()

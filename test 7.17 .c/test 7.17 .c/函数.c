@@ -711,10 +711,10 @@
 //memset()内存设置
 //int main()
 //{
-//	//char arr[] = "Hello bit";
-//	//memset(arr, 'x', 5);
-//	//memset(arr + 6, 'y', 3);
-//	//printf("%s\n", arr);
+//	char arr[] = "Hello bit";
+//	memset(arr, 'x', 5);
+//	memset(arr + 6, 'y', 3);
+//	printf("%s\n", arr);
 //
 //	int arr1[10] = { 0 };
 //	memset(arr1,1, 40);//这里并不能让arr1数组全部初始化为1，因memset()是按一个字节进行操作的

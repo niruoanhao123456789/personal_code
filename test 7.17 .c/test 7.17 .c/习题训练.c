@@ -4318,3 +4318,37 @@ int main()
 //}
 
 
+//变种水仙花数
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int i = 0;
+//	for (i = 10000; i <= 99999; i++)
+//	{
+//		int n = i;
+//		int n1 = 0;
+//		int count = 0;
+//		int sum = 0;
+//		while (n)
+//		{
+//			int z = 1;
+//			int j = 0;
+//			for(j = 0;j<count;j++)
+//			{
+//				z *= 10;
+//			}
+//			n1 = n1 + (n % 10)*z;
+//			int tmp = (n1 * (n / 10));
+//			sum += tmp;
+//			n /= 10;
+//			count++;
+//		}
+//		if (sum == i)
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//
+//	return 0;
+//}
