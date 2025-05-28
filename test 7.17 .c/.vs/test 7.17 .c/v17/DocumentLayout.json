@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u7A0B\u5E8F\u73AF\u5883\u4E0E\u9884\u5904\u7406.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u6587\u4EF6\u7684\u4F7F\u7528.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u6587\u4EF6\u7684\u4F7F\u7528.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|D:\\code\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C68A2408-2A58-460F-8596-EFCEBA51093D}|test 7.17 .c\\test 7.17 .c.vcxproj|solutionrelative:test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -26,7 +22,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "\u4E60\u9898\u8BAD\u7EC3.c",
               "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
               "RelativeDocumentMoniker": "test 7.17 .c\\\u4E60\u9898\u8BAD\u7EC3.c",
@@ -45,22 +41,9 @@
               "RelativeDocumentMoniker": "test 7.17 .c\\\u7A0B\u5E8F\u73AF\u5883\u4E0E\u9884\u5904\u7406.c",
               "ToolTip": "D:\\code\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u7A0B\u5E8F\u73AF\u5883\u4E0E\u9884\u5904\u7406.c",
               "RelativeToolTip": "test 7.17 .c\\\u7A0B\u5E8F\u73AF\u5883\u4E0E\u9884\u5904\u7406.c",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAAC8AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAANUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-05-27T12:36:25.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "\u6587\u4EF6\u7684\u4F7F\u7528.c",
-              "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u6587\u4EF6\u7684\u4F7F\u7528.c",
-              "RelativeDocumentMoniker": "test 7.17 .c\\\u6587\u4EF6\u7684\u4F7F\u7528.c",
-              "ToolTip": "D:\\code\\gitee_my_personal_code\\test 7.17 .c\\test 7.17 .c\\\u6587\u4EF6\u7684\u4F7F\u7528.c",
-              "RelativeToolTip": "test 7.17 .c\\\u6587\u4EF6\u7684\u4F7F\u7528.c",
-              "ViewState": "AgIAAB8BAAAAAAAAAAAAADABAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-05-25T00:59:01.325Z",
               "EditorCaption": ""
             }
           ]
