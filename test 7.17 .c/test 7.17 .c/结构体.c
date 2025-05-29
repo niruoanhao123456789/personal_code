@@ -286,9 +286,9 @@
 //int main()
 //{
 //	struct S s = { 0 };
-//	printf("%d\n", OFFSETOF(struct S, c1));
-//	printf("%d\n", OFFSETOF(struct S, i));
-//	printf("%d\n", OFFSETOF(struct S, c2));
+//	printf("%zu\n", OFFSETOF(struct S, c1));
+//	printf("%zu\n", OFFSETOF(struct S, i));
+//	printf("%zu\n", OFFSETOF(struct S, c2));
 //
 //	return 0;
 //}

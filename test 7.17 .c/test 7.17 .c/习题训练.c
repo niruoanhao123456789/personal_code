@@ -4352,3 +4352,44 @@ int main()
 //
 //	return 0;
 //}
+
+
+//文件使用
+//#include<stdio.h>
+//#include<string.h>
+//#include<errno.h>
+//
+//struct student
+//{
+//	char name[20];
+//	int age;
+//	int sex;
+//};
+//
+//int main()
+//{
+//	struct student st = { 0 };
+//	FILE* pf1 = fopen("text.txt", "r");
+//	if (pf1 == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//
+//	fscanf(pf1, "%s %d %d", st.name, &st.age, &st.sex);
+//	fclose(pf1);
+//	pf1 = NULL;
+//
+//	FILE* pf2 = fopen("test_copy.txt", "w");
+//	if (pf2 == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//	fprintf(pf2, "%s %d %d", st.name, st.age, st.sex);
+//	printf("%s %d %d\n", st.name, st.age, st.sex);
+//	fclose(pf2);
+//	pf2 = NULL;
+//	
+//	return 0;
+//}
