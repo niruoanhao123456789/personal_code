@@ -1,12 +1,3 @@
-print('python中变量的命名规则,命名规范和使用和C语言中的一样')
-a = 10
-b = 20
-tmp = a
-a = b
-b = tmp
-print('a = ',a,'b = ',b)
-print('对a的第一个等号是对其进行初始化,后面的等号是赋值操作')
-
 print('数据类型种类,与C相似\n')
 
 c= 10
@@ -19,3 +10,46 @@ print(d)
 print(type(d))
 print('Python中float是双精度的,相当于C++/Java里的double')
 print('\nPython设计哲学：解决问题只提供一种方案\n')
+
+print('在python中,bool类型的真假为True,False;在Java和C++中为true,false')
+e = True
+f = False
+print(type(e))
+print(type(f))
+
+print("在python中字符串用单引号或者双引号都行")
+c = 'hello world'
+print(type(c))
+d = 'this is "python string"'
+print(d)
+print('在python里,如果字符串里有英语的双引号,该字符串可以用单引号表示;反之亦然')
+print('如果字符串里既有单引号又有双引号,可将字符串用三引号表示\n')
+e = ''''it' is "python string"'''
+f = """'it' is "python string" """
+print(e)
+print(f)
+
+print('字符串f长度为',len(f))
+
+a = 'hello '
+b = 'world'
+print(a+b)
+print('python中允许字符串相加来进行拼接,拼接的结果是生成一个新的字符串,对原有字符串是没有影响的')
+print('但不允许字符串与数值之间进行拼接')
+
+print('在python中 int默认为4个字节,可动态扩容;float固定为8个字节;bool为一个字节;字符串是变长的')
+print('不同类型能进行的操作也不同\n')
+
+print('动态类型指程序运行中,变量类型可能发生改变')
+a1 = 10
+print(type(a1))
+
+a1 = 'hello'
+print(type(a1))
+
+a1 = True
+print(type(a1))
+
+print('静态类型指程序运行中,变量类型不会发生改变,如Java,C++里的类型')
+print('是否为静态类型,取决于程序运行时,类型是否改变;而不是定义变量时是否声明类型')
+print('像python在定义变量时也可以声明类型,但不影响其为动态类型')
