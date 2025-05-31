@@ -15,5 +15,5 @@ b = 20
 tmp = a
 a = b
 b = tmp
-print('a = ',a,'b = ',b)
+print('a =',a,'b =',b)
 print('对a的第一个等号是对其进行初始化,后面的等号是赋值操作')
