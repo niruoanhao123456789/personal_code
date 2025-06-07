@@ -11,13 +11,13 @@ print(type(d))
 print('Python中float是双精度的,相当于C++/Java里的double')
 print('\nPython设计哲学：解决问题只提供一种方案\n')
 
-print('在python中,bool类型的真假为True,False;在Java和C++中为true,false')
+print('在python中,bool类型的真假为True,False;在Java和C++中为true,false；其值也是真为1,假为0;所以整型能与bool类型相加')
 e = True
 f = False
 print(type(e))
 print(type(f))
 
-print("在python中字符串用单引号或者双引号都行")
+print("在python中字符串用单引号或者双引号都行,因为python没有字符类型,只有字符串类型")
 c = 'hello world'
 print(type(c))
 d = 'this is "python string"'
@@ -53,3 +53,6 @@ print(type(a1))
 print('静态类型指程序运行中,变量类型不会发生改变,如Java,C++里的类型')
 print('是否为静态类型,取决于程序运行时,类型是否改变;而不是定义变量时是否声明类型')
 print('像python在定义变量时也可以声明类型,但不影响其为动态类型')
+
+# 在python中要指定变量类型应 变量名:类型 这种方式
+a:int = 1
