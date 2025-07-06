@@ -1,0 +1,17 @@
+#ifndef __SERVO_H
+#define __SERVO_H
+
+void Servo_Init(void);
+void Servo_SetAngle2(float Angle);
+void Servo_SetAngle1(float Angle);
+void Servo_SetAngle3(float Angle);
+void Servo_SetAngle4(float Angle);
+void Straight(void);
+void Backward(void);
+void Standup(void);
+void Putdown(void);
+void Sitdown(void);
+void Turnright(void);
+void Turnleft(void);
+
+#endif
