@@ -55,5 +55,24 @@
 #在Pycharm里可以用shift + F6针对光标所在的变量统一进行重命名
 
 #按顺序打印10-1
-# for i in range(10,0,-1):
+# for i in range(1,11,1):
 #     print(i)
+
+
+#continue 和 break
+
+# for i in range(1,11):
+#     if i == 3:
+#         continue
+#     print(i)
+
+#求平均数，但有多少个数字暂定
+# Sum = 0
+# count = 0
+# while True:
+#     i = input("输入一个数（输入;为停止输入）:")
+#     if i == ';':
+#         break
+#     Sum += float(i)
+#     count += 1
+# print(f"平均数为:{Sum/count}")
