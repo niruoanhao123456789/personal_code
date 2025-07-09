@@ -12,8 +12,6 @@ void PWM_LED_Init(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	
-	GPIO_ResetBits(GPIOB, GPIO_Pin_9);
-	
 	TIM_InternalClockConfig(TIM4);
 	
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;				
@@ -39,14 +37,4 @@ void PWM_LED_SetCompare(uint16_t Compare)
 {
 	TIM_SetCompare4(TIM4, Compare);
 		
-}
-
-void LED_ON(void)
-{
-	GPIO_SetBits(GPIOB, GPIO_Pin_9);
-}
-
-void LED_OFF(void)
-{
-	GPIO_ResetBits(GPIOB, GPIO_Pin_9);
 }
