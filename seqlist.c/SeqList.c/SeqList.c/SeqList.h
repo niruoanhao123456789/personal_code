@@ -39,6 +39,8 @@ void SeqListPopFront(SeqList* ps);
 
 void SeqListInsert(SeqList* ps, int pos, SLDataType x);
 
+void SeqListInsertAfter(SeqList* ps, int pos, SLDataType x);
+
 void SeqListErase(SeqList* ps, int pos);
 
 //找到返回下标，找不到则返回-1

@@ -92,8 +92,23 @@ void SeqListInsert(SeqList* ps, int pos, SLDataType x)
 	while (end >= pos)
 	{
 		ps->data[end + 1] = ps->data[end];
+		end--;
 	}
 	ps->data[pos] = x;
+	ps->count++;
+}
+
+void SeqListInsertAfter(SeqList* ps, int pos, SLDataType x)
+{
+	assert(ps && pos >= 0 && pos < ps->count);
+	SLCeckcapacity(ps);
+	int end = ps->count - 1;
+	while (end > pos)
+	{
+		ps->data[end + 1] = ps->data[end];
+		end--;
+	}
+	ps->data[pos + 1] = x;
 	ps->count++;
 }
 

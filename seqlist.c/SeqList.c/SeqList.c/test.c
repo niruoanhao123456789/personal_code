@@ -45,6 +45,22 @@ void test3(SeqList* ps)
 	SeqListPrint(ps);
 }
 
+void test4(SeqList* ps)
+{
+	int i = 0;
+	for (i = 0; i < 6; i++)
+	{
+		SeqListPushBack(ps, i);
+	}
+	SeqListPrint(ps);
+	int pos = SeqListFind(ps, 0);
+	if (pos != -1)
+	{
+		SeqListInsertAfter(ps, pos, 4);
+	}
+	SeqListPrint(ps);
+}
+
 int main()
 {
 	SeqList ps;
@@ -52,7 +68,8 @@ int main()
 
 	//test1(&ps);
 	//test2(&ps);
-	test3(&ps);
+	//test3(&ps);
+	test4(&ps);
 
 	SeqListDestory(&ps);
 	return 0;
