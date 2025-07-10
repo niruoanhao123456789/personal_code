@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\code\\c\\learn\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\",
+  "WorkspaceRootPath": "D:\\code\\gitee_my_personal_code\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4115084A-6369-41A0-A48B-FA5118A65B47}|\u6570\u636E\u7ED3\u6784\\\u6570\u636E\u7ED3\u6784.vcxproj|D:\\code\\c\\learn\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\\u6570\u636E\u7ED3\u6784\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{4115084A-6369-41A0-A48B-FA5118A65B47}|\u6570\u636E\u7ED3\u6784\\\u6570\u636E\u7ED3\u6784.vcxproj|D:\\code\\gitee_my_personal_code\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\\u6570\u636E\u7ED3\u6784\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4115084A-6369-41A0-A48B-FA5118A65B47}|\u6570\u636E\u7ED3\u6784\\\u6570\u636E\u7ED3\u6784.vcxproj|solutionrelative:\u6570\u636E\u7ED3\u6784\\learn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "learn.c",
-              "DocumentMoniker": "D:\\code\\c\\learn\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\\u6570\u636E\u7ED3\u6784\\learn.c",
+              "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\\u6570\u636E\u7ED3\u6784\\learn.c",
               "RelativeDocumentMoniker": "\u6570\u636E\u7ED3\u6784\\learn.c",
-              "ToolTip": "D:\\code\\c\\learn\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\\u6570\u636E\u7ED3\u6784\\learn.c",
+              "ToolTip": "D:\\code\\gitee_my_personal_code\\\u6570\u636E\u7ED3\u6784\u4E0E\u7B97\u6CD5.c\\\u6570\u636E\u7ED3\u6784\\learn.c",
               "RelativeToolTip": "\u6570\u636E\u7ED3\u6784\\learn.c",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACUCAAAAAAAAAAD4v+MBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-08T02:37:18.809Z",
               "EditorCaption": ""

@@ -274,7 +274,7 @@ void SListDestoey(SLTNode** pphead)
 //移除元素
 //给定数组arr和一个数k，要求原地移除数组里数值等于k的元素，并返回移除后数组的新长度
 //只能使用O(1)的额外空间并原地修改数组
-//法一：时间复杂度为O(n^2)
+//法一：时间复杂度为O(n^2) 其中未完全删完k
 //int main()
 //{
 //	int n = 0;
@@ -293,25 +293,25 @@ void SListDestoey(SLTNode** pphead)
 //	}
 //	scanf("%d", &k);
 //
-	//int newsize = n;
-	//i = 0;
-	//while(i<newsize)
-	//{
-	//	 if (k == *(arr + i))
-	//	 {
-	//		int j = i;
-	//		while (j < newsize-1)
-	//		{
-	//			*(arr + j) = *(arr + j+1);
-	//			j++;
-	//		}
-	//		newsize--;
-	//	 }
-	//	 else
-	//	 {
-	//		i++;
-	//	 }
-	//}
+//	int newsize = n;
+//	i = 0;
+//	while(i<newsize)
+//	{
+//		 if (k == *(arr + i))
+//		 {
+//			int j = i;
+//			while (j < newsize-1)
+//			{
+//				*(arr + j) = *(arr + j+1);
+//				j++;
+//			}
+//			newsize--;
+//		 }
+//		 else
+//		 {
+//			i++;
+//		 }
+//	}
 //	for (i = 0; i < newsize; i++)
 //	{
 //		printf("%d ", *(arr + i));
