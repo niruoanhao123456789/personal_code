@@ -582,7 +582,7 @@ void SListDestoey(SLTNode** pphead)
 
 
 //给定一个链表的头节点和数据k，要求删除链表里和数据n一样的元素的节点，并返回新的头节点
-//
+//法一：双指针
 //SLTNode* test(SLTNode* phead, int k)
 //{
 //	SLTNode* prev = NULL;
@@ -612,6 +612,8 @@ void SListDestoey(SLTNode** pphead)
 //	}
 //	return phead;
 //}
+// 
+//创建新头结点，将要保留的结点进行尾插
 //
 //int main()
 //{
@@ -993,7 +995,8 @@ void SListDestoey(SLTNode** pphead)
 
 
 //给定一个链表的头指针，返回bool值，判断该链表是否为回文结构，要求时间复杂度为O(n)，空间复杂度为O(1)
-//思路：将先找到中间节点，将后半部分逆置，再让前半部分和后半部分相比是否相同
+//思路：1、将先找到中间节点，将后半部分逆置，再让前半部分和后半部分相比是否相同
+//		2、逆置整个链表，将逆置后的链表和原链表相比较
 //bool IsPalindrome(SLTNode* phead)
 //{
 //	if (phead == NULL)
