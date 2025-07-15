@@ -968,7 +968,7 @@ void SListDestoey(SLTNode** pphead)
 //	lesstail->next = greaterhead->next;
 //	phead = lesshead->next;
 //	//释放哨兵结点
-//	free(greaterhead);
+//	free(greaterh ead);
 //	free(lesshead);
 //
 //	return phead;
@@ -1202,7 +1202,7 @@ void SListDestoey(SLTNode** pphead)
 //RLNode* copyRandomList(RLNode* head)
 //{
 //	RLNode* cur = head;
-//	//、复制结点，插入到原结点和下一个结点之间
+//	//复制结点，插入到原结点和下一个结点之间
 //	while (cur)
 //	{
 //		RLNode* copynode = (RLNode*)malloc(sizeof(RLNode));
