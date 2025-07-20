@@ -5,17 +5,17 @@ void SeqListInit(SeqList* ps)
 	assert(ps);
 	ps->data = NULL;
 	ps->count = 0;
-	ps->capacity = 0;
+	ps->capaicty = 0;
 }
 
-static void SLCeckcapacity(SeqList* ps)
+static void SLCeckcapaicty(SeqList* ps)
 {
 	assert(ps);
-	if (ps->count >= ps->capacity)
+	if (ps->count >= ps->capaicty)
 	{
 		//扩容 *2比较适中
-		int newcapacity = (ps->capacity == 0 ? 4 : 2 * ps->capacity);
-		SLDataType* tmp = (SLDataType*)realloc(ps->data, newcapacity * sizeof(SLDataType));
+		int newcapaicty = (ps->capaicty == 0 ? 4 : 2 * ps->capaicty);
+		SLDataType* tmp = (SLDataType*)realloc(ps->data, newcapaicty * sizeof(SLDataType));
 		if (tmp == NULL)
 		{
 			printf("%s\n", strerror(errno));
@@ -23,14 +23,14 @@ static void SLCeckcapacity(SeqList* ps)
 		}
 
 		ps->data = tmp;
-		ps->capacity = newcapacity;
+		ps->capaicty = newcapaicty;
 	}
 }
 
 void SeqListPushFront(SeqList* ps, SLDataType x)
 {
 	assert(ps);
-	SLCeckcapacity(ps);
+	SLCeckcapaicty(ps);
 	//挪动数据
 	int end = ps->count - 1;
 	while (end >= 0)
@@ -45,7 +45,7 @@ void SeqListPushFront(SeqList* ps, SLDataType x)
 void SeqListPushBack(SeqList* ps, SLDataType x)
 {
 	assert(ps);
-	SLCeckcapacity(ps);
+	SLCeckcapaicty(ps);
 
 	ps->data[ps->count] = x;
 	ps->count++;
@@ -87,7 +87,7 @@ void SeqListInsert(SeqList* ps, int pos, SLDataType x)
 	//	return;
 	//}
 	assert(pos >= 0 && pos <= ps->count);
-	SLCeckcapacity(ps);
+	SLCeckcapaicty(ps);
 	int end = ps->count - 1;
 	while (end >= pos)
 	{
@@ -101,7 +101,7 @@ void SeqListInsert(SeqList* ps, int pos, SLDataType x)
 void SeqListInsertAfter(SeqList* ps, int pos, SLDataType x)
 {
 	assert(ps && pos >= 0 && pos < ps->count);
-	SLCeckcapacity(ps);
+	SLCeckcapaicty(ps);
 	int end = ps->count - 1;
 	while (end > pos)
 	{
@@ -155,6 +155,6 @@ void SeqListDestory(SeqList* ps)
 	assert(ps);
 	free(ps->data);
 	ps->data = NULL;
-	ps->capacity = 0;
+	ps->capaicty = 0;
 	ps->count = 0;
 }

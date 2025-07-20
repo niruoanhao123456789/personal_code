@@ -21,7 +21,7 @@ typedef struct SeqList
 {
 	SLDataType* data;
 	int count;//表示当前顺序表线长，即实际有效储存的数据个数
-	int capacity;//表示顺序表目前最大长度
+	int capaicty;//表示顺序表目前最大长度
 }SeqList;
 
 void SeqListPrint(const SeqList* ps);
