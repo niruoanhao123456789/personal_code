@@ -1,5 +1,5 @@
 ﻿  List.c
   test.c
   正在生成代码...
-D:\code\c语言\初学\List.c\DoubleList.c\DoubleList.c\List.c(27,1): warning C4715: “ListInit”: 不是所有的控件路径都返回值
-  DoubleList.c.vcxproj -> D:\code\c语言\初学\List.c\DoubleList.c\x64\Debug\DoubleList.c.exe
+D:\code\gitee_my_personal_code\List.c\DoubleList.c\DoubleList.c\List.c(27,1): warning C4715: “ListInit”: 不是所有的控件路径都返回值
+  DoubleList.c.vcxproj -> D:\code\gitee_my_personal_code\List.c\DoubleList.c\x64\Debug\DoubleList.c.exe

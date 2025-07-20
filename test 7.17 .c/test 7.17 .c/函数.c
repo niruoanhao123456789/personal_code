@@ -7,6 +7,7 @@
 #include<ctype.h>
 #include<stddef.h>
 #include<limits.h>
+#include<stdarg.h>
 
 //函数
 //int Add(int x, int y)//Add函数的创建   Add为函数名，()内为该函数的参数 {}内为函数体  int 为该函数的返回值
@@ -237,6 +238,22 @@
 //ebp存的是栈底指针，esp存的是栈顶指针，每一次函数的调用，esp、ebp两个指针都会指向函数栈帧在栈区的首尾，
 //两者中间便是函数在栈区的内存
 //
+//观察
+//在调试中用调用堆栈和反汇编并把显示符号勾选取消，同时监视两个寄存器里的地址
+//int Add(int x, int y)
+//{
+//	return(x + y);
+//}
+//
+//int main()
+//{
+//	int a = 1;
+//	int b = 2;
+//	int c = Add(a, b);
+//	printf("%d\n", c);
+//
+//	return 0;
+//}
 
 
 //字符函数与字符串函数
@@ -807,4 +824,96 @@
 //	}
 //
 //	return 0;
+//}
+
+
+//可变参数
+//允许函数接受数量不定的参数	常见的有printf、scanf
+// 
+//struct A
+//{
+//	int a;
+//	double b;
+//	int c;
+//};
+//
+//void fun1(int a, ...)
+//{
+//	int* p = &a;
+//	printf("%d %d %d %d %d\n", *(p),*(p+1),*(p+2),*(p+3),*(p+4));
+//	//64位下因地址的大小为8byte，而该函数参数类型为int 4byte所以寻找下一个参数地址时，会读取到随机数
+//	printf("%d %d %d\n", *(p), *(p + 1), *(p + 2));//在32位下可以正常输出
+//
+//}
+//
+//void fun1test(int a, int b, int c)
+//{
+//	printf("%p %p %p\n", &a, &b, &c);
+//	//通过观察函数参数的地址，我们发现它们地址是连续的，即函数参数在函数栈帧创建与销毁中其是紧挨着入栈的
+//}
+//
+//void fun2(int a, ...)
+//{
+//	int* p = &a;
+//	printf("%u %u %u %u %u\n", *(p), *(p + 1), *(p + 2), *(p + 3), *(p + 4));
+//	printf("%u %c %u\n", *(p), *(p + 1), *(p + 2));
+//}
+//
+//void fun2test(int a, char b, int c)
+//{
+//	printf("%p %p %p\n", &a, &b, &c);
+//}
+//
+//void fun3(int a, ...)
+//{
+//	int* p = &a;
+//	printf("%u %u %u %u %u\n", *(p), *(p + 1), *(p + 2), *(p + 3), *(p + 4));
+//	printf("%u %u %u\n", *(p), *(p + 1), *(p + 2));
+//}
+//
+//void fun3test(int a, struct A b, int c)
+//{
+//	printf("%p %p %p\n", &a, &b, &c);
+//}
+//
+//int main()
+//{
+//	char a = '1';
+//	struct A b = { 1,1.1,2 };
+//
+//	//fun1(1,2,3);
+//	//fun1test(1, 2, 3);
+//
+//	fun2(1, a, 2);
+//	fun2test(1, a, 2);
+//	fun3(1, b, 3);
+//	fun3test(1, b, 3);
+//	//通过给不同类型的参数，发现可变参数的情况下存在可能无法有效打印数据的情况，所以说明函数的可变参数的类型是不安全的
+//
+//	return 0;
+//}
+
+//可变参数的使用
+//需要包含头文件<stdarg.h>
+//double average(int count, ...) // 固定参数count表示后面数据个数
+//{
+//    va_list args;          
+//    va_start(args, count);
+//
+//    double sum = 0;
+//    for (int i = 0; i < count; i++) 
+//    {
+//        int num = va_arg(args, int); // 按int类型逐个取出参数
+//        sum += num;
+//    }
+//
+//    va_end(args); // 清理
+//    return (count > 0) ? sum / count : 0.0;
+//}
+//
+//int main() 
+//{
+//    printf("%.2f\n", average(3, 10, 20, 30)); // 输出20.00
+//
+//    return 0;
 //}

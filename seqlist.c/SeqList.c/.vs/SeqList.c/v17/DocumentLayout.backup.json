@@ -26,29 +26,30 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SeqList.h",
-              "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\SeqList.h",
-              "RelativeDocumentMoniker": "SeqList.c\\SeqList.h",
-              "ToolTip": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\SeqList.h",
-              "RelativeToolTip": "SeqList.c\\SeqList.h",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCkAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-06T02:46:42.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "SeqList.c",
               "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\SeqList.c",
               "RelativeDocumentMoniker": "SeqList.c\\SeqList.c",
               "ToolTip": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\SeqList.c",
               "RelativeToolTip": "SeqList.c\\SeqList.c",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAHEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-06T02:46:22.408Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SeqList.h",
+              "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\SeqList.h",
+              "RelativeDocumentMoniker": "SeqList.c\\SeqList.h",
+              "ToolTip": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\SeqList.h",
+              "RelativeToolTip": "SeqList.c\\SeqList.h",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwB8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-06T02:46:42.475Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -56,9 +57,9 @@
               "Title": "test.c",
               "DocumentMoniker": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\test.c",
               "RelativeDocumentMoniker": "SeqList.c\\test.c",
-              "ToolTip": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\test.c*",
-              "RelativeToolTip": "SeqList.c\\test.c*",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwDcAAAAcAAAAAAAAAA==",
+              "ToolTip": "D:\\code\\gitee_my_personal_code\\seqlist.c\\SeqList.c\\SeqList.c\\test.c",
+              "RelativeToolTip": "SeqList.c\\test.c",
+              "ViewState": "AgIAADkAAAAAAAAAAAAYwDUAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-06T02:45:57.348Z",
               "EditorCaption": ""
