@@ -895,6 +895,7 @@
 
 //可变参数的使用
 //需要包含头文件<stdarg.h>
+// 
 //double average(int count, ...) // 固定参数count表示后面数据个数
 //{
 //    va_list args;          
@@ -916,4 +917,22 @@
 //    printf("%.2f\n", average(3, 10, 20, 30)); // 输出20.00
 //
 //    return 0;
+//}
+//
+//void printstringtest(const char* format,...)
+//{
+//	assert(format);
+//	char buf[20] = { 0 };
+//	va_list arg;
+//	va_start(arg, format);
+//	vsprintf(buf, format, arg);
+//	va_end(arg);
+//	printf("%s\n", buf);
+//}
+//
+//int main()
+//{
+//	printstringtest("%s", "hello world");
+//
+//	return 0;
 //}
