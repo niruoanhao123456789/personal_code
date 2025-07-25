@@ -14,8 +14,6 @@ void HeapDestory(Heap* php)
 	free(php->data);
 	php->capacity = 0;
 	php->size = 0;
-	free(php);
-	php = NULL;
 }
 
 void HPPrint(Heap hp)
@@ -45,7 +43,7 @@ static void Checkcapacity(Heap* php)
 	}
 }
 
-static void Swap(HPDataType* x, HPDataType* y)
+void Swap(HPDataType* x, HPDataType* y)
 {
 	HPDataType tmp = *x;
 	*x = *y;
@@ -53,7 +51,7 @@ static void Swap(HPDataType* x, HPDataType* y)
 }
 
 //向上调整算法，比较大小调整次序，父节点下标是字节点的(n-1)/2
-static void AdjustUp(HPDataType* arr, int child)
+void AdjustUp(HPDataType* arr, int child)
 {
 	assert(arr);
 	int parent = (child - 1) / 2;
@@ -87,15 +85,40 @@ bool HPEmpty(Heap* php)
 }
 
 //向下调整算法，先比较两个子节点，将大的与父节点（第一个结点）交换后再与下标(n*2+1)子节点比较，直至子节点越界
-static void AdjustDown(HPDataType* arr)
+void AdjustDown(HPDataType* arr,int parent,int n)
 {
 	assert(arr);
-	
+	int child = parent * 2 + 1;
+	while (child < n)
+	{
+		//找最大子节点
+		if ((arr[child] < arr[child + 1])&&(child+1<n))
+		{
+			child++;
+		}
+		//字节点与父节点比较
+		if (arr[child] > arr[parent])
+		{
+			Swap(&arr[child], &arr[parent]);
+			parent = child;
+			child = parent * 2 + 1;
+		}
+		else
+			break;
+	}
 }
 
 void HPPop(Heap* php)
 {
 	assert(php && !HPEmpty(php));
-	//出根节点，先将根节点和下标最后的结点交换后出掉后结点，再让堆顶进行向下调整
+	//出堆顶节点，先将根节点和下标最后的结点交换后出掉后结点，再让堆顶进行向下调整
+	Swap(&php->data[0], &php->data[php->size - 1]);
+	php->size--;
+	AdjustDown(php->data, 0, php->size);
+}
 
+HPDataType HPTop(Heap* php)
+{
+	assert(php && !HPEmpty(php));
+	return (php->data[0]);
 }
