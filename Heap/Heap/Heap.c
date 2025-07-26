@@ -51,6 +51,9 @@ void Swap(HPDataType* x, HPDataType* y)
 }
 
 //向上调整算法，比较大小调整次序，父节点下标是字节点的(n-1)/2
+//分析该算法的时间复杂度：
+//while循环次数是根据二叉树的层次来决定，在最坏情况下的满二叉树节点个数 n = 2^k-1
+//可知层数为k = log2(n+1)，即为本算法的时间复杂度
 void AdjustUp(HPDataType* arr, int child)
 {
 	assert(arr);

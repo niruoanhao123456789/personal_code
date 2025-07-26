@@ -44,13 +44,20 @@ void HeapSort1(HPDataType* arr,int n)
 //真正的堆排序是通过堆的思想来实现而不是用堆这个结构，小堆降序，大堆升序
 void HeapSort(HPDataType* arr, int n)
 {
+	int i = 0;
 	//乱序数组	建堆
 	//向下调整算法建堆，先从最小子树开始调整
-	int i = 0;
-	for (i = (n - 1 - 1) / 2; i >= 0; i--)//找到最后子节点的父节点
+	//for (i = (n - 1 - 1) / 2; i >= 0; i--)//找到最后子节点的父节点
+	//{
+	//	AdjustDown(arr, i, n);
+	//}
+
+	//向上调整建堆
+	for (i = 0; i < n; i++)
 	{
-		AdjustDown(arr, i, n);
+		AdjustUp(arr, i);
 	}
+
 	int end = n - 1;//拿最后一个和最值进行交换
 	while (end > 0)
 	{
