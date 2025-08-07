@@ -6,6 +6,7 @@
 #include<math.h>
 #include<assert.h>
 #include<stdbool.h>
+#include<time.h>
 
 typedef int HPDataType;
 struct Heap

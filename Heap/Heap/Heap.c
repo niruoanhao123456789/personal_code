@@ -54,6 +54,13 @@ void Swap(HPDataType* x, HPDataType* y)
 //分析该算法的时间复杂度：
 //while循环次数是根据二叉树的层次来决定，在最坏情况下的满二叉树节点个数 n = 2^k-1
 //可知层数为k = log2(n+1)，即为本算法的时间复杂度
+//因向上移动h层需要步数为：
+// F(h) = 2 + 2^2*2 + 2^3*3 + 2^4*4 + …… + 2^(h-1)*(h-1)
+//2*F(h) =    2^2*1 + 2^3*2 + 2^4*3 + …… + 2^(h-1)*(h-2) + 2^h*(h-1)
+//错位相减得 F(h) = 2^h * (h-2) + 2
+//由上面的结论可得F(h) = (n+1)*(log2(n+1)-2)+2
+//所以向上调整算法建堆的时间复杂度为O(n*log2(n))
+//其越往下结点越多，调整次数也相应增多
 void AdjustUp(HPDataType* arr, int child)
 {
 	assert(arr);
@@ -87,7 +94,10 @@ bool HPEmpty(Heap* php)
 	return (php->size == 0);
 }
 
+
 //向下调整算法，先比较两个子节点，将大的与父节点（第一个结点）交换后再与下标(n*2+1)子节点比较，直至子节点越界
+//与向上调整思路一样，得出其复杂度O(n)
+//该算法随着越往下节点数增多，但调整次数减少
 void AdjustDown(HPDataType* arr,int parent,int n)
 {
 	assert(arr);
