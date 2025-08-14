@@ -29,7 +29,28 @@ void test1()
 
 	//PreOrder(nodeA);
 	//InOrder(nodeA);
-	PostOrder(nodeA);
+	//PostOrder(nodeA);
+
+	//printf("%d\n",BinaryTreeSize(nodeA));
+	//printf("%d\n", BinaryTreeSize(nodeA));
+
+	//printf("%d\n", BinaryTreeLeafSize(nodeA));
+
+	//printf("%d\n", BinaryTreeLevelKSize(nodeA, 3));
+
+	//printf("%d\n", BinaryTreeDepth(nodeA));
+
+	BTNode* node = BinaryTreeFind(nodeA, 'G');
+	if (node)
+	{
+		printf("found£¡\n");
+	}
+	else
+	{
+		printf("no find\n");
+	}
+
+	BinaryTreeDestory(&nodeA);
 }
 
 int main()
