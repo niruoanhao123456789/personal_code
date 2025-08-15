@@ -40,14 +40,25 @@ void test1()
 
 	//printf("%d\n", BinaryTreeDepth(nodeA));
 
-	BTNode* node = BinaryTreeFind(nodeA, 'G');
-	if (node)
+	//BTNode* node = BinaryTreeFind(nodeA, 'G');
+	//if (node)
+	//{
+	//	printf("found£¡\n");
+	//}
+	//else
+	//{
+	//	printf("no find\n");
+	//}
+
+	//LevelOrder(nodeA);
+	
+	if (BinaryTreeComplete(nodeA))
 	{
-		printf("found£¡\n");
+		printf("yes\n");
 	}
 	else
 	{
-		printf("no find\n");
+		printf("no\n");
 	}
 
 	BinaryTreeDestory(&nodeA);

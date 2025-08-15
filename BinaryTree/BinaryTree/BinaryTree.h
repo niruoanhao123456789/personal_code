@@ -20,7 +20,8 @@ void PreOrder(BTNode* root);
 void InOrder(BTNode* root);
 //后序遍历：先遍历左子树，在遍历右子树，最后遍历根结点 “左右根”
 void PostOrder(BTNode* root);
-//层序遍历：按照层次进行依次遍历（从上到下，从左往右）
+//层序遍历：按照层次进行依次遍历（从上到下，从左往右），得用队列来实现
+void LevelOrder(BTNode* root);
 //二叉树结点个数
 int BinaryTreeSize(BTNode* root);
 //求叶子节点个数
@@ -33,3 +34,5 @@ int BinaryTreeDepth(BTNode* root);
 BTNode* BinaryTreeFind(BTNode* root, BTDataType x);
 //二叉树的销毁
 void BinaryTreeDestory(BTNode** root);
+//判断是否为满二叉树
+bool BinaryTreeComplete(BTNode* root);

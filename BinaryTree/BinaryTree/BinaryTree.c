@@ -1,5 +1,5 @@
 #include"BinaryTree.h"
-
+#include"Queue.h"
 //“根左右”
 void PreOrder(BTNode* root)
 {
@@ -140,4 +140,59 @@ void BinaryTreeDestory(BTNode** root)
 	BinaryTreeDestory(&((*root)->right));
 	free(*root);
 	*root = NULL;
+}
+
+//将根节点保存到队列中，是队列不为空，循环判断队列是否为空，不为空则取队头出队列并将不为空得根节点入队列
+void LevelOrder(BTNode* root)
+{
+	Queue q;
+	QueueInit(&q);
+	QueuePush(&q, root);
+	while (!QueueEmpty(&q))
+	{
+		//去队头，打印队头
+		BTNode* top = QueueFront(&q);
+		printf("%c ", top->val);
+		QueuePop(&q);
+		//队头结点不为空的孩子节点入队列
+		if (top->left)
+			QueuePush(&q,top->left);
+		if (top->right)
+			QueuePush(&q, top->right);
+	}
+
+	QueueDestroy(&q);
+}
+
+//判断每层结点个数、叶子节点是否满足从左到右依次排序
+//根节点先入队列，保证队列不为空，循环判断队列是否为空，不为空则取队头出队列，将对头左右孩子都入队列
+//取对头时遇到空结点，判断队列剩余结点是否为空来判断，不为空则不是完全二叉树
+bool BinaryTreeComplete(BTNode* root)
+{
+	Queue q;
+	QueueInit(&q);
+	QueuePush(&q, root);
+	while (!QueueEmpty(&q))
+	{
+		BTNode* top = QueueFront(&q);
+		QueuePop(&q);
+		if (top == NULL)
+		{
+			break;
+		}
+		QueuePush(&q, top->left);
+		QueuePush(&q, top->right);
+	}
+	while (!QueueEmpty(&q))
+	{
+		BTNode* top = QueueFront(&q);
+		QueuePop(&q);
+		if (top)
+		{
+			QueueDestroy(&q);
+			return false;
+		}
+	}
+	QueueDestroy(&q);
+	return true;
 }
