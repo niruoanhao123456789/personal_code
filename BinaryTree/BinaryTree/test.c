@@ -98,6 +98,27 @@ bool isSameTree(BTNode* p, BTNode* q)
 	}
 }
 
+//对称二叉树
+//将比较左边根节点左子树与右边根节点的右子树是否相同，以及左边根节点右子树与右边根节点的左子树是否相同
+bool isSameTree(BTNode* p, BTNode* q)
+{
+	//都为空
+	if (p == NULL && q == NULL)
+		return true;
+	if (p == NULL || q == NULL)
+		return false;
+	//都不为空
+	if (p->val != q->val)
+		return false;
+
+	return (isSameTree(p->left, q->right) && isSameTree(p->right, q->left));
+}
+
+bool isSymmetric(BTNode* root) 
+{
+	return isSameTree(root->left, root->right);
+}
+
 //另一颗子树
 //求一棵二叉树中是否有另一颗二叉树作为其子树
 //先比较根节点所在子树是否相同，在比较左右子树的根节点是否相同
@@ -123,7 +144,7 @@ bool isSubtree(BTNode* root, BTNode* subRoot) {
 	return (isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot));
 }
 
-//前序遍历，用数组来返回遍历结果
+//前序遍历，用数组来返回遍历结果，中序和后序一样的思路
 int BinaryTreeSize(BTNode* root)
 {
 	if (!root)
