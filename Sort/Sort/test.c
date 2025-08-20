@@ -13,13 +13,17 @@ void test1()
 		scanf("%d", &arr[i]);
 	}
 
-	InsertSort(arr, n);
+	//InsertSort(arr, n);
+	ShellSort(arr, n);
 
 	for(i = 0; i < n; i++)
 	{
 		printf("%d ", arr[i]);
 	}
 	printf("\n");
+
+	free(arr);
+	arr = NULL;
 }
 
 int main()
