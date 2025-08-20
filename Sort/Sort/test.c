@@ -10,11 +10,12 @@ void test1()
 	int i = 0;
 	for (i = 0; i < n; i++)
 	{
-		scanf("%d", &arr[i]);
+		arr[i] = rand() % n + 1;
 	}
 
 	//InsertSort(arr, n);
-	ShellSort(arr, n);
+	//ShellSort(arr, n);
+	SelectSort(arr, n);
 
 	for(i = 0; i < n; i++)
 	{
@@ -28,6 +29,7 @@ void test1()
 
 int main()
 {
+	srand((unsigned int)time(NULL));
 	test1();
 
 	return 0;
