@@ -170,3 +170,73 @@ void HeapSort(int* arr, int n)
 		end--;
 	}
 }
+
+void BubbleSort(int* arr, int sizeNum)
+{
+	int i = 0;
+	int exchange = 0;
+	for (i = 0; i < sizeNum-1; i++)
+	{
+		int j = 0;
+		for (j = i + 1; j < sizeNum; j++)
+		{
+			if (arr[i] > arr[j])
+			{
+				int tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+				exchange = 1;
+			}
+		}
+		if (!exchange)
+			break;
+	}
+}
+
+//hoare版本，时间复杂度为O(n*log n)
+//如果基准值找的不好/数组有序 O(n^2)
+int _QuickSort(int* arr, int left, int right)
+{
+	int key = left;
+	left++;
+	while (left <= right)
+	{
+		//下面两个循环的顺序不能交换，
+		//right从右往左找比基准值小的
+		while (left <= right && arr[right] > arr[key])//这里不用等号是为了防止数据多次重复出现导致的O(n^2)
+		{
+			right--;
+		}
+		//left从左往右找比基准值大的
+		while (left <= right && arr[left] < arr[key])
+		{
+			left++;
+		}
+		if (left <= right)
+		{
+			Swap(&arr[left], &arr[right]);
+			//left、right如果不移动的话，在相遇值和基准值相等时会进入死循环
+			left++;
+			right--;
+		}
+	}
+	//此时right的位置就是基准值的位置
+	//
+	Swap(&arr[key], &arr[right]);
+
+	return right;
+}
+
+void QuickSort(int* arr, int left, int right)
+{
+	if (left >= right)
+		return;
+
+	//找基准值，并将其放在合适的位置
+	//先假定基准值在最左侧
+	//left找比基准值大的，right找比基准值小的
+	int key = _QuicSort(arr, left, right);
+	//将序列一分为二
+	QuickSort(arr, left, key - 1);
+	QuickSort(arr, key + 1, right);
+}

@@ -12,10 +12,17 @@ void test1()
 	{
 		arr[i] = rand() % n + 1;
 	}
+	for (i = 0; i < n; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
 
 	//InsertSort(arr, n);
 	//ShellSort(arr, n);
-	SelectSort(arr, n);
+	//SelectSort(arr, n);
+	//BubbleSort(arr, n);
+	QuickSort(arr, 0, n - 1);
 
 	for(i = 0; i < n; i++)
 	{

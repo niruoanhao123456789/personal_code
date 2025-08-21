@@ -8,7 +8,12 @@
 void SelectSort(int* arr, int sizeNum);
 //¶ÑÅÅĞò
 void HeapSort(int* arr, int n);
+
 //Ö±½Ó²åÈëÅÅĞò
 void InsertSort(int* arr, int sizeNum);
 //Ï£¶ûÅÅĞò
 void ShellSort(int* arr, int sizeNum);
+
+void BubbleSort(int* arr, int sizeNum);
+//¿ìËÙÅÅĞò
+void QuickSort(int* arr, int left, int right);
