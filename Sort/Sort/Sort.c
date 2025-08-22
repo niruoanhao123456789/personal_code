@@ -1,4 +1,5 @@
 #include"Sort.h"
+#include"stack.h"
 
 //void SelectSort(int* arr, int sizeNum)
 //{
@@ -227,6 +228,50 @@ int _QuickSort(int* arr, int left, int right)
 	return right;
 }
 
+//挖坑法找基准值
+//现将最左边的值作为基准值并保存下来，同时该位置作为坑位
+//让right先从右往左比较，比基准值小就把该值放到坑位，此时right变为坑位，再走left执行一样的操作，
+//直到left和right相遇将基准值放入坑位，此时坑位就是基准值的位置
+int _QuickSorthole(int* arr, int left, int right)
+{
+	int hole = left;
+	int key = arr[hole];
+	while (left < right)
+	{
+		while (left < right && arr[right] >= key)
+		{
+			right--;
+		}
+		arr[hole] = arr[right];
+		hole = right;
+		while (left < right && arr[left] <= key)
+		{
+			left++;
+		}
+		arr[hole] = arr[left];
+		hole = left;
+	}
+	arr[hole] = key;
+	return hole;
+}
+
+//lumoto双指针法
+//创建前后指针，从左往右找比基准值小的进行交换，使小的都在基准值左边
+_QuickSortlumoto(int* arr, int left, int right)
+{
+	int prev = left, cur = left + 1, keyi = left;
+	while (cur <= right)
+	{
+		if(arr[cur] < arr[keyi] && ++prev != cur)
+		{
+			Swap(&arr[prev], &arr[cur]);
+		}
+		cur++;
+	}
+	Swap(&arr[keyi], &arr[prev]);
+	return prev;
+}
+
 void QuickSort(int* arr, int left, int right)
 {
 	if (left >= right)
@@ -235,8 +280,54 @@ void QuickSort(int* arr, int left, int right)
 	//找基准值，并将其放在合适的位置
 	//先假定基准值在最左侧
 	//left找比基准值大的，right找比基准值小的
-	int key = _QuicSort(arr, left, right);
+
+	//int key = _QuicSort(arr, left, right);
+	//int key = _QuickSorthole(arr, left, right);
+	int key = _QuickSortlumoto(arr, left, right);
 	//将序列一分为二
 	QuickSort(arr, left, key - 1);
 	QuickSort(arr, key + 1, right);
+}
+
+//根据基准值分开的子序列用栈来存起来
+//每次对栈顶的序列进行序列划分
+void QuickSortNorR(int* arr, int left, int right)
+{
+	Stack st;
+	StackInit(&st);
+	StackPush(&st, right);
+	StackPush(&st, left);
+	while (!StackEmpty(&st))
+	{
+		//取栈顶两次
+		int begin = StackTop(&st);
+		StackPop(&st);
+		int end = StackTop(&st);
+		StackPop(&st);
+		//找基准值
+		int keyi = begin, prev = begin, cur = begin + 1;
+		while (cur <= end)
+		{
+			if (arr[cur] < arr[keyi] && ++prev != cur)
+			{
+				Swap(&arr[cur], &arr[prev]);
+			}
+			cur++;
+		}
+		Swap(&arr[prev], &arr[keyi]);
+		keyi = prev;
+		//分左右序列，右序列优先入栈
+		if (end > keyi + 1)
+		{
+			StackPush(&st, end);
+			StackPush(&st, keyi + 1);
+		}
+		if (begin < keyi - 1)
+		{
+			StackPush(&st, keyi-1);
+			StackPush(&st, begin);
+		}
+	}
+
+	StackDestroy(&st);
 }

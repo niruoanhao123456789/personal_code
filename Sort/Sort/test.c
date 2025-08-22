@@ -22,7 +22,8 @@ void test1()
 	//ShellSort(arr, n);
 	//SelectSort(arr, n);
 	//BubbleSort(arr, n);
-	QuickSort(arr, 0, n - 1);
+	//QuickSort(arr, 0, n - 1);
+	QuickSortNorR(arr, 0, n - 1);
 
 	for(i = 0; i < n; i++)
 	{
