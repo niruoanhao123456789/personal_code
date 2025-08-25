@@ -328,6 +328,107 @@ void QuickSortNorR(int* arr, int left, int right)
 			StackPush(&st, begin);
 		}
 	}
-
+	
 	StackDestroy(&st);
+}
+
+//分治法：
+//先将待排数据不断二分，直至每组一个数据（此时相当于每组都是有序数列），再通过合并有序序列的方式不断将这些反路劲合并成一个有序序列
+void _MergeSort(int* arr, int left, int right, int* tmp)
+{
+	if (left >= right)
+	{
+		return;
+	}
+	int mid = (left + right) / 2;
+	//根据mid划分两个序列
+	_MergeSort(arr, left, mid, tmp);
+	_MergeSort(arr, mid + 1, right, tmp);
+
+	int begin1 = left, end1 = mid;
+	int begin2 = mid + 1, end2 = right;
+	int index = left;
+	while (begin1 <= end1 && begin2 <= end2)
+	{
+		if (arr[begin1] < arr[begin2])
+		{
+			tmp[index++] = arr[begin1++];
+		}
+		else
+		{
+			tmp[index++] = arr[begin2++];
+		}
+	}
+	//上一个while循环退出要么begin1序列中数据没放完，要么begin2序列中数据没放完
+	//将序列剩下数据放入临时数组中
+	while (begin1 <= end1)
+	{
+		tmp[index++] = arr[begin1++];
+	}
+	while (begin2 <= end2)
+	{
+		tmp[index++] = arr[begin2++];
+	}
+	//将临时数组的有序数据放回原数组
+	int i = left;
+	for (i = left; i <= right; i++)
+	{
+		arr[i] = tmp[i];
+	}
+}
+
+//时间复杂度为O(n*log n)
+void MergeSort(int* arr, int sizeNum)
+{
+	int* tmp = (int*)calloc(sizeNum, sizeof(int));
+	if (!tmp)
+		exit(-1);
+	_MergeSort(arr, 0, sizeNum - 1, tmp);
+	free(tmp);
+	tmp = NULL;
+}
+
+//计数排序又称鸽巢原理，是对哈希直接定址法的变形应用
+//先统计相同元素出现的次数，根据统计结果将序列放回原序列中
+//统计数组count大小如何确定，如果申请原数组中最大值+1大小的空间，面对[10001,10009]这样的数组必然造成空格间的浪费
+//所以统计数组的大小应该申请max - min + 1空间大小，同时通过数据映射（data->data-min）的方式将数据存储再count数组中
+//时间复杂度为O(n+range)、空间复杂度为O(range)
+//因此计数排序适合数据较为集中的限定场景
+void CountSort(int* arr, int sizeNum)
+{
+	//找min、max
+	int min = arr[0], max = arr[0];
+	int i = 0;
+	for (i = 1; i < sizeNum; i++)
+	{
+		if (min > arr[i])
+		{
+			min = arr[i];
+		}
+		if (max < arr[i])
+		{
+			max = arr[i];
+		}
+	}
+	//确定count数组大小
+	int range = max - min + 1;
+	int* count = (int*)calloc(range ,sizeof(int));
+	if (!count)
+		exit(-1);
+	for (i = 0; i < sizeNum; i++)
+	{
+		int j = arr[i] - min;
+		count[j]++;
+	}
+	//将count还原到原数组中
+	int index = 0;
+	for (i = 0; i < range; i++)
+	{
+		while (count[i]--)
+		{
+			arr[index++] = i + min;
+		}
+	}
+	free(count);
+	count = NULL;
 }

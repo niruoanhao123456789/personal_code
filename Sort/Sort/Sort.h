@@ -19,3 +19,9 @@ void BubbleSort(int* arr, int sizeNum);
 void QuickSort(int* arr, int left, int right);
 //非递归版本快排
 void QuickSortNorR(int* arr, int left, int right);
+
+//归并排序
+void MergeSort(int* arr, int sizeNum);
+
+//计数排序
+void CountSort(int* arr, int sizeNum);

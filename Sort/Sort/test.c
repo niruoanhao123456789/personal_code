@@ -23,7 +23,9 @@ void test1()
 	//SelectSort(arr, n);
 	//BubbleSort(arr, n);
 	//QuickSort(arr, 0, n - 1);
-	QuickSortNorR(arr, 0, n - 1);
+	//QuickSortNorR(arr, 0, n - 1);
+	//MergeSort(arr, n);
+	CountSort(arr, n);
 
 	for(i = 0; i < n; i++)
 	{
