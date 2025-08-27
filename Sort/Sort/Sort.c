@@ -257,7 +257,7 @@ int _QuickSorthole(int* arr, int left, int right)
 
 //lumoto双指针法
 //创建前后指针，从左往右找比基准值小的进行交换，使小的都在基准值左边
-_QuickSortlumoto(int* arr, int left, int right)
+int _QuickSortlumoto(int* arr, int left, int right)
 {
 	int prev = left, cur = left + 1, keyi = left;
 	while (cur <= right)
@@ -272,6 +272,33 @@ _QuickSortlumoto(int* arr, int left, int right)
 	return prev;
 }
 
+//三路划分法
+//比key小，与key相等，比key大
+//key默认取left
+//cur与key进行比较当cur比key小，二者交换，cur与left都++；当cur比key大，cur与right交换，right--；cur与key相等，cur++
+//直到cur>right结束
+void _QuickSortTreePath(int* arr, int* left, int* right)
+{
+	int key = arr[*left];
+	int cur = (*left) + 1;
+	while (cur <= *right)
+	{
+		if (arr[cur] < key)
+		{
+			Swap(&arr[cur], &arr[*left]);
+			cur++;
+			(*left)++;
+		}
+		else if (arr[cur] > key)
+		{
+			Swap(&arr[cur], &arr[*right]);
+			(*right)--;
+		}
+		else
+			cur++;
+	}
+}
+
 void QuickSort(int* arr, int left, int right)
 {
 	if (left >= right)
@@ -283,10 +310,15 @@ void QuickSort(int* arr, int left, int right)
 
 	//int key = _QuicSort(arr, left, right);
 	//int key = _QuickSorthole(arr, left, right);
-	int key = _QuickSortlumoto(arr, left, right);
+	//int key = _QuickSortlumoto(arr, left, right);
 	//将序列一分为二
-	QuickSort(arr, left, key - 1);
-	QuickSort(arr, key + 1, right);
+	/*QuickSort(arr, left, key - 1);
+	QuickSort(arr, key + 1, right);*/
+
+	int begin = left, end = right;
+	_QuickSortTreePath(arr, &left, &right);
+	QuickSort(arr, begin, left - 1);
+	QuickSort(arr, right + 1, end);
 }
 
 //根据基准值分开的子序列用栈来存起来

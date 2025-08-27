@@ -10,7 +10,8 @@ void test1()
 	int i = 0;
 	for (i = 0; i < n; i++)
 	{
-		arr[i] = rand() % n + 1;
+		//arr[i] = rand() % n + 1;
+		scanf("%d", &arr[i]);
 	}
 	for (i = 0; i < n; i++)
 	{
@@ -22,10 +23,10 @@ void test1()
 	//ShellSort(arr, n);
 	//SelectSort(arr, n);
 	//BubbleSort(arr, n);
-	//QuickSort(arr, 0, n - 1);
+	QuickSort(arr, 0, n - 1);
 	//QuickSortNorR(arr, 0, n - 1);
 	//MergeSort(arr, n);
-	CountSort(arr, n);
+	//CountSort(arr, n);
 
 	for(i = 0; i < n; i++)
 	{
