@@ -17,6 +17,8 @@ void ShellSort(int* arr, int sizeNum);
 void BubbleSort(int* arr, int sizeNum);
 //快速排序
 void QuickSort(int* arr, int left, int right);
+//自省法快排
+void QuickSort_byIntro(int* arr, int left, int right);
 //非递归版本快排
 void QuickSortNorR(int* arr, int left, int right);
 

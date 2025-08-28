@@ -310,15 +310,15 @@ void QuickSort(int* arr, int left, int right)
 
 	//int key = _QuicSort(arr, left, right);
 	//int key = _QuickSorthole(arr, left, right);
-	//int key = _QuickSortlumoto(arr, left, right);
+	int key = _QuickSortlumoto(arr, left, right);
 	//将序列一分为二
-	/*QuickSort(arr, left, key - 1);
-	QuickSort(arr, key + 1, right);*/
+	QuickSort(arr, left, key - 1);
+	QuickSort(arr, key + 1, right);
 
-	int begin = left, end = right;
+	/*int begin = left, end = right;
 	_QuickSortTreePath(arr, &left, &right);
 	QuickSort(arr, begin, left - 1);
-	QuickSort(arr, right + 1, end);
+	QuickSort(arr, right + 1, end);*/
 }
 
 //根据基准值分开的子序列用栈来存起来
@@ -362,6 +362,48 @@ void QuickSortNorR(int* arr, int left, int right)
 	}
 	
 	StackDestroy(&st);
+}
+
+void IntroQuickSort(int* arr, int left, int right, int depth, int defaultdepth)
+{
+	if (left >= right)
+		return;
+	//数组长度小于16时换为插入排序，简单递归次数
+	int len = right - left + 1;
+	if (len < 16)
+	{
+		InsertSort(arr+left, len); 
+		return;
+	}
+
+	////当递归深度大于defaultdepth时使用堆排序
+	if (depth  > defaultdepth)
+	{
+		HeapSort(arr, len);
+		return;
+	}
+	depth++;
+
+	int begin = left, end = right;
+	//随机选取基准值下标
+	int randi = left + (rand() % (right - left));
+	Swap(&arr[left], &arr[randi]);
+	int keyi = _QuickSortlumoto(arr, begin, end);
+
+	IntroQuickSort(arr, begin, keyi - 1, depth, defaultdepth);
+	IntroQuickSort(arr, keyi + 1, end, depth, defaultdepth);
+}
+
+void QuickSort_byIntro(int* arr, int left, int right)
+{
+	int depth = 0;
+	int logn = 0;
+	int len = right - left + 1;
+	for (int i = 1; i < len; i*=2)
+	{
+		logn++;
+	}
+	IntroQuickSort(arr, left, right, depth, 2 * logn);
 }
 
 //分治法：

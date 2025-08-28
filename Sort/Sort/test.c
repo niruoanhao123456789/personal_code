@@ -10,8 +10,8 @@ void test1()
 	int i = 0;
 	for (i = 0; i < n; i++)
 	{
-		//arr[i] = rand() % n + 1;
-		scanf("%d", &arr[i]);
+		arr[i] = rand() % n + 1;
+		//scanf("%d", &arr[i]);
 	}
 	for (i = 0; i < n; i++)
 	{
@@ -19,14 +19,16 @@ void test1()
 	}
 	printf("\n");
 
+	//HeapSort(arr, n);
 	//InsertSort(arr, n);
 	//ShellSort(arr, n);
 	//SelectSort(arr, n);
 	//BubbleSort(arr, n);
-	QuickSort(arr, 0, n - 1);
+	//QuickSort(arr, 0, n - 1);
 	//QuickSortNorR(arr, 0, n - 1);
 	//MergeSort(arr, n);
 	//CountSort(arr, n);
+	QuickSort_byIntro(arr, 0, n - 1);
 
 	for(i = 0; i < n; i++)
 	{
@@ -40,7 +42,7 @@ void test1()
 
 int main()
 {
-	srand((unsigned int)time(NULL));
+	//srand((unsigned int)time(NULL));
 	test1();
 
 	return 0;
