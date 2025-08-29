@@ -462,6 +462,97 @@ void MergeSort(int* arr, int sizeNum)
 	tmp = NULL;
 }
 
+int cmp_bylarge(const void* e1, const void* e2)
+{
+	return (*(int*)e1 - *(int*)e2);
+}
+
+//先在待读文件中读取n个数据到file1，再读n个数据到file2，将file1和file2归并到mfile中，
+//再将mfile作为新的file1，继续读取文件数据直至读完，最后mfile就是排序后的文件
+//返回实际读取数据个数，若没有数据了则返回0
+int ReadNDataToFile(const char* fout, int n, const char* file1)
+{
+	//读数据
+	int x = 0;
+	int* arr = (int*)malloc(n * sizeof(int));
+	if (arr == NULL)
+		exit(-1);
+	//想读n个数据，但实际只读j个数据
+	int j = 0;
+	for (size_t i = 0; i < n; i++)
+	{
+		if (fscanf(fout, "%d", &x) == EOF)
+			return 0;
+		
+		arr[j++] = x;
+	}
+	if (!j)
+		return 0; 
+
+	//排序
+	qsort(arr, j, sizeof(int), cmp_bylarge);
+
+	//写回file1文件
+	FILE* fin = fopen(file1, "w");
+	if (fin == NULL)
+		return 0;
+	for (size_t i = 0; i < j; i++)
+	{
+		fprintf(fin, "%d\n", arr[i]);
+	}
+
+	fclose(fin);
+	fin = NULL;
+	return j;
+}
+
+void MergeFileSort(const char* file1,const char* file2,const char* mfile)
+{
+	FILE* fout1 = fopen(file1, "r");
+	if (fout1 == NULL)
+		return;
+	FILE* fout2 = fopen(file2, "r");
+	if (fout2 == NULL)
+		return;
+	FILE* mfin = fopen(mfile, "w");
+	if (mfin == NULL)
+		return;
+
+	int x1 = 0, x2 = 0;
+	int ret1 = fscanf(fout1, "%d", &x1);
+	int ret2 = fscanf(fout2, "%d", &x2);
+	while (ret1 != EOF && ret2 != EOF)
+	{
+		if (x1 < x2)
+		{
+			fprintf(mfin, "%d\n", x1);
+			ret1 = fscanf(fout1, "%d", &x1);
+		}
+		else
+		{
+			fprintf(mfin, "%d\n", x2);
+			ret2 = fscanf(fout2, "%d", &x2);
+		}
+	}
+	while (ret1 != EOF)
+	{
+		fprintf(mfin, "%d\n", x1);
+		ret1 = fscanf(fout1, "%d", &x1);
+	}
+	while (ret2 != EOF)
+	{
+		fprintf(mfin, "%d\n", x2);
+		ret2 = fscanf(fout2, "%d", &x2);
+	}
+
+	fclose(fout1);
+	fout1 = NULL;
+	fclose(fout2);
+	fout2 = NULL;
+	fclose(mfin);
+	mfin = NULL;
+}
+
 //计数排序又称鸽巢原理，是对哈希直接定址法的变形应用
 //先统计相同元素出现的次数，根据统计结果将序列放回原序列中
 //统计数组count大小如何确定，如果申请原数组中最大值+1大小的空间，面对[10001,10009]这样的数组必然造成空格间的浪费

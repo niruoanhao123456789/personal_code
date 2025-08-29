@@ -24,6 +24,9 @@ void QuickSortNorR(int* arr, int left, int right);
 
 //归并排序
 void MergeSort(int* arr, int sizeNum);
+//文件归并
+int ReadNDataToFile(const char* file, int n, const char* file1);
+void MergeFileSort(const char* file1, const char* file2, const char* mfile);
 
 //计数排序
 void CountSort(int* arr, int sizeNum);
