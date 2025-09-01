@@ -462,6 +462,59 @@ void MergeSort(int* arr, int sizeNum)
 	tmp = NULL;
 }
 
+//默认数组中每个数据都为单个序列，将它们不断进行归并排序
+void MergeSortNorR(int* arr, int sizeNum)
+{
+	int* tmp = (int*)malloc(sizeNum * sizeof(int));
+	if (!tmp)
+		exit(-1);
+	int gap = 1;
+	while (gap < sizeNum)
+	{
+		//根据gap来划分序列，然后将两两进行合并
+		for (int i = 0; i < sizeNum; i += 2*gap)
+		{
+			int begin1 = i, end1 = i + gap - 1;
+			int begin2 = end1 + 1, end2 = i + 2 * gap - 1;
+			int index = begin1;
+			//针对奇偶个数序列防止下标越界
+			if (begin2 >= sizeNum)
+			{
+				break;
+			}
+			if (end2 >= sizeNum)
+			{
+				end2 = sizeNum - 1;
+			}
+			//合并两个序列
+			while (begin1 <= end1 && begin2 <= end2)
+			{
+				if (arr[begin1] < arr[begin2])
+				{
+					tmp[index++] = arr[begin1++];
+				}
+				else
+				{
+					tmp[index++] = arr[begin2++];
+				}
+			}
+			while (begin1 <= end1)
+			{
+				tmp[index++] = arr[begin1++];
+			}
+			while (begin2 <= end2)
+			{
+				tmp[index++] = arr[begin2++];
+			}
+			//序列导入原数组
+			memcpy(arr + i, tmp + i, (end2 - i + 1) * sizeof(int));
+		}
+		gap *= 2;
+	}
+	free(tmp);
+	tmp = NULL;
+}
+
 int cmp_bylarge(const void* e1, const void* e2)
 {
 	return (*(int*)e1 - *(int*)e2);

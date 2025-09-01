@@ -27,6 +27,7 @@ void test1()
 	//QuickSort(arr, 0, n - 1);
 	//QuickSortNorR(arr, 0, n - 1);
 	//MergeSort(arr, n);
+	MergeSortNorR(arr, n);
 	//CountSort(arr, n);
 	//QuickSort_byIntro(arr, 0, n - 1);
 
@@ -90,8 +91,8 @@ void test2()
 int main()
 {
 	srand((unsigned int)time(NULL));
-	//test1();
-	test2();
+	test1();
+	//test2();
 
 	return 0;
 }
