@@ -1,2 +1,16 @@
-﻿  函数.c
+﻿  learn.c
+  习题训练.c
+  位段、枚举、联合体.c
+  函数.c
+  动态内存分配.c
+  循环语句.c
+  指针.c
+  操作符.c
+  数据储存.c
+  数组.c
+  文件的使用.c
+  程序环境与预处理.c
+  结构体.c
+  选择语句.c
+  正在生成代码...
   test 7.17 .c.vcxproj -> D:\code\gitee_my_personal_code\test 7.17 .c\x64\Debug\test 7.17 .c.exe

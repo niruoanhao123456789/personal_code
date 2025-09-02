@@ -237,23 +237,25 @@
 //而栈区的使用习惯是先用高地址再到地址
 //ebp存的是栈底指针，esp存的是栈顶指针，每一次函数的调用，esp、ebp两个指针都会指向函数栈帧在栈区的首尾，
 //两者中间便是函数在栈区的内存
-//
+//lea为load effective address
+// 
 //观察
 //在调试中用调用堆栈和反汇编并把显示符号勾选取消，同时监视两个寄存器里的地址
-//int Add(int x, int y)
-//{
-//	return(x + y);
-//}
-//
-//int main()
-//{
-//	int a = 1;
-//	int b = 2;
-//	int c = Add(a, b);
-//	printf("%d\n", c);
-//
-//	return 0;
-//}
+int Add(int x, int y)
+{
+	int z = x + y;
+	return z;
+}
+
+int main()
+{
+	int a = 1;
+	int b = 2;
+	int c = Add(a, b);
+	printf("%d\n", c);
+
+	return 0;
+}
 
 
 //字符函数与字符串函数
