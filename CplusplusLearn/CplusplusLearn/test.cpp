@@ -190,44 +190,130 @@
 
 //函数重载
 //c++中在同一作用域里可用同名函数，但要求参数不同
-#include<iostream>
-using namespace std;
-
-int Add(int x, int y)
-{
-	return (x + y);
-}
-
-double Add(double x, double y)
-{
-	return (x + y);
-}
-
-void Add(int x, int y,int* z)
-{
-	*z = (x+y);
-}
-
-char Add(char x, int y)
-{
-	return (x + y);
-}
-
-char Add(int y,char x )
-{
-	return (x + y);
-}
-
-//返回类型不同不能构成函数重载
-//char Add(int x, int y)
+//#include<iostream>
+//using namespace std;
+//
+//int Add(int x, int y)
 //{
 //	return (x + y);
 //}
+//
+//double Add(double x, double y)
+//{
+//	return (x + y);
+//}
+//
+//void Add(int x, int y,int* z)
+//{
+//	*z = (x+y);
+//}
+//
+//char Add(char x, int y)
+//{
+//	return (x + y);
+//}
+//
+//char Add(int y,char x )
+//{
+//	return (x + y);
+//}
+//
+////返回类型不同不能构成函数重载，因返回值不同的话，无法确定函数具体是哪一个
+////char Add(int x, int y)
+////{
+////	return (x + y);
+////}
+//
+//int Add()
+//{
+//	//
+//	return;
+//}
+////与最开始的int Add构成函数重载，但是存在着是调用无参的Add还是缺省参数的Add，因此存在对重载函数调用不明确的问题
+//
+//
+//int main()
+//{
+//	cout << Add(1, 1) << endl;
+//	cout << Add(1.1, 2.1) << endl;
+//	//这样实现表面上一个函数使用了不同类型的参数
+//	return 0;
+//}
 
-int main()
-{
-	cout << Add(1, 1) << endl;
-	cout << Add(1.1, 2.1) << endl;
-	//这样实现表面上一个函数使用了不同类型的参数
-	return 0;
-}
+
+//引用 
+//给已存在的变量取别名，同一变量的不同别名指向的都是同一内存空间
+//#include<iostream>
+//using namespace std;
+//
+//int main()
+//{
+//	int i = 0;
+//	cout << &i << endl;//此处&是取地址的作用
+//
+//	//引用
+//	//类型&  引⽤别名 = 引⽤对象;
+//	int& j = i;//引用必须要初始化
+//
+//	cout << &j << endl;//取地址
+//	j++;
+//	cout << j << endl;
+//
+//	int& k = j;
+//	//引⽤⼀旦引⽤⼀个实体，再不能引⽤其他实体
+//	/*int m = 0;
+//	int& k = m;*///err
+//
+//	return 0;
+//}
+//
+//引用是在大部分场景替代指针，但不能完全取代
+//#include<iostream>
+//using namespace std;
+//
+//typedef struct SLTNode
+//{
+//	int val;
+//	struct STNode* next;
+//}SLTNode,*pSLTNode;
+////这样的写法等价于下面这样写
+//typedef struct SLTNode SLTNode;
+//typedef struct SLTNode* pSLTNode;
+//
+//void STLPush(pSLTNode& plist, int x)
+//{
+//	//……
+//}
+//
+////传址调用
+//void Swap(int& x, int& y)
+//{
+//	int tmp = x;
+//	x = y;
+//	y = tmp;
+//}
+//
+//void Swap1(int**x, int**y)
+//{
+//	//……
+//}
+//
+//void Swap2(int*& x, int*& y)//也可以对指针的指针进行重名
+//{
+//	//……
+//}
+//
+//int main()
+//{
+//	int x = 1, y = 3;
+//	cout << "x = " << x << " y = " << y << endl;
+//	Swap(x, y);
+//	cout << "x = " << x << " y = " << y << endl;
+//	int* px = &x, * py = &y;
+//	Swap1(&px, &py);
+//
+//	return 0;
+//}
+//
+//引用虽然好用，但在链表、数结点定义位置只能使用指针
+//原因是C++的引用无法改变指向，结点一定存在着改变指向的场景，所以这里无法用引用
