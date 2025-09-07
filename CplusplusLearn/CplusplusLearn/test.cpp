@@ -266,7 +266,7 @@
 //
 //	return 0;
 //}
-//
+
 //引用是在大部分场景替代指针，但不能完全取代
 //#include<iostream>
 //using namespace std;
@@ -309,11 +309,118 @@
 //	cout << "x = " << x << " y = " << y << endl;
 //	Swap(x, y);
 //	cout << "x = " << x << " y = " << y << endl;
-//	int* px = &x, * py = &y;
-//	Swap1(&px, &py);
+//	/*int* px = &x, * py = &y;
+//	Swap1(&px, &py);*/
+//
 //
 //	return 0;
 //}
-//
+
 //引用虽然好用，但在链表、数结点定义位置只能使用指针
 //原因是C++的引用无法改变指向，结点一定存在着改变指向的场景，所以这里无法用引用
+//
+//#include<iostream>
+//using namespace std;
+//
+//int fun()
+//{
+//	int ret = 0;
+//	return ret;
+//}
+////传值返回和形参的思路差不多一样都是进行临时拷贝的方式
+////当数据比较小用一个寄存器来存该返回值，如果比较大则会开辟下一层栈空间。
+//
+//int& fun1()
+//{
+//	int ret = 0;
+//	return ret;
+//}
+////传引用返回，返回了存储ret值临时变量的别名
+////这样的返回方式存在危险，因临时变量已经销毁，用别名访问属于越界访问
+////越界访问编译器不一定报错
+////对于使用数组是否越界，主要采取抽查法，每个数组末尾都存在着类似于标志位的数据，如果越界这数据必然被改变，所以只用抽查后面这块空间
+//
+//int& fun2()
+//{
+//	int y = 123;
+//	return y;
+//}
+//
+//int& fun3()
+//{
+//	static int ret = 1;
+//	return ret;
+//}
+//
+//int main()
+//{
+//	//int a = fun();
+//	//cout << a << endl;
+//	//int a = fun1();
+//	//cout << a << endl;
+//	//int& x = fun1();
+//	//cout << x << endl;
+//	//fun2();
+//	//cout << x << endl;
+//	//为什么两次结果相同，因为fun2是在fun1销毁后在同一内存栈空间上建立的，别名指向的是同一内存空间
+//	//以上为别名返回的错误写法
+//
+//	//int b = fun3();
+//	//cout << b << endl;
+//	//这才是正确写法
+//
+//	//如果函数表达式返回的是别名，还可以通过该别名改变其指向的值
+//
+//	//语法引用不需要开辟空间，而指针需要，但二者在汇编里是一样的，引用底层是用指针实现的
+//	int a = 0;
+//	int& b = a;
+//	int* pa = &a;
+//
+//	b++;
+//	(*pa)++;
+//
+//	return 0;
+//}
+
+//const引用
+#include<iostream>
+using namespace std;
+
+//如果不存在要改变引用对象的值，建议用const引用，以防出现权限放大的情况
+void fun1(const int& x)
+{
+	//
+}
+
+void fun2(int& x)
+{
+	//
+}
+
+int main()
+{
+	const int a = 0;
+	//权限放大
+	//const int a 本身无法改变，而试图用引用的int& b来改变a的值是引用权限放大的情况，是不被允许的
+	//int& b = a;
+	const int b = a;
+
+	//这不是权限放大，只是个赋值拷贝
+	int e = a;
+
+	//权限缩小
+	int c = 0;
+	const int& d = c;
+
+	//权限的缩小和放大只存在于const 指针和引用里
+
+	int f = 1;
+	fun1(f);
+	const int z = 1;
+	fun1(z);
+
+	//fun2(f);
+	//fun2(z);//出现了权限放大的问题
+
+	return 0;
+}
