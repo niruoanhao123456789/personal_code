@@ -383,47 +383,73 @@
 //}
 
 //const引用
-#include<iostream>
-using namespace std;
+//#include<iostream>
+//using namespace std;
+//
+////如果不存在要改变引用对象的值，建议用const引用，以防出现权限放大的情况
+//void fun1(const int& x)
+//{
+//	//
+//}
+//
+//void fun2(int& x)
+//{
+//	//
+//}
+//
+//int main()
+//{
+//	const int a = 0;
+//	//权限放大
+//	//const int a 本身无法改变，而试图用引用的int& b来改变a的值是引用权限放大的情况，是不被允许的
+//	//int& b = a;
+//	const int b = a;
+//
+//	//这不是权限放大，只是个赋值拷贝
+//	int e = a;
+//
+//	//权限缩小
+//	int c = 0;
+//	const int& d = c;
+//
+//	//权限的缩小和放大只存在于const 指针和引用里
+//
+//	int f = 1;
+//	fun1(f);
+//	const int z = 1;
+//	fun1(z);
+//
+//	//fun2(f);
+//	//fun2(z);//出现了权限放大的问题
+//
+//	return 0;
+//}
+//
+//void fun(const int& pi)//可见const引用更多用于传参
+//{
+//	;
+//}
+//
+//#include<iostream>
+//using namespace std;
+//int main()
+//{
+//	int i = 0;
+//	double d = i;//在类型转换的情况下
+//	
+//	int p = (int)&i;
+//
+//	//double& rd = i;//一般的引用却不能这样使用
+//	const double& rd = i;//const引用却可以
+//
+//	//int& pi = (int)&i;
+//	const int& pi = (int)&i;
+//
+//	double a = 2.2;
+//	fun(a);
+//
+//	return 0;
+//}
 
-//如果不存在要改变引用对象的值，建议用const引用，以防出现权限放大的情况
-void fun1(const int& x)
-{
-	//
-}
-
-void fun2(int& x)
-{
-	//
-}
-
-int main()
-{
-	const int a = 0;
-	//权限放大
-	//const int a 本身无法改变，而试图用引用的int& b来改变a的值是引用权限放大的情况，是不被允许的
-	//int& b = a;
-	const int b = a;
-
-	//这不是权限放大，只是个赋值拷贝
-	int e = a;
-
-	//权限缩小
-	int c = 0;
-	const int& d = c;
-
-	//权限的缩小和放大只存在于const 指针和引用里
-
-	int f = 1;
-	fun1(f);
-	const int z = 1;
-	fun1(z);
-
-	//fun2(f);
-	//fun2(z);//出现了权限放大的问题
-
-	return 0;
-}
-
-
-///
+//引用与指针的关系
+//引用只是取别名不会额外开辟空间
