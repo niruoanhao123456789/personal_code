@@ -67,46 +67,46 @@
 //类定义了⼀个新的作⽤域，类的所有成员都在类的作⽤域中，在类体外定义成员时需要使⽤ :: 作⽤域操作符指明成员属于哪个类域
 //在不同类的类域里，同名函数得以实现如stack::push(),list::push()
 //类域影响的是编译的查找规则
-#include<iostream>
-using namespace std;
-
-class Stack
-{
-public:
-	// 成员函数
-	void Init(int n = 4);
-private:
-	// 成员变量
-	int* array;
-	size_t capacity;
-	size_t top;
-	//以上成员变量都是在类里被声明
-};
-
-// 声明和定义分离，需要指定类域
-void Stack::Init(int n)
-{
-	array = (int*)malloc(sizeof(int) * n);
-	if (nullptr == array)
-	{
-		perror("malloc申请空间失败");
-		return;
-	} 
-
-	capacity = n;
-	top = 0;
-}
-
-int main()
-{
-	Stack s1;//这样定义，成员变量才被分配内存空间，及实例化对象
-
-	s1.Init(10);
-
-	//cpp里实例化的对象也要遵循内对齐的规则
-	cout << sizeof(Stack) << endl;
-	cout << sizeof(s1) << endl;
-
-	return 0;
-}
+//#include<iostream>
+//using namespace std;
+//
+//class Stack
+//{
+//public:
+//	// 成员函数
+//	void Init(int n = 4);
+//private:
+//	// 成员变量
+//	int* array;
+//	size_t capacity;
+//	size_t top;
+//	//以上成员变量都是在类里被声明
+//};
+//
+//// 声明和定义分离，需要指定类域
+//void Stack::Init(int n)
+//{
+//	array = (int*)malloc(sizeof(int) * n);
+//	if (nullptr == array)
+//	{
+//		perror("malloc申请空间失败");
+//		return;
+//	} 
+//
+//	capacity = n;
+//	top = 0;
+//}
+//
+//int main()
+//{
+//	Stack s1;//这样定义，成员变量才被分配内存空间，及实例化对象
+//
+//	s1.Init(10);
+//
+//	//cpp里实例化的对象也要遵循内对齐的规则
+//	cout << sizeof(Stack) << endl;
+//	cout << sizeof(s1) << endl;
+//
+//	return 0;
+//}
 
