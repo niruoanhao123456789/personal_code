@@ -110,3 +110,45 @@
 //	return 0;
 //}
 
+//对象的大小
+//#include<iostream>
+//using namespace std;
+//
+//class A
+//{
+//public:
+//	void print()
+//	{
+//		cout << _ch << endl;
+//	}
+//private:
+//	char _ch;
+//	int i;
+//};
+//
+//class B
+//{
+//public:
+//	void Print()
+//	{
+//
+//	}
+//};
+//
+//class C
+//{
+//
+//};
+//
+//int main()
+//{
+//	cout << sizeof(A) << endl;
+//	//开1byte是为了占位，表示对象存在过
+//	cout << sizeof(B) << endl;
+//	cout << sizeof(C) << endl;
+//
+//	B b1;
+//	C c1;
+//
+//	return 0;
+//}
