@@ -242,7 +242,7 @@
 //C语言是面向过程的语言，而C++是面向对象的
 
 //类的默认成员函数
-//默认成员函数就是⽤⼾没有显式实现，编译器会⾃动⽣成的成员函数称为默认成员函数
+//默认成员函数就是⽤户没有显式实现，编译器会⾃动⽣成的成员函数称为默认成员函数
 //
 //构造函数
 //构造函数主要任务对象实例化时初始化对象，而不是开辟空间创建对象
@@ -251,37 +251,152 @@
 // 2、无返回值
 // 3、对象实例化时系统会⾃动调⽤对应的构造函数
 // 4、可以函数重载
-#include<iostream>
-using namespace std;
+// 5、如果类中没有显式定义构造函数，则C++编译器会⾃动⽣成⼀个⽆参的默认构造函数
+// 6、⽆参构造函数、全缺省构造函数、我们不写构造时编译器默认⽣成的构造函数，都叫做默认构造函数。
+//	  且不传实参就可以调⽤的构造就叫默认构造
+//#include<iostream>
+//using namespace std;
+//
+//class Data
+//{
+//public:
+//	//无参构造函数
+//	/*Data()
+//	{
+//		_year = 1;
+//		_month = 1;
+//		_day = 1;
+//	}*/
+//
+//	//全缺省构造函数
+//	//Data(int year = 1, int month = 1, int day = 1)
+//	//{
+//	//	_year = year;
+//	//	_month = month;
+//	//	_day = day;
+//	//}
+//	//可见全缺省构造函数和无参构造函数作用是一样的，因此两者不能共存
+//
+//	//将上面代码都注释掉后就是不写构造时编译器默认⽣成的构造函数
+//	//在c++中编译器默认生成的构造函数对内置类型成员变量的初始化没有要求，具体取决于编译器的不同
+//	void Print()
+//	{
+//		cout << _year << ' ' << _month << ' ' << _day << endl;
+//	}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+//int main()
+//{
+//	//调用无参的构造函数不能这样写，编译器会误认为这个是函数的声明
+//	//Data d1();
+//	Data d1;
+//
+//	d1.Print();
+//
+//
+//	return 0;
+//}
+//
+//class Stack
+//{
+//public:
+//	//如果这里没有默认构造，下面的队列类就会报错
+//	Stack()
+//	{
+//		_arr = nullptr;
+//		_top = 0;
+//		_capacity = 0;
+//	}
+//private:
+//	int* _arr;
+//	int _top;
+//	int _capacity;
+//};
+//
+//class Queue
+//{
+//public:
+//	
+//private:
+//	Stack _Pushst;
+//	Stack _Popst;
+//	//上面的内置类型因前面的默认构造有初始化，而下面的没有
+//	int _size;
+//};
+//
+//int main()
+//{
+//	Queue q1;
+//}
 
-class Data
-{
-public:
-	//无参构造函数
-	Data()
-	{
-		_year = 1;
-		_month = 1;
-		_day = 1;
-	}
-	void Print()
-	{
-		cout << _year << ' ' << _month << ' ' << _day << endl;
-	}
-private:
-	int _year;
-	int _month;
-	int _day;
-};
 
-int main()
-{
-	//调用无参的构造函数不能这样写，编译器会误认为这个是函数的声明
-	//Data d1();
-	Data d1;
-
-	d1.Print();
-
-
-	return 0;
-}
+//析构函数
+//析构函数与构造函数功能相反,但不是完成对对象本⾝的销毁。
+//C++规定对象在销毁时会⾃动调⽤析构函数，完成对象中资源的清理释放⼯作
+//析构函数特点：
+//1、析构函数名是在类名前加上字符 ~。  
+//2、⽆参数⽆返回值。(这⾥跟构造类似，也不需要加void)
+//3、⼀个类只能有⼀个析构函数。若未显式定义，系统会⾃动⽣成默认的析构函数
+//4、对象⽣命周期结束时，系统会⾃动调⽤析构函数
+//5、无论我们是否显示地写析构函数，自定义类型都会自动调用他的析构函数
+//6、如果类中没有申请资源时，析构函数可以不写，直接使⽤编译器⽣成的默认析构函数；
+// 但是有资源申请时，⼀定要⾃⼰写析构，否则会造成资源泄漏，因为编译器默认析构函数无法处理这些复杂地资源释放
+//#include<iostream>
+//using namespace std;
+//
+//class Stack
+//{
+//public:
+//	Stack(int n = 4)
+//	{
+//		int* tmp = (int*)malloc(sizeof(int) * n);
+//		if (tmp)
+//		{
+//			_arr = tmp;
+//		}
+//		else
+//		{
+//			exit(-1);
+//		}
+//		_top = 0;
+//		_capacity = n;
+//
+//	}
+//
+//	~Stack()
+//	{
+//		free(_arr);
+//		_arr = nullptr;
+//		_top = 0;
+//		_capacity = 0;
+//		cout << "~Stack()" << endl;
+//	}
+//private:
+//	int* _arr;
+//	int _top;
+//	int _capacity;
+//};
+//
+//class Queue
+//{
+//public:
+//	~Queue()
+//	{
+//		cout << "~Queue" << endl;
+//	}
+//private:
+//	Stack Pushst;
+//	Stack Popst;
+//};
+//
+//int main()
+//{
+//	Stack st;
+//	Queue q1;
+//
+//	return 0;
+//}
