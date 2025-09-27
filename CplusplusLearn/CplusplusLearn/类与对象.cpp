@@ -400,3 +400,161 @@
 //
 //	return 0;
 //}
+
+
+//复制/拷贝构造函数
+//如果⼀个构造函数的第⼀个参数是⾃⾝类类型的引⽤，且任何额外的参数都有默认值，则此构造函数也叫做拷⻉构造函数
+//拷贝构造函数的特点：
+// 1、拷⻉构造函数是构造函数的⼀个重载
+// 2、拷⻉构造函数也可以多个参数，但是第⼀个参数必须是类类型对象的引⽤，后⾯的参数必须有缺省值。
+//	  如果第一个参数使⽤传值⽅式编译器直接报错，因为语法逻辑上会引发⽆穷递归调⽤
+// 3、C++规定⾃定义类型对象进⾏拷⻉⾏为必须调⽤拷⻉构造，所以这⾥⾃定义类型传值传参和传值返回都会调⽤拷⻉构造完成
+
+#include<iostream>
+using namespace std;
+//
+//class Date
+//{
+//public:
+//	Date(int year = 1,int month = 1,int day=1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	//这部分便是拷贝构造函数的代码
+//	//用const引用是因为要拷贝的d不用改变，且避免跟const引用里权限放大的问题
+//	//这里如果使用指针的话就是单纯的拷贝，而不是拷贝构造
+//	Date(const Date& d)
+//	{
+//		_year = d._year;
+//		_month = d._month;
+//		_day = d._day;
+//	}
+//
+//	void Print()
+//	{
+//		cout << _year << " " << _month << " " << _day << endl;
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+////对应特点3
+////在给fun的d传参时，会先调用拷贝构造将值拷贝给参数d
+//void fun(Date d)
+//{
+//	d.Print();
+//}
+//
+//int main()
+//{
+//	Date d1(2025,9,27);
+//	//拷贝构造
+//	Date d2(d1);
+//	d2.Print();
+//	//这样也是拷贝构造
+//	Date d3 = d1;
+//
+//	fun(d1);
+//
+//	return 0;
+//}
+//
+typedef int STDataType;
+class Stack
+{
+public:
+	Stack(int n = 4)
+	{
+		_a = (STDataType*)malloc(sizeof(STDataType) * n);
+		if (nullptr == _a)
+		{
+			perror("malloc申请空间失败");
+			return;
+		}
+		_capacity = n;
+		_top = 0;
+	} 
+
+	//浅拷贝
+	//Stack(const Stack& st)
+	//{
+	//	_a = st._a;
+	//	_top = st._top;
+	//	_capacity = st._capacity;
+	//}
+
+	//深拷贝
+	Stack(const Stack& st)
+	{
+		_a = (STDataType*)malloc(sizeof(STDataType) * st._capacity);
+		if (nullptr == _a)
+		{
+			perror("malloc申请空间失败!!!");
+			return;
+		}
+		memcpy(_a, st._a, sizeof(STDataType) * st._top);
+		_top = st._top;
+		_capacity = st._capacity;
+	}
+
+	void Push(STDataType x)
+	{
+		if (_top == _capacity)
+		{
+			int newcapacity = _capacity * 2;
+			STDataType* tmp = (STDataType*)realloc(_a, newcapacity *
+				sizeof(STDataType));
+			if (tmp == NULL)
+			{
+				perror("realloc fail");
+				return;
+			}
+			_a = tmp;
+			_capacity = newcapacity;
+		}
+		_a[_top++] = x;
+	}
+
+	~Stack()
+	{
+		cout << "~Stack()" << endl;
+		free(_a);
+		_a = nullptr;
+		_top = _capacity = 0;
+	}
+private:
+	STDataType* _a;
+	size_t _capacity;
+	size_t _top;
+};
+
+class MyQueue
+{
+public:
+private:
+	Stack pushst;
+	Stack popst;
+};
+
+int main()
+{
+	Stack st1;
+	st1.Push(1);
+	st1.Push(2);
+	//Stack不显⽰实现拷⻉构造，⽤⾃动⽣成的拷⻉构造完成浅拷⻉
+	//浅拷贝或值拷贝存在着以下的问题
+	//1、一个值的修改会影响另一个值
+	//多层的拷贝构造中会存在某次过程中将要拷贝的数值改变了，导致后面的拷贝出现问题
+	//2、析构时会对同一块空间释放多次。
+
+	//为了解决上面的问题，一种方法是深拷贝
+	//深拷贝不仅对成员拷贝，还要对指向的资源空间进行处理
+
+	return 0;
+}
