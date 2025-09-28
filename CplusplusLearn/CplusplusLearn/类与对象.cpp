@@ -465,96 +465,96 @@ using namespace std;
 //	return 0;
 //}
 //
-typedef int STDataType;
-class Stack
-{
-public:
-	Stack(int n = 4)
-	{
-		_a = (STDataType*)malloc(sizeof(STDataType) * n);
-		if (nullptr == _a)
-		{
-			perror("malloc申请空间失败");
-			return;
-		}
-		_capacity = n;
-		_top = 0;
-	} 
-
-	//浅拷贝
-	//Stack(const Stack& st)
-	//{
-	//	_a = st._a;
-	//	_top = st._top;
-	//	_capacity = st._capacity;
-	//}
-
-	//深拷贝
-	Stack(const Stack& st)
-	{
-		_a = (STDataType*)malloc(sizeof(STDataType) * st._capacity);
-		if (nullptr == _a)
-		{
-			perror("malloc申请空间失败!!!");
-			return;
-		}
-		memcpy(_a, st._a, sizeof(STDataType) * st._top);
-		_top = st._top;
-		_capacity = st._capacity;
-	}
-
-	void Push(STDataType x)
-	{
-		if (_top == _capacity)
-		{
-			int newcapacity = _capacity * 2;
-			STDataType* tmp = (STDataType*)realloc(_a, newcapacity *
-				sizeof(STDataType));
-			if (tmp == NULL)
-			{
-				perror("realloc fail");
-				return;
-			}
-			_a = tmp;
-			_capacity = newcapacity;
-		}
-		_a[_top++] = x;
-	}
-
-	~Stack()
-	{
-		cout << "~Stack()" << endl;
-		free(_a);
-		_a = nullptr;
-		_top = _capacity = 0;
-	}
-private:
-	STDataType* _a;
-	size_t _capacity;
-	size_t _top;
-};
-
-class MyQueue
-{
-public:
-private:
-	Stack pushst;
-	Stack popst;
-};
-
-int main()
-{
-	Stack st1;
-	st1.Push(1);
-	st1.Push(2);
-	//Stack不显⽰实现拷⻉构造，⽤⾃动⽣成的拷⻉构造完成浅拷⻉
-	//浅拷贝或值拷贝存在着以下的问题
-	//1、一个值的修改会影响另一个值
-	//多层的拷贝构造中会存在某次过程中将要拷贝的数值改变了，导致后面的拷贝出现问题
-	//2、析构时会对同一块空间释放多次。
-
-	//为了解决上面的问题，一种方法是深拷贝
-	//深拷贝不仅对成员拷贝，还要对指向的资源空间进行处理
-
-	return 0;
-}
+//typedef int STDataType;
+//class Stack
+//{
+//public:
+//	Stack(int n = 4)
+//	{
+//		_a = (STDataType*)malloc(sizeof(STDataType) * n);
+//		if (nullptr == _a)
+//		{
+//			perror("malloc申请空间失败");
+//			return;
+//		}
+//		_capacity = n;
+//		_top = 0;
+//	} 
+//
+//	//浅拷贝
+//	//Stack(const Stack& st)
+//	//{
+//	//	_a = st._a;
+//	//	_top = st._top;
+//	//	_capacity = st._capacity;
+//	//}
+//
+//	//深拷贝
+//	Stack(const Stack& st)
+//	{
+//		_a = (STDataType*)malloc(sizeof(STDataType) * st._capacity);
+//		if (nullptr == _a)
+//		{
+//			perror("malloc申请空间失败!!!");
+//			return;
+//		}
+//		memcpy(_a, st._a, sizeof(STDataType) * st._top);
+//		_top = st._top;
+//		_capacity = st._capacity;
+//	}
+//
+//	void Push(STDataType x)
+//	{
+//		if (_top == _capacity)
+//		{
+//			int newcapacity = _capacity * 2;
+//			STDataType* tmp = (STDataType*)realloc(_a, newcapacity *
+//				sizeof(STDataType));
+//			if (tmp == NULL)
+//			{
+//				perror("realloc fail");
+//				return;
+//			}
+//			_a = tmp;
+//			_capacity = newcapacity;
+//		}
+//		_a[_top++] = x;
+//	}
+//
+//	~Stack()
+//	{
+//		cout << "~Stack()" << endl;
+//		free(_a);
+//		_a = nullptr;
+//		_top = _capacity = 0;
+//	}
+//private:
+//	STDataType* _a;
+//	size_t _capacity;
+//	size_t _top;
+//};
+//
+//class MyQueue
+//{
+//public:
+//private:
+//	Stack pushst;
+//	Stack popst;
+//};
+//
+//int main()
+//{
+//	Stack st1;
+//	st1.Push(1);
+//	st1.Push(2);
+//	//Stack不显⽰实现拷⻉构造，⽤⾃动⽣成的拷⻉构造完成浅拷⻉
+//	//浅拷贝或值拷贝存在着以下的问题
+//	//1、一个值的修改会影响另一个值
+//	//多层的拷贝构造中会存在某次过程中将要拷贝的数值改变了，导致后面的拷贝出现问题
+//	//2、析构时会对同一块空间释放多次。
+//
+//	//为了解决上面的问题，一种方法是深拷贝
+//	//深拷贝不仅对成员拷贝，还要对指向的资源空间进行处理
+//
+//	return 0;
+//}
