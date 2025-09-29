@@ -2306,26 +2306,6 @@ int main()
 //	return 0;
 //}
 
-
-//
-//#include<stdio.h>
-//
-//int main()
-//{
-//	char arr[20] = { 0 };
-//	int n = 0;
-//	scanf_s("%d", &n);
-//	int i = 0;
-//	for (i = 0; i < n; i++)
-//	{
-//		scanf_s("%s", &arr, 20);
-//		printf("Welcome to GDUT %s\n",arr);
-//	}
-//
-//	return 0;
-//}
-
-
 //在n个数字中，求连续m个数的和的最小值
 //#include<stdio.h>
 //
@@ -2485,9 +2465,7 @@ int main()
 //
 //int main()
 //{
-//	int n = 0;
-//	int i = 0;
-//	int j = 0;
+//	int n = 0, i = 0, j = 0;
 //	scanf_s("%d", &n);
 //	int arr[20][20] = { 0 };
 //	for (i = 0; i < n; i++)

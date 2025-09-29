@@ -241,21 +241,21 @@
 // 
 //观察
 //在调试中用调用堆栈和反汇编并把显示符号勾选取消，同时监视两个寄存器里的地址
-int Add(int x, int y)
-{
-	int z = x + y;
-	return z;
-}
-
-int main()
-{
-	int a = 1;
-	int b = 2;
-	int c = Add(a, b);
-	printf("%d\n", c);
-
-	return 0;
-}
+//int Add(int x, int y)
+//{
+//	int z = x + y;
+//	return z;
+//}
+//
+//int main()
+//{
+//	int a = 1;
+//	int b = 2;
+//	int c = Add(a, b);
+//	printf("%d\n", c);
+//
+//	return 0;
+//}
 
 
 //字符函数与字符串函数
