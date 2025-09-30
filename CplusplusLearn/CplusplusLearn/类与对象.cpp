@@ -566,8 +566,88 @@
 #include<iostream>
 using namespace std;
 
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1, int day = 1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	void Print()
+//	{
+//		cout << _year << " " << _month << " " << _day << endl;
+//	}
+//
+//	//int Get_year(const Date& x)//但这种解决方式会进行拷贝构造
+//	//{
+//	//	return x._year;
+//	//}
+//
+//	//下面报错的原因是因为重载运算符函数的参数个数和该运算符作⽤的运算对象数量⼀样多，而类里的内置函数包含着隐藏的this指针
+//	//bool operator==(const Date& x1, const Date& x2)
+//	//{
+//	//	return (x1._year == x2._year && x1._month == x2._month && x1._day == x2._day);
+//	//}
+//
+//	bool operator==(const Date& d)
+//	{
+//		return (this->_year == d._year && this->_month == d._month && this->_day == d._day);
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+////private:
+//};
+//
+////运算符重载是具有特殊名字的函数,它的名字是由operator和后⾯要定义的运算符共同构成
+////和其他函数⼀样，它也具有其返回类型和参数列表以及函数体
+//int operator-(const Date& x1, const Date& x2)
+//{
+//	return 0;
+//}
+//
+////bool operator==(const Date& x1, const Date& x2)
+////{
+////	//return (x1._year == x2._year && x1._month == x2._month && x1._day == x2._day);
+////	//这里在运算符重载要调用类里的成员函数就要迫使将类里的成员函数所在域改为public
+////	//解决办法一：在类里定义一个获取值的函数
+////	
+////	//方法二：在类里定义运算符重载
+////}
+//
+//int main()
+//{
+//	Date d1(2025,10,1);
+//	Date d2(2025, 9, 30);
+//	//⼆元运算符有两个参数，⼆元运算符的左侧运算对象传给第⼀个参数，右侧运算对象传给第⼆个参数
+//	cout << (d1 == d2) << endl;
+//	d1.operator==(d2);
+//
+//	return 0;
+//}
+//
+//运算符重载以后，其优先级和结合性与对应的内置类型运算符保持⼀致。
+//不能通过连接语法中没有的符号来创建新的操作符
+//注意： .*   ::   sizeof	?:(三目操作符)	 . 这五个操作符是不能进行重载的，面试题中常考
+
+
+class A
+{
+public:
+	void fun()
+	{
+		cout << "A::fun()" << endl;
+	}
+};
+
 int main()
 {
+	//普通指针函数的使用
 
 	return 0;
 }
