@@ -21,6 +21,7 @@
 //	}
 //}
 
+
 void LoadContact(Contact* pc)
 {
 	assert(pc);

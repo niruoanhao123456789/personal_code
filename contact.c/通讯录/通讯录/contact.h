@@ -67,3 +67,4 @@ void SaveContact(const Contact* pc);
 
 //╪стьнд╪Ч
 void LoadContact(Contact* pc);
+//
