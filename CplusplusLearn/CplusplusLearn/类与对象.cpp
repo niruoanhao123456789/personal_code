@@ -563,9 +563,9 @@
 //运算符重载
 //当运算符被⽤于类类型的对象时，C++语⾔允许我们通过运算符重载的形式指定新的含义
 //且类类型对象使⽤运算符时，必须转换成调⽤对应运算符重载，若没有对应的运算符重载，则会编译报错
-#include<iostream>
-using namespace std;
-
+//#include<iostream>
+//using namespace std;
+//
 //class Date
 //{
 //public:
@@ -672,3 +672,100 @@ using namespace std;
 //}
 
 
+//赋值重载
+//赋值运算符重载是⼀个默认成员函数，⽤于完成两个已经存在的对象直接的拷⻉赋值
+//与拷贝构造不同的是，拷⻉构造是⽤于⼀个对象拷⻉初始化给另⼀个要创建的对象
+//#include<iostream>
+//using namespace std;
+//
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1, int day = 1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	Date(const Date& d)
+//	{
+//		_year = d._year;
+//		_month = d._month;
+//		_day = d._day;
+//	}
+//
+//	Date& operator=(const Date& d)
+//	{
+//		if (this != &d)//这里&是取地址的意思
+//		{
+//			_year = d._year;
+//			_month = d._month;
+//			_day = d._day;
+//		}
+//
+//		return *this;
+//	}
+//
+//	void Print()
+//	{
+//		cout << _year << "/" << _month << "/" << _day<<endl;
+//	}
+//
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+//int main()
+//{
+//	Date d1(2025, 8, 1);
+//
+//	//拷贝构造
+//	Date d2(d1);
+//	Date d3 = d1;
+//
+//	//运算符重载
+//	Date d4(2025, 10, 1);
+//	d1 = d4;
+//	d1.Print();
+//
+//	d1 = d4 = d3;
+//	d1.Print();
+//	d4.Print();
+//
+//	return 0;
+//}
+
+//
+#include"Date.h"
+
+int main()
+{
+	//Date d1(2025, 8, 1);
+	//Date d2 = d1 += 100;
+	//d1.Print();
+	//d2.Print();
+
+	//Date d3(2025, 8, 1);
+	//Date d4 = d3 + 100;
+	//d3.Print();
+	//d4.Print();
+
+	//Date d1(2025, 8, 1);
+	//Date ret1 = d1++;
+	//// Date ret1 = d1.operator++(10); // 显示调用，实参只要是整形就可以
+
+	//ret1.Print();
+	//d1.Print();
+
+	//Date d2(2025, 8, 1);
+	//Date ret2 = ++d2;
+	////Date ret2 = d2.operator++();
+	//ret2.Print();
+	//d2.Print();
+
+	return 0;
+}
