@@ -744,7 +744,7 @@
 
 int main()
 {
-	//Date d1(2025, 8, 1);
+	Date d1(2025, 8, 1);
 	//Date d2 = d1 += 100;
 	//d1.Print();
 	//d2.Print();
@@ -766,6 +766,10 @@ int main()
 	////Date ret2 = d2.operator++();
 	//ret2.Print();
 	//d2.Print();
+
+	//Date d5 = d1 -= 4;
+	//Date d5 = d1--;
+	//d5.Print();
 
 	return 0;
 }
