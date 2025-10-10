@@ -744,7 +744,7 @@
 
 int main()
 {
-	Date d1(2025, 8, 1);
+	//Date d1(2025, 8, 1);
 	//Date d2 = d1 += 100;
 	//d1.Print();
 	//d2.Print();
@@ -770,6 +770,10 @@ int main()
 	//Date d5 = d1 -= 4;
 	//Date d5 = d1--;
 	//d5.Print();
+
+	Date d1(2025, 10, 10);
+	Date d2(2023, 1, 1);
+	cout << (d1 - d2) << endl;
 
 	return 0;
 }

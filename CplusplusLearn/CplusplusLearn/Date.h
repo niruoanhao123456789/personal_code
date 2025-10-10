@@ -32,6 +32,8 @@ public:
 	bool operator==(const Date& d);
 	bool operator!=(const Date& d);
 
+	Date& operator=(const Date& d);
+
 	// d1 += ÌìÊı
 	Date& operator+=(int day);
 	Date operator+(int day);
