@@ -181,7 +181,6 @@ bool Date::operator!=(const Date& d)
 
 
 // 4 6
-
 // 2025  11 10
 // 2024  10 11
 //         30 
@@ -235,4 +234,51 @@ int Date::operator-(const Date& d)
 		return (0 - day);
 	else
 		return day;
+}
+
+void testDate1()
+{
+	Date d1(2025, 10, 8);
+	Date d2;
+	//cout << d1;
+	//d1 << cout;
+	cin >> d2;
+	cout << d2;
+}
+
+bool Date::CheckDate()
+{
+	if (_month < 1 || _month>12)
+		return false;
+	if (_day<1 || _day>GetMonthDay(_year, _month))
+		return false;
+
+	return true;
+}
+
+//因为这里是二元操作符，所以第一个参数是左边的操作数，第二个参数才是右边的参数
+//void Date::operator<<(ostream& out)
+//{
+//	out << _year << "/" << _month << "/" << _day << '\n';//依次从左到右进行函数调用
+//}
+
+ostream& operator<<(ostream& out, const Date& d)
+{
+	out << d._year << "/" << d._month << "/" << d._day << '\n';
+	return out;
+}
+
+istream& operator>>(istream& in, Date& d)
+{
+	while (1)
+	{
+		cout << "请依次输入年月日：";
+		in >> d._year >> d._month >> d._day;
+
+		if (d.CheckDate())
+			break;
+		else
+			cout << "非法输入，请重新输入" << endl;
+	}
+	return in;
 }

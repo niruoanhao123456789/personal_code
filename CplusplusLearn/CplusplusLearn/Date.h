@@ -5,6 +5,11 @@ using namespace std;
 
 class Date
 {
+	//加上关键字friend就是友元函数声明
+	//在这个类里声明的友元函数可以调用类里的私有变量
+	friend ostream& operator<<(ostream& out, const Date& d);
+	friend istream& operator>>(istream& in, Date& d);
+
 public:
 	Date(int year = 1900, int month = 1, int day = 1);
 	void Print();
@@ -24,6 +29,8 @@ public:
 			return monthDayArray[month];
 		}
 	}
+
+	bool CheckDate();
 
 	bool operator<(const Date& d);
 	bool operator<=(const Date& d);
@@ -55,8 +62,17 @@ public:
 
 	Date& operator--();
 	Date operator--(int);
+
+	//void operator<<(ostream& out);
+
 private:
 	int _year;
 	int _month;
 	int _day;
 };
+
+ostream& operator<<(ostream& out, const Date& d);
+
+istream& operator>>(istream& in, Date& d);
+
+void testDate1();

@@ -740,40 +740,42 @@
 //}
 
 //
-#include"Date.h"
-
-int main()
-{
-	//Date d1(2025, 8, 1);
-	//Date d2 = d1 += 100;
-	//d1.Print();
-	//d2.Print();
-
-	//Date d3(2025, 8, 1);
-	//Date d4 = d3 + 100;
-	//d3.Print();
-	//d4.Print();
-
-	//Date d1(2025, 8, 1);
-	//Date ret1 = d1++;
-	//// Date ret1 = d1.operator++(10); // 显示调用，实参只要是整形就可以
-
-	//ret1.Print();
-	//d1.Print();
-
-	//Date d2(2025, 8, 1);
-	//Date ret2 = ++d2;
-	////Date ret2 = d2.operator++();
-	//ret2.Print();
-	//d2.Print();
-
-	//Date d5 = d1 -= 4;
-	//Date d5 = d1--;
-	//d5.Print();
-
-	Date d1(2025, 10, 10);
-	Date d2(2023, 1, 1);
-	//cout << (d1 - d2) << endl;
-
-	return 0;
-}
+//#include"Date.h"
+//
+//int main()
+//{
+//	//Date d1(2025, 8, 1);
+//	//Date d2 = d1 += 100;
+//	//d1.Print();
+//	//d2.Print();
+//
+//	//Date d3(2025, 8, 1);
+//	//Date d4 = d3 + 100;
+//	//d3.Print();
+//	//d4.Print();
+//
+//	//Date d1(2025, 8, 1);
+//	//Date ret1 = d1++;
+//	//// Date ret1 = d1.operator++(10); // 显示调用，实参只要是整形就可以
+//
+//	//ret1.Print();
+//	//d1.Print();
+//
+//	//Date d2(2025, 8, 1);
+//	//Date ret2 = ++d2;
+//	////Date ret2 = d2.operator++();
+//	//ret2.Print();
+//	//d2.Print();
+//
+//	//Date d5 = d1 -= 4;
+//	//Date d5 = d1--;
+//	//d5.Print();
+//
+//	//Date d1(2025, 10, 10);
+//	//Date d2(2023, 1, 1);
+//	//cout << (d1 - d2) << endl;
+//
+//	testDate1();
+//
+//	return 0;
+//}
