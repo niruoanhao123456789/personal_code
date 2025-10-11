@@ -25,6 +25,8 @@ Date& Date::operator=(const Date& d)
 
 Date& Date::operator+=(int day)
 {
+	if (day < 0)
+		return *this -= (0 - day);
 	_day += day;
 	while(_day > GetMonthDay(_year, _month))
 	{
@@ -68,6 +70,8 @@ Date Date::operator+(int day)
 
 Date& Date::operator-=(int day)
 {
+	if (day < 0)
+		return *this += (0 - day);
 	_day -= day;
 	while (_day < 1)
 	{
@@ -88,8 +92,6 @@ Date Date::operator-(int day)
 	tmp -= day;
 	return tmp;
 }
-
-
 
 // 2025 10  8
 // 2025 11 10
@@ -154,48 +156,40 @@ bool Date::operator<(const Date& d)
 
 bool Date::operator<=(const Date& d)
 {
-	if (_year < d._year)
-		return true;
-	if (_year > d._year)
-		return false;
-	if (_month < d._month)
-		return true;
-	if (_month > d._month)
-		return false;
-	return _day <= d._day;
+	return *this < d || *this == d;
 }
 
 bool Date::operator>(const Date& d)
 {
-	if (_year > d._year)
-		return true;
-	if (_year < d._year)
-		return false;
-	if (_month > d._month)
-		return true;
-	if (_month < d._month)
-		return false;
-	return _day > d._day;
+	return !(*this <= d);
 }
 
 bool Date::operator>=(const Date& d)
 {
-	if (_year > d._year)
-		return true;
-	if (_year < d._year)
-		return false;
-	if (_month > d._month)
-		return true;
-	if (_month < d._month)
-		return false;
-	return _day >= d._day;
+	return !(*this < d);
 }
+
+bool Date::operator==(const Date& d)
+{
+	return _year == d._year && _month == d._month && d._day == _day;
+}
+
+bool Date::operator!=(const Date& d)
+{
+	return !(*this == d);//这样写代码复用度更高
+}
+
 
 // 4 6
 
 // 2025  11 10
 // 2024  10 11
 //         30 
+//
+//解决日期类减法
+//思路一：大的日期减去该年的1月1号得到天数 x，小的日期该年的12月31号减去该日期得到天数 y，
+//		  中间隔的年数z*365 + 跨越的闰年数 + x - y
+//思路二：小的日期不断++直到大的日期；++次数就是相差的天数
 int Date::operator-(const Date& d)
 {
 	Date Dlarge(*this);

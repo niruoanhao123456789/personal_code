@@ -773,7 +773,7 @@ int main()
 
 	Date d1(2025, 10, 10);
 	Date d2(2023, 1, 1);
-	cout << (d1 - d2) << endl;
+	//cout << (d1 - d2) << endl;
 
 	return 0;
 }
