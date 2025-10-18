@@ -779,3 +779,438 @@
 //
 //	return 0;
 //}
+
+
+//const 成员函数
+//const修饰的成员函数称为const成员函数，const修饰成员函数时放到成员函数参数列表的后⾯
+//#include<iostream>
+//using namespace std;
+//
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1, int day = 1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	Date(const Date& d)
+//	{
+//		_year = d._year;
+//		_month = d._month;
+//		_day = d._day;
+//	}
+//
+//	////const实际修饰该成员函数隐含的this指针，表明在该成员函数中不能对类的任何成员进⾏修改
+//	//const修饰成员函数后相当于
+//	//void Print(const Date* const this) const
+//	void Print1() const
+//	{
+//		cout << _year << "/" << _month << "/" << _day << endl;
+//	}
+//
+//	void Print2()
+//	{
+//		cout << _year << "/" << _month << "/" << _day << endl;
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+//int main()
+//{
+//	//并且使用const对象时存在着const引用里权限放大的问题
+//	//const Date d1(2025,10,18);
+//	//d1.Print2();
+//
+//	const Date d2(2025, 10, 19);
+//	d2.Print1();
+//	Date d3(2025, 1, 1);
+//	d3.Print1();
+//	//所以不改变成员变量的成员函数都应该加上const,这样普通对象和const对象都可以调用这个const函数
+//
+//	return 0;
+//}
+
+
+//取地址运算符重载
+//取地址运算符重载分为普通取地址运算符重载和const取地址运算符重载
+//⼀般这两个函数编译器⾃动⽣成的就可以够我们⽤了，除非特殊场景，不需要去显⽰实现。
+//下面是一个胡乱返回地址的例子
+//class Date
+//{
+//public:
+//	Date* operator&()
+//	{
+//		return this;
+//		// return nullptr;
+//	}
+//	const Date* operator&()const
+//	{
+//		return this;
+//		// return nullptr;
+//	}
+//private:
+//	int _year; // 年
+//	int _month; // ⽉
+//	int _day; // ⽇
+//};
+
+
+//再探构造函数
+//之前实现构造函数时，初始化成员变量主要使⽤函数体内赋值，构造函数初始化还有⼀种⽅
+//式，就是初始化列表，初始化列表的使⽤⽅式是以⼀个冒号开始，接着是⼀个以逗号分隔的数据成
+//员列表，每个"成员变量"后⾯跟⼀个放在括号中的初始值或表达式
+//#include<iostream>
+//using namespace std;
+//
+//class Time
+//{
+//public:
+//	Time(int hour)
+//		:_hour(hour)
+//	{
+//		cout << "Time()" << endl;
+//	}
+//private:
+//	int _hour;
+//};
+//
+//class Date
+//{
+//public:
+//	Date(int& x, int year = 1, int month = 1, int day = 1)
+//		:_year(year)
+//		, _month(month)
+//		, _day(day)
+//		, _t(12)
+//		, _ref(x)
+//		, _n(1)
+//	{
+//		// error C2512: “Time”: 没有合适的默认构造函数可用
+//		// error C2530 : “Date::_ref” : 必须初始化引用
+//		// error C2789 : “Date::_n” : 必须初始化常量限定类型的对象
+//	}
+//
+//private:
+//	// 声明
+//	int _year;
+//	int _month;
+//	int _day;
+//
+//	//引⽤成员变量，const成员变量，没有默认构造的类类型变量，须放在初始化列表位置进⾏初始化，否则会编译报错
+//	//因为它们必须要在定义时初始化
+//	int& _ref;    // 引用
+//	const int _n; // const
+//	Time _t;      // 没有默认构造
+//};
+//
+//class Stack
+//{
+//public:
+//	Stack(int n)
+//	{
+//		cout << "Stack(int n)" << endl;
+//	}
+//};
+//
+//class MyQueue
+//{
+//public:
+//	MyQueue(int n = 4)
+//		:_st1(n)
+//		,_st2(n)
+//	{}
+//private:
+//	Stack _st1;
+//	Stack _st2;
+//};
+//
+//
+//int main()
+//{
+//	int y = 0;
+//	// 对象整体定义
+//	Date d1(y);
+//
+//	++y;
+//
+//	MyQueue q1;
+//
+//	return 0;
+//}
+//
+//初始化列表流程：
+//⽆论是否显⽰写初始化列表，每个构造函数都有初始化列表；
+//⽆论是否在初始化列表显⽰初始化成员变量，每个成员变量都要⾛初始化列表初始化；
+//如果初始化列表有显⽰初始化变量，就按照这个值进行初始化；
+//未显示在初始化列表的成员则再按以下流程
+//如果类的声明位置中有缺省值，则按缺省值进行初始化；
+//如果没有缺省值，
+//内置类型的成员变量则可能是随机值；
+//自定义类型的成员变量则会调用这个成员的默认构造函数；
+//引⽤成员变量，const成员变量，没有默认构造的类类型变量，须放在初始化列表位置显示初始化，
+//或者未显示初始化但是声明时有缺省值，否则会编译报错
+//class Time
+//{
+//public:
+//	Time(int hour)
+//		:_hour(hour)
+//	{
+//		cout << "Time()" << endl;
+//	}
+//private:
+//	int _hour;
+//};
+//
+//class Date
+//{
+//public:
+//	Date()
+//		:_year(100)
+//	{}
+//
+//private:
+//	// 声明，缺省值
+//	int _year = 1;
+//	int _month = 1;
+//	int _day;
+//
+//	Time _t = 1;
+//	const int _x = 1;
+//	int* _ptr = (int*)malloc(40);
+//};
+//
+//
+//int main()
+//{
+//	Date d1;
+//
+//	return 0;
+//}
+//
+//初始化列表中按照成员变量在类中声明顺序进⾏初始化，跟成员在初始化列表出现的的先后顺序⽆
+//关。建议声明顺序和初始化列表顺序保持⼀致
+//求下列结果
+//class A
+//{
+//	public :
+//	A(int a)
+//		: _a1(a)
+//		, _a2(_a1)
+//	{}
+//
+//	void Print() 
+//	{
+//		cout << _a1 << " " << _a2 << endl;
+//	}
+//private:
+//	int _a2 = 2;
+//	int _a1 = 2;
+//};
+////先走初始化列表，a2先声明所以先初始化a2，因a1没有被初始化所以a2为随机值
+//int main()
+//{
+//	A aa(1);
+//	aa.Print();
+//}
+//
+//为什么有初始化列表后还要加个函数体进行初始化，通过下面例子来说明为什么
+//class Stack
+//{
+//public:
+//	Stack(int n = 4)
+//	{
+//		cout << "Stack(int n)" << endl;
+//	}
+//};
+//
+//class MyQueue
+//{
+//public:
+//private:
+//	int _size = 0;
+//	Stack _st1;
+//	Stack _st2;
+//};
+//
+//class A
+//{
+//public:
+//	A(int n = 10)
+//		:_a((int*)malloc(sizeof(int)*n))
+//		,_size(0)
+//	{
+//		// 检查
+//		if (_a == nullptr)
+//		{
+//			cout << "malloc fail" << endl;
+//			exit(-1);
+//		}
+//
+//		memset(_a, 0, sizeof(int) * n);
+//	}
+//	//像这样的复杂情况下的初始化没法单纯凭借初始化列表进行实现
+//
+//private:
+//	int* _a;
+//	int _size;
+//};
+//
+//int main()
+//{
+//	MyQueue q1;
+//	A aa;
+//
+//	return 0;
+//}
+
+
+//类型转换 
+//类型之间转换要有一定关联：
+//整型家族之间
+//整型和浮点数，都是表示数据大小
+//整型和指针，指针是地址的编号
+//浮点数和指针之间就不能转换，因为之间没有关联
+// 
+//C++⽀持内置类型隐式类型转换为类类型对象，需要有相关内置类型为参数的构造函数
+//
+//类类型的对象之间也可以隐式转换，需要相应的构造函数⽀持
+//
+//构造函数前⾯加explicit就不再⽀持隐式类型转换
+//#include<iostream>
+//using namespace std;
+//
+//class A
+//{
+//	public :
+//	// 构造函数explicit就不再⽀持隐式类型转换
+//	// explicit A(int a1)
+//	A(int a1)
+//		: _a1(a1)
+//	{
+//	}
+//	//explicit A(int a1, int a2)
+//	A(int a1, int a2)
+//		:_a1(a1)
+//		, _a2(a2)
+//	{
+//	}
+//	void Print()
+//	{
+//		cout << _a1 << " " << _a2 << endl;
+//	}
+//
+//private:
+//	int _a1 = 1;
+//	int _a2 = 2;
+//};
+//
+//void fun(const A& a = 1)
+//{
+//	;
+//}
+//
+//class Stack
+//{
+//public:
+//	void Push(const A& a)
+//	{
+//		;
+//	}
+//};
+//
+//int main()
+//{
+//	int i = 0;
+//	double d = i;
+//	const double& dd = d;
+//	
+//	// 构造
+//	A a1(1);
+//	// 隐式类型转换，该过程是通过构造一个临时变量再进行拷贝构造，现在大多编译器可能都会优化为直接构造
+//	A a2 = 1;
+//	a2.Print();
+//
+//	const A& ref2 = a1;
+//	const A& ref3 = 1;//该过程和上面之间相差构造临时变量的过程
+//
+//	fun(a1);
+//	fun(1);
+//
+//	Stack st1;
+//	A a3(3);
+//	st1.Push(a3);
+//	st1.Push(3);
+//
+//	//这走的是第一个单参数的构造逻辑
+//	A a4(1, 1);
+//	A a5 = (1, 1);//此时()里相当于一个逗号表达式
+//	//A a6 = 1, 1;//这样编译器会报错
+//
+//	//这样走的才是类型转换
+//	A a6 = { 1,2 };
+//	const A& ref = { 1,2 };
+//
+//	return 0;
+//}
+
+
+//static成员 
+//⽤static修饰的成员变量，称之为静态成员变量，静态成员变量⼀定要在类外进⾏初始化
+//静态成员变量为所有类对象所共享，不属于某个具体的对象，不存在对象中，存放在静态区
+//⽤static修饰的成员函数，称之为静态成员函数，静态成员函数没有this指针
+//非静态的成员函数，可以访问任意的静态成员变量和静态成员函数
+//突破类域和访问限定就可以访问静态成员，可以通过类名::静态成员 或者 对象.静态成员 来访问静态成员变量和静态成员函数
+// 
+// 局部static对象都是在第一次运行到定义位置时，才初始化
+// 
+//#include<iostream>
+//using namespace std;
+//
+//class A
+//{
+//public:
+//	A(int a = 0)
+//		:_a1(a)
+//		,_a2(a)
+//	{
+//		++_conut;
+//	}
+//
+//	A(const A& t)
+//	{
+//		++_conut;
+//	}
+//		
+//	static int GetCount()
+//	{
+//		// _a1++; 不能访问非静态成员，没有this
+//		return _conut;
+//	}
+//
+//private:
+//	int _a1 = 1;
+//	int _a2 = 1;
+////public:
+//	static int _conut;
+//	//静态成员变量不能在声明位置给缺省值初始化，因为缺省值是个构造函数初始化列表的，静态成员
+//	//变量不属于某个对象，不⾛构造函数初始化列表
+//};
+//
+//int A::_conut = 0;
+//
+//int main()
+//{
+//	A a;
+//	cout << sizeof(a) << endl;//8 不包括static修饰的成员变量的大小
+//
+//	//cout << A::_conut << endl;//通过类域进行访问，如果没有定义static变量汇报链接错误
+//
+//	return 0;
+//}
