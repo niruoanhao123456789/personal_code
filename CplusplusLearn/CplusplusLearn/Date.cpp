@@ -23,6 +23,7 @@ Date& Date::operator=(const Date& d)
 	return *this;
 }
 
+//区分前缀后缀时，后缀运算需要加一个int参数
 Date& Date::operator+=(int day)
 {
 	if (day < 0)

@@ -1214,3 +1214,134 @@
 //
 //	return 0;
 //}
+
+
+//友元
+//关键字：friend
+//如果A是B友元的友元，那么A可以访问B的内部(像private/protected部分)
+//友元分为：友元函数和友元类，在函数声明或者类声明的前⾯加friend，并且把友元声明放到⼀个类的⾥⾯
+//友元的优缺点：有时提供了便利。但是友元会增加耦合度，破坏了封装，所以友元不宜多⽤
+//程序设计要求 高内聚、低耦合	各模块专注于自己的任务，其他模块的变化时不易引起自己模块的变化
+//#include<iostream>
+//#include"Friend.h"
+//using namespace std;
+//
+//class B;//这里要前置声明，否则A的友元函数声明里编译器不认识B
+//
+//class A
+//{
+//public:
+//	//友元声明
+//	//friend void fun(const A& aa, const B& bb);
+//private:
+//	int _a = 1;
+//	int _b = 2;
+//	//友元函数可以在类定义的任何地⽅声明，不受类访问限定符限制，一般放在公共域的开头
+//	friend void fun(const A& aa, const B& bb);
+//};
+//
+//class B
+//{
+//public:
+//	friend void fun(const A& aa, const B& bb);
+//private:
+//	int _a = 3;
+//	int _b = 4;
+//};
+//
+////外部友元函数可访问类的私有和保护成员，友元函数仅仅是⼀种声明，他不是类的成员函数
+////⼀个函数可以是多个类的友元函数
+//void fun(const A& aa, const B& bb)
+//{
+//	cout << aa._a << endl;
+//	cout << bb._a << endl;
+//}
+//
+////友元类例子在 Friend.h和Friend.cpp中
+////友元类的关系是单向的，不具有交换性，⽐如A类是B类的友元，但是B类不是A类的友元
+////友元类关系不能传递，如果A是B的友元， B是C的友元，但是A不是C的友元
+//
+//int main()
+//{
+//	//A a;
+//	//B b;
+//	//fun(a,b);
+//
+//	C c;
+//	D d;
+//
+//	d.fun1(c);
+//	d.fun2(c);
+//
+//	c.fun1(d);
+//
+//	return 0;
+//}
+
+
+//内部类
+//如果⼀个类定义在另⼀个类的内部，这个内部类就叫做内部类
+//内部类是⼀个独⽴的类，只是受外部类类域限制和访问限定符限制，所以外部类定义的对象中不包含内部类
+//内部类默认是外部类的友元类
+//内部类本质也是⼀种封装，当A类跟B类紧密关联，B类实现出来主要就是给A类使⽤，那么可以考
+//虑把B类设计为A的内部类，如果放到private / protected位置，那么B类就是A类的专属内部类，其他地⽅都⽤不了
+//#include<iostream>
+//using namespace std;
+//
+//class A
+//{
+//public:
+//	class B//这里B默认是A的友元类
+//	{
+//	public:
+//		void fun(const A& aa)
+//		{
+//			cout << aa._a << endl;
+//			cout << aa._b << endl;
+//		}
+//	private:
+//		int _c = 3;
+//	};
+//private:
+//	int _a = 1;
+//	int _b = 2;
+//};
+//
+//int main()
+//{
+//	//通过求类A的大小可知内部类是独立的，是不包含在外部定义的类里
+//	cout << sizeof(A) << endl;
+//	A a;
+//	A::B b;
+//	b.fun(a);
+//
+//	return 0;
+//}
+//
+//牛客网 JZ64
+//class Solution {
+//    class Sum
+//    {
+//    public:
+//        Sum()
+//        {
+//            _ret += _i;
+//            _i++;
+//        }
+//    };
+//public:
+//    int Sum_Solution(int n) {
+//        Sum arr[n];
+//
+//        return _ret;
+//    }
+//private:
+//    static int _i;
+//    static int _ret;
+//};
+//
+//int Solution::_i = 1;
+//int Solution::_ret = 0;
+
+
+//匿名对象
