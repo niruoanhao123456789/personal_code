@@ -1345,3 +1345,154 @@
 
 
 //匿名对象
+//⽤ 类型(实参) 定义出来的对象叫做匿名对象
+//而之前  类型 对象名(实参) 定义出来的叫有名对象
+//#include<iostream>
+//using namespace std;
+//
+//class Solution {
+//    class Sum
+//    {
+//    public:
+//        Sum()
+//        {
+//            _ret += _i;
+//            ++_i;
+//        }
+//    };
+//public:
+//    void Clear()
+//    {
+//        _i = 1;
+//        _ret = 0;
+//    }
+//
+//    int Sum_Solution(int n) {
+//        Sum* ptr = new Sum[n];
+//        delete[] ptr;
+//
+//        return _ret;
+//    }
+//
+//    ~Solution()
+//    {
+//        cout << "~Solution()" << endl;
+//    }
+//
+//private:
+//    static int _i;
+//    static int _ret;
+//};
+//
+//int Solution::_i = 1;
+//int Solution::_ret = 0;
+//
+//
+//void Func(const Solution& s = Solution(), int i = 1)
+//{
+//
+//}
+//
+//int main()
+//{
+//    Solution s; // 有名对象
+//    cout << s.Sum_Solution(10) << endl;
+//    s.Clear();
+//
+//    // 匿名对象生命周期只在当前一行,⼀般临时定义⼀个对象当前⽤⼀下即可，就可以定义匿名对象
+//    Solution(); // 匿名对象
+//    cout << Solution().Sum_Solution(10) << endl;
+//    // const 引用会延长匿名对象的生命周期，生命周期跟const 引用一样
+//    const Solution& ref = Solution();
+//
+//    Func(Solution());
+//    Func(s);
+//    Func();
+//
+//	return 0;
+//}
+
+
+//现代编译器会为了尽可能提⾼程序的效率，在不影响正确性的情况下会尽可能减少⼀些传参和传返回值的过程中可以省略的拷⻉
+//#include<iostream>
+//using namespace std;
+//
+//class A
+//{
+//public:
+//	A(int a = 0)
+//		:_a1(a)
+//	{
+//		cout << "A(int a)" << endl;
+//	}
+//
+//	A(const A& aa)
+//		:_a1(aa._a1)
+//	{
+//		cout << "A(const A& aa)" << endl;
+//	}
+//
+//	A& operator=(const A& aa)
+//	{
+//		cout << "A& operator=(const A& aa)" << endl;
+//		if (this != &aa)
+//		{
+//			_a1 = aa._a1;
+//		}
+//		return *this;
+//	}
+//
+//	~A()
+//	{
+//		cout << "~A()" << endl;
+//	}
+//private:
+//	int _a1 = 1;
+//};
+//
+//void f1(A aa)
+//{}
+////
+////int main()
+////{
+////	// 构造+拷贝构造 优化-> 构造
+////	A aa1 = 1;
+////	cout << "==================" << endl;
+////
+////	f1(aa1);
+////	cout << "==================" << endl;
+////
+////	f1(1);
+////	cout << "==================" << endl;
+////
+////	f1(A(1));
+////	cout << "==================" << endl;
+////
+////
+////	return 0;
+////}
+//
+//A f2()
+//{
+//	// NRVO
+//	A aa;
+//	cout << &aa << endl;
+//	return aa;
+//
+//	// URVO
+//	// return A(1);
+//}
+//
+////为了方便让编译器进行初始化，提高效率，所以会有以下的推荐和不推荐的写法
+//int main()
+//{
+//	// 不推荐
+//	A aa1;
+//	aa1 = f2();
+//	cout << &aa1 << endl;
+//
+//	// 推荐
+//	A aa2 = f2();
+//
+//	return 0;
+//}
