@@ -192,49 +192,25 @@ bool Date::operator!=(const Date& d)
 //思路二：小的日期不断++直到大的日期；++次数就是相差的天数
 int Date::operator-(const Date& d)
 {
-	Date Dlarge(*this);
-	Date Dsmall = d;
-	int flag = 0;
-	if (Dsmall > Dlarge)
+	Date max = *this;
+	Date min = d;
+	int flag = 1;
+
+	if (*this < d)
 	{
-		Date tmp = Dsmall;
-		Dsmall = Dlarge;
-		Dlarge = tmp;
-		flag = 1;
+		min = *this;
+		max = d;
+		flag = -1;
 	}
-	int day = Dlarge._day - Dsmall._day;
-	while (day < 0)
+
+	int day = 0;
+	while (min != max)
 	{
-		Dlarge._month--;
-		if (Dlarge._month < 1)
-		{
-			Dlarge._month = 12;
-			Dlarge._year--;
-		}
-		day += GetMonthDay(Dlarge._year, Dlarge._month);
+		++min;
+		++day;
 	}
-	int i = 0;
-	for (i = 1; i < Dlarge._month; i++)
-	{
-		day += GetMonthDay(Dlarge._year, i);
-	}
-	Dlarge._year--;
-	for (i = Dsmall._month; i <= 12; i++)
-	{
-		day += GetMonthDay(Dsmall._year, i);
-	}
-	Dsmall._year++;
-	for (i = Dsmall._year; i <= Dlarge._year; i++)
-	{
-		if (((i % 4 == 0) && (i % 100 != 0)) || i % 400 == 0)
-			day += 366;
-		else
-			day += 365;
-	}
-	if (flag)
-		return (0 - day);
-	else
-		return day;
+
+	return day * flag;
 }
 
 void testDate1()
