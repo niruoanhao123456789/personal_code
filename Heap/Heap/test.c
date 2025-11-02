@@ -41,7 +41,7 @@ void HeapSort1(HPDataType* arr,int n)
 	HeapDestory(&hp);
 }
 
-//真正的堆排序是通过堆的思想来实现而不是用堆这个结构，小堆降序，大堆升序
+//真正的堆排序是通过堆的思想来实现而不是用堆这个结构，小堆降序，大堆升序.
 //堆排序的时间复杂度为O(n+n*logn)即O(n*logn)
 void HeapSort(HPDataType* arr, int n)
 {
