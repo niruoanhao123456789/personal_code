@@ -10,4 +10,28 @@
 
 #include<iostream>
 #include<string>
+using namespace std;
 
+void test1()
+{
+	string s1;					// 构造空string对象，空字符串
+	string s2("hello world");	// 构造
+	string s3(s2);				// 拷贝构造，深拷贝
+
+	cout << s1 << endl;
+	cout << s2 << endl;
+	cout << s3 << endl;
+
+	// string (const string& str, size_t pos, size_t len = npos);
+	string s4(s2, 0, 5);		// 将s2从下标从0开始拷贝5个长度到s4
+	cout << s4 << endl;
+
+
+}
+
+int main()
+{
+	test1();
+
+	return 0;
+}
