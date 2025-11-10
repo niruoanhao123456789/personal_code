@@ -300,6 +300,97 @@ void test5()
 	s1.append(++s2.begin(), --s2.end());
 	cout << s1 << endl;
 
+	string s3("hello world");
+	// string追加还可以用+ +=这些的运算符重载
+	// 会改变串本身
+	s3 += ' ';
+	s3 += "hello today";
+	cout << s3 << endl;
+	//不改变串本身
+	cout << s3 + ' ' << "xxx" << endl;
+	cout << "xxx " + s3 << endl;
+
+	s3.assign("yyy");
+	cout << s3 << endl;
+}
+
+void test6()
+{
+	string s1("hello world");
+	cout << s1 << endl;
+
+	s1.insert(0, "xxx ");
+	cout << s1 << endl;
+
+	s1.insert(0, 1, '#');
+	cout << s1 << endl;
+
+	s1.insert(5, 1, '#');
+	cout << s1 << endl;
+
+	s1.insert(s1.begin(), '$');
+	cout << s1 << endl << endl;
+
+
+	string s2("hello world");
+	cout << s2 << endl;
+
+	// 头删
+	s2.erase(s2.begin());
+	cout << s2 << endl;
+
+	s2.erase(0, 1);
+	cout << s2 << endl;
+
+	// 尾删
+	s2.erase(--s2.end());
+	cout << s2 << endl;
+
+	s2.erase(5, 1);
+	cout << s2 << endl;
+
+	s2.erase(5);
+	cout << s2 << endl << endl;
+
+
+	string s3("hello world");
+	cout << s3 << endl;
+
+	// 将下标为5的1个字符替换成%%%
+	s3.replace(5, 1, "%%%");
+	cout << s3 << endl;
+
+	s3.replace(5, 3, "*");
+	cout << s3 << endl;
+
+	// 延伸
+	// 将字符串里的每个空格都替换成**
+	// 法一：insert再插入时会为保存其他数据，将后面的元素逐个逐个往后移，效率低
+	string s4(" hello   world ");
+	cout << s4 << endl;
+
+	size_t pos = s4.find(' ');
+	while (pos != string::npos)
+	{
+		s4.replace(pos, 1, "**");
+		pos = s4.find(' ');
+	}
+	cout << s4 << endl << endl;
+
+	// 法二 以空间换时间
+	string s5(" hello   world ");
+	cout << s5 << endl;
+	string s6;
+	s6.reserve(s5.size());
+	for (auto ch : s5)
+	{
+		if (ch != ' ')
+			s6 += ch;
+		else
+			s6 += "**";
+	}
+	s5 = s6;
+	cout << s5 << endl;
 }
 
 int main()
@@ -311,7 +402,8 @@ int main()
 		//test3();
 		//TestCapacity();
 		//test4();
-		test5();
+		//test5();
+		//test6();
 	}
 	catch (const exception& e)
 	{
