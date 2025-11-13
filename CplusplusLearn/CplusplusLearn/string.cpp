@@ -404,6 +404,7 @@ int main()
 		//test4();
 		//test5();
 		//test6();
+
 	}
 	catch (const exception& e)
 	{
@@ -414,3 +415,52 @@ int main()
 }
 //边看课编写代码除了课上解释语法写的例子代码还行，但对带有思维性的问题这样学效果非常差
 //对比代码来找错误效果也是差的，要学会自己调试或者逐字看来找问题
+//练习：
+//字符串相加
+// 法一：其时间复杂度看似O(n)，实则因为用头插的机制所以其真正的时间复杂度为O(n^2)
+//class Solution {
+//public:
+//	string addStrings(string num1, string num2) {
+//		int end1 = num1.size() - 1, end2 = num2.size() - 1;
+//		int carry = 0;
+//		string sum;
+//		while (end1 >= 0 || end2 >= 0)
+//		{
+//			int val1 = end1 >= 0 ? num1[end1--] - '0' : 0;
+//			int val2 = end2 >= 0 ? num2[end2--] - '0' : 0;
+//			int ret = val1 + val2 + carry;
+//			carry = ret / 10;
+//			ret = ret % 10;
+//
+//			sum.insert(0, 1, ret + '0');
+//		}
+//		if (carry)
+//			sum.insert(0, 1, '1');
+//
+//		return sum;
+//	}
+//};
+//
+// 法二：尾插后整体逆置 时间复杂度O(n)
+//class Solution {
+//public:
+//	string addStrings(string num1, string num2) {
+//		int end1 = num1.size() - 1, end2 = num2.size() - 1;
+//		int carry = 0;
+//		string retstr;
+//		retstr.reserve(max(num1.size(), num2.size()));		// 提前开辟适当大小的内存空间，减少性能损耗
+//		while (end1 >= 0 || end2 >= 0)
+//		{
+//			int val1 = end1 >= 0 ? num1[end1--] - '0' : 0;
+//			int val2 = end2 >= 0 ? num2[end2--] - '0' : 0;
+//			int sum = val1 + val2 + carry;
+//			carry = sum / 10;
+//			sum %= 10;
+//			retstr += sum + '0';
+//		}
+//		if (carry)
+//			retstr += "1";
+//		reverse(retstr.begin(), retstr.end());
+//		return retstr;
+//	}
+//};
