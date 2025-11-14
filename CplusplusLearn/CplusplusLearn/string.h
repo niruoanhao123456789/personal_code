@@ -23,6 +23,16 @@ namespace my_string
 			return _str + _size;
 		}
 
+		const_iterator begin() const
+		{
+			return _str;
+		}
+
+		const_iterator end() const
+		{
+			return _str + _size;
+		}
+
 		char& operator[](size_t pos)
 		{
 			assert(pos < _size && pos>=0);
@@ -46,8 +56,25 @@ namespace my_string
 		}
 
 		void reserve(size_t n);
-		void push_back(char ch);
+		void push_back(const char ch);
 		void append(const char* str);
+
+		string& operator+=(const char* str)
+		{
+			assert(str);
+			append(str);
+			return *this;
+		}
+
+		string& operator+=(char ch)
+		{
+			push_back(ch);
+			return *this;
+		}
+
+		void insert(size_t pos, char ch);
+		void insert(size_t pos, const char* str);
+		void erase(size_t pos = 0, size_t len = npos);
 
 		~string();
 
@@ -55,5 +82,11 @@ namespace my_string
 		char* _str;
 		size_t _size;
 		size_t _capacity;
+
+		// const static目前只有整形可以这么用，特殊处理
+		const static size_t npos = -1;
+
+		// 或者声明与定义分离
+		//const static size_t npos；
 	};
 }
