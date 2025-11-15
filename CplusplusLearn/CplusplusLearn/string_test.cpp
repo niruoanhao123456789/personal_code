@@ -507,8 +507,25 @@ namespace my_string
 		cout << s2.c_str() << endl << endl;
 
 		string s3("hello world");
-		s3.erase(0);
+		s3.erase(5,20);
 		cout << s3.c_str() << endl;
+		cout << s3.size() << endl;
+	}
+
+	void test_string2()
+	{
+		//string url = "https://legacy.cplusplus.com/reference/string/string/rfind/";
+		//cout << url.find(':') << endl;
+		//cout << url.find("legacy") << endl;
+
+		string s1("hello world");
+		//cout << s1.substr().c_str() << endl;
+		string s2 = s1;
+		cout << s2.c_str() << endl;
+		string s3(s1);
+		cout << s3.c_str() << endl;
+		s1.resize(5);
+		cout << s1 << endl;
 	}
 }
 
@@ -516,7 +533,8 @@ int main()
 {
 	try
 	{
-		my_string::test_string1();
+		//my_string::test_string1();
+		my_string::test_string2();
 
 		//cout << typeid(my_string::string::iterator).name() << endl;
 		//cout << typeid(std::string::iterator).name() << endl;
