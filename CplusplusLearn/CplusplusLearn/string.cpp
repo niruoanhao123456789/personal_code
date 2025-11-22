@@ -12,29 +12,61 @@ namespace my_string
 		memcpy(_str, str, _size + 1);
 	}
 
+	// 传统写法
+	//string::string(const string& s)
+	//{
+	//	_str = new char[s._capacity + 1];
+	//	memcpy(_str, s._str, s._size + 1);
+	//	_size = s._size;
+	//	_capacity = s._capacity;
+	//}
+
+	// 现代写法
 	string::string(const string& s)
 	{
-		_str = new char[s._capacity + 1];
-		memcpy(_str, s._str, s._size + 1);
-		_size = s._size;
-		_capacity = s._capacity;
+		string tmp(s._str);
+		swap(tmp);
 	}
 
-	string& string::operator=(const string& s)
-	{
-		// 进行深拷贝
-		if (this != &s)
-		{
-			char* tmp = new char[s._capacity + 1];
-			memcpy(tmp, s._str, s._size + 1);
-			delete[] _str;
-			_str = tmp;
-			_size = s._size;
-			_capacity = s._capacity;
-		}
+	// 传统写法
+	//string& string::operator=(const string& s)
+	//{
+	//	// 进行深拷贝
+	//	if (this != &s)
+	//	{
+	//		char* tmp = new char[s._capacity + 1];
+	//		memcpy(tmp, s._str, s._size + 1);
+	//		delete[] _str;
+	//		_str = tmp;
+	//		_size = s._size;
+	//		_capacity = s._capacity;
+	//	}
 
+	//	return *this;
+	//}
+
+	// 基于上面构造的现代写法
+	// 写法一
+	//string& string::operator=(const string& s)
+	//{
+	//	if (this != &s)
+	//	{
+	//		string tmp(s._str);
+	//		swap(tmp);
+	//	}
+
+	//	return *this;
+	//}
+	//
+	// 写法二
+	string& string::operator=(string tmp)
+	{
+		swap(tmp);
 		return *this;
 	}
+	// 现代写法和传统写法本质上没有效率上的提高，只是写法更简洁
+	// 现代写法是通过拷贝构造完成开辟新空间并赋值，再通过浅拷贝交换两个对象所指空间，
+	// 再接借助参数里tmp自调用的析构函数对不需要的空间进行释放
 
 	string::~string()
 	{

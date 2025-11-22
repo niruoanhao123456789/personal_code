@@ -11,7 +11,9 @@ namespace my_string
 	public:
 		string(const char* str = "");		// ""为字符串，其自带了'\0'
 		string(const string& s);
-		string& operator=(const string& s);
+		//string& operator=(const string& s);
+		string& operator=(string tmp);
+
 
 		typedef char* iterator;
 		typedef const char* const_iterator;
