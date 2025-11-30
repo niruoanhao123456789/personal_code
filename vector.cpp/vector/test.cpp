@@ -105,7 +105,7 @@ int main()
 	//my_vector::vector_test1();
 	//my_vector::vector_test2();
 	//my_vector::vector_test3();
-	my_vector::vector_test4();
+	//my_vector::vector_test4();
 
 	return 0;
 }
