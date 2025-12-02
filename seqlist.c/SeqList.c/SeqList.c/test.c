@@ -37,6 +37,8 @@ void test3(SeqList* ps)
 	{
 		SeqListPushBack(ps, i);
 	}
+
+	// 删除数据3，但不知道数据3的具体位置
 	int pos = SeqListFind(ps, 3);
 	if (pos != -1)
 	{
@@ -53,6 +55,8 @@ void test4(SeqList* ps)
 		SeqListPushBack(ps, i);
 	}
 	SeqListPrint(ps);
+
+	// 在元素0后面插入元素4
 	int pos = SeqListFind(ps, 0);
 	if (pos != -1)
 	{
@@ -65,11 +69,12 @@ int main()
 {
 	SeqList ps;
 	SeqListInit(&ps);
-
-	//test1(&ps);
+	
+	// 写很长的代码和函数模块时，建议这样边写边测试，避免问题过多又不知从何找起
+	test1(&ps);
 	//test2(&ps);
 	//test3(&ps);
-	test4(&ps);
+	//test4(&ps);
 
 	SeqListDestory(&ps);
 	return 0;

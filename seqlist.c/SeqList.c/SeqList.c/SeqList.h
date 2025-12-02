@@ -29,12 +29,16 @@ void SeqListPrint(const SeqList* ps);
 //增删查改
 void SeqListInit(SeqList* ps);
 
+//头插
 void SeqListPushFront(SeqList* ps, SLDataType x);
 
+//尾插
 void SeqListPushBack(SeqList* ps, SLDataType x);
 
+//尾删
 void SeqListPopBack(SeqList* ps);
 
+//头删
 void SeqListPopFront(SeqList* ps);
 
 void SeqListInsert(SeqList* ps, int pos, SLDataType x);
