@@ -166,5 +166,6 @@ int main()
 	//my_vector::vector_test6();
 	my_vector::vector_test7();
 
+
 	return 0;
 }

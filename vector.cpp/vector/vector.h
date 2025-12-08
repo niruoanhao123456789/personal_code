@@ -103,7 +103,6 @@ namespace my_vector
 			}
 		}
 
-
 		// ´«Í³Ð´·¨
 		// v2(v1)
 		//vector(const vector<T>& v)
