@@ -224,7 +224,7 @@ namespace my_vector
 		void pop_back()
 		{
 			assert(empty());
-			_finish--;
+			--_finish;
 		}
 
 		iterator insert(iterator pos, const T& x)
