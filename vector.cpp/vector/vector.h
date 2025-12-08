@@ -34,11 +34,18 @@ namespace my_vector
 		}
 
 		vector()
-			: _start(nullptr)
-			, _finish(nullptr)
-			, _end_of_storage(nullptr)
 		{
 		}
+
+		vector(std::initializer_list<T> il)
+		{
+			reserve(il.size());
+			for (const auto& e : il)
+			{
+				push_back(e);
+			}
+		}
+
 
 		~vector()
 		{
@@ -77,7 +84,90 @@ namespace my_vector
 			return _start[i];
 		}
 
-		void reverse(size_t n)
+		// c++ 对内置类型进行了升级，使其有了构造和析构的过程
+		vector(size_t n, const T& val = T())
+		{
+			reserve(n);
+			for (size_t i = 0; i < n; i++)
+			{
+				push_back(val);
+			}
+		}
+
+		vector(int n, const T& val = T())
+		{
+			reserve(n);
+			for (int i = 0; i < n; i++)
+			{
+				push_back(val);
+			}
+		}
+
+
+		// 传统写法
+		// v2(v1)
+		//vector(const vector<T>& v)
+		//{
+		//	reserve(v.capacity());
+		//	for (const auto& e : v)			// 如果单纯使用auto e:v，但v是复杂的类型，则v每次赋值给e时都会有拷贝构造和析构的过程，代价高。
+		//	{								// 所以得使用const auto& e : v
+		//		push_back(e);
+		//	}
+		//}
+
+		//// v2 = v1
+		//vector<T>& operator=(const vector<T>& v)
+		//{
+		//	if (this != &v)
+		//	{
+		//		clear();
+		//		reserve(v.capacity());
+		//		for (const auto& e : v)
+		//		{
+		//			push_back(e);
+		//		}
+		//	}
+		//	return *this;
+		//}
+
+		template <class InputIterator>
+		vector(InputIterator first, InputIterator last)
+		{
+			// reserve(last - first);
+			while (first != last)
+			{
+				push_back(*first);
+				++first;
+			}
+
+		}
+
+		// 现代写法
+		vector(const vector<T>& v)
+		{
+			vector<T>tmp(v.begin(), v.end());
+			swap(tmp);
+		}
+
+		vector<T>& operator=(vector<T> tmp)
+		{
+			swap(tmp);
+			return *this;
+		}
+
+		void swap(vector<T>& v)
+		{
+			std::swap(_start, v._start);
+			std::swap(_finish, v._finish);
+			std::swap(_end_of_storage, v._end_of_storage);
+		}
+
+		void clear()
+		{
+			_finish = _start;
+		}
+
+		void reserve(size_t n)
 		{
 			if (n > capacity())
 			{
@@ -85,7 +175,17 @@ namespace my_vector
 				T* tmp = new T[n];
 				if (_start)
 				{
-					memcpy(tmp, _start, sizeof(T)*sz);
+					for (size_t i = 0; i < sz; i++)
+					{
+						// 如果是string，调用string的赋值深拷贝
+						//tmp[i] = _start[i];
+						
+						// 深拷贝对于交换而言没那么优
+						// 因要被拷贝的对象是要析构的，所该空间被创建但很快被销毁，多出了构造和析构的操作，某种意义上是个性能被浪费的环节
+						std::swap(tmp[i], _start[i]);
+					}
+
+					//memcpy(tmp, _start, sizeof(T)*sz);	// 此处进行的是浅拷贝
 					delete[] _start;
 				}
 				_start = tmp;
@@ -94,11 +194,29 @@ namespace my_vector
 			}
 		}
 
+		void resize(size_t n, T val = T())
+		{
+			if (size() > n)
+			{
+				// 删除数据
+				_finish = _start + n;
+			}
+			else
+			{
+				reserve(n);
+				while (_finish < _start + n)
+				{
+					*_finish = val;
+					++_finish;
+				}
+			}
+		}
+
 		void push_back(const T& x)
 		{
 			if (_finish == _end_of_storage)
 			{
-				reverse(capacity() == 0 ? 4 : capacity() * 2);
+				reserve(capacity() == 0 ? 4 : capacity() * 2);
 			}
 			*_finish = x;
 			++_finish;
@@ -115,7 +233,7 @@ namespace my_vector
 			assert(pos >= _start && pos <= _finish);
 			if (_finish == _end_of_storage)
 			{
-				reverse(capacity() == 0 ? 4 : capacity() * 2);
+				reserve(capacity() == 0 ? 4 : capacity() * 2);
 			}
 			iterator end = _finish - 1;
 			while (end >= pos)
@@ -144,8 +262,8 @@ namespace my_vector
 		}
 
 	private:
-		iterator _start;
-		iterator _finish;
-		iterator _end_of_storage;
+		iterator _start = nullptr;
+		iterator _finish = nullptr;
+		iterator _end_of_storage = nullptr;
 	};
 }
