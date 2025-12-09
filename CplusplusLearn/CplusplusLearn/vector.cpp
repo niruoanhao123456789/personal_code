@@ -130,12 +130,12 @@ void vector_test4()
 	cout << endl;
 }
 
-int main()
-{
-	//vector_test1();
-	//vector_test2();
-	//vector_test3();
-	//vector_test4();
-
-	return 0;
-}
+//int main()
+//{
+//	//vector_test1();
+//	//vector_test2();
+//	//vector_test3();
+//	//vector_test4();
+//
+//	return 0;
+//}
