@@ -1,5 +1,6 @@
 #include<iostream>
 #include<list>
+#include<vector>
 #include<algorithm>
 using namespace std;
 
@@ -53,9 +54,74 @@ void test1()
 	Print(l5);
 }
 
-int main()
+void test2()
 {
-	test1();
+	srand(time(0));
+	const int N = 1000000;
 
-	return 0;
+	list<int> lt1;
+	vector<int> v;
+
+	for (int i = 0; i < N; ++i)
+	{
+		auto e = rand() + i;
+		lt1.push_back(e);
+		v.push_back(e);
+	}
+
+	int begin1 = clock();
+	// 
+	sort(v.begin(), v.end());
+	int end1 = clock();
+
+	int begin2 = clock();
+	lt1.sort();
+	int end2 = clock();
+
+	printf("vector sort:%d\n", end1 - begin1);
+	printf("list sort:%d\n", end2 - begin2);
 }
+
+void test3()
+{
+	srand(time(0));
+	const int N = 1000000;
+
+	list<int> lt1;
+	list<int> lt2;
+
+	for (int i = 0; i < N; ++i)
+	{
+		auto e = rand() + i;
+		lt1.push_back(e);
+		lt2.push_back(e);
+	}
+
+	int begin1 = clock();
+	// vector
+	vector<int> v(lt2.begin(), lt2.end());
+	// 
+	sort(v.begin(), v.end());
+
+	// lt2
+	lt2.assign(v.begin(), v.end());
+
+	int end1 = clock();
+
+	int begin2 = clock();
+	lt1.sort();
+	int end2 = clock();
+
+	printf("list copy vector sort copy list sort:%d\n", end1 - begin1);
+	printf("list sort:%d\n", end2 - begin2);
+}
+// 物理上连续空间的vector的排序要比list的优，当要对list的大量数据进行排序时可以用vector装这些数据，在vector排好后再放回list 
+
+//int main()
+//{
+//	//test1();
+//	//test2();
+//	test3();
+//
+//	return 0;
+//}
