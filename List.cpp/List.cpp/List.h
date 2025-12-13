@@ -18,10 +18,10 @@ namespace my_list
 		}
 	};
 
-	template<class T,class Ref>
+	template<class T,class Ref,class Ptr>
 	struct list_iterator
 	{
-		using Self = list_iterator<T, Ref>;
+		using Self = list_iterator<T, Ref,Ptr>;
 		using Node = ListNode<T>;
 		Node* _node;
 
@@ -35,6 +35,11 @@ namespace my_list
 		Ref operator*()
 		{
 			return _node->_data;
+		}
+
+		Ptr operator->()
+		{
+			return &_node->_data;
 		}
 
 		// ++it
@@ -194,8 +199,8 @@ namespace my_list
 	{
 		using Node = ListNode<T>;
 	public:
-		using iterator = list_iterator<T,T&>;
-		using const_iterator = list_iterator<T, const T&>;
+		using iterator = list_iterator<T,T&,T*>;
+		using const_iterator = list_iterator<T, const T&, const T*>;
 
 		// using iterator = list_iterator<T>;
 		// using const_iterator = list_const_iterator<T>;

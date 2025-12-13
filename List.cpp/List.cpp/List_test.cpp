@@ -69,13 +69,39 @@ namespace my_list
 		Print(l4);
 
 	}
+
+	struct A
+	{
+		int a = 0;
+		int b = 0;
+	};
+
+	void test3()
+	{
+		list<A> lt;
+		lt.push_back({ 1,2 });
+		lt.push_back({ 3,4 });
+		lt.push_back({ 5,6 });
+		list<A>::iterator it = lt.begin();
+		while (it != lt.end())
+		{
+			cout << (*it).a << " " << (*it).b << " ";
+			//cout << (*it)._a1 << ":" << (*it)._a2 << endl;
+			// 为了可读性省略一个->
+			//cout << it->_a1 << ":" << it->_a2 << endl;
+			//cout << it.operator->()->_a1 << ":" << it.operator->()->_a2 << endl;
+			++it;
+		}
+		cout << endl;
+	}
 }
 using namespace my_list;
 
 int main()
 {
 	//test1();
-	test2();
+	//test2();
+	test3();
 
 	return 0;
 }
