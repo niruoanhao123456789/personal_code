@@ -70,3 +70,35 @@ using namespace std;
 //        return maxVolume;
 //    }
 //};
+
+
+// 力扣 P611
+// 
+//class Solution {
+//public:
+//    int triangleNumber(vector<int>& nums) {
+//        int sum = 0;
+//		  
+//		// 先对vector进行优化，再利用双指针
+//        sort(nums.begin(), nums.end());
+//        int max = nums.size() - 1;
+//        while (max >= 2)
+//        {
+//            int left = 0;
+//            int right = max - 1;
+//            while (left < right)
+//            {
+//                if (nums[left] + nums[right] > nums[max])
+//                {
+//                    sum += right - left;
+//                    right--;
+//                }
+//                else
+//                    left++;
+//
+//            }
+//            max--;
+//        }
+//        return sum;
+//    }
+//};
