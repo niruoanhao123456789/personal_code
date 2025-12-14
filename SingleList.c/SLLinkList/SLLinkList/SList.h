@@ -6,7 +6,6 @@
 #include<errno.h>
 
 typedef int SLTDataType;
-
 typedef struct SListNode
 {
 	SLTDataType data;

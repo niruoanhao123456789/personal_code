@@ -50,13 +50,7 @@ void SListPushBack(SLTNode** pphead, SLTDataType x)
 void SListPushFront(SLTNode** pphead, SLTDataType x)
 {
 	assert(pphead);
-	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
-	if (newnode == NULL)
-	{
-		perror("malloc");
-		exit(-1);
-	}
-	newnode->data = x;
+	SLTNode* newnode = SLTBuyMemory(x);
 	newnode->next = *pphead;
 	*pphead = newnode;
 }
@@ -130,14 +124,7 @@ void SListInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x)
 {
 	assert(pphead);
 	assert(pos);
-	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
-	if (newnode == NULL)
-	{
-		perror("malloc");
-		exit(-1);
-	}
-	newnode->data = x;
-	newnode->next = NULL;
+	SLTNode* newnode = SLTBuyMemory(x);
 
 	if (*pphead == pos)
 	{
@@ -159,14 +146,7 @@ void SListInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x)
 void SListInsertAfter(SLTNode* pos, SLTDataType x)
 {
 	assert(pos);
-	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
-	if (newnode == NULL)
-	{
-		perror("malloc");
-		exit(-1);
-	}
-	newnode->data = x;
-	newnode->next = NULL;
+	SLTNode* newnode = SLTBuyMemory(x);
 
 	newnode->next = pos->next;
 	pos->next = newnode;

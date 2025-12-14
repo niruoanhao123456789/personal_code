@@ -20,12 +20,14 @@ void test1(SLTNode* phead)
 void test2(SLTNode* phead)
 {
 	SListPushBack(&phead, 1);
-	SListPushBack(&phead, 2);
+
 	SListPushBack(&phead, 3);
-	SListPushBack(&phead, 2);
+
 	SListPushBack(&phead, 4);
 	SListPushBack(&phead, 5);
 	SListPushBack(&phead, 2);
+	SListPrint(phead);
+
 
 	//SLTNode* pos = SListFind(phead,2);
 	////对于要查找的数据存在多个的情况
@@ -38,25 +40,33 @@ void test2(SLTNode* phead)
 
 	//修改要找的数据
 	SLTNode* pos = SListFind(phead, 3);
+	//if (pos)
+	//{
+	//	pos->data = 2;
+	//}
+	//SListPrint(phead);
+
+	//pos = SListFind(phead, 4);
+	//if (pos)
+	//{
+	//	SListInsert(&phead, pos, 3);
+	//}
+	//SListPrint(phead);
+
+	pos = SListFind(phead, 2);
 	if (pos)
 	{
-		pos->data = 2;
+		SListInsertAfter(pos, 6);
 	}
+	SListPrint(phead);
+}
+
+void test3(SLTNode* phead)
+{
+	SListPushBack(&phead, 1);
+	SListInsert(&phead, SListFind(phead, 1), 2);
 	SListPrint(phead);
 
-	pos = SListFind(phead, 4);
-	if (pos)
-	{
-		SListInsert(&phead, pos, 3);
-	}
-	SListPrint(phead);
-
-	pos = SListFind(phead, 1);
-	if (pos)
-	{
-		SListInsert(&phead, pos, 1);
-	}
-	SListPrint(phead);
 }
 
 
@@ -64,7 +74,8 @@ int main()
 {
 	SLTNode* plist = NULL;
 	//test1(plist);
-	//test2(plist);
+	test2(plist);
+	//test3(plist);
 
 	SListDestory(&plist);
 	return 0;
