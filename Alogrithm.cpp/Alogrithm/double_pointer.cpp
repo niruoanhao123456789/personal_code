@@ -102,3 +102,22 @@ using namespace std;
 //        return sum;
 //    }
 //};
+
+// https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/description/
+// 利用给定数组的有序且递增性，结合双指针法
+//class Solution {
+//public:
+//    vector<int> twoSum(vector<int>& price, int target) {
+//        int left = 0, right = price.size() - 1;
+//        while (left < right)
+//        {
+//            if (price[left] + price[right] < target)
+//                left++;
+//            else if (price[left] + price[right] > target)
+//                right--;
+//            else
+//                return { price[left],price[right] };
+//        }
+//        return { 0,0 };
+//    }
+//};
