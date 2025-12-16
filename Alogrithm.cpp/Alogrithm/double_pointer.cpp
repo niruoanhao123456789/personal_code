@@ -121,3 +121,73 @@ using namespace std;
 //        return { 0,0 };
 //    }
 //};
+
+
+// https://leetcode.cn/problems/3sum/description/
+//同上一题类似的解法，先排序再利用双指针，但本题要注意去重以及避免越界问题
+//class Solution {
+//public:
+//    vector<vector<int>> threeSum(vector<int>& nums) {
+//        int i = 0;
+//        vector<vector<int>> vv;
+//        sort(nums.begin(), nums.end());
+//        for (i = 0; i <= nums.size() - 3 && nums[i]<=0; i++)
+//        {
+//            int left = i + 1, right = nums.size() - 1;
+//            while (left < right)
+//            {
+//                vector<int> v;
+//                if (nums[left] + nums[right] == 0 - nums[i])
+//                {
+//                    v.push_back(nums[i]);
+//                    v.push_back(nums[left]);
+//                    v.push_back(nums[right]);
+//                    vv.push_back(v);
+//                    left++;
+//                    right--;
+//                    while (left < right && nums[left] == nums[left - 1])
+//                    {
+//                        left++;
+//                    }
+//                    while (left < right && nums[right] == nums[right + 1])
+//                    {
+//                        right--;
+//                    }
+//                }
+//                else if (nums[left] + nums[right] < 0 - nums[i])
+//                {
+//                    left++;
+//                    while (left < right && nums[left] == nums[left - 1])
+//                    {
+//                        left++;
+//                    }
+//                }
+//                else
+//                {
+//                    right--;
+//                    while (left < right && nums[right] == nums[right + 1])
+//                    {
+//                        right--;
+//                    }
+//                }
+//            }
+//            while (nums[i] == nums[i + 1])
+//            {
+//                i++;
+//                if (i > nums.size() - 3)
+//                {
+//                    break;
+//                }
+//            }
+//        }
+//        return vv;
+//    }
+//};
+//
+//int main()
+//{
+//    vector<int> nums = { 0,0,0 };
+//    Solution s;
+//    vector<vector<int>>ret = s.threeSum(nums);
+//    return 0;
+//}
