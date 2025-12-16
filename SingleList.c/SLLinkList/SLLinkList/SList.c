@@ -137,6 +137,8 @@ void SListInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x)
 		while (prev->next != pos)
 		{
 			prev = prev->next;
+			if (prev==NULL)
+				return;
 		}
 		prev->next = newnode;
 		newnode->next = pos;
