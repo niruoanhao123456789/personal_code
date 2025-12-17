@@ -191,3 +191,80 @@ using namespace std;
 //    vector<vector<int>>ret = s.threeSum(nums);
 //    return 0;
 //}
+
+
+// https://leetcode.cn/problems/4sum/description/
+//class Solution {
+//public:
+//    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+//        int i = 0;
+//        vector<vector<int>> vv;
+//        size_t n = nums.size();
+//        sort(nums.begin(), nums.end());
+//        if (n < 4)
+//        {
+//            return vv;
+//        }
+//        else
+//        {
+//            for (i = 0; i < n - 3; i++)
+//            {
+//                int j = i + 1;
+//                for (j = i + 1; j < n - 2; j++)
+//                {
+//                    int left = j + 1, right = n - 1;
+//                    long long target1 = (long long)target - (long long)nums[i] - (long long)nums[j];
+//                    while (left < right)
+//                    {
+//                        vector<int> v;
+//                        long long sum = nums[left] + nums[right];
+//                        if (sum == target1)
+//                        {
+//                            v = { nums[i],nums[j],nums[left],nums[right] };
+//                            vv.push_back(v);
+//                            left++;
+//                            right--;
+//                            while (left < right && nums[left] == nums[left - 1])
+//                            {
+//                                left++;
+//                            }
+//                            while (left < right && nums[right] == nums[right + 1])
+//                            {
+//                                right--;
+//                            }
+//                        }
+//                        else if (sum < target1)
+//                        {
+//                            left++;
+//                            while (left < right && nums[left] == nums[left - 1])
+//                            {
+//                                left++;
+//                            }
+//                        }
+//                        else
+//                        {
+//                            right--;
+//                            while (left < right && nums[right] == nums[right + 1])
+//                            {
+//                                right--;
+//                            }
+//                        }
+//                    }
+//                    while (nums[j] == nums[j + 1])
+//                    {
+//                        j++;
+//                        if (j > n - 3)
+//                            break;
+//                    }
+//                }
+//                while (nums[i] == nums[i + 1])
+//                {
+//                    i++;
+//                    if (i > n - 4)
+//                        break;
+//                }
+//            }
+//        }
+//        return vv;
+//    }
+//};
