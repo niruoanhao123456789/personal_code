@@ -94,6 +94,25 @@ namespace my_list
 		}
 		cout << endl;
 	}
+
+	void test4()
+	{
+		list<int> l1;
+		l1.push_back(0);
+		l1.push_back(1);
+		l1.push_back(2);
+		l1.push_back(3);
+		l1.push_back(4);
+		Print(l1);
+
+		list<int>::reverse_iterator rit = l1.rbegin();
+		while (rit != l1.rend())
+		{
+			cout << *rit << " ";
+			++rit;
+		}
+		cout << endl;
+	}
 }
 using namespace my_list;
 
@@ -101,7 +120,8 @@ int main()
 {
 	//test1();
 	//test2();
-	test3();
+	//test3();
+	test4();
 
 	return 0;
 }

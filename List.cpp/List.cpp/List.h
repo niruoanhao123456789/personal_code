@@ -81,6 +81,65 @@ namespace my_list
 		}
 	};
 
+	template<class Iterator, class Ref, class Ptr>
+	struct reverse_iterator
+	{
+		using Self = reverse_iterator<Iterator, Ref, Ptr>;
+		Iterator _it;
+
+		reverse_iterator(Iterator it)
+			:_it(it)
+		{
+		}
+
+		Ref operator*()
+		{
+			return (*_it);
+		}
+
+		Ptr operator->()
+		{
+			return &(*_it);
+		}
+
+		Self& operator++()
+		{
+			--_it;
+			return *this;
+		}
+
+		Self operator++(int)
+		{
+			Self tmp(*this);
+			--_it;
+			return tmp;
+		}
+
+		Self& operator--()
+		{
+			++_it;
+			return *this;
+		}
+
+		Self operator--(int)
+		{
+			Self tmp(*this);
+			++_it;
+			return tmp;
+		}
+
+		bool operator!=(const Self& s) const
+		{
+			return _it != s._it;
+		}
+
+		bool operator==(const Self& s) const
+		{
+			return _it == s._it;
+		}
+
+	};
+
 	// 可以发现要实现list_const_itterator的过程和list_iterator一样，如何化简代码有上面的方案
 	// 设计迭代器的类
 	//template<class T>
@@ -199,9 +258,13 @@ namespace my_list
 	{
 		using Node = ListNode<T>;
 	public:
-		using iterator = list_iterator<T,T&,T*>;
+		using iterator = list_iterator<T, T&, T*>;
 		using const_iterator = list_iterator<T, const T&, const T*>;
+		using reverse_iterator = reverse_iterator<iterator, T&, T*>;
 
+		// !!! 待解决
+		//using const_reverse_iterator = reverse_iterator<const_iterator, const T&, const T*>;
+		
 		// using iterator = list_iterator<T>;
 		// using const_iterator = list_const_iterator<T>;
 
@@ -253,6 +316,26 @@ namespace my_list
 		{
 			return const_iterator(_head);
 		}
+
+		reverse_iterator rbegin()
+		{
+			return reverse_iterator(--end());
+		}
+
+		reverse_iterator rend()
+		{
+			return reverse_iterator(end());
+		}
+
+		//const_reverse_iterator rbegin() const
+		//{
+		//	return const_reverse_iterator(--end());
+		//}
+
+		//const_reverse_iterator rend() const
+		//{
+		//	return const_reverse_iterator(end());
+		//}
 
 		list(std::initializer_list<T> il)
 		{
