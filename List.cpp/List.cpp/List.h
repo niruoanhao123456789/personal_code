@@ -82,12 +82,12 @@ namespace my_list
 	};
 
 	template<class Iterator, class Ref, class Ptr>
-	struct reverse_iterator
+	struct list_reverse_iterator
 	{
-		using Self = reverse_iterator<Iterator, Ref, Ptr>;
+		using Self = list_reverse_iterator<Iterator, Ref, Ptr>;
 		Iterator _it;
 
-		reverse_iterator(Iterator it)
+		list_reverse_iterator(Iterator it)
 			:_it(it)
 		{
 		}
@@ -260,10 +260,8 @@ namespace my_list
 	public:
 		using iterator = list_iterator<T, T&, T*>;
 		using const_iterator = list_iterator<T, const T&, const T*>;
-		using reverse_iterator = reverse_iterator<iterator, T&, T*>;
-
-		// !!! ´ı½â¾ö
-		//using const_reverse_iterator = reverse_iterator<const_iterator, const T&, const T*>;
+		using reverse_iterator = list_reverse_iterator<iterator, T&, T*>;
+		using const_reverse_iterator = list_reverse_iterator<const_iterator, const T&, const T*>;
 		
 		// using iterator = list_iterator<T>;
 		// using const_iterator = list_const_iterator<T>;
