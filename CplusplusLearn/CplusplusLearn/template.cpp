@@ -235,3 +235,205 @@
 //
 //	return 0;
 //}
+
+
+// 模板进阶
+// 
+// 非类型模板参数：就是用一个常量作为类(函数)模板的一个参数，在类(函数)模板中可将该参数当成常量来使用。
+// 该参数在c++ 20之前都只能为整型
+//#include<iostream>
+//#include<array>
+//#include<list>
+//using namespace std;
+//
+//// “std::string”: 不是非类型模板参数“str”的有效类型
+//template<class T,size_t N = 10>
+//class stack
+//{
+//private:
+//	T _arr[N];
+//	int _top;
+//};
+//
+//void fun1(int* arr, const array<int, 10>& a)
+//{
+//	// 普通数组的参数不支持范围for
+//	//for(auto e:arr)
+//	//{
+//	//	;
+//	//}
+//
+//	//array的支持
+//	for(auto e:a)
+//	{
+//		cout<<e<<" ";
+//	}
+//	cout << endl;
+//}
+//
+//int main()
+//{
+//	stack<int, 100> st;		//这样做到了不需动态扩容的情况下，能指定相应适配器所需容量大小
+//	//test1();
+//
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+//	array<int, 10> a;	//默认不会进行初始化
+//
+//	// 再去做其他容器类型，或者传参，array都有普通数组达不到的优势,array支持迭代器
+//	list<array<int, 10>> l1;
+//
+//    // 数组越界只能检查写，并且是抽查
+//	//arr[10] = 1;   // 可以查出来
+//	//arr[15] = 1;   // 通常不能查出来
+//	//cout << arr[15] << endl;       // 越界读是一点办法没有
+//
+//	//// 上面对array都不是问题，都可以检查出来，因为他是运算符重载调用，内存严格检查
+//	//a[15] = 1; 
+//	//cout << a[10] << endl;  
+//
+//
+//	return 0;
+//}
+
+// 函数模板的特化
+//#include<iostream>
+//#include"Date.h"
+//using namespace std;
+//
+////template<class T>
+////bool Less(T left, T right)
+////{
+////	return left < right;
+////}
+//
+//// 对上述函数模板实现一个特化版本
+//// 特化：针对某些类型进行特殊化处理
+////template<>
+////bool Less<Date*>(Date* left, Date* right)
+////{
+////	return *left < *right;
+////}
+//
+//// 特化版本形参结构跟原模板必须保持一致，比如说原模板是const的形参，特化版本也必须是
+////template<>
+////bool Less<Date*>(Date* const & left, Date* const & right)
+////{
+////	return *left < *right;
+////}
+//
+//// 在除了特化外，也可写一个现成的函数供模板进行实例化
+////template<class T>
+////bool Less(const T& left, const T& right)
+////{
+////	return left < right;
+////}
+////
+////bool Less(Date* left, const Date* right)
+////{
+////	return *left < *right;
+////}
+//
+//int main()
+//{
+//	//只有第一个模板函数，没有特化时
+//	//cout << Less(1, 2) << endl;   // 可以比较，结果正确
+//	//
+//	//Date* p1 = new Date(2025, 1,1);
+//	//Date* p2 = new Date(2025, 1, 3);
+//	//cout << Less(p1, p2) << endl; // 可以比较，但结果错误
+//
+//	return 0;
+//}
+
+// 类模板的特化
+//#include<iostream>
+//#include<queue>
+//using namespace std;
+//
+//template<class T1, class T2>
+//class Data
+//{
+//public:
+//	Data() { cout << "Data<T1, T2>" << endl; }
+//private:
+//	T1 _d1;
+//	T2 _d2;
+//};
+//
+//// 类模板特化，对内部成员没有要求，也就是说原模板定义的，特化版本可以不定义，也可以新增,因此针对不同类型来进行特化
+//// 全特化: 全特化即是将模板参数列表中所有的参数都确定化
+//template<>
+//class Data<int, double>
+//{
+//public:
+//	Data() { cout << "Data<int, double> 特化" << endl; }
+//	void func() {}
+//};
+//
+//// 偏特化/半特化：任何针对模版参数进一步进行条件限制设计的特化版本
+//template<class T1>
+//class Data<T1, double>
+//{
+//public:
+//	Data() { cout << "Data<T1, double> 特化" << endl; }
+//};
+//
+//// 限制实例化参数是指针
+//template<class T1, class T2>
+//class Data<T1*, T2*>
+//{
+//public:
+//	Data() { cout << "Data<T1*, T2*> 特化" << endl; }
+//	void func()
+//	{
+//		cout << typeid(T1).name() << endl;
+//		cout << typeid(T2).name() << endl;
+//	}
+//};
+//
+//template<class T1, class T2>
+//class Data<T1&, T2&>
+//{
+//public:
+//	Data() { cout << "Data<T1&, T2&> 特化" << endl; }
+//	void func()
+//	{
+//		cout << typeid(T1).name() << endl;
+//		cout << typeid(T2).name() << endl;
+//	}
+//};
+//
+//
+//template<class T1>
+//class Data<T1*, int>
+//{
+//public:
+//	Data() { cout << "Data<T1*, int> 特化" << endl; }
+//	void func()
+//	{
+//		cout << typeid(T1).name() << endl;
+//	}
+//};
+//
+//int main()
+//{
+//	Data<int, int> d1;
+//	//d1.func();
+//
+//	Data<int, double> d2;
+//	d2.func();
+//
+//	Data<char, double> d3;
+//	Data<char*, double*> d4;
+//	d4.func();
+//
+//	Data<char&, double&> d5;
+//	d5.func();
+//
+//	Data<char*, int> d6;
+//	d6.func();
+//
+//	return 0;
+//
+//	return 0;
+//}
