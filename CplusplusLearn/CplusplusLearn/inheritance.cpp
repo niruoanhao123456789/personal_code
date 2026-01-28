@@ -314,3 +314,234 @@ using namespace std;
 //
 //	return 0;
 //}
+
+
+//继承与友元
+//友元关系不能被继承
+//class Student;
+//
+//class Person
+//{
+//	friend void Display(const Person& p, const Student& s);
+//protected:
+//	string _name; // 姓名
+//};
+//
+//class Student
+//{
+//	friend void Display(const Person& p, const Student& s);
+//protected:
+//	int _stuNum; // 学号
+//};
+//
+//void Display(const Person& p, const Student& s)
+//{
+//	cout << p._name << endl;
+//	cout << s._stuNum << endl;
+//}
+//
+//int main()
+//{
+//	Person p;
+//	Student s;
+//	// 编译报错：error C2248: “Student::_stuNum”: 无法访问 protected 成员
+//	// 解决方案：Display也变成Student 的友元即可
+//	Display(p, s);
+//
+//	return 0;
+//}
+
+
+//继承与静态成员
+//class Person
+//{
+//public:
+//	string _name;
+//	static int _count;
+//};
+//
+//// 在内存中全局变量与静态变量会存储在静态区中，父类与子类在这一快共用同一块内存空间，因此显示这两空间是一样的地址
+//int Person::_count = 0;
+//
+//class Student : public Person
+//{
+//protected:
+//	int _stuNum;
+//};
+//
+//int main()
+//{
+//	Person p;
+//	Student s;
+//	// 这里的运行结果可以看到非静态成员_name的地址是不一样的
+//	// 说明派生类继承下来了，父派生类对象各有一份
+//	cout << &p._name << endl;
+//	cout << &s._name << endl;
+//
+//	// 这里的运行结果可以看到静态成员_count的地址是一样的
+//	// 说明派生类和基类共用同一份静态成员
+//	cout << &p._count << endl;
+//	cout << &s._count << endl;
+//
+//	// 公有的情况下，父派生类指定类域都可以访问静态成员
+//	cout << Person::_count << endl;
+//	cout << Student::_count << endl;
+//
+//	return 0;
+//}
+
+
+// 多继承、菱形继承
+// 在io库中会有使用菱形继承的情况
+// 菱形继承会带来数据冗余和⼆义性的问题
+// 
+// 下面菱形继承例子中Student、Teacher都继承了Person，虽然是同一个person但内存却开了两个Person,即数据冗余
+// 编译报错：error C2385: 对“_name”的访问不明确，访问内存中的Person中的_name，是Student里的还是Teacher里的？⼆义性
+// 
+// 解决方式：虚继承
+// 
+//class Person
+//{
+//public:
+//	Person(const char* name)
+//		:_name(name)
+//	{}
+//
+//public:
+//	string _name; // 姓名
+//	/*int _age;
+//	int _tel;
+//	string _address;*/
+//};
+//
+//// 菱形继承要在“腰部”的继承方式加virtual，虚继承
+////class Student : public Person
+//class Student : virtual public Person
+//{
+//public:
+//	Student(const char* name, int num)
+//		:Person(name)
+//		, _num(num)
+//	{}
+//protected:
+//	int _num; //学号
+//};
+//
+////class Teacher : public Person
+//class Teacher : virtual public Person
+//{
+//public:
+//	Teacher(const char* name, int id)
+//		:Person(name)
+//		, _id(id)
+//	{}
+//protected:
+//	int _id; // 职工编号
+//};
+//
+//class Assistant : public Student, public Teacher
+//{
+//public:
+//	Assistant(const char* name1, const char* name2, const char* name3)
+//		:Person(name1)
+//		,Student(name2, 1)
+//		,Teacher(name3, 2)
+//		, _majorCourse("计算机")
+//	{}
+//
+//protected:
+//	string _majorCourse; // 主修课程
+//};
+//
+//int main()
+//{
+//	// 思考一下这里a对象中_name是"张三", "李四", "王五"中的哪一个？
+//	//Assistant a("张三", "李四", "王五");
+//
+//	// 编译报错：error C2385: 对“_name”的访问不明确
+//	//Assistant a;
+//	//a._name = "peter";
+//
+//	//a.Student::_name = "小张";
+//	//a.Teacher::_name = "张老师";
+//
+//	cout  << endl;
+//
+//
+//	return 0;
+//}
+
+// 多继承中指针偏移问题
+// 
+// A：p1 == p2 == p3              B：p1 < p2 < p3         C：p1 == p3 != p2        D：p1 != p2 != p3
+//class Base1 { public: int _b1; };
+//class Base2 { public: int _b2; };
+//class Derive : public Base1, public Base2 { public: int _d; };
+//
+//int main()
+//{
+//	Derive d;
+//	Base1* p1 = &d;
+//	Base2* p2 = &d;
+//	Derive* p3 = &d;
+//
+//	return 0;
+//}
+//派生类对象给基类指针或引用时基类的指针或引用指向派生类中对应的基类的部分
+
+
+// 继承和组合
+// public继承是⼀种is-a的关系。也就是说每个派⽣类对象都是⼀个基类对象。 
+// 组合是⼀种has-a的关系。假设B组合了A，每个B对象中都有⼀个A对象。
+// 
+// 继承这种通过⽣成派⽣类的复⽤通常被称为⽩箱复⽤，派⽣类和基类间的依赖关系很强，耦合度⾼。
+// 
+// 组合是类继承之外的另⼀种复⽤选择，这种复⽤⻛格被称为⿊箱复⽤(black-box reuse)，因为对象的内部细节是不可⻅的。组合类之间没有很强的依赖关
+// 系，耦合度低。
+//
+// 二者都存在的情况下组合会更好，符合高内聚、低耦合
+//
+//
+//// Tire(轮胎)和Car(⻋)更符合has-a的关系
+//class Tire {
+//protected:
+//	string _brand = "Michelin"; // 品牌
+//	size_t _size = 17; // 尺⼨
+//};
+//
+//class Car {
+//protected:
+//	string _colour = "⽩⾊"; // 颜⾊
+//	string _num = "陕ABIT00"; // ⻋牌号
+//	Tire _t1; // 轮胎
+//	Tire _t2; // 轮胎
+//	Tire _t3; // 轮胎
+//	Tire _t4; // 轮胎
+//};
+//class BMW : public Car {
+//public:
+//	void Drive() { cout << "好开-操控" << endl; }
+//};
+//
+//// Car和BMW/Benz更符合is-a的关系
+//class Benz : public Car {
+//public:
+//	void Drive() { cout << "好坐-舒适" << endl; }
+//};
+//template<class T>
+//class vector
+//{
+//};
+//
+//// stack和vector的关系，既符合is-a，也符合has-a
+//template<class T>
+//class stack : public vector<T>
+//{
+//};
+//
+//template<class T>
+//class stack
+//{
+//public:
+//	vector<T> _v;
+//};
