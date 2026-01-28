@@ -413,9 +413,9 @@ using namespace std;
 //	int _tel;
 //	string _address;*/
 //};
-//
+
 //// 菱形继承要在“腰部”的继承方式加virtual，虚继承
-////class Student : public Person
+//class Student : public Person
 //class Student : virtual public Person
 //{
 //public:
@@ -456,7 +456,7 @@ using namespace std;
 //int main()
 //{
 //	// 思考一下这里a对象中_name是"张三", "李四", "王五"中的哪一个？
-//	//Assistant a("张三", "李四", "王五");
+//	Assistant a("张三", "李四", "王五");
 //
 //	// 编译报错：error C2385: 对“_name”的访问不明确
 //	//Assistant a;
