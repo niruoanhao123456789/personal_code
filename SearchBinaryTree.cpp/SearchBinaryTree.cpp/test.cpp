@@ -7,24 +7,45 @@
 // ⼆叉搜索树中可以⽀持插⼊相等的值，也可以不⽀持插⼊相等的值，具体看使⽤场景定义
 // ⼆叉搜索树增删查改时间复杂度为： O(N)  
 
-void test1()
-{
-	int arr[] = { 8, 3, 1, 10, 1, 6, 4, 7, 14, 13 };
-	BSTree<int> t;
+//void test1()
+//{
+//	int arr[] = { 8, 3, 1, 10, 1, 6, 4, 7, 14, 13 };
+//	BSTree<int> t;
+//
+//	for (auto e : arr)
+//	{
+//		t.Insert(e);
+//	}
+//	t.InOder();
+//
+//	t.Erase(8);
+//	t.InOder();
+//}
 
+void test2()
+{
+	string arr[] = { "苹果", "西瓜", "苹果", "西瓜", "苹果", "苹果", "西瓜", "苹果", "香蕉", "苹果", "香蕉" };
+	key_value::BSTree<string, int> coutTree;
 	for (auto e : arr)
 	{
-		t.Insert(e);
+		auto* node = coutTree.Find(e);
+		if (!node)
+		{
+			coutTree.Insert(e, 1);
+		}
+		else
+		{
+			node->_value++;
+		}
 	}
-	t.InOder();
-
-	t.Erase(8);
-	t.InOder();
+	coutTree.InOder();
 }
 
 int main()
 {
-	test1();
+	//test1();
+
+	test2();
 
 	return 0;
 }
