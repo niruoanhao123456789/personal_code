@@ -141,3 +141,33 @@ using namespace std;
 //
 //    return 0;
 //}
+
+
+// 
+//class Solution {
+//public:
+//    int totalFruit(vector<int>& fruits) {
+//        vector<int> hash = { 0 };
+//        hash.reserve(100001);
+//        int left = 0, right = 0, kinds = 0;
+//        int ret = 0;
+//        while (right < fruits.size())
+//        {
+//            if (hash[fruits[right]] == 0)
+//                kinds++;
+//            hash[fruits[right]]++;
+//            while (kinds > 2)
+//            {
+//                hash[fruits[left]]--;
+//                if (hash[fruits[left]] == 0)
+//                {
+//                    kinds--;
+//                }
+//                left++;
+//            }
+//            ret = max(ret, right - left + 1);
+//            right++;
+//        }
+//        return ret;
+//    }
+//};
