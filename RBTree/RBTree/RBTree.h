@@ -61,6 +61,7 @@ public:
 			{
 				return false;
 			}
+		}
 
 			// 新增结点
 			cur = new Node(kv);
@@ -150,7 +151,7 @@ public:
 					}
 				}
 			}
-		}
+
 		_root->_col = BLACK;
 		return true;
 	}
