@@ -205,10 +205,41 @@ namespace hash_bucket
 			}
 			_n = 0;
 		}
-		bool Insert(const pair<K, V>& kv)
+
+		bool Insert(const std::pair<K, V>& kv)
 		{
 			if (Find(kv.first))
 				return false;
+
+			Hash hs;
+			// 负载因子 == 1就开始扩容
+			if (_n == _tables.size())
+			{
+				std::vector<Node*> newtables(__stl_next_prime(_tables.size() + 1), nullptr);
+				for (size_t i = 0; i < _tables.size(); i++)
+				{
+					Node* cur = _tables[i];
+					while (cur)
+					{
+						Node* next = cur->_next;
+						// 头插
+						size_t hashi = hs(cur->_kv.first) % newtables.size();
+						cur->_next = newtables[hashi];
+						newtables[hashi] = cur;
+						cur = next;
+					}
+					_tables[i] = nullptr;
+				}
+				_tables.swap(newtables);
+			}
+			size_t hashi = hs(kv.first) % _tables.size();
+			// 头插
+			Node* newnode = new Node(kv);
+			newnode->_next = _tables[hashi];
+			_tables[hashi] = newnode;
+			_n++;
+
+			return true;
 		}
 
 		Node* Find(const K& key)
@@ -222,9 +253,37 @@ namespace hash_bucket
 				{
 					return cur;
 				}
-				cur = cur->_next
+				cur = cur->_next;
 			}
 			return nullptr;
+		}
+
+		bool Erase(const K& key)
+		{
+			Hash hs;
+			size_t hashi = hs(key) % _tables.size();
+			Node* cur = _tables[hashi];
+			Node* prev = nullptr;
+			while (cur)
+			{
+				if (cur->_kv.first == key)
+				{
+					if (prev == nullptr)
+					{
+						_tables[hashi] = cur->_next;
+					}
+					else
+					{
+						prev->_next = cur->_next;
+					}
+					delete cur;
+					_n--;
+					return true;
+				}
+				prev = cur;
+				cur = cur->_next;
+			}
+			return false;
 		}
 
 	private:
