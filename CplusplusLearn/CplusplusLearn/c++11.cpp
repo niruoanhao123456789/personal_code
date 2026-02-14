@@ -1,6 +1,11 @@
 ﻿#include<iostream>
+#include<functional>
 #include<assert.h>
+#include<exception>
 #include<string>
+#include<thread>
+#include<map>
+#include<stack>
 #include<list>
 using namespace std;
 
@@ -972,4 +977,509 @@ using namespace std;
 //    func5(1);
 //
 //    return 0;
+//}
+
+
+// 包装器
+// function
+// 
+//int f(int a, int b)
+//{
+//	return a + b;
+//}
+//
+//struct Functor
+//{
+//public:
+//	int operator() (int a, int b)
+//	{
+//		return a + b;
+//	}
+//};
+//
+class Plus
+{
+public:
+	Plus(int n = 10)
+		:_n(n)
+	{
+	}
+
+	static int plusi(int a, int b)
+	{
+		return a + b;
+	}
+
+	double plusd(double a, double b)
+	{
+		return (a + b) * _n;
+	}
+private:
+	int _n;
+};
+//
+//int main()
+//{
+//	// 类型擦除
+//	function<int(int, int)> f1 = f;
+//	function<int(int, int)> f2 = Functor();
+//	function<int(int, int)> f3 = [](int a, int b) {return a + b; };
+//	cout << f1(1, 1) << endl;
+//	cout << f2(1, 1) << endl;
+//	cout << f3(1, 1) << endl;
+//
+//
+//	vector<function<int(int, int)>> v;
+//	v.push_back(f);
+//	v.push_back(Functor());
+//	v.push_back([](int a, int b) {return a + b; });
+//
+//	for (auto& f : v)
+//	{
+//		cout << f(1, 1) << endl;
+//	}
+//
+//	// 成员函数要指定类域并且前⾯加&才能获取地址
+//	//function<int(int, int)> f4 = Plus::plusi;
+//	function<int(int, int)> f4 = &Plus::plusi;
+//	cout << f4(1, 1) << endl;
+//
+//	function<double(Plus*, double, double)> f5 = &Plus::plusd;
+//	Plus ps;
+//	cout << f5(&ps, 1.1, 1.1) << endl;
+//
+//	function<double(Plus, double, double)> f6 = &Plus::plusd;
+//	cout << f6(ps, 1.1, 1.1) << endl;
+//
+//	function<double(Plus, double, double)> f7 = &Plus::plusd;
+//	cout << f7(Plus(), 1.1, 1.1) << endl;
+//
+//	function<double(Plus&&, double, double)> f8 = &Plus::plusd;
+//	cout << f8(Plus(), 1.1, 1.1) << endl;
+//
+//	auto pf1 = &Plus::plusd;
+//	Plus* ptr = &ps;
+//	cout << (ps.*pf1)(1.1, 1.1) << endl;
+//	cout << (ptr->*pf1)(1.1, 1.1) << endl;
+//
+//	return 0;
+//}
+
+
+//using placeholders::_1;
+//using placeholders::_2;
+//using placeholders::_3;
+//
+//int Sub(int a, int b)
+//{
+//	return (a - b) * 10;
+//}
+//
+//int SubX(int a, int b, int c)
+//{
+//	return (a - b - c) * 10;
+//}
+//
+//int main()
+//{
+//	// bind 本质返回的一个仿函数对象
+//	// 调整参数顺序（不常用）
+//	// _1代表第一个实参
+//	// _2代表第二个实参
+//	// ...
+//	auto f1 = bind(Sub, _1, _2);
+//	auto f2 = bind(Sub, _2, _1);
+//
+//	// _1代表第一个实参
+//	// _2代表第二个实参
+//	cout << f1(10, 5) << endl;
+//	cout << f2(10, 5) << endl;
+//
+//	// 调整参数个数
+//	auto f3 = bind(SubX, 10, _1, _2);
+//	cout << f3(15, 5) << endl;
+//	// _1代表第一个实参
+//	// _2代表第二个实参
+//	// 底层operator()，调用SubX，第一个参数10，15, 5
+//
+//	auto f4 = bind(SubX, _1, 10, _2);
+//	cout << f4(15, 5) << endl;
+//	// 底层operator()，调用SubX，第一个参数15，10, 5
+//
+//	auto f5 = bind(SubX, _1, _2, 10);
+//	cout << f5(15, 5) << endl;
+//	// 底层operator()，调用SubX，第一个参数15，5, 10
+//
+//
+//	function<double(Plus, double, double)> f7 = &Plus::plusd;
+//	cout << f7(Plus(), 1.1, 1.1) << endl;
+//	cout << f7(Plus(), 2.2, 1.1) << endl;
+//	cout << f7(Plus(), 3.3, 1.1) << endl;
+//
+//	function<double(double, double)> f8 = bind(&Plus::plusd, Plus(), _1, _2);
+//	cout << f8(1.1, 1.1) << endl;
+//	cout << f8(2.2, 1.1) << endl;
+//	cout << f8(3.3, 1.1) << endl << endl;
+//
+//
+//	// 计算复利的lambda
+//	auto func1 = [](double rate, double money, int year)->double
+//		{
+//			double ret = money;
+//			for (int i = 0; i < year; i++)
+//			{
+//				ret += ret * rate;
+//			}
+//			return ret - money;
+//		};
+//
+//	return 0;
+//}
+
+
+// 异常
+// 
+//double Divide(int a, int b)
+//{
+//	// 当b == 0时抛出异常
+//	if (b == 0)
+//	{
+//		/*string s("Divide by zero condition!");
+//		throw s;*/
+//
+//		throw exception("Divide by zero condition!");
+//	}
+//	else
+//	{
+//		return ((double)a / (double)b);
+//	}
+//}
+//
+//void Func()
+//{
+//	try
+//	{
+//		int len, time;
+//		cin >> len >> time;
+//		cout << Divide(len, time) << endl;
+//	}
+//	catch (const exception& e)
+//	{
+//		cout << e.what() << endl;
+//	}
+//
+//	cout << "Func():" << __LINE__ << endl;
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		try
+//		{
+//			Func();
+//		}
+//		catch (const string& s)
+//		{
+//			cout << s << endl;
+//		} 
+//		catch (const exception& e)
+//		{
+//			cout << e.what() << endl;
+//		}
+//		catch (...) // 任意类型的对象
+//		{
+//			cout << "未知异常" << endl;
+//		}
+//
+//		cout << "main():" << __LINE__ << endl;
+//	}
+//
+//	return 0;
+//}
+
+// 一般大型项目程序才会使用异常，下面我们模拟设计一个服务的几个模块
+// 每个模块的继承都是Exception的派生类，每个模块可以添加自己的数据
+// 最后捕获时，我们捕获基类就可以
+class Exception
+{
+public:
+	Exception(const string& errmsg, int id)
+		:_errmsg(errmsg)
+		, _id(id)
+	{
+	}
+
+	virtual string what() const
+	{
+		return _errmsg;
+	}
+
+	int getid() const
+	{
+		return _id;
+	}
+protected:
+	string _errmsg;
+	int _id;
+};
+
+class SqlException : public Exception
+{
+public:
+	SqlException(const string& errmsg, int id, const string& sql)
+		:Exception(errmsg, id)
+		, _sql(sql)
+	{
+	}
+
+	virtual string what() const
+	{
+		string str = "SqlException:";
+		str += _errmsg;
+		str += "->";
+		str += _sql;
+		return str;
+	}
+private:
+	const string _sql;
+};
+
+class CacheException : public Exception
+{
+public:
+	CacheException(const string& errmsg, int id)
+		:Exception(errmsg, id)
+	{
+	}
+
+	virtual string what() const
+	{
+		string str = "CacheException:";
+		str += _errmsg;
+		return str;
+	}
+};
+
+class HttpException : public Exception
+{
+public:
+	HttpException(const string& errmsg, int id, const string& type)
+		:Exception(errmsg, id)
+		, _type(type)
+	{
+	}
+
+	virtual string what() const
+	{
+		string str = "HttpException:";
+		str += _type;
+		str += ":";
+		str += _errmsg;
+		return str;
+	}
+
+private:
+	const string _type;
+};
+
+void SQLMgr()
+{
+	if (rand() % 7 == 0)
+	{
+		throw SqlException("权限不足", 100, "select * from name = '张三'");
+	}
+	else
+	{
+		cout << "SQLMgr 调用成功" << endl;
+	}
+}
+
+void CacheMgr()
+{
+	if (rand() % 5 == 0)
+	{
+		throw CacheException("权限不足", 100);
+	}
+	else if (rand() % 6 == 0)
+	{
+		throw CacheException("数据不存在", 101);
+	}
+	else
+	{
+		cout << "CacheMgr 调用成功" << endl;
+	}
+	SQLMgr();
+}
+
+void HttpServer()
+{
+	if (rand() % 3 == 0)
+	{
+		throw HttpException("请求资源不存在", 100, "get");
+	}
+	else if (rand() % 4 == 0)
+	{
+		throw HttpException("权限不足", 101, "post");
+	}
+	else
+	{
+		cout << "HttpServer调用成功" << endl;
+	}
+	CacheMgr();
+}
+
+//int main()
+//{
+//	srand(time(0));
+//	while (1)
+//	{
+//		this_thread::sleep_for(chrono::seconds(1));
+//
+//		try
+//		{
+//			HttpServer();
+//		}
+//		catch (const Exception& e) // 这里捕获基类，基类对象和派生类对象都可以被捕获
+//		{
+//			// 多态调用
+//			cout << e.what() << endl;
+//		}
+//		catch (...)
+//		{
+//			cout << "Unkown Exception" << endl;
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//void _SendMsg(const string& s)
+//{
+//	if (rand() % 2 == 0)
+//	{
+//		throw HttpException("网络不稳定，发送失败", 102, "put");
+//	}
+//	else if (rand() % 7 == 0)
+//	{
+//		throw HttpException("你已经不是对象的好友，发送失败", 103, "put");
+//	}
+//	else
+//	{
+//		cout << "发送成功" << endl;
+//	}
+//}
+//// 网络不稳定，要求重试3次，均失败
+//void SendMsg(const string& s)
+//{
+//	for (size_t i = 0; i < 4; i++)
+//	{
+//		try
+//		{
+//			_SendMsg(s);
+//
+//			// 走到这里代表成功了，跳出循环
+//			break;
+//		}
+//		catch (const Exception& e)
+//		{
+//			if (e.getid() == 102)
+//			{
+//				if (i == 3)
+//					throw;
+//
+//				cout << "开始第" << i + 1 << "重试" << endl;
+//			}
+//			else
+//			{
+//				// 重新抛出异常
+//				//throw e;
+//				throw;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	srand(time(0));
+//	string str;
+//	while (cin >> str)
+//	{
+//		try
+//		{
+//			SendMsg(str);
+//		}
+//		catch (const Exception& e)
+//		{
+//			cout << e.what() << endl << endl;
+//		}
+//		catch (...)
+//		{
+//			cout << "Unkown Exception" << endl;
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
+//double Divide(int a, int b) noexcept
+//double Divide(int a, int b) throw(const char*)
+double Divide(int a, int b)
+{
+	// 当b == 0时抛出异常
+	if (b == 0)
+	{
+		throw "Division by zero condition!";
+	}
+	return (double)a / (double)b;
+}
+
+void Func()
+{
+	// 这里可以看到如果发生除0错误抛出异常，另外下面的array没有得到释放。
+	// 所以这里捕获异常后并不处理异常，异常还是交给外层处理，这里捕获了再重新抛出去。
+	int* array = new int[10];
+
+	int len, time;
+	cin >> len >> time;
+	//try {
+	cout << Divide(len, time) << endl;
+	//}
+	//catch (...)
+	//{
+	//	cout << "delete []" << array << endl;
+	//	delete[] array;
+
+	//	// 重新抛出，捕获到什么抛出什么
+	//	throw;
+	//}
+
+	cout << "delete []" << array << endl;
+	delete[] array;
+}
+
+//int main()
+//{
+//	/*try
+//	{
+//		Func();
+//	}
+//	catch (const char* errmsg)
+//	{
+//		cout << errmsg << endl;
+//	}
+//	catch (...)
+//	{
+//		cout << "Unkown Exception" << endl;
+//	}*/
+//
+//	int i = 0;
+//	cout << noexcept(Divide(1, 2)) << endl;
+//	cout << noexcept(Divide(1, 0)) << endl;
+//	cout << noexcept(Func()) << endl;
+//	cout << noexcept(++i) << endl;
+//
+//	return 0;
 //}
