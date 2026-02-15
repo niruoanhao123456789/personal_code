@@ -155,6 +155,7 @@ public:
 //	return 0;
 //}
 
+
 namespace bit
 {
 	template<class T>
