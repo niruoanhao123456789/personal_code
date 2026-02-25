@@ -1,12 +1,13 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<algorithm>
 #include<vector>
+#include<unordered_map>
 using namespace std;
 
-// »¬¶¯´°¿Ú£¬¼´Í¬ÏòË«Ö¸Õë
-// 1¡¢ÅĞ¶ÏÊ²Ã´Ê±ºòÊı¾İÈë´°¿Ú
-// 2¡¢¸ù¾İÌâÄ¿¾ö¶¨ÔÚÄÄÀï¸üĞÂ½á¹û
-// 3¡¢ÅĞ¶ÏÊ²Ã´Ê±ºò³ö´°¿Ú
+// æ»‘åŠ¨çª—å£ï¼Œå³åŒå‘åŒæŒ‡é’ˆ
+// 1ã€åˆ¤æ–­ä»€ä¹ˆæ—¶å€™æ•°æ®å…¥çª—å£
+// 2ã€æ ¹æ®é¢˜ç›®å†³å®šåœ¨å“ªé‡Œæ›´æ–°ç»“æœ
+// 3ã€åˆ¤æ–­ä»€ä¹ˆæ—¶å€™å‡ºçª—å£
 // 
 // https://leetcode.cn/problems/minimum-size-subarray-sum/description/
 //class Solution {
@@ -15,19 +16,19 @@ using namespace std;
 //        int left = 0, right = 0, sum = 0, len = 0;
 //        while (right < nums.size())
 //        {
-//            sum += nums[right]; //Èë´°¿Ú
+//            sum += nums[right]; //å…¥çª—å£
 //            if (sum < target)
 //            {
 //                right++;
 //            }
 //            else
 //            {
-//				  // ¸üĞÂ½á¹û
+//				  // æ›´æ–°ç»“æœ
 //                if (len)
 //                    len = (len < right - left + 1 ? len : right - left + 1);
 //                else
 //                    len = right - left + 1;
-//                sum -= nums[left++]; //³ö´°¿Ú
+//                sum -= nums[left++]; //å‡ºçª—å£
 //                sum -= nums[right];
 //            }
 //        }
@@ -171,3 +172,110 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// 438. æ‰¾åˆ°å­—ç¬¦ä¸²ä¸­æ‰€æœ‰å­—âºŸå¼‚ä½è¯ 
+// https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/
+//class Solution {
+//public:
+//    vector<int> findAnagrams(string s, string p) {
+//        size_t hash1[26] = { 0 };
+//        size_t hash2[26] = { 0 };
+//        vector<int> ret;
+//        for (auto e : p)
+//        {
+//            hash1[e - 'a']++;
+//        }
+//        int left = 0, right = 0;
+//        int count = 0;
+//        while (right < s.size())
+//        {
+//            hash2[s[right] - 'a']++;
+//            if (hash2[s[right] - 'a'] <= hash1[s[right] - 'a'])
+//            {
+//                count++;
+//            }
+//            if (right - left + 1 > p.size())
+//            {
+//                if (hash2[s[left] - 'a'] <= hash1[s[left] - 'a'])
+//                {
+//                    count--;
+//                }
+//                hash2[s[left] - 'a']--;
+//                left++;
+//            }
+//            if (right - left + 1 == p.size() && count == p.size())
+//            {
+//                ret.push_back(left);
+//            }
+//            right++;
+//        }
+//        return ret;
+//    }
+//};
+
+// https://leetcode.cn/problems/substring-with-concatenation-of-all-words/description/
+//class Solution {
+//public:
+//    vector<int> findSubstring(string s, vector<string>& words) {
+//        unordered_map<string, int> hash1;
+//        vector<int> ret;
+//        for (auto e : words)
+//        {
+//            hash1[e]++;
+//        }
+//        int len = words[0].size();
+//        for (int i = 0; i < len; i++)
+//        {
+//            int count = 0;
+//            int left = i;
+//            int right = left;
+//            unordered_map<string, int> hash2;
+//            while (right+len <= s.size())
+//            {
+//                // è¿›çª—å£
+//                string in(s, right, len);
+//                hash2[in]++;
+//                if (hash2[in] <= hash1[in])
+//                {
+//                    count++;
+//                }
+//
+//                // å‡ºçª—å£
+//                if (right - left+1> len * words.size())
+//                {
+//                    string out(s, left, len);
+//                    if (hash2[out] <= hash1[out])
+//                    {
+//                        count--;
+//                    }
+//                    hash2[out]--;
+//                    left += len;
+//                }
+//
+//                // åˆ¤æ–­
+//                if (count == words.size())
+//                {
+//                    ret.push_back(left);
+//                }
+//
+//                right += len;
+//            }
+//        }
+//        return ret;
+//    }
+//};
+
+//int main()
+//{
+//    string str = "barfoothefoobarman";
+//    vector<string> words = { "foo","bar" };
+//    Solution s;
+//    for (auto e : s.findSubstring(str, words))
+//    {
+//        cout << e << " ";
+//    }
+//    cout << endl;
+//
+//    return 0;
+//}
