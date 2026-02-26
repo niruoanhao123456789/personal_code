@@ -270,3 +270,51 @@ using namespace std;
 //        return vv;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/minimum-window-substring/
+//class Solution {
+//public:
+//    string minWindow(string s, string t) {
+//        size_t hash1[128] = { 0 };
+//        size_t hash2[128] = { 0 };
+//        int minlen = INT_MAX;
+//        int begin = -1;
+//        int kind = 0;
+//        for (auto e : t)
+//        {
+//            if (hash1[e]++ == 0)
+//                kind++;
+//        }
+//        for (int left = 0, right = 0, count = 0; right < s.size(); right++)
+//        {
+//            char in = s[right];
+//            hash2[in]++;
+//            if (hash2[in] == hash1[in])
+//            {
+//                count++;
+//            }
+//            while (count == kind)
+//            {
+//                if (right - left + 1 < minlen)
+//                {
+//                    minlen = right - left + 1;
+//                    begin = left;
+//                }
+//                char out = s[left];
+//                if (hash2[out]-- == hash1[out])
+//                {
+//                    count--;
+//                }
+//                left++;
+//            }
+//        }
+//        if (begin == -1)
+//            return "";
+//        else
+//        {
+//            string ret = s.substr(begin, minlen);
+//            return ret;
+//        }
+//    }
+//};
