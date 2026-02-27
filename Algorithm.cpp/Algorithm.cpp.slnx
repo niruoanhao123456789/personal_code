@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Algorithm.cpp/Algorithm.cpp.vcxproj" Id="d87d7f64-c136-44cf-80e2-d7d8953aa3fc" />
+</Solution>
