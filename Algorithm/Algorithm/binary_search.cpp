@@ -152,3 +152,59 @@ using namespace std;
 //        return left;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/submissions/701806092/
+//class Solution {
+//public:
+//    int findMin(vector<int>& nums) {
+//        int size = nums.size();
+//        int left = 0, right = size - 1;
+//        while (left < right)
+//        {
+//            int mid = left + (right - left) / 2;
+//            if (nums[mid] > nums[size - 1])
+//            {
+//                left = mid + 1;
+//            }
+//            else
+//            {
+//                right = mid;
+//            }
+//        }
+//        return nums[left];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/que-shi-de-shu-zi-lcof/description/
+// 
+// 解法一：hash
+// 解法二：历遍
+// 解法三：数学（高斯求和）
+// 解法四：^按位异或
+// 解法五：二分查找
+// 
+//class Solution {
+//public:
+//    int takeAttendance(vector<int>& records) {
+//        int left = 0, right = records.size() - 1;
+//        while (left < right)
+//        {
+//            int mid = left + (right - left) / 2;
+//            if (records[mid] == mid)
+//            {
+//                left = mid + 1;
+//            }
+//            else
+//            {
+//                right = mid;
+//            }
+//        }
+//        if (records[left] == left)
+//        {
+//            return left + 1;
+//        }
+//        return left;
+//    }
+//};
