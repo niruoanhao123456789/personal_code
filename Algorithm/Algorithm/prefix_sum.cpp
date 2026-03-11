@@ -75,3 +75,26 @@ using namespace std;
 //
 //    return 0;
 //}
+
+
+// https://leetcode.cn/problems/find-pivot-index/submissions/705871190/
+//class Solution {
+//public:
+//    int pivotIndex(vector<int>& nums) {
+//        size_t size = nums.size();
+//        vector<int> front(size), back(size);
+//        for (int i = 1; i < size; i++)
+//        {
+//            front[i] = front[i - 1] + nums[i - 1];					// 前缀和
+//            back[size - i - 1] = back[size - i] + nums[size - i];		// 后缀和
+//        }
+//        for (int i = 0; i < size; i++)
+//        {
+//            if (front[i] == back[i])
+//            {
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
+//};
