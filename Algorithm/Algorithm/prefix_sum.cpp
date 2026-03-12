@@ -41,7 +41,6 @@ using namespace std;
 //    return 0;
 //}
 
-
 // https://www.nowcoder.com/practice/99eb8040d116414ea3296467ce81cbbc?tpId=230&tqId=2023819&ru=/exam/oj&qru=/ta/dynamic-programming/question-ranking&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D196
 //#include <iostream>
 //#include<vector>
@@ -76,7 +75,6 @@ using namespace std;
 //    return 0;
 //}
 
-
 // https://leetcode.cn/problems/find-pivot-index/submissions/705871190/
 //class Solution {
 //public:
@@ -96,5 +94,25 @@ using namespace std;
 //            }
 //        }
 //        return -1;
+//    }
+//};
+
+// https://leetcode.cn/problems/product-of-array-except-self/description/
+//class Solution {
+//public:
+//    vector<int> productExceptSelf(vector<int>& nums) {
+//        int n = nums.size();
+//        vector<int> pre(n, 1), suf(n, 1), answer(n, 1);
+//        for (int i = 1; i < n; i++)
+//        {
+//            pre[i] = pre[i - 1] * nums[i - 1];
+//            suf[n - 1 - i] = suf[n - i] * nums[n - i];
+//        }
+//        for (int i = 0; i < n; i++)
+//        {
+//            answer[i] = pre[i] * suf[i];
+//        }
+//
+//        return answer;
 //    }
 //};
