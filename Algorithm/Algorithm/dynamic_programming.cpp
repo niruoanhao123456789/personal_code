@@ -62,3 +62,57 @@ using namespace std;
 //        return d;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/three-steps-problem-lcci/description/
+//class Solution {
+//public:
+//    int waysToStep(int n) {
+//        if (n < 3)
+//        {
+//            return n;
+//        }
+//        // 1、创建dp表
+//        vector<long long> dp(n + 1);
+//        // 2、初始化
+//        dp[1] = 1, dp[2] = 2, dp[3] = 4;
+//        // 3、填表
+//        for (int i = 4; i < n + 1; i++)
+//        {
+//            dp[i] = (dp[i - 1] + dp[i - 2] + dp[i - 3]) % 1000000007;
+//        }
+//        // 4、返回值
+//        return dp[n];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/min-cost-climbing-stairs/description/
+// 法一：dp[i]为到i位置的最小花费
+//class Solution {
+//public:
+//    int minCostClimbingStairs(vector<int>& cost) {
+//        int n = cost.size();
+//        vector<int> dp(n + 1);
+//        for (int i = 2; i < n + 1; i++)
+//        {
+//            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+//        }
+//        return dp[n];
+//    }
+//};
+//
+// 法二：dp[i]为从i位置到楼顶的最小花费
+//class Solution {
+//public:
+//    int minCostClimbingStairs(vector<int>& cost) {
+//        int n = cost.size();
+//        vector<int> dp(n);
+//        dp[n - 1] = cost[n - 1], dp[n - 2] = cost[n - 2];
+//        for (int i = n - 3; i >= 0; i--)
+//        {
+//            dp[i] = min(dp[i + 1], dp[i + 2]) + cost[i];
+//        }
+//        return min(dp[0], dp[1]);
+//    }
+//};
