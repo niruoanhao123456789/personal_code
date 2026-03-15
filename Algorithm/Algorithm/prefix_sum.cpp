@@ -116,3 +116,70 @@ using namespace std;
 //        return answer;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/subarray-sum-equals-k/description/
+//class Solution {
+//public:
+//    int subarraySum(vector<int>& nums, int k) {
+//        unordered_map<int, int> hash;
+//        hash[0] = 1;
+//        int sum = 0, ret = 0;
+//        for (auto e : nums)
+//        {
+//            sum += e; // 计算此时的前缀和
+//            if (hash.count(sum - k))
+//                ret += hash[sum - k]; // 统计个数
+//            ++hash[sum];
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/subarray-sums-divisible-by-k/description/
+// 
+//  同余定理：  (a-b) % p = 0 -> a % p = b % p
+//				(a+p*k) % p = a % p
+//  c++/java中 负数%正数的处理：(a%p + p)%p 修正为正数
+//class Solution {
+//public:
+//    int subarraysDivByK(vector<int>& nums, int k) {
+//        unordered_map<int, int> hash;
+//        hash[0] = 1;
+//        int sum = 0, ret = 0;
+//        for (auto e : nums)
+//        {
+//            sum += e;
+//            if (hash.count((sum % k + k) % k))
+//            {
+//                ret += hash[(sum % k + k) % k];
+//            }
+//            ++hash[(sum % k + k) % k];
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/contiguous-array/description/
+//class Solution {
+//public:
+//    int findMaxLength(vector<int>& nums) {
+//        unordered_map<int, int> hash;
+//        hash[0] = -1;
+//        int sum = 0, ret = 0;
+//        for (int i = 0; i < nums.size(); i++)
+//        {
+//            if (nums[i] == 0)
+//                sum += -1;
+//            else
+//                sum += 1;
+//            if (hash.count(sum))
+//                ret = max(ret, i - hash[sum]);
+//            else
+//                hash[sum] = i;
+//        }
+//        return ret;
+//    }
+//};
