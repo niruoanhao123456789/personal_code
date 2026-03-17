@@ -10,6 +10,7 @@ using namespace std;
 //	  如何来？题目要求、经验总结、分析问题中发现重复子问题
 // 2、状态转移方程
 //	  即dp[i]= ？
+//	  根据最近一步，来划分问题
 // 3、初始化
 //    保证填表时不越界
 // 4、填表顺序
@@ -114,5 +115,56 @@ using namespace std;
 //            dp[i] = min(dp[i + 1], dp[i + 2]) + cost[i];
 //        }
 //        return min(dp[0], dp[1]);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/decode-ways/description/
+//class Solution {
+//public:
+//    int numDecodings(string s) {
+//        int n = s.size();
+//        vector<int> dp(n);
+//        dp[0] = s[0] != '0';
+//        if (n < 2)
+//            return dp[0];
+//        int tmp = (s[0] - '0') * 10 + s[1] - '0';
+//        if (s[0] != '0' && ((s[1] - '0') > 0 && (s[1] - '0') <= 9))
+//            dp[1] += 1;
+//        if (tmp >= 10 && tmp <= 26)
+//            dp[1] += 1;
+//
+//        int i = 0;
+//        for (i = 2; i < n; i++)
+//        {
+//            tmp = (s[i - 1] - '0') * 10 + s[i] - '0';
+//            if (s[i] != '0')
+//                dp[i] += dp[i - 1];
+//            if (tmp >= 10 && tmp <= 26)
+//                dp[i] += dp[i - 2];
+//        }
+//        return dp[i - 1];
+//    }
+//};
+//
+// 写法二
+//class Solution {
+//public:
+//    int numDecodings(string s) {
+//        int n = s.size();
+//        vector<int> dp(n + 1);
+//        dp[0] = 1; // 虚拟结点要保证后面填表是要正确的
+//        dp[1] = s[0] != '0';
+//
+//        int i = 0;
+//        for (i = 2; i <= n; i++)
+//        {
+//            int tmp = (s[i - 2] - '0') * 10 + s[i - 1] - '0';
+//            if (s[i - 1] != '0')
+//                dp[i] += dp[i - 1]; // 处理单编码的情况
+//            if (tmp >= 10 && tmp <= 26)
+//                dp[i] += dp[i - 2];
+//        }
+//        return dp[i - 1];
 //    }
 //};
