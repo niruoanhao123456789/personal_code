@@ -68,3 +68,61 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/sum-of-two-integers/description/
+// 无进位相加与进位相加
+//class Solution {
+//public:
+//    int getSum(int a, int b) {
+//        while (b)
+//        {
+//            int tmp = a ^ b;  // 算出无进位相加结果
+//            unsigned int carry = (unsigned int)(a & b) << 1;  // 算出进位相加结果
+//            a = tmp;
+//            b = carry;
+//        }
+//        return a;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/missing-two-lcci/description/
+//class Solution {
+//public:
+//    vector<int> missingTwo(vector<int>& nums) {
+//        int x = 0;
+//        for (auto& e : nums)
+//            x ^= e;
+//        for (int i = 1; i <= nums.size() + 2; i++)
+//            x ^= i;
+//
+//        // 找出两个数中比特位不同的那一位
+//        int diff = 0;
+//        while (1)
+//        {
+//            if ((x >> diff) & 1)
+//                break;
+//            else
+//                diff++;
+//        }
+//
+//        // 根据diff位的不同，将所有的数划分为两类来异或
+//        vector<int> ret(2);
+//        for (auto e : nums)
+//        {
+//            if ((e >> diff) & 1)
+//                ret[1] ^= e;
+//            else
+//                ret[0] ^= e;
+//        }
+//        for (int i = 1; i <= nums.size() + 2; i++)
+//        {
+//            if ((i >> diff) & 1)
+//                ret[1] ^= i;
+//            else
+//                ret[0] ^= i;
+//        }
+//        return ret;
+//    }
+//};
