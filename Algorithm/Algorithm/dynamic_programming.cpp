@@ -213,3 +213,87 @@ using namespace std;
 //        return dp[n][m];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof/description/
+//class Solution {
+//public:
+//    int jewelleryValue(vector<vector<int>>& frame) {
+//        int n = frame.size();
+//        int m = frame[0].size();
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1));
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            for (int j = 1; j < m + 1; j++)
+//            {
+//                dp[i][j] = frame[i - 1][j - 1] + max(dp[i - 1][j], dp[i][j - 1]);
+//            }
+//        }
+//        return dp[n][m];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-falling-path-sum/description/
+//class Solution {
+//public:
+//    int minFallingPathSum(vector<vector<int>>& matrix) {
+//        int ret = INT_MAX;
+//        int n = matrix.size(), m = matrix[0].size();
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 2, INT_MAX));
+//        for (int i = 0; i < m + 2; i++)
+//            dp[0][i] = 0;
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            for (int j = 1; j < m + 1; j++)
+//            {
+//                dp[i][j] = matrix[i - 1][j - 1] + min(dp[i - 1][j - 1], min(dp[i - 1][j], dp[i - 1][j + 1]));
+//            }
+//        }
+//        for (int i = 1; i < m + 1; i++)
+//        {
+//            ret = min(ret, dp[n][i]);
+//        }
+//
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-path-sum/description/
+//class Solution {
+//public:
+//    int minPathSum(vector<vector<int>>& grid) {
+//        int n = grid.size(), m = grid[0].size();
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1, INT_MAX));
+//        dp[0][1] = dp[1][0] = 0;
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            for (int j = 1; j < m + 1; j++)
+//            {
+//                dp[i][j] = grid[i - 1][j - 1] + min(dp[i - 1][j], dp[i][j - 1]);
+//            }
+//        }
+//        return dp[n][m];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/dungeon-game/description/
+//class Solution {
+//public:
+//    int calculateMinimumHP(vector<vector<int>>& dungeon) {
+//        int n = dungeon.size(), m = dungeon[0].size();
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1, INT_MAX));
+//        dp[n - 1][m] = dp[n][m - 1] = 1;
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            for (int j = m - 1; j >= 0; j--)
+//            {
+//                dp[i][j] = min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j];
+//                dp[i][j] = max(1, dp[i][j]);
+//            }
+//        }
+//        return dp[0][0];
+//    }
+//};
