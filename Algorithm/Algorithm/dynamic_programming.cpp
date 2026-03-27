@@ -297,3 +297,91 @@ using namespace std;
 //        return dp[0][0];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/the-masseuse-lcci/description/
+//class Solution {
+//public:
+//    int massage(vector<int>& nums) {
+//        if (!nums.size())
+//            return 0;
+//        int n = nums.size();
+//        vector<int> f(n);   // 表示第i位置选
+//        vector<int> g(n);   // 表示第i位置不选
+//        f[0] = nums[0], g[0] = 0;
+//        for (int i = 1; i < n; i++)
+//        {
+//            f[i] = nums[i] + g[i - 1];
+//            g[i] = max(f[i - 1], g[i - 1]);
+//        }
+//        return max(f[n - 1], g[n - 1]);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/house-robber-ii/description/
+//class Solution {
+//public:
+//    int rob(vector<int>& nums) {
+//        int n = nums.size();
+//        // 返回两种情况下的最大值
+//        return max(nums[0] + rob1(nums, 2, n - 2), rob1(nums, 1, n - 1));
+//    }
+//
+//    int rob1(vector<int>& nums, int left, int right)
+//    {
+//        if (left > right)
+//            return 0;
+//        int n = nums.size();
+//        vector<int> f(n);
+//        vector<int> g(n);
+//        f[left] = nums[left];
+//        for (int i = left + 1; i <= right; i++)
+//        {
+//            f[i] = nums[i] + g[i - 1];
+//            g[i] = max(f[i - 1], g[i - 1]);
+//        }
+//        return max(f[right], g[right]);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/delete-and-earn/description/
+//class Solution {
+//public:
+//    int deleteAndEarn(vector<int>& nums) {
+//        vector<int> arr(10003); // 用arr存放nums中i的总和,再做一遍“打家劫舍”
+//        for (auto e : nums)
+//        {
+//            arr[e] += e;
+//        }
+//        int n = arr.size();
+//        vector<int> f(n);
+//        vector<int> g(n);
+//        f[0] = arr[0];
+//        for (int i = 1; i < n; i++)
+//        {
+//            f[i] = g[i - 1] + arr[i];
+//            g[i] = max(g[i - 1], f[i - 1]);
+//        }
+//        return max(f[n - 1], g[n - 1]);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/JEj789/description/
+//class Solution {
+//public:
+//    int minCost(vector<vector<int>>& costs) {
+//        int n = costs.size();
+//        // 用dp[i][0]、dp[i][1]、dp[i][2]分别表示第i间房子上red,bule,green的最小花费
+//        vector<vector<int>> dp(n + 1, vector<int>(3));
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            dp[i][0] = min(dp[i - 1][1], dp[i - 1][2]) + costs[i - 1][0];
+//            dp[i][1] = min(dp[i - 1][0], dp[i - 1][2]) + costs[i - 1][1];
+//            dp[i][2] = min(dp[i - 1][1], dp[i - 1][0]) + costs[i - 1][2];
+//        }
+//        return min(min(dp[n][0], dp[n][1]), dp[n][2]);
+//    }
+//};
