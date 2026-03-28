@@ -385,3 +385,61 @@ using namespace std;
 //        return min(min(dp[n][0], dp[n][1]), dp[n][2]);
 //    }
 //};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/description/
+//class Solution {
+//public:
+//    int maxProfit(vector<int>& prices) {
+//        int minCost = INT_MAX;
+//        int maxprofit = 0;
+//        for (auto e : prices)
+//        {
+//            maxprofit = max(e - minCost, maxprofit);
+//            minCost = min(minCost, e);
+//        }
+//        return maxprofit;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/
+//class Solution {
+//public:
+//    int maxProfit(vector<int>& prices) {
+//        int n = prices.size();
+//        // dp[0][i]表示买入后的最大利润
+//        // dp[1][i]表示冷冻其的最大利润
+//        // dp[2][i]表示可交易的最大利润
+//        vector<vector<int>> dp(3, vector<int>(n));
+//        dp[0][0] = -prices[0];
+//
+//        // 用状态机思想来分析状态转移方程，并画个图来看
+//        for (int i = 1; i < n; i++)
+//        {
+//            dp[0][i] = max(dp[0][i - 1], dp[2][i - 1] - prices[i]);
+//            dp[1][i] = dp[0][i - 1] + prices[i];
+//            dp[2][i] = max(dp[2][i - 1], dp[1][i - 1]);
+//        }
+//
+//        return max(dp[1][n - 1], dp[2][n - 1]);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/
+//class Solution {
+//public:
+//    int maxProfit(vector<int>& prices, int fee) {
+//        int n = prices.size();
+//        vector<int> purchase(n);
+//        vector<int> sell(n);
+//        purchase[0] = -prices[0];
+//        for (int i = 1; i < n; i++)
+//        {
+//            purchase[i] = max(purchase[i - 1], sell[i - 1] - prices[i]);
+//            sell[i] = max(sell[i - 1], purchase[i - 1] + prices[i] - fee);
+//        }
+//        return sell[n - 1];
+//    }
+//};
