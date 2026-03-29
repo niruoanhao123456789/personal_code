@@ -462,3 +462,58 @@ using namespace std;
 //        return sell[n - 1];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/description/
+//class Solution {
+//public:
+//    int maxProfit(vector<int>& prices) {
+//        int ret = -0x3f3f3f3f;
+//        int n = prices.size();
+//        // dp[i][j]表示第i+1天第j+1次交易获得的最大利润
+//        vector<vector<int>>f(n, vector<int>(3, -0x3f3f3f3f));
+//        vector<vector<int>> g(n, vector<int>(3, -0x3f3f3f3f));
+//        f[0][0] = -prices[0], g[0][0] = 0;
+//        for (int i = 1; i < n; i++)
+//        {
+//            for (int j = 0; j < 3; j++)
+//            {
+//                f[i][j] = max(f[i - 1][j], g[i - 1][j] - prices[i]);
+//                g[i][j] = g[i - 1][j];
+//                if (j >= 1)
+//                    g[i][j] = max(g[i - 1][j], f[i - 1][j - 1] + prices[i]);
+//            }
+//        }
+//        for (int j = 0; j < 3; j++)
+//            ret = max(ret, g[n - 1][j]);
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/description/
+//class Solution {
+//public:
+//    int maxProfit(int k, vector<int>& prices)
+//    {
+//        int n = prices.size();
+//        vector<vector<int>> f(n, vector<int>(k + 1, -0x3f3f3f3f));
+//        vector<vector<int>> g = f;
+//        f[0][0] = -prices[0], g[0][0] = 0;
+//        for (int i = 1; i < n; i++)
+//        {
+//            for (int j = 0; j < k + 1; j++)
+//            {
+//                f[i][j] = max(f[i - 1][j], g[i - 1][j] - prices[i]);
+//                if (j >= 1)
+//                    g[i][j] = max(g[i - 1][j], f[i - 1][j - 1] + prices[i]);
+//                else
+//                    g[i][j] = g[i - 1][j];
+//            }
+//        }
+//        int ret = 0;
+//        for (int j = 0; j < k + 1; j++)
+//            ret = max(ret, g[n - 1][j]);
+//        return ret;
+//    }
+//};
