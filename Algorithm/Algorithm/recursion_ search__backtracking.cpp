@@ -33,3 +33,56 @@ using namespace std;
 
 // 回溯与剪枝
 // 回溯本质是深搜    迷宫问题
+
+
+// https://leetcode.cn/problems/hanota-lcci/description/
+//class Solution {
+//public:
+//    void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
+//        dfs(A, B, C, A.size());
+//    }
+//
+//    void dfs(vector<int>& A, vector<int>& B, vector<int>& C, int size)
+//    {
+//        if (size == 1)
+//        {
+//            C.emplace(C.end(), A.back());
+//            A.pop_back();
+//            return;
+//        }
+//        dfs(A, C, B, size - 1);
+//        C.emplace(C.end(), A.back());
+//        A.pop_back();
+//        dfs(B, A, C, size - 1);
+//
+//    }
+//};
+
+
+// https://leetcode.cn/problems/merge-two-sorted-lists/description/
+//class Solution {
+//public:
+//    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+//        if (list1 == nullptr)
+//        {
+//            return list2;
+//        }
+//        else if (list2 == nullptr)
+//        {
+//            return list1;
+//        }
+//
+//        ListNode* phead, next1;
+//        if (list1->val < list2->val)
+//        {
+//            phead = list1;
+//            phead->next = mergeTwoLists(list1->next, list2);
+//        }
+//        else
+//        {
+//            phead = list2;
+//            phead->next = mergeTwoLists(list2->next, list1);
+//        }
+//        return phead;
+//    }
+//};
