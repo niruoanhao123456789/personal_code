@@ -517,3 +517,21 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/maximum-subarray/description/
+//class Solution {
+//public:
+//    int maxSubArray(vector<int>& nums) {
+//        int n = nums.size();
+//        vector<int> dp(n + 1);
+//        dp[0] = -0x3f3f3f3f;
+//        int ret = -0x3f3f3f3f;
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            dp[i] = max(nums[i - 1], dp[i - 1] + nums[i - 1]);
+//            ret = max(ret, dp[i]);
+//        }
+//        return ret;
+//    }
+//};
