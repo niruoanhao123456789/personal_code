@@ -535,3 +535,27 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/maximum-sum-circular-subarray/description/
+//class Solution {
+//public:
+//    int maxSubarraySumCircular(vector<int>& nums) {
+//        int n = nums.size();
+//        int sum = 0;
+//        int ret1 = INT_MIN, ret2 = INT_MAX;
+//        vector<int> f(n + 1); // 最大和数组
+//        vector<int> g = f; // 最小和数组
+//
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            f[i] = max(nums[i - 1], f[i - 1] + nums[i - 1]);
+//            g[i] = min(nums[i - 1], g[i - 1] + nums[i - 1]);
+//            sum += nums[i - 1];
+//            ret1 = max(ret1, f[i]);
+//            ret2 = min(ret2, g[i]);
+//        }
+//
+//        return sum == ret2 ? ret1 : max(ret1, sum - ret2);
+//    }
+//};
