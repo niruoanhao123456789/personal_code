@@ -5,6 +5,7 @@
 #include<unordered_map>
 #include<stack>
 #include<queue>
+#include<list>
 using namespace std;
 
 // 如何理解递归
@@ -84,5 +85,36 @@ using namespace std;
 //            phead->next = mergeTwoLists(list2->next, list1);
 //        }
 //        return phead;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/reverse-linked-list/
+//class Solution {
+//public:
+//    ListNode* reverseList(ListNode* head) {
+//        if (head == nullptr || head->next == nullptr)
+//            return head;
+//
+//        ListNode* newhead = reverseList(head->next);
+//        head->next->next = head;
+//        head->next = nullptr;
+//
+//        return newhead;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/swap-nodes-in-pairs/description/
+//class Solution {
+//public:
+//    ListNode* swapPairs(ListNode* head) {
+//        if (head == nullptr || head->next == nullptr)
+//            return head;
+//        ListNode* next = head->next;
+//        ListNode* tmp = swapPairs(next->next);
+//        head->next = tmp;
+//        next->next = head;
+//        return next;
 //    }
 //};
