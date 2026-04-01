@@ -277,3 +277,47 @@ using namespace std;
 //
 //    return 0;
 //}
+
+
+// https://ac.nowcoder.com/acm/problem/221681
+//#include<iostream>
+//#include<cstdio>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//
+//int main()
+//{
+//    long long n = 0;
+//    int x = 0;
+//    scanf("%lld%d", &n, &x);
+//
+//    vector<int> nums(n);
+//    for (long long i = 0; i < n; i++)
+//    {
+//        scanf("%d", &nums[i]);
+//    }
+//
+//    long long left = 0, right = 0, l = 0, r = 0, len = 0x3f3f3f3f;
+//    int sum = 0;
+//    while (right < n)
+//    {
+//        if (sum < x)
+//        {
+//            sum += nums[right++];
+//        }
+//        else
+//        {
+//            if (len > right - left + 1)
+//            {
+//                len = right - left + 1;
+//                r = right;
+//                l = left + 1;
+//            }
+//            sum -= nums[left++];
+//        }
+//    }
+//    printf("%lld %lld\n", l, r);
+//
+//    return 0;
+//}
