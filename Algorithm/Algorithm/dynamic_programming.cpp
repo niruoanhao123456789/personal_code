@@ -559,3 +559,24 @@ using namespace std;
 //        return sum == ret2 ? ret1 : max(ret1, sum - ret2);
 //    }
 //};
+
+
+// https://leetcode.cn/problems/maximum-product-subarray/description/
+//class Solution {
+//public:
+//    int maxProduct(vector<int>& nums)
+//    {
+//        int n = nums.size();
+//        int ret = INT_MIN;
+//        vector<int> f(n + 1);
+//        auto g = f;
+//        f[0] = g[0] = 1;
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            f[i] = max(max(nums[i - 1], f[i - 1] * nums[i - 1]), g[i - 1] * nums[i - 1]);
+//            g[i] = min(min(nums[i - 1], f[i - 1] * nums[i - 1]), g[i - 1] * nums[i - 1]);
+//            ret = max(ret, f[i]);
+//        }
+//        return ret;
+//    }
+//};
