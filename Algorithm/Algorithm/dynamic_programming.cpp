@@ -3,6 +3,7 @@
 #include<vector>
 #include<algorithm>
 #include<unordered_map>
+#include<list>
 using namespace std;
 
 // 1、状态表示
@@ -603,6 +604,47 @@ using namespace std;
 //                g[i] = f[i - 1] + 1;
 //            }
 //            ret = max(ret, f[i]);
+//        }
+//
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/arithmetic-slices/description/
+//class Solution {
+//public:
+//    int numberOfArithmeticSlices(vector<int>& nums) {
+//        int n = nums.size();
+//        int ret = 0;
+//        vector<int> dp(n);
+//        for (int i = 2; i < n; i++)
+//        {
+//            dp[i] = nums[i] - nums[i - 1] == nums[i - 1] - nums[i - 2] ? dp[i - 1] + 1 : 0;
+//            ret += dp[i];
+//        }
+//
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/longest-turbulent-subarray/description/
+//class Solution {
+//public:
+//    int maxTurbulenceSize(vector<int>& arr) {
+//        int n = arr.size();
+//        if (n == 1)
+//            return 1;
+//        int ret = INT_MIN;
+//        vector<int> f(n, 1), g(n, 1);
+//        for (int i = 1; i < n; i++)
+//        {
+//            if (arr[i] > arr[i - 1])
+//                f[i] = g[i - 1] + 1;
+//            else if (arr[i] < arr[i - 1])
+//                g[i] = f[i - 1] + 1;
+//            ret = max(ret, max(f[i], g[i]));
 //        }
 //
 //        return ret;
