@@ -120,3 +120,41 @@ using namespace std;
 //};
 
 
+// https://leetcode.cn/problems/powx-n/description/
+//class Solution {
+//public:
+//    double myPow(double x, int n) {
+//        return n < 0 ? 1.0 / Pow(x, -(long long)n) : Pow(x, n);
+//    }
+//
+//    double Pow(double x, int n)
+//    {
+//        if (n == 0)
+//            return 1.0;
+//        double tmp = Pow(x, n / 2);
+//        return n % 2 == 0 ? tmp * tmp : tmp * tmp * x;
+//    }
+//
+//};
+
+
+// https://leetcode.cn/problems/evaluate-boolean-binary-tree/description/
+//class Solution {
+//public:
+//    bool evaluateTree(TreeNode* root) {
+//        if (root->val == 1 || root->val == 0)
+//            return root->val;
+//        bool left = evaluateTree(root->left);
+//        bool right = evaluateTree(root->right);
+//        if (root->val == 2)
+//        {
+//            return (left || right);
+//        }
+//        else if (root->val == 3)
+//        {
+//            return (left && right);
+//        }
+//
+//        return 0;
+//    }
+//};
