@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 #include<algorithm>
+#include<unordered_set>
 #include<unordered_map>
 #include<stack>
 #include<queue>
@@ -156,5 +157,45 @@ using namespace std;
 //        }
 //
 //        return 0;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/sum-root-to-leaf-numbers/description/
+//class Solution {
+//public:
+//    int sumNumbers(TreeNode* root)
+//    {
+//        return dsf(root, 0);
+//    }
+//
+//    int dsf(TreeNode* root, int presum)
+//    {
+//        if (!root)
+//            return 0;
+//        int sum = presum * 10 + root->val;
+//        if (!root->left && !root->right)
+//            return sum;
+//        return dsf(root->left, sum) + dsf(root->right, sum);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/binary-tree-pruning/description/
+//class Solution {
+//public:
+//    TreeNode* pruneTree(TreeNode* root) {
+//        if (!root)
+//            return root;
+//
+//        root->left = pruneTree(root->left);
+//        root->right = pruneTree(root->right);
+//        if (!root->left && !root->right && root->val == 0)
+//        {
+//            //delete root;
+//            root = nullptr;
+//        }
+//
+//        return root;
 //    }
 //};
