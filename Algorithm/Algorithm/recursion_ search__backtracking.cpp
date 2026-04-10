@@ -226,3 +226,29 @@ using namespace std;
 //        return left && cur && right;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/kth-smallest-element-in-a-bst/description/
+//class Solution {
+//public:
+//    int ret = 0;
+//    int count = 0;
+//    int kthSmallest(TreeNode* root, int k) {
+//        count = k;
+//        dsf(root);
+//        return ret;
+//    }
+//
+//    void dsf(TreeNode* root)
+//    {
+//        if (!root)
+//            return;
+//        dsf(root->left);
+//        count--;
+//        if (count < 0)
+//            return;
+//        if (count == 0)
+//            ret = root->val;
+//        dsf(root->right);
+//    }
+//};
