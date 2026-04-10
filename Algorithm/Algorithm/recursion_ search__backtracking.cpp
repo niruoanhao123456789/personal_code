@@ -199,3 +199,30 @@ using namespace std;
 //        return root;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/validate-binary-search-tree/description/
+//class Solution {
+//public:
+//    long long preval = LONG_MIN; // 每个节点值符合要求，则preval是严格递增的
+//    bool isValidBST(TreeNode* root) {
+//        if (!root)
+//            return true;
+//        // 利用中序遍历
+//        bool left = isValidBST(root->left);
+//
+//        // 剪枝
+//        if (!left)
+//            return false;
+//
+//        bool cur = false;
+//        if (preval < root->val)
+//            cur = true;
+//        else
+//            return cur;
+//        preval = root->val;
+//        bool right = isValidBST(root->right);
+//
+//        return left && cur && right;
+//    }
+//};
