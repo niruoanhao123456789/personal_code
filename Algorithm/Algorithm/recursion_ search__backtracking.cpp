@@ -200,6 +200,10 @@ using namespace std;
 //    }
 //};
 
+// dsf中
+// 全局变量
+//“恢复现场”
+// 剪枝
 
 // https://leetcode.cn/problems/validate-binary-search-tree/description/
 //class Solution {
@@ -231,6 +235,7 @@ using namespace std;
 // https://leetcode.cn/problems/kth-smallest-element-in-a-bst/description/
 //class Solution {
 //public:
+//    // 全局变量的使用
 //    int ret = 0;
 //    int count = 0;
 //    int kthSmallest(TreeNode* root, int k) {
@@ -250,5 +255,36 @@ using namespace std;
 //        if (count == 0)
 //            ret = root->val;
 //        dsf(root->right);
+//    }
+//};
+
+
+// https://leetcode.cn/problems/binary-tree-paths/description/
+//class Solution {
+//public:
+//    // 全局变量的使用，以及其需要实现“恢复现场”的作用
+//    vector<string> ret;
+//    vector<string> binaryTreePaths(TreeNode* root) {
+//        dsf(root, "");
+//        return ret;
+//    }
+//
+//    // 本题利用函数形参来实现“恢复现场”
+//    void dsf(TreeNode* root, string path)
+//    {
+//        path += to_string(root->val);
+//        if (!root->left && !root->right)
+//        {
+//            ret.emplace_back(path);
+//            return;
+//        }
+//        else
+//        {
+//            path += "->";
+//        }
+//        if (root->left)
+//            dsf(root->left, path);
+//        if (root->right)
+//            dsf(root->right, path);
 //    }
 //};
