@@ -330,3 +330,59 @@ using namespace std;
 //    }
 //
 //};
+
+
+// https://leetcode.cn/problems/subsets/description/
+// 解法一：
+//class Solution {
+//public:
+//    vector<vector<int>> ret;
+//    vector<int> path;
+//
+//    vector<vector<int>> subsets(vector<int>& nums)
+//    {
+//        dsf(nums, 0);
+//        return ret;
+//    }
+//
+//    void dsf(vector<int>& nums, int i)
+//    {
+//        if (i == nums.size())
+//        {
+//            ret.emplace_back(path);
+//            return;
+//        }
+//
+//        // 不选空
+//        path.emplace_back(nums[i]);
+//        dsf(nums, i + 1);
+//        path.pop_back();
+//
+//        // 选空
+//        dsf(nums, i + 1);
+//    }
+//};
+//
+// 解法二：
+//class Solution {
+//public:
+//    vector<vector<int>> ret;
+//    vector<int> path;
+//
+//    vector<vector<int>> subsets(vector<int>& nums)
+//    {
+//        dsf(nums, 0);
+//        return ret;
+//    }
+//
+//    void dsf(vector<int>& nums, int pos)
+//    {
+//        ret.emplace_back(path);
+//        for (int i = pos; i < nums.size(); i++)
+//        {
+//            path.emplace_back(nums[i]);
+//            dsf(nums, i + 1);
+//            path.pop_back();
+//        }
+//    }
+//};
