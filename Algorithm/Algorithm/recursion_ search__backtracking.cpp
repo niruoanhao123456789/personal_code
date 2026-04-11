@@ -288,3 +288,45 @@ using namespace std;
 //            dsf(root->right, path);
 //    }
 //};
+
+
+// 思考思路
+// 1、先画棵决策树（树状图），越详细越好
+// 2、深搜、回溯、剪枝
+// 
+// https://leetcode.cn/problems/permutations/description/
+//class Solution {
+//public:
+//    vector<vector<int>> ret;
+//    vector<int> path;
+//    bool check[7] = { false };
+//
+//    vector<vector<int>> permute(vector<int>& nums)
+//    {
+//        dsf(nums);
+//        return ret;
+//    }
+//
+//    void dsf(vector<int>& nums)
+//    {
+//        if (nums.size() == path.size())
+//        {
+//            ret.emplace_back(path);
+//            return;
+//        }
+//
+//        for (int i = 0; i < nums.size(); i++)
+//        {
+//            if (!check[i])
+//            {
+//                path.emplace_back(nums[i]);
+//                check[i] = true;
+//                dsf(nums);
+//                // 回溯 -> 回复现场
+//                path.pop_back();
+//                check[i] = false;
+//            }
+//        }
+//    }
+//
+//};
