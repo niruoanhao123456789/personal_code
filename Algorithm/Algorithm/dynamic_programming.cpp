@@ -681,3 +681,56 @@ using namespace std;
 //        return dp[n];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/unique-substrings-in-wraparound-string/description/
+//class Solution {
+//public:
+//    
+//    int findSubstringInWraproundString(string s)
+//    {
+//        int sum = 0;
+//        int n = s.size();
+//        vector<int> dp(n, 1);   // 表示以第i位置结尾的字串个数
+//		  int dpmaxcnt[26] = { 0 };   // 分别记录以26个字母结尾的子串最大个数，用于去重
+//        dpmaxcnt[s[0] - 'a'] = 1;
+//        for (int i = 1; i < n; i++)
+//        {
+//            if (s[i - 1] + 1 == s[i] || (s[i - 1] == 'z' && s[i] == 'a'))
+//            {
+//                dp[i] += dp[i - 1];
+//            }
+//            dpmaxcnt[s[i] - 'a'] = max(dpmaxcnt[s[i] - 'a'], dp[i]);
+//        }
+//        for (auto& e : dpmaxcnt)
+//        {
+//            sum += e;
+//        }
+//
+//        return sum;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/longest-increasing-subsequence/description/
+//class Solution {
+//public:
+//    int lengthOfLIS(vector<int>& nums) {
+//        int n = nums.size();
+//        int ret = 1;
+//        vector<int> dp(n, 1);
+//        for (int i = 1; i < n; i++)
+//        {
+//            for (int j = 0; j < i; j++)
+//            {
+//                if (nums[i] > nums[j])
+//                {
+//                    dp[i] = max(dp[j] + 1, dp[i]);
+//                }
+//            }
+//            ret = max(dp[i], ret);
+//        }
+//
+//        return ret;
+//    }
+//};
