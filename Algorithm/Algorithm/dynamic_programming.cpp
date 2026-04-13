@@ -734,3 +734,33 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/wiggle-subsequence/description/
+//class Solution {
+//public:
+//    int wiggleMaxLength(vector<int>& nums)
+//    {
+//        int ret = 1;
+//        int n = nums.size();
+//        vector<int> f(n, 1);
+//        auto g = f;
+//        for (int i = 1; i < n; i++)
+//        {
+//            for (int j = 0; j < i; j++)
+//            {
+//                if (nums[i] > nums[j])
+//                {
+//                    f[i] = max(g[j] + 1, f[i]);
+//                }
+//                else if (nums[i] < nums[j])
+//                {
+//                    g[i] = max(f[j] + 1, g[i]);
+//                }
+//            }
+//            ret = max(ret, max(f[i], g[i]));
+//        }
+//
+//        return ret;
+//    }
+//};
