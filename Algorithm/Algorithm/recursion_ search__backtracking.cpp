@@ -446,3 +446,73 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/letter-combinations-of-a-phone-number/description/
+//class Solution {
+//public:
+//    vector<string> hash = { "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz" };
+//    vector<string> ret;
+//    string path;
+//    vector<string> letterCombinations(string digits)
+//    {
+//        dfs(digits, 0);
+//        return ret;
+//    }
+//
+//    void dfs(string& digits, int pos)
+//    {
+//        if (pos == digits.size())
+//        {
+//            ret.push_back(path);
+//            return;
+//        }
+//
+//        for (int i = 0; i < hash[digits[pos] - '0'].size(); i++)
+//        {
+//            path += hash[digits[pos] - '0'][i];
+//            dfs(digits, pos + 1);
+//            path.pop_back();
+//        }
+//    }
+//};
+
+
+// https://leetcode.cn/problems/generate-parentheses/description/
+//class Solution {
+//public:
+//    vector<string> ret;
+//    string path;
+//    int left, right, size;
+//    vector<string> generateParenthesis(int n) {
+//        size = n;
+//        dfs();
+//        return ret;
+//    }
+//
+//    void dfs()
+//    {
+//        if (right == size)
+//        {
+//            ret.push_back(path);
+//            return;
+//        }
+//
+//        if (left < size)
+//        {
+//            path += "(";
+//            left++;
+//            dfs();
+//            path.pop_back();
+//            left--;
+//        }
+//        if (right < left)
+//        {
+//            path += ")";
+//            right++;
+//            dfs();
+//            path.pop_back();
+//            right--;
+//        }
+//    }
+//};
