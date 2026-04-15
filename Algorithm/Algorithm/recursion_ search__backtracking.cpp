@@ -544,3 +544,26 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/target-sum/description/
+//class Solution {
+//public:
+//    int ret = 0;
+//    int findTargetSumWays(vector<int>& nums, int target) {
+//        dfs(nums, target, 0, 0);
+//        return ret;
+//    }
+//
+//    void dfs(vector<int>& nums, int t, int pos, int path)
+//    {
+//        if (pos == nums.size())
+//        {
+//            if (path == t)
+//                ret++;
+//            return;
+//        }
+//        dfs(nums, t, pos + 1, path + nums[pos]);
+//        dfs(nums, t, pos + 1, path - nums[pos]);
+//    }
+//};
