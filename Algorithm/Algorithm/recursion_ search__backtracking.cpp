@@ -567,3 +567,75 @@ using namespace std;
 //        dfs(nums, t, pos + 1, path - nums[pos]);
 //    }
 //};
+
+
+// https://leetcode.cn/problems/combination-sum/description/
+// 法一
+//class Solution {
+//public:
+//    int t;
+//    vector<int> path;
+//    vector<vector<int>> ret;
+//    vector<vector<int>> combinationSum(vector<int>& candidates, int target)
+//    {
+//		  int sum = 0;
+//        t = target;
+//        dfs(candidates, 0,sum);
+//        return ret;
+//    }
+//
+//    void dfs(vector<int>& candidates, int pos,int sum)
+//    {
+//        if (sum == t)
+//        {
+//            ret.push_back(path);
+//            return;
+//        }
+//        if (sum > t || pos==candidates.size())
+//            return;
+//
+//        for (int i = pos; i < candidates.size(); i++)
+//        {
+//            path.push_back(candidates[i]);
+//            dfs(candidates, i,sum + candidates[i]);
+//            path.pop_back();
+//        }
+//    }
+//};
+//
+// 法二
+//class Solution {
+//public:
+//    int t;
+//    vector<int> path;
+//    vector<vector<int>> ret;
+//    vector<vector<int>> combinationSum(vector<int>& candidates, int target)
+//    {
+//        t = target;
+//        dfs(candidates, 0, 0);
+//        return ret;
+//    }
+//
+//    void dfs(vector<int>& candidates, int pos, int sum)
+//    {
+//        if (sum == t)
+//        {
+//            ret.push_back(path);
+//            return;
+//        }
+//        if (sum > t || pos == candidates.size())
+//            return;
+//
+//        for (int i = 0; i * candidates[pos] + sum <= t; i++)
+//        {
+//            if (i)
+//                path.push_back(candidates[pos]);
+//            dfs(candidates, pos + 1, i * candidates[pos] + sum);
+//        }
+//
+//        for (int i = 1; i * candidates[pos] + sum <= t; i++)
+//        {
+//            path.pop_back();
+//        }
+//    }
+//};
