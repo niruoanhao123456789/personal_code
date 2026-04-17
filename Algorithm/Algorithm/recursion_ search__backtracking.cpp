@@ -639,3 +639,45 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/letter-case-permutation/description/
+//class Solution {
+//public:
+//    vector<string> ret;
+//    string path;
+//    vector<string> letterCasePermutation(string s) {
+//        dfs(s, 0);
+//        return ret;
+//    }
+//
+//    void dfs(string& s, int pos)
+//    {
+//        if (pos == s.size())
+//        {
+//            ret.push_back(path);
+//            return;
+//        }
+//
+//        char tmp = s[pos];
+//        // 不变
+//        path += tmp;
+//        dfs(s, pos + 1);
+//        path.pop_back();
+//
+//        if (s[pos] >= 'a' && s[pos] <= 'z')
+//        {
+//            tmp -= 32;
+//        }
+//        else if (s[pos] >= 'A' && s[pos] <= 'Z')
+//        {
+//            tmp += 32;
+//        }
+//        if (s[pos] > '9' || s[pos] < '0')
+//        {
+//            path += tmp;
+//            dfs(s, pos + 1);
+//            path.pop_back();
+//        }
+//    }
+//};
