@@ -681,3 +681,34 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/beautiful-arrangement/description/
+//class Solution {
+//public:
+//    int ret = 0;
+//    bool check[16] = { false };
+//    int countArrangement(int n) {
+//        dfs(n, 1);
+//        return ret;
+//    }
+//
+//    void dfs(int n, int pos)
+//    {
+//        if (pos == n + 1)
+//        {
+//            ret++;
+//            return;
+//        }
+//        for (int i = 1; i <= n; i++)
+//        {
+//            if (!check[i] && (pos % i == 0 || i % pos == 0))
+//            {
+//                check[i] = true;
+//                dfs(n, pos + 1);
+//                check[i] = false;
+//            }
+//        }
+//
+//    }
+//};
