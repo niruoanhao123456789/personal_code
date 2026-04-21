@@ -712,3 +712,63 @@ using namespace std;
 //
 //    }
 //};
+
+
+
+#include <cstdio>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <algorithm>
+
+using namespace std;
+
+void erase(char* str, int pos)
+{
+    while (str[pos] != '\0')
+    {
+        str[pos] = str[pos + 1];
+        pos++;
+    }
+
+}
+
+int main()
+{
+    char s[105] = { 0 };
+    char t[105] = { 0 };
+    int ch = 0, i = 0;
+    ch = getchar();
+    s[i++] = ch;
+    while (ch != '\n')
+    {
+        ch = getchar();
+        s[i++] = ch;
+    }
+    ch = getchar();
+    t[i] = ch;
+    while (ch != '\n')
+    {
+        ch = getchar();
+        t[i] = ch;
+    }
+    int n = sizeof(s) / sizeof(s[0]);
+    int m = sizeof(t) / sizeof(t[0]);
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (s[i] == t[j])
+            {
+                erase(s, i);
+                n--;
+                break;
+            }
+        }
+    }
+
+    cout << s << endl;
+
+    return 0;
+}
