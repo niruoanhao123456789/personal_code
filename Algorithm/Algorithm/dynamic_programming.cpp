@@ -767,4 +767,40 @@ using namespace std;
 
 
 // https://leetcode.cn/problems/number-of-longest-increasing-subsequence/description/
-//
+//class Solution {
+//public:
+//    int findNumberOfLIS(vector<int>& nums)
+//    {
+//        int n = nums.size();
+//        vector<int> len(n, 1), count(n, 1);
+//        int retlen = 1, retcount = 1;
+//        for (int i = 1; i < n; i++)
+//        {
+//            for (int j = 0; j < i; j++)
+//            {
+//                if (nums[i] > nums[j])
+//                {
+//                    if (len[j] + 1 == len[i])
+//                    {
+//                        count[i] += count[j];
+//                    }
+//                    else if (len[j] + 1 > len[i])
+//                    {
+//                        count[i] = count[j];
+//                        len[i] = len[j] + 1;
+//                    }
+//                }
+//            }
+//            if (retlen < len[i])
+//            {
+//                retlen = len[i];
+//                retcount = count[i];
+//            }
+//            else if (retlen == len[i])
+//            {
+//                retcount += count[i];
+//            }
+//        }
+//        return retcount;
+//    }
+//};
