@@ -804,3 +804,27 @@ using namespace std;
 //        return retcount;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/maximum-length-of-pair-chain/description/
+//class Solution {
+//public:
+//    int findLongestChain(vector<vector<int>>& pairs) {
+//        sort(pairs.begin(), pairs.end());
+//        int n = pairs.size();
+//        int ret = 1;
+//        vector<int> dp(n, 1);
+//        for (int i = 1; i < n; i++)
+//        {
+//            for (int j = 0; j < i; j++)
+//            {
+//                if (pairs[i][0] > pairs[j][1])
+//                {
+//                    dp[i] = max(dp[j] + 1, dp[i]);
+//                }
+//            }
+//            ret = max(ret, dp[i]);
+//        }
+//        return ret;
+//    }
+//};
