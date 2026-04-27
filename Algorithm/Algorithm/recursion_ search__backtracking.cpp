@@ -715,7 +715,45 @@ using namespace std;
 
 
 // https://leetcode.cn/problems/n-queens/description/
+//class Solution {
+//public:
+//    int size = 0;
+//    bool col[10] = { false };
+//    bool dig1[2 * 10] = { false };
+//    bool dig2[2 * 10] = { false };
+//    vector<vector<string>> ret;
+//    vector<string> path;
+//    vector<vector<string>> solveNQueens(int n) {
+//        size = n;
+//        dfs(0);
+//        return ret;
+//    }
 //
+//    void dfs(int pos)
+//    {
+//        if (pos == size)
+//        {
+//            ret.push_back(path);
+//            return;
+//        }
+//        string s(size, '.');
+//        for (int j = 0; j < size; j++)
+//        {
+//            if ((!col[j]) && (!dig1[pos - j + size]) && (!dig2[pos + j]))
+//            {
+//                s[j] = 'Q';
+//                path.push_back(s);
+//                col[j] = dig1[pos - j + size] = dig2[pos + j] = true;
+//                dfs(pos + 1);
+//                path.pop_back();
+//                col[j] = dig1[pos - j + size] = dig2[pos + j] = false;
+//                s[j] = '.';
+//            }
 //
+//        }
 //
-//
+//    }
+//};
+
+
+// 
