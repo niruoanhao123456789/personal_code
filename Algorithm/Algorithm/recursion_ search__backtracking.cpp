@@ -757,3 +757,86 @@ using namespace std;
 
 
 // https://leetcode.cn/problems/valid-sudoku/description/
+//class Solution {
+//public:
+//    bool row[9][10];
+//    bool col[9][10];
+//    bool grid[3][3][10];
+//    bool isValidSudoku(vector<vector<char>>& board)
+//    {
+//        int n = board.size();
+//        int m = board[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (board[i][j] != '.')
+//                {
+//                    int num = board[i][j] - '0';
+//                    if (row[i][num] || col[j][num] || grid[i / 3][j / 3][num])
+//                        return false;
+//                    row[i][num] = col[j][num] = grid[i / 3][j / 3][num] = true;
+//                }
+//            }
+//        }
+//        return true;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/sudoku-solver/description/
+//class Solution {
+//public:
+//    bool row[9][10] = { false };
+//    bool col[9][10] = { false };
+//    bool grid[3][3][10] = { false };
+//    int n, m;
+//    void solveSudoku(vector<vector<char>>& board)
+//    {
+//        n = board.size();
+//        m = board[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (board[i][j] != '.')
+//                {
+//                    int num = board[i][j] - '0';
+//                    row[i][num] = col[j][num] = grid[i / 3][j / 3][num] = true;
+//                }
+//            }
+//        }
+//        dfs(board);
+//    }
+//
+//    bool dfs(vector<vector<char>>& board)
+//    {
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                
+//                if (board[i][j] == '.')
+//                {
+//                    for (int val = 1; val <= 9; val++)
+//                    {
+//                        if (!row[i][val] && !col[j][val] && !grid[i][j][val])
+//                        {
+//                            board[i][j] = val + '0';
+//                            row[i][val] = col[j][val] = grid[i / 3][j / 3][val] = true;
+//                            if (dfs(board))
+//                                return true;
+//                            board[i][j] = '.';
+//                            row[i][val] = col[j][val] = grid[i / 3][j / 3][val] = false;
+//                        }
+//                    }
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
+//};
+
+
+//
