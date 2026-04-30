@@ -839,4 +839,50 @@ using namespace std;
 //};
 
 
+// https://leetcode.cn/problems/word-search/description/
+//class Solution {
+//public:
+//    int n, m;
+//    bool visit[7][7];
+//    bool exist(vector<vector<char>>& board, string word)
+//    {
+//        n = board.size();
+//        m = board[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (board[i][j] == word[0])
+//                {
+//                    visit[i][j] = true;
+//                    if (dfs(board, i, j, word, 1))
+//                        return true;
+//                    visit[i][j] = false;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 //
+//    // 利用向量的思维来进行表格内的搜索
+//    int dx[4] = { 0,0,-1,1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    bool dfs(vector<vector<char>>& board, int i, int j, string& s, int pos)
+//    {
+//        if (pos == s.size())
+//            return true;
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = j + dx[k];
+//            int y = i + dy[k];
+//            if (x >= 0 && x < m && y >= 0 && y < n && !visit[y][x] && board[y][x] == s[pos])
+//            {
+//                visit[y][x] = true;
+//                if (dfs(board, y, x, s, pos + 1))
+//                    return true;
+//                visit[y][x] = false;
+//            }
+//        }
+//        return false;
+//    }
+//};
