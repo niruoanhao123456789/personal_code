@@ -212,3 +212,54 @@ using namespace std;
 //};
 
 
+// https://ac.nowcoder.com/acm/problem/229023
+//#include<iostream>
+//#include<algorithm>
+//#include<unordered_map>
+//using namespace std;
+//
+//int n, m;
+//unordered_map<int, int> cnt; // 记录每种声部的人数
+//
+//bool check(int x) // 判断最多⼈数为 x 时，能否分成 m 组
+//{
+//	int groups = 0;
+//	for (auto& [a, b] : cnt)
+//	{
+//		groups += b / x + (b % x == 0 ? 0 : 1);
+//	}
+//	return groups <= m;
+//}
+//
+//int main()
+//{
+//	cin >> n >> m;
+//	int hmax = 0; //声部的最大人数
+//	for (int i = 0; i < n; i++)
+//	{
+//		int tmp = 0;
+//		cin >> tmp;
+//		hmax = max(hmax,++cnt[tmp]);
+//	}
+//
+//	if (cnt.size() > m)
+//	{
+//		cout << -1 << endl;
+//	}
+//	else
+//	{
+//		// 二分法
+//		int left = 1, right = hmax;
+//		while (left < right)
+//		{
+//			int mid = left + (right - left) / 2;
+//			if (check(mid))
+//				right = mid;
+//			else
+//				left = mid + 1;
+//		}
+//		cout << left << endl;
+//	}
+//
+//	return 0;
+//}
