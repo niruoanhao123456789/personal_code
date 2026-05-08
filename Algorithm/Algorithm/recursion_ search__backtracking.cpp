@@ -886,3 +886,54 @@ using namespace std;
 //        return false;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/path-with-maximum-gold/description/
+//class Solution {
+//public:
+//    int n, m;
+//    bool visit[15][15] = { false };
+//    int ret = 0;
+//    int getMaximumGold(vector<vector<int>>& grid)
+//    {
+//        n = grid.size(), m = grid[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (grid[i][j] != 0)
+//                {
+//                    visit[i][j] = true;
+//                    dfs(grid, i, j, 0);
+//                    visit[i][j] = false;
+//                }
+//            }
+//        }
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { -1,1,0,0 };
+//    void dfs(vector<vector<int>>& grid, int i, int j, int sum)
+//    {
+//        sum += grid[i][j];
+//        int flag = 1;
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k];
+//            int y = j + dy[k];
+//            if (x >= 0 && y >= 0 && x < n && y < m && !visit[x][y] && grid[x][y])
+//            {
+//                flag = 0;
+//                visit[x][y] = true;
+//                dfs(grid, x, y, sum);
+//                visit[x][y] = false;
+//            }
+//        }
+//        if (flag)
+//        {
+//            ret = max(sum, ret);
+//            return;
+//        }
+//    }
+//};
