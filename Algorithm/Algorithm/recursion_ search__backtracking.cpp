@@ -937,3 +937,59 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/unique-paths-iii/description/
+//class Solution {
+//public:
+//    int n, m;
+//    int ret = 0, target = 0;
+//    bool visit[20][20] = { false };
+//    int uniquePathsIII(vector<vector<int>>& grid)
+//    {
+//        int x, y;
+//        n = grid.size(), m = grid[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (grid[i][j] == 0)
+//                    target++;
+//                else if (grid[i][j] == 1)
+//                {
+//                    x = i;
+//                    y = j;
+//                    visit[i][j] = true;
+//                }
+//                else if (grid[i][j] == -1)
+//                    visit[i][j] = true;
+//            }
+//        }
+//        dfs(grid, x, y, 0);
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(vector<vector<int>>& grid, int i, int j, int count)
+//    {
+//        if (grid[i][j] == 0)
+//            count++;
+//        if (grid[i][j] == 2 && count == target)
+//        {
+//            ret++;
+//            return;
+//        }
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k];
+//            int y = j + dy[k];
+//            if (x >= 0 && x < n && y >= 0 && y < m && !visit[x][y])
+//            {
+//                visit[x][y] = true;
+//                dfs(grid, x, y, count);
+//                visit[x][y] = false;
+//            }
+//        }
+//    }
+//};
