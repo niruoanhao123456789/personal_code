@@ -993,3 +993,80 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// floodfill算法
+// 基本模型在一块区域中寻找有相同性质的连通区
+// 思想也是暴力搜索，dfs、bfs
+// https://leetcode.cn/problems/flood-fill/description/
+//class Solution {
+//public:
+//    int n, m, pre;
+//    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color)
+//    {
+//        if (image[sr][sc] == color)
+//            return image;
+//        n = image.size(), m = image[0].size();
+//        pre = image[sr][sc];
+//        dfs(image, sr, sc, color);
+//        return image;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(vector<vector<int>>& image, int i, int j, int color)
+//    {
+//        image[i][j] = color;
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k];
+//            int y = j + dy[k];
+//            if (x >= 0 && x < n && y >= 0 && y < m && image[x][y] == pre)
+//            {
+//                dfs(image, x, y, color);
+//            }
+//        }
+//    }
+//};
+
+
+// https://leetcode.cn/problems/number-of-islands/description/
+//class Solution 
+//{
+//public:
+//    int n, m, ret = 0;
+//    bool visit[301][301] = { false };
+//    int numIslands(vector<vector<char>>& grid)
+//    {
+//        n = grid.size(), m = grid[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (grid[i][j] == '1' && !visit[i][j])
+//                {
+//                    ret++;
+//                    visit[i][j] = true;
+//                    dfs(grid, i, j);
+//                }
+//            }
+//        }
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(vector<vector<char>>& grid, int i, int j)
+//    {
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k];
+//            int y = j + dy[k];
+//            if (x >= 0 && x < n && y >= 0 && y < m && !visit[x][y] && grid[x][y] == '1')
+//            {
+//                visit[x][y] = true;
+//                dfs(grid, x, y);
+//            }
+//        }
+//    }
+//};
