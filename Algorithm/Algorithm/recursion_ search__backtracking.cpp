@@ -1070,3 +1070,103 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/max-area-of-island/description/
+//class Solution {
+//public:
+//    int count = 0;
+//    int n, m, ret = 0;
+//    bool visit[50][50] = { false };
+//    int maxAreaOfIsland(vector<vector<int>>& grid) {
+//        n = grid.size();
+//        m = grid[0].size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (grid[i][j] == 1 && !visit[i][j])
+//                {
+//                    count = 0;
+//                    visit[i][j] = true;
+//                    dfs(grid, i, j);
+//                    ret = max(ret, count);
+//                }
+//            }
+//        }
+//
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(vector<vector<int>>& grid, int i, int j)
+//    {
+//        count++;
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k];
+//            int y = j + dy[k];
+//            if (x >= 0 && x < n && y >= 0 && y < m && !visit[x][y] && grid[x][y] == 1)
+//            {
+//                visit[x][y] = true;
+//                dfs(grid, x, y);
+//            }
+//        }
+//    }
+//};
+
+
+// https://leetcode.cn/problems/surrounded-regions/description/
+//class Solution {
+//public:
+//    int n, m;
+//    void solve(vector<vector<char>>& board)
+//    {
+//        n = board.size(), m = board[0].size();
+//        // 1、先将边界的O替换成.
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (board[i][0] == 'O')
+//                dfs(board, i, 0);
+//            if (board[i][m - 1] == 'O')
+//                dfs(board, i, m - 1);
+//        }
+//
+//        for (int j = 0; j < m; j++)
+//        {
+//            if (board[0][j] == 'O')
+//                dfs(board, 0, j);
+//            if (board[n - 1][j] == 'O')
+//                dfs(board, n - 1, j);
+//        }
+//
+//        // 2、还原并将其他O换成X
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (board[i][j] == '.')
+//                    board[i][j] = 'O';
+//                else if (board[i][j] == 'O')
+//                    board[i][j] = 'X';
+//            }
+//        }
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(vector<vector<char>>& board, int i, int j)
+//    {
+//        board[i][j] = '.';
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k];
+//            int y = j + dy[k];
+//            if (x >= 0 && x < n && y >= 0 && y < m && board[x][y] == 'O')
+//            {
+//                dfs(board, x, y);
+//            }
+//        }
+//    }
+//};
