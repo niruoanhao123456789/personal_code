@@ -1170,3 +1170,63 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/pacific-atlantic-water-flow/description/
+//class Solution {
+//public:
+//    int n, m;
+//    vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights)
+//    {
+//        n = heights.size(), m = heights[0].size();
+//        vector<vector<bool>> pacific(n, vector<bool>(m));
+//        auto atlantic = pacific;
+//        for (int i = 0; i < n; i++)
+//        {
+//            dfs(heights, i, 0, pacific);
+//        }
+//        for (int j = 0; j < m; j++)
+//        {
+//            dfs(heights, 0, j, pacific);
+//        }
+//
+//        for (int i = 0; i < n; i++)
+//        {
+//            dfs(heights, i, m - 1, atlantic);
+//        }
+//        for (int j = 0; j < m; j++)
+//        {
+//            dfs(heights, n - 1, j, atlantic);
+//        }
+//
+//        vector<vector<int>> ret;
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (pacific[i][j] == atlantic[i][j] && pacific[i][j] == true)
+//                {
+//                    ret.push_back({ i,j });
+//                }
+//            }
+//        }
+//
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(vector<vector<int>>& heights, int i, int j, vector<vector<bool>>& ocean)
+//    {
+//        ocean[i][j] = true;
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = dx[k] + i;
+//            int y = dy[k] + j;
+//            if (x >= 0 && x < n && y >= 0 && y < m && !ocean[x][y] && heights[x][y] >= heights[i][j])
+//            {
+//                dfs(heights, x, y, ocean);
+//            }
+//        }
+//    }
+//};
