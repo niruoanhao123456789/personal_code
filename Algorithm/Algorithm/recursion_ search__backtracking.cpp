@@ -1230,3 +1230,57 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/minesweeper/description/
+//class Solution {
+//public:
+//    int n, m;
+//    vector<vector<char>> updateBoard(vector<vector<char>>& board, vector<int>& click)
+//    {
+//        n = board.size(), m = board[0].size();
+//        int x = click[0], y = click[1];
+//        if (board[x][y] == 'M')
+//        {
+//            board[x][y] = 'X';
+//            return board;
+//        }
+//        dfs(board, x, y);
+//        return board;
+//    }
+//
+//    int dx[8] = { 0,0,1,-1,-1,-1,1,1 };
+//    int dy[8] = { 1,-1,0,0,1,-1,-1,1 };
+//    void dfs(vector<vector<char>>& board, int i, int j)
+//    {
+//        // 统计地雷个数
+//        int count = 0;
+//        for (int k = 0; k < 8; k++)
+//        {
+//            int x = dx[k] + i, y = dy[k] + j;
+//            if (x >= 0 && x < n && y >= 0 && y < m && board[x][y] == 'M')
+//            {
+//                count++;
+//            }
+//        }
+//        // 如果周围没有地雷
+//        if (!count)
+//        {
+//            board[i][j] = 'B';
+//            for (int k = 0; k < 8; k++)
+//            {
+//                int x = dx[k] + i, y = dy[k] + j;
+//                if (x >= 0 && x < n && y >= 0 && y < m && board[x][y] == 'E')
+//                {
+//                    dfs(board, x, y);
+//                }
+//            }
+//        }
+//        else
+//        {
+//            board[i][j] = count + '0';
+//            return;
+//        }
+//
+//    }
+//};
