@@ -1284,3 +1284,91 @@ using namespace std;
 //
 //    }
 //};
+
+
+// https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/description/
+//class Solution {
+//public:
+//    int ret = 0;
+//    bool visit[100][100];
+//    int wardrobeFinishing(int m, int n, int cnt)
+//    {
+//        dfs(0, 0, m, n, cnt);
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void dfs(int i, int j, int m, int n, int cnt)
+//    {
+//        visit[i][j] = true;
+//        int tmpi = i, tmpj = j, sum = 0;
+//        while (tmpi)
+//        {
+//            sum += tmpi % 10;
+//            tmpi /= 10;
+//        }
+//        while (tmpj)
+//        {
+//            sum += tmpj % 10;
+//            tmpj /= 10;
+//        }
+//        if (sum > cnt)
+//            return;
+//        ret++;
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = i + dx[k], y = j + dy[k];
+//            if (x >= 0 && x < m && y >= 0 && y < n && !visit[x][y])
+//            {
+//                dfs(x, y, m, n, cnt);
+//            }
+//        }
+//    }
+//};
+
+
+// 记忆化搜索
+// 将递归可能重复出现的结果放入备忘录中，即带备忘录的递归搜索
+// 1、先添加备忘录
+// 2、每次递归返回时，将结果放入备忘录里
+// 3、每次进入递归时，先查看备忘录
+//
+// 记忆化搜索与普通动态规划本质是一样的：
+// 1、暴力搜索
+// 2、通过将计算过的值存起来进行优化
+// 只是一个是递归形式另一个是递推
+//
+// 问题：
+// 1、不是所有的递归（深搜、爆搜）都能改成记忆化搜索的
+//    
+ 
+// https://leetcode.cn/problems/fibonacci-number/description/
+//class Solution {
+//public:
+//    // 创建备忘录
+//    int memory[31];
+//    int fib(int n)
+//    {
+//        // 初始化
+//        memset(memory, -1, sizeof(memory));
+//        return dfs(n);
+//    }
+//
+//    int dfs(int n)
+//    {
+//        // 查找备忘录
+//        if (memory[n] != -1)
+//            return memory[n];
+//
+//        // 将结果放入备忘录
+//        // 递归出口
+//        if (n == 1 || n == 0)
+//        {
+//            memory[n] = n;
+//            return n;
+//        }
+//        memory[n] = dfs(n - 1) + dfs(n - 2);
+//        return memory[n];
+//    }
+//};
