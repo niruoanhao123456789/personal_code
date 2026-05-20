@@ -1341,7 +1341,12 @@ using namespace std;
 //
 // 问题：
 // 1、不是所有的递归（深搜、爆搜）都能改成记忆化搜索的
-//    
+//    只有出现对次重复问题才能用
+// 2、带备忘录的递归 = 带备忘录的dp = 记忆搜索
+// 3、自顶向下 vs 自下向顶
+// 4、暴搜 -> 记忆化搜索 -> 动态规划 or（暴搜 -> 记忆化搜索）
+//	  普通的动态规划
+//    哪种方式更好？因人而异、因题而异
  
 // https://leetcode.cn/problems/fibonacci-number/description/
 //class Solution {
