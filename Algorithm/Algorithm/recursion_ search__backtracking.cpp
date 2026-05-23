@@ -1377,3 +1377,84 @@ using namespace std;
 //        return memory[n];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/unique-paths/description/
+//class Solution {
+//public:
+//
+//    int uniquePaths(int m, int n) {
+//        vector<vector<int>> record(m + 1, vector<int>(n + 1));
+//        return dfs(m, n, record);
+//    }
+//
+//    int dfs(int x, int y, vector<vector<int>>& record)
+//    {
+//        if (record[x][y])
+//            return record[x][y];
+//        if (x == 1 || y == 1)
+//        {
+//            record[x][y] = 1;
+//            return 1;
+//        }
+//        if (x == 0 || y == 0)
+//            return 0;
+//        record[x][y] = dfs(x - 1, y, record) + dfs(x, y - 1, record);
+//        return record[x][y];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/longest-increasing-subsequence/description/
+// 记忆化搜索
+//class Solution {
+//public:
+//    int lengthOfLIS(vector<int>& nums)
+//    {
+//        int ret = 0;
+//        vector<int> record(nums.size());
+//        for (int i = 0; i < nums.size(); i++)
+//        {
+//            ret = max(ret, dfs(i, nums, record));
+//        }
+//        return ret;
+//    }
+//
+//    int dfs(int pos, vector<int>& nums, vector<int>& record)
+//    {
+//        if (record[pos])
+//            return record[pos];
+//        int ret = 1;
+//        for (int i = pos + 1; i < nums.size(); i++)
+//        {
+//            if (nums[i] > nums[pos])
+//            {
+//                ret = max(ret, dfs(i, nums, record) + 1);
+//            }
+//        }
+//        record[pos] = ret;
+//        return ret;
+//    }
+//};
+//
+// 基于上面思路而改写成的动态规划，与之前在动态规划章节写的不同
+//class Solution {
+//public:
+//    int lengthOfLIS(vector<int>& nums) {
+//        int n = nums.size();
+//        vector<int> dp(n, 1);
+//        int ret = 1;
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            for (int j = i; j < n; j++)
+//            {
+//                if (nums[i] < nums[j])
+//                {
+//                    dp[i] = max(dp[i], dp[j] + 1);
+//                }
+//            }
+//            ret = max(ret, dp[i]);
+//        }
+//        return ret;
+//    }
+//};
