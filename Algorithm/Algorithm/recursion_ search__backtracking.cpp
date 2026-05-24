@@ -1458,3 +1458,69 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/guess-number-higher-or-lower-ii/description/
+//class Solution {
+//public:
+//    int getMoneyAmount(int n) {
+//
+//        return dfs(1, n);
+//    }
+//
+//    int record[201][201];
+//    int dfs(int left, int right)
+//    {
+//        if (left >= right)
+//            return 0;
+//
+//        if (record[left][right])
+//            return record[left][right];
+//
+//        int ret = 0x3f3f3f3f;
+//        for (int i = left; i <= right; i++)
+//        {
+//            ret = min(i + max(dfs(left, i - 1), dfs(i + 1, right)), ret);
+//        }
+//        record[left][right] = ret;
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/description/
+//class Solution {
+//public:
+//    int n, m;
+//    int longestIncreasingPath(vector<vector<int>>& matrix)
+//    {
+//        n = matrix.size(), m = matrix[0].size();
+//        vector<vector<int>> record(n, vector(m, 1));
+//        int ret = 1;
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                ret = max(ret, dfs(i, j, matrix, record));
+//            }
+//        }
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    int dfs(int i, int j, vector<vector<int>>& matrix, vector<vector<int>>& record)
+//    {
+//        if (record[i][j] != 1)
+//            return record[i][j];
+//        for (int k = 0; k < 4; k++)
+//        {
+//            int x = dx[k] + i, y = dy[k] + j;
+//            if (x >= 0 && x < n && y >= 0 && y<m && matrix[x][y]>matrix[i][j])
+//            {
+//                record[i][j] = max(1 + dfs(x, y, matrix, record), record[i][j]);
+//            }
+//        }
+//        return record[i][j];
+//    }
+//};
