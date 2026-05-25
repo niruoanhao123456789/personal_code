@@ -845,3 +845,62 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/description/
+//class Solution {
+//public:
+//    int lenLongestFibSubseq(vector<int>& arr)
+//    {
+//        int n = arr.size();
+//        int ret = 2;
+//        unordered_map<int, int> hash;
+//        for (int i = 0; i < n; i++)
+//        {
+//            hash[arr[i]] = i;
+//        }
+//        vector<vector<int>> dp(n, vector(n, 2));
+//        for (int j = 2; j < n; j++) // 固定最后一个元素
+//        {
+//            for (int i = 1; i < j; i++) // 固定倒数第二个元素
+//            {
+//                int a = arr[j] - arr[i];
+//                if (a < arr[i] && hash.count(a))
+//                {
+//                    dp[i][j] = dp[hash[a]][i] + 1;
+//                }
+//                ret = max(ret, dp[i][j]);
+//            }
+//        }
+//        return ret < 3 ? 0 : ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/longest-arithmetic-subsequence/description/
+//class Solution {
+//public:
+//    int longestArithSeqLength(vector<int>& nums)
+//    {
+//        int n = nums.size();
+//        int ret = 2;
+//        unordered_map<int, int> hash;
+//        hash[nums[0]] = 0;
+//        vector<vector<int>> dp(n, vector(n, 2));
+//        for (int i = 1; i < n - 1; i++)
+//        {
+//            for (int j = i + 1; j < n; j++)
+//            {
+//                int tmp = nums[i] * 2 - nums[j];
+//                if (hash.count(tmp))
+//                {
+//                    dp[i][j] = dp[hash[tmp]][i] + 1;
+//                }
+//                ret = max(ret, dp[i][j]);
+//            }
+//            hash[nums[i]] = i;
+//
+//        }
+//        return ret;
+//    }
+//};
