@@ -904,3 +904,41 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/description/
+//class Solution {
+//public:
+//    int numberOfArithmeticSlices(vector<int>& nums) {
+//        int n = nums.size();
+//        int ret = 0;
+//        vector<vector<int>> dp(n, vector<int>(n));
+//        unordered_map<long long, vector<int>> hash;
+//        for (int i = 0; i < n; i++)
+//        {
+//            hash[nums[i]].push_back(i);
+//        }
+//        for (int i = 2; i < n; i++)
+//        {
+//            for (int j = 1; j < i; j++)
+//            {
+//                long long tmp = (long long)nums[j] * 2 - nums[i];
+//                if (hash.count(tmp))
+//                {
+//                    for (auto& e : hash[tmp])
+//                    {
+//                        if (e < j)
+//                        {
+//                            dp[j][i] += dp[e][j] + 1;
+//                        }
+//                        else
+//                            break;
+//                    }
+//                }
+//                ret += dp[j][i];
+//            }
+//
+//        }
+//        return ret;
+//    }
+//};
