@@ -53,3 +53,37 @@ using namespace std;
 //        myqsort(nums, right, r);
 //    }
 //};
+
+
+// https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
+//class Solution {
+//public:
+//    int findKthLargest(vector<int>& nums, int k) {
+//        srand(time(nullptr));
+//        return myqsort(nums, 0, nums.size() - 1, k);
+//    }
+//
+//    int myqsort(vector<int>& nums, int l, int r, int k)
+//    {
+//        if (l == r)
+//            return nums[l];
+//        int key = nums[rand() % (r - l + 1) + l];
+//        int i = l, left = l - 1, right = r + 1;
+//        while (i < right)
+//        {
+//            if (nums[i] < key)
+//                swap(nums[++left], nums[i++]);
+//            else if (nums[i] > key)
+//                swap(nums[--right], nums[i]);
+//            else
+//                i++;
+//        }
+//        int c = r - right + 1, b = right - left - 1;
+//        if (c >= k)
+//            return myqsort(nums, right, r, k);
+//        else if (c + b >= k)
+//            return key;
+//        else
+//            return myqsort(nums, l, left, k - c - b);
+//    }
+//};
