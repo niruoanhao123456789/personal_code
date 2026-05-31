@@ -87,3 +87,40 @@ using namespace std;
 //            return myqsort(nums, l, left, k - c - b);
 //    }
 //};
+
+
+// https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/description/
+//class Solution {
+//public:
+//    vector<int> inventoryManagement(vector<int>& stock, int cnt)
+//    {
+//        srand(time(nullptr));
+//        myqsort(stock, 0, stock.size() - 1, cnt);
+//        return { stock.begin(),stock.begin() + cnt };
+//    }
+//
+//    void myqsort(vector<int>& stock, int l, int r, int cnt)
+//    {
+//        if (l >= r)
+//            return;
+//        int key = stock[rand() % (r - l + 1) + l];
+//        int left = l - 1, right = r + 1, cur = l;
+//        while (cur < right)
+//        {
+//            if (stock[cur] < key)
+//                swap(stock[++left], stock[cur++]);
+//            else if (stock[cur] > key)
+//                swap(stock[--right], stock[cur]);
+//            else
+//                cur++;
+//        }
+//
+//        int a = left - l + 1, b = right - left - 1;
+//        if (a > cnt)
+//            myqsort(stock, l, left, cnt);
+//        else if (a + b > cnt)
+//            return;
+//        else
+//            myqsort(stock, right, r, cnt - a - b);
+//    }
+//};
