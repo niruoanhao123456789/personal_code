@@ -967,3 +967,31 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+//  https://leetcode.cn/problems/longest-palindromic-substring/description/
+//class Solution {
+//public:
+//    string longestPalindrome(string s)
+//    {
+//        int n = s.size();
+//        int begin = 0, len = 1;
+//        vector<vector<int>> dp(n, vector<int>(n));
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            for (int j = i; j < n; j++)
+//            {
+//                if (s[i] == s[j])
+//                {
+//                    dp[i][j] = i + 1 < j ? dp[i + 1][j - 1] : true;
+//                }
+//                if (dp[i][j] && j - i + 1 > len)
+//                {
+//                    len = j - i + 1;
+//                    begin = i;
+//                }
+//            }
+//        }
+//        return s.substr(begin, len);
+//    }
+//};
