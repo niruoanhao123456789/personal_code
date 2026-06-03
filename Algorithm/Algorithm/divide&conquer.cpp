@@ -261,3 +261,120 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/count-of-smaller-numbers-after-self/description/
+//class Solution {
+//public:
+//    int ntmp[100010], itmp[100010], index[100010];
+//    vector<int> countSmaller(vector<int>& nums)
+//    {
+//        int n = nums.size();
+//        vector<int> ret(n);
+//        for (int i = 0; i < n; i++)
+//            index[i] = i;
+//        mergeSort(nums, 0, n - 1, ret);
+//        return ret;
+//    }
+//
+//    void mergeSort(vector<int>& nums, int left, int right, vector<int>& ret)
+//    {
+//        if (left >= right)
+//            return;
+//
+//        int mid = (right + left) >> 1;
+//        mergeSort(nums, left, mid, ret);
+//        mergeSort(nums, mid + 1, right, ret);
+//
+//        int begin1 = left, end1 = mid;
+//        int begin2 = mid + 1, end2 = right;
+//        int cur = left;
+//        while (begin1 <= end1 && begin2 <= end2)
+//        {
+//            if (nums[begin1] <= nums[begin2])
+//            {
+//                ntmp[cur] = nums[begin2];
+//                itmp[cur++] = index[begin2++];
+//            }
+//            else
+//            {
+//                ret[index[begin1]] += end2 - begin2 + 1;
+//                ntmp[cur] = nums[begin1];
+//                itmp[cur++] = index[begin1++];
+//            }
+//        }
+//        while (begin1 <= end1)
+//        {
+//            ntmp[cur] = nums[begin1];
+//            itmp[cur++] = index[begin1++];
+//        }
+//        while (begin2 <= end2)
+//        {
+//            ntmp[cur] = nums[begin2];
+//            itmp[cur++] = index[begin2++];
+//        }
+//
+//        for (int i = left; i <= right; i++)
+//        {
+//            nums[i] = ntmp[i];
+//            index[i] = itmp[i];
+//        }
+//    }
+//};
+
+
+// https://leetcode.cn/problems/reverse-pairs/description/
+//class Solution {
+//public:
+//    int reversePairs(vector<int>& nums)
+//    {
+//        vector<int> tmp(nums.size());
+//        return mergeSort(nums, 0, nums.size() - 1, tmp);
+//    }
+//
+//    int mergeSort(vector<int>& nums, int left, int right, vector<int>& tmp)
+//    {
+//        if (left >= right)
+//            return 0;
+//
+//        int ret = 0;
+//        int mid = (left + right) >> 1;
+//        ret += mergeSort(nums, left, mid, tmp);
+//        ret += mergeSort(nums, mid + 1, right, tmp);
+//
+//        int begin1 = left, end1 = mid;
+//        int begin2 = mid + 1, end2 = right;
+//
+//        while (begin1 <= end1) // 降序的情况
+//        {
+//            while (begin2 <= right && nums[begin2] >= nums[begin1] / 2.0)
+//                begin2++;
+//            if (begin2 > right)
+//                break;
+//            ret += right - begin2 + 1;
+//            begin1++;
+//        }
+//
+//        int index = left;
+//        begin1 = left, begin2 = mid + 1;
+//        while (begin1 <= end1 && begin2 <= end2)
+//        {
+//            tmp[index++] = nums[begin1] > nums[begin2] ? nums[begin1++] : nums[begin2++];
+//        }
+//        while (begin1 <= end1)
+//        {
+//            tmp[index++] = nums[begin1++];
+//        }
+//        while (begin2 <= end2)
+//        {
+//            tmp[index++] = nums[begin2++];
+//        }
+//
+//        for (int i = left; i <= right; i++)
+//        {
+//            nums[i] = tmp[i];
+//        }
+//
+//        return ret;
+//    }
+//};
