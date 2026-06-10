@@ -223,3 +223,41 @@ struct ListNode {
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/reverse-nodes-in-k-group/description/
+//class Solution {
+//public:
+//    ListNode* reverseKGroup(ListNode* head, int k)
+//    {
+//
+//        int cnt = 0;
+//        ListNode* cur = head;
+//        ListNode* guard = new ListNode(0);
+//        while (cur)
+//        {
+//            cnt++;
+//            cur = cur->next;
+//        }
+//        cnt /= k;
+//        cur = head;
+//        ListNode* prev = guard;
+//        while (cnt--)
+//        {
+//            int count = k;
+//            ListNode* tail = cur;
+//            while (count--)
+//            {
+//                ListNode* next = cur->next;
+//                cur->next = prev->next;
+//                prev->next = cur;
+//                cur = next;
+//            }
+//            prev = tail;
+//        }
+//        prev->next = cur;
+//        cur = guard->next;
+//        delete guard;
+//        return cur;
+//    }
+//};
