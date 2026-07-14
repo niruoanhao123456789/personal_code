@@ -1057,3 +1057,30 @@ using namespace std;
 //        return ret[n - 1];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/longest-palindromic-subsequence/description/
+//class Solution {
+//public:
+//    int longestPalindromeSubseq(string s)
+//    {
+//        int n = s.size();
+//        vector<vector<int>> dp(n, vector<int>(n)); // [i,j]位置内所有回文子序列的最长长度
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            dp[i][i] = 1;
+//            for (int j = i + 1; j < n; j++)
+//            {
+//                if (s[i] == s[j])
+//                {
+//                    dp[i][j] = dp[i + 1][j - 1] + 2;
+//                }
+//                else
+//                {
+//                    dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
+//                }
+//            }
+//        }
+//        return dp[0][n - 1];
+//    }
+//};
