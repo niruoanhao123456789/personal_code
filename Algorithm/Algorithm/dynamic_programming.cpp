@@ -1084,3 +1084,25 @@ using namespace std;
 //        return dp[0][n - 1];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/
+//class Solution {
+//public:
+//    int minInsertions(string s)
+//    {
+//        int n = s.size();
+//        vector<vector<int>> dp(n, vector<int>(n)); // 表示[i,j]区间字符串变成回文的最小次数
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            for (int j = i + 1; j < n; j++)
+//            {
+//                if (s[i] == s[j])
+//                    dp[i][j] = dp[i + 1][j - 1];
+//                else
+//                    dp[i][j] = min(dp[i][j - 1], dp[i + 1][j]) + 1;
+//            }
+//        }
+//        return dp[0][n - 1];
+//    }
+//};

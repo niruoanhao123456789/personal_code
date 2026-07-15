@@ -46,3 +46,48 @@ using namespace std;
 //        return true;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/contains-duplicate-ii/description/
+//class Solution {
+//public:
+//    bool containsNearbyDuplicate(vector<int>& nums, int k)
+//    {
+//        unordered_map<int, int> hash;
+//        int n = nums.size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (hash.count(nums[i]) && abs(i - hash[nums[i]]) <= k)
+//            {
+//                return true;
+//            }
+//            else
+//            {
+//                hash[nums[i]] = i;
+//            }
+//        }
+//        return false;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/group-anagrams/description/
+//class Solution {
+//public:
+//    vector<vector<string>> groupAnagrams(vector<string>& strs)
+//    {
+//        vector<vector<string>> ret;
+//        unordered_map<string, vector<string>> hash;
+//        for (int i = 0; i < strs.size(); i++)
+//        {
+//            string t = strs[i];
+//            sort(t.begin(), t.end());
+//            hash[t].push_back(strs[i]);
+//        }
+//        for (auto& strs : hash)
+//        {
+//            ret.push_back(strs.second);
+//        }
+//        return ret;
+//    }
+//};
