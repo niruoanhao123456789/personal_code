@@ -107,3 +107,32 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/find-largest-value-in-each-tree-row/description/
+//class Solution {
+//public:
+//    vector<int> largestValues(TreeNode* root) {
+//        vector<int> ret;
+//        if (!root)   return ret;
+//        queue<TreeNode*> q;
+//        q.push(root);
+//        while (!q.empty())
+//        {
+//            int sz = q.size();
+//            int mx = INT_MIN;
+//            for (int i = 0; i < sz; i++)
+//            {
+//                TreeNode* front = q.front();
+//                q.pop();
+//                mx = max(mx, front->val);
+//                if (front->left)
+//                    q.push(front->left);
+//                if (front->right)
+//                    q.push(front->right);
+//            }
+//            ret.push_back(mx);
+//        }
+//        return ret;
+//    }
+//};
