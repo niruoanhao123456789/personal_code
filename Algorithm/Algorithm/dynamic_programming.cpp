@@ -1106,3 +1106,76 @@ using namespace std;
 //        return dp[0][n - 1];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/longest-common-subsequence/description/
+//class Solution {
+//public:
+//    int longestCommonSubsequence(string text1, string text2)
+//    {
+//        int n = text1.size(), m = text2.size();
+//        text1 = " " + text1;
+//        text2 = " " + text2;
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1)); // 表示text1[0,i]与text2[0,j]之间公共子序列的最长长度,同时引入空串
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            for (int j = 1; j < m + 1; j++)
+//            {
+//                if (text1[i] == text2[j])
+//                {
+//                    dp[i][j] = dp[i - 1][j - 1] + 1;
+//                }
+//                else
+//                {
+//                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+//                }
+//            }
+//        }
+//        return dp[n][m];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/uncrossed-lines/description/
+//class Solution {
+//public:
+//    int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+//        int n = nums1.size(), m = nums2.size();
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1));// 表示nums1[0,i]与nums2[0,j]之间公共子序列的最长长度
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            for (int j = 1; j < m + 1; j++)
+//            {
+//                if (nums1[i - 1] == nums2[j - 1])
+//                    dp[i][j] = dp[i - 1][j - 1] + 1;
+//                else
+//                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+//            }
+//        }
+//        return dp[n][m];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/distinct-subsequences/description/
+//class Solution {
+//public:
+//    int numDistinct(string s, string t) {
+//        int n = t.size(), m = s.size();
+//        vector<vector<double>> dp(n + 1, vector<double>(m + 1)); // 表示s [0,j]区间内所有子序列有多少个t [0,i]区间内的字串
+//        for (int j = 0; j <= m; j++)
+//            dp[0][j] = 1;
+//
+//        for (int i = 1; i <= n; i++)
+//        {
+//            for (int j = 1; j <= m; j++)
+//            {
+//                if (s[j - 1] == t[i - 1])
+//                    dp[i][j] += dp[i - 1][j - 1];
+//                dp[i][j] += dp[i][j - 1];
+//            }
+//        }
+//
+//        return dp[n][m];
+//    }
+//};
