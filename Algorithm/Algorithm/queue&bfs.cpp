@@ -334,3 +334,154 @@ using namespace std;
 //
 //    }
 //};
+
+
+// 最短路径问题，边权为1的图论
+// 在起点处bfs，有多少层，其路径长度就是多少
+
+// https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/description/
+//class Solution {
+//public:
+//    int n, m, ret;
+//    bool visit[105][105];
+//    int nearestExit(vector<vector<char>>& maze, vector<int>& entrance) {
+//        n = maze.size(), m = maze[0].size();
+//        bfs(maze, entrance[0], entrance[1]);
+//        return ret;
+//    }
+//
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    void bfs(vector<vector<char>>& maze, int i, int j)
+//    {
+//        queue<pair<int, int>> q;
+//        q.push({ i,j });
+//        visit[i][j] = true;
+//        while (!q.empty())
+//        {
+//            ret++;
+//            int sz = q.size();
+//            for (int l = 0; l < sz; l++)
+//            {
+//                auto [a, b] = q.front();
+//                q.pop();
+//
+//                for (int k = 0; k < 4; k++)
+//                {
+//                    int x = a + dx[k], y = b + dy[k];
+//                    if (x >= 0 && x < n && y >= 0 && y < m && !visit[x][y] && maze[x][y] == '.')
+//                    {
+//                        if (x == 0 || y == 0 || x == n - 1 || y == m - 1)
+//                            return;
+//                        q.push({ x,y });
+//                        visit[x][y] = true;
+//                    }
+//                }
+//            }
+//        }
+//        ret = -1;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-genetic-mutation/description/
+//class Solution {
+//public:
+//    int minMutation(string startGene, string endGene, vector<string>& bank) {
+//        int n = startGene.size();
+//        unordered_map<string, int> bk, visit;
+//        for (auto& b : bank)
+//        {
+//            bk[b]++;
+//        }
+//        string change = "ACGT";
+//
+//        if (startGene == endGene)
+//            return 0;
+//        if (!bk.count(endGene))
+//            return -1;
+//
+//        queue<string> q;
+//        q.push(startGene);
+//        visit[startGene]++;
+//
+//        int ret = 0;
+//        while (!q.empty())
+//        {
+//            ret++;
+//            int sz = q.size();
+//            for (int i = 0; i < sz; i++)
+//            {
+//                string t = q.front();
+//                q.pop();
+//                for (int j = 0; j < n; j++)
+//                {
+//                    string tmp = t;
+//                    for (int k = 0; k < change.size(); k++)
+//                    {
+//                        tmp[j] = change[k];
+//                        if (bk[tmp] && !visit[tmp])
+//                        {
+//                            if (tmp == endGene)
+//                                return ret;
+//                            q.push(tmp);
+//                            visit[tmp] = 1;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return -1;
+//
+//    }
+//};
+
+
+// https://leetcode.cn/problems/word-ladder/description/
+//class Solution {
+//public:
+//    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+//        unordered_map<string, int> visit, hash;
+//        for (auto& w : wordList)
+//        {
+//            hash[w] = 1;
+//        }
+//
+//        if (beginWord == endWord)
+//            return 1;
+//        if (!hash.count(endWord))
+//            return 0;
+//
+//        queue<string> q;
+//        q.push(beginWord);
+//        visit[beginWord] = 1;
+//        int ret = 0;
+//        while (!q.empty())
+//        {
+//            ret++;
+//            int sz = q.size();
+//            for (int i = 0; i < sz; i++)
+//            {
+//                string t = q.front();
+//                q.pop();
+//                for (int j = 0; j < beginWord.size(); j++)
+//                {
+//                    string tmp = t;
+//                    for (int k = 0; k < 26; k++)
+//                    {
+//                        tmp[j] = 'a' + k;
+//                        if (hash[tmp] && !visit[tmp])
+//                        {
+//                            if (tmp == endWord)
+//                                return ret + 1;
+//                            q.push(tmp);
+//                            visit[tmp] = 1;
+//                        }
+//                    }
+//                }
+//            }
+//
+//        }
+//        return 0;
+//    }
+//};
