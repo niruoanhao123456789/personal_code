@@ -1247,4 +1247,22 @@ using namespace std;
 //};
 
 
-// 
+// https://leetcode.cn/problems/predict-the-winner/description/
+//class Solution {
+//public:
+//    bool predictTheWinner(vector<int>& nums) {
+//        int n = nums.size();
+//        vector<vector<int>> dp(n, vector<int>(n)); // dp[i][j] 表示作为先手，在区间 nums[i..j] 里进行选择可以获得的 相对分数。相对分数的意思是：当前自己的选择得分为正，对手的选择得分为负。
+//
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            dp[i][i] = nums[i];
+//            for (int j = i + 1; j < n; j++)
+//            {
+//                dp[i][j] = max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+//            }
+//        }
+//
+//        return dp[0][n - 1] >= 0;
+//    }
+//};
