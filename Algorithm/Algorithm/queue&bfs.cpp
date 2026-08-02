@@ -550,3 +550,109 @@ using namespace std;
 //};
 
 
+
+
+// 多源 BFS
+// 将复杂的多个结点视为一个结点
+//
+// https://leetcode.cn/problems/01-matrix/description/
+//class Solution {
+//public:
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+//        int n = mat.size(), m = mat[0].size();
+//        vector<vector<int>> dist(n, vector<int>(m, -1));
+//        queue<pair<int, int>> q;
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (mat[i][j] == 0)
+//                {
+//                    q.push({ i,j });
+//                    dist[i][j] = 0;
+//                }
+//            }
+//        }
+//
+//        while (!q.empty())
+//        {
+//            auto [a, b] = q.front();
+//            q.pop();
+//            for (int k = 0; k < 4; k++)
+//            {
+//                int x = a + dx[k], y = b + dy[k];
+//                if (x >= 0 && x < n && y >= 0 && y < m && dist[x][y] == -1)
+//                {
+//                    dist[x][y] = dist[a][b] + 1;
+//                    q.push({ x,y });
+//                }
+//            }
+//        }
+//
+//        return dist;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/number-of-enclaves/description/
+//class Solution {
+//public:
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    int numEnclaves(vector<vector<int>>& grid) {
+//        // 从边缘开始往内查看
+//
+//        int n = grid.size(), m = grid[0].size();
+//        vector<vector<bool>> vis(n, vector<bool>(m));
+//        queue<pair<int, int>> q;
+//
+//        // 记录边缘起点
+//        for (int i = 0; i < n; i++)
+//        {
+//            vis[i][0] = grid[i][0];
+//            if (vis[i][0])
+//                q.push({ i,0 });
+//            vis[i][m - 1] = grid[i][m - 1];
+//            if (vis[i][m - 1])
+//                q.push({ i,m - 1 });
+//        }
+//        for (int j = 0; j < m; j++)
+//        {
+//            vis[0][j] = grid[0][j];
+//            if (vis[0][j])
+//                q.push({ 0,j });
+//            vis[n - 1][j] = grid[n - 1][j];
+//            if (vis[n - 1][j])
+//                q.push({ n - 1,j });
+//        }
+//
+//        while (!q.empty())
+//        {
+//            auto [a, b] = q.front();
+//            q.pop();
+//            for (int k = 0; k < 4; k++)
+//            {
+//                int x = a + dx[k], y = b + dy[k];
+//                if (x >= 0 && x < n && y >= 0 && y < m && !vis[x][y] && grid[x][y])
+//                {
+//                    q.push({ x,y });
+//                    vis[x][y] = true;
+//                }
+//            }
+//        }
+//
+//        int ret = 0;
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (grid[i][j] && !vis[i][j])
+//                    ret++;
+//            }
+//        }
+//
+//        return ret;
+//    }
+//};

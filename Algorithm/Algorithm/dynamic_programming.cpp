@@ -1266,3 +1266,23 @@ using namespace std;
 //        return dp[0][n - 1] >= 0;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/stone-game/description/
+//class Solution {
+//public:
+//    bool stoneGame(vector<int>& piles) {
+//        int n = piles.size();
+//        vector<vector<int>> dp(n, vector<int>(n)); // dp[i][j] 表示piles[i..j]内该手所得相对于对手的石子数
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            dp[i][i] = piles[i];
+//            for (int j = i + 1; j < n; j++)
+//            {
+//                dp[i][j] = max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
+//            }
+//        }
+//
+//        return dp[0][n - 1] > 0;
+//    }
+//};
