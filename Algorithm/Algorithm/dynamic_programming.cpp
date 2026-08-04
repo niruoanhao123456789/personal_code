@@ -1286,3 +1286,67 @@ using namespace std;
 //        return dp[0][n - 1] > 0;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/stone-game-iii/description/
+//class Solution {
+//public:
+//    string stoneGameIII(vector<int>& stoneValue) {
+//        int n = stoneValue.size();
+//        vector<int> dp(n + 1, INT_MIN);
+//        dp[n] = 0;
+//        for (int i = n - 1; i >= 0; i--)
+//        {
+//            int presum = 0;
+//            for (int j = i + 1; j <= i + 3 && j < n + 1; j++)
+//            {
+//                presum += stoneValue[j - 1];
+//                dp[i] = max(dp[i], presum - dp[j]);
+//            }
+//        }
+//
+//        if (dp[0] == 0)
+//            return "Tie";
+//        else
+//            return dp[0] > 0 ? "Alice" : "Bob";
+//    }
+//};
+
+
+// https://leetcode.cn/problems/interleaving-string/description/
+//class Solution {
+//public:
+//    bool isInterleave(string s1, string s2, string s3) {
+//        int n = s1.size(), m = s2.size();
+//        if (n + m != s3.size())
+//            return false;
+//        s1 = " " + s1;
+//        s2 = " " + s2;
+//        s3 = " " + s3;
+//        vector<vector<bool>> dp(n + 1, vector<bool>(m + 1));
+//        dp[0][0] = true;
+//        for (int j = 1; j < m + 1; j++)
+//        {
+//            if (s2[j] != s3[j])
+//                break;
+//            dp[0][j] = true;
+//        }
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            if (s1[i] != s3[i])
+//                break;
+//            dp[i][0] = true;
+//        }
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            for (int j = 1; j < m + 1; j++)
+//            {
+//                dp[i][j] = (s1[i] == s3[i + j] && dp[i - 1][j]) || (s2[j] == s3[i + j] && dp[i][j - 1]);
+//            }
+//        }
+//        return dp[n][m];
+//    }
+//};
+
+
+// 
