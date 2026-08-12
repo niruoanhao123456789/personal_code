@@ -656,3 +656,147 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/remove-methods-from-project/description/
+//class Solution {
+//public:
+//    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) {
+//        vector<bool> vis(n);
+//        vector<vector<int>> ways(n);
+//        for (auto& e : invocations)
+//        {
+//            ways[e[0]].push_back(e[1]);
+//        }
+//        queue<int> q;
+//        q.push(k);
+//        while (!q.empty())
+//        {
+//            int t = q.front();
+//            q.pop();
+//            if (vis[t]) continue;
+//            vis[t] = true;
+//            for (auto next : ways[t])
+//            {
+//                q.push(next);
+//            }
+//        }
+//
+//        vector<int> ret;
+//        for (auto& e : invocations)
+//        {
+//            if (vis[e[0]] != vis[e[1]])
+//            {
+//                for (int i = 0; i < n; i++)
+//                {
+//                    ret.push_back(i);
+//                }
+//                return ret;
+//            }
+//        }
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (!vis[i])
+//                ret.push_back(i);
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/map-of-highest-peak/description/
+//class Solution {
+//public:
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
+//        int n = isWater.size(), m = isWater[0].size();
+//        vector<vector<int>> height(n, vector<int>(m));
+//        vector<vector<bool>> visit(n, vector<bool>(m));
+//        queue<pair<int, int>> q;
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < m; j++)
+//            {
+//                if (isWater[i][j])
+//                {
+//                    q.push({ i,j });
+//                    visit[i][j] = true;
+//                }
+//
+//            }
+//        }
+//        while (!q.empty())
+//        {
+//            int sz = q.size();
+//            for (int i = 0; i < sz; i++)
+//            {
+//                auto [a, b] = q.front();
+//                q.pop();
+//                for (int j = 0; j < 4; j++)
+//                {
+//                    int x = a + dx[j], y = b + dy[j];
+//                    if (x >= 0 && x < n && y >= 0 && y < m && !visit[x][y])
+//                    {
+//                        height[x][y] = height[a][b] + 1;
+//                        visit[x][y] = true;
+//                        q.push({ x,y });
+//                    }
+//                }
+//            }
+//        }
+//
+//        return height;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/as-far-from-land-as-possible/description/
+//class Solution {
+//public:
+//    int dx[4] = { 0,0,1,-1 };
+//    int dy[4] = { 1,-1,0,0 };
+//    int maxDistance(vector<vector<int>>& grid) {
+//        int n = grid.size(), m = grid[0].size();
+//        vector<vector<int>> dis(n, vector<int>(m));
+//        vector<vector<bool>> visit(n, vector<bool>(m));
+//        int ret = -1;
+//        queue<pair<int, int>> q;
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = 0; j < n; j++)
+//            {
+//                if (grid[i][j])
+//                {
+//                    q.push({ i,j });
+//                    visit[i][j] = true;
+//                }
+//            }
+//        }
+//        while (!q.empty())
+//        {
+//            int sz = q.size();
+//            for (int i = 0; i < sz; i++)
+//            {
+//                auto [a, b] = q.front();
+//                q.pop();
+//                for (int j = 0; j < 4; j++)
+//                {
+//                    int x = dx[j] + a, y = dy[j] + b;
+//                    if (x >= 0 && x < n && y >= 0 && y < m && !visit[x][y])
+//                    {
+//                        dis[x][y] = dis[a][b] + 1;
+//                        ret = max(dis[x][y], ret);
+//                        visit[x][y] = true;
+//                        q.push({ x,y });
+//                    }
+//                }
+//
+//            }
+//        }
+//        return ret;
+//    }
+//};
+
+
+// 拓扑排序
