@@ -321,3 +321,88 @@ using namespace std;
 //
 //    return 0;
 //}
+
+
+// https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/description/
+//class Solution {
+//public:
+//    int maxSubarrayLength(vector<int>& nums, int k)
+//    {
+//        int n = nums.size();
+//        unordered_map<int, int> cnt;
+//        int left = 0, right = 0;
+//        int ret = 1;
+//        while (right < n)
+//        {
+//            
+//            if (cnt[nums[right]] < k)
+//            {
+//                cnt[nums[right]]++;
+//                right++;
+//            }
+//            while (right < n && left<right && cnt[nums[right]]>=k)
+//            {
+//                cnt[nums[left]]--;
+//                left++;
+//            }
+//            if(right<n&&cnt[nums[right]]<=k)
+//                ret = max(ret, right - left + 1);
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/description/
+//class Solution {
+//public:
+//    int maximumLengthSubstring(string s) {
+//        int hash[26] = { 0 };
+//        int n = s.size();
+//        int left = 0, right = 0, len = 0;
+//        while (right < n)
+//        {
+//            hash[s[right++] - 'a']++;
+//            while (hash[s[right - 1] - 'a'] > 2)
+//            {
+//                hash[s[left] - 'a']--;
+//                left++;
+//            }
+//            len = max(len, right - left);
+//        }
+//        return len;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/shortest-and-lexicographically-smallest-beautiful-string/description/
+//class Solution {
+//public:
+//    string shortestBeautifulSubstring(string s, int k) {
+//        if (ranges::count(s, '1') < k)
+//        {
+//            return "";
+//        }
+//        int n = s.size();
+//        int cnt1 = 0, left = 0, right = 0;
+//        string ret = s;
+//        while (right < n)
+//        {
+//            cnt1 += (s[right] - '0');
+//            while (cnt1 > k || s[left] == '0')
+//            {
+//                cnt1 -= (s[left++] - '0');
+//            }
+//            if (cnt1 == k)
+//            {
+//                string tmp = s.substr(left, right - left + 1);
+//                if (tmp.size() < ret.size() || (tmp.size() == ret.size() && tmp < ret))
+//                {
+//                    ret = move(tmp);
+//                }
+//            }
+//            right++;
+//        }
+//        return ret;
+//    }
+//};

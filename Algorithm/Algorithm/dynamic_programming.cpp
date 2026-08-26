@@ -1349,4 +1349,23 @@ using namespace std;
 //};
 
 
-// 
+// https://leetcode.cn/problems/stone-game-viii/description/
+//class Solution {
+//public:
+//    int stoneGameVIII(vector<int>& stones)
+//    {
+//        int n = stones.size();
+//        vector<int> presum(n + 1);
+//        for (int i = 1; i < n + 1; i++)
+//        {
+//            presum[i] = presum[i - 1] + stones[i - 1];
+//        }
+//        vector<int> dp(n + 1);
+//        dp[n] = presum[n];
+//        for (int i = n - 1; i >= 2; i--)
+//        {
+//            dp[i] = max(dp[i + 1], presum[i] - dp[i + 1]);
+//        }
+//        return dp[2];
+//    }
+//};
