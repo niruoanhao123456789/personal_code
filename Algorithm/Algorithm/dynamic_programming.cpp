@@ -1369,3 +1369,86 @@ using namespace std;
 //        return dp[2];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings/description/
+//class Solution {
+//public:
+//    int minimumDeleteSum(string s1, string s2) {
+//        int n = s1.size(), m = s2.size();
+//        int sum = 0;
+//        for (char ch : s1)
+//        {
+//            sum += ch;
+//        }
+//        for (char ch : s2)
+//        {
+//            sum += ch;
+//        }
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1));
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = 1;j < m + 1;j++)
+//            {
+//                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+//                if (s1[i - 1] == s2[j - 1])
+//                    dp[i][j] = max(dp[i - 1][j - 1] + s1[i - 1], dp[i][j]);
+//
+//            }
+//        }
+//        return sum - dp[n][m] * 2;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/number-of-sets-of-k-non-overlapping-line-segments/description/
+//class Solution {
+//public:
+//    int numberOfSets(int n, int k) {
+//        int mod = 1000000007;
+//        // dp[i][j] 表示在 [0,j] 的点上构造 i 条线段的合法方案数
+//        vector<int> dp(n), prefixSums(n + 1);
+//        for (int j = 0; j < n; j++)
+//        {
+//            dp[j] = 1;
+//            prefixSums[j + 1] = (prefixSums[j] + dp[j]) % mod;
+//        }
+//        for (int i = 1; i <= k; i++)
+//        {
+//            dp[0] = 0;
+//            for (int j = 1; j < n; j++)
+//            {
+//                dp[j] = (dp[j - 1] + prefixSums[j]) % mod;
+//            }
+//            for (int j = 0; j < n; j++)
+//            {
+//                prefixSums[j + 1] = (prefixSums[j] + dp[j]) % mod;
+//            }
+//        }
+//        return dp[n - 1];
+//    }
+//};
+
+
+// https://leetcode.cn/problems/maximum-length-of-repeated-subarray/description/
+//class Solution {
+//public:
+//    int findLength(vector<int>& nums1, vector<int>& nums2) {
+//        int n = nums1.size(), m = nums2.size();
+//        int ret = 0;
+//        // dp[i][j] 表示nums1以i位置结尾的子数组与nums2以j位置结尾的子数组之间最长公共子数组的长度
+//        vector<vector<int>> dp(n + 1, vector<int>(m + 1));
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = 1;j < m + 1;j++)
+//            {
+//                if (nums1[i - 1] == nums2[j - 1])
+//                    dp[i][j] = dp[i - 1][j - 1] + 1;
+//                else
+//                    dp[i][j] = 0;
+//                ret = max(ret, dp[i][j]);
+//            }
+//        }
+//        return ret;
+//    }
+//};

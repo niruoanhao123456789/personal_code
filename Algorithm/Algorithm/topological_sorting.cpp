@@ -86,3 +86,127 @@ using namespace std;
 //        return true;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/course-schedule-ii/
+// 法一：
+//class Solution {
+//public:
+//    vector<int> findOrder(int n, vector<vector<int>>& prerequisites) {
+//        unordered_map<int, vector<int>> edges; // 邻接表
+//        vector<int> in(n); // 存储每⼀个结点的⼊度
+//        vector<int> ret;
+//
+//        // 建图
+//        for (auto& e : prerequisites)
+//        {
+//            int a = e[0], b = e[1];
+//            edges[b].emplace_back(a);
+//            in[a]++;
+//        }
+//
+//        // 拓扑排序 - bfs
+//        queue<int> q;
+//        // 把所有⼊度为 0 的点加⼊到队列中
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (!in[i])
+//                q.push(i);
+//        }
+//
+//        // 层序遍历
+//        while (!q.empty())
+//        {
+//            auto tmp = q.front();
+//            q.pop();
+//            ret.emplace_back(tmp);
+//            // 删除与该节点相连的边
+//            for (auto e : edges[tmp])
+//            {
+//                in[e]--;
+//                if (!in[e])
+//                    q.push(e);
+//            }
+//        }
+//
+//        if (ret.size() == n)   return ret;
+//        else return {};
+//    }
+//};
+
+
+// https://leetcode.cn/problems/Jf1JuT/description/
+//class Solution {
+//public:
+//    bool flag;
+//    unordered_map<char, int> in;
+//    unordered_map<char, unordered_set<char>> edges;
+//    string alienOrder(vector<string>& words)
+//    {
+//        // 初始化⼊度哈希表
+//        for (auto& w : words)
+//        {
+//            for (auto& e : w)
+//            {
+//                in[e] = 0;
+//            }
+//        }
+//        // 建表
+//        int n = words.size();
+//        for (int i = 0; i < n; i++)
+//        {
+//            for (int j = i + 1; j < n; j++)
+//            {
+//                add(words[i], words[j]);
+//                if (flag)    return "";
+//            }
+//        }
+//
+//        string ret;
+//        // 2. 拓扑排序
+//        queue<char> q;
+//        for (auto& [a, b] : in)
+//        {
+//            if (!b)
+//            {
+//                q.push(a);
+//            }
+//        }
+//        while (!q.empty())
+//        {
+//            char tmp = q.front();
+//            q.pop();
+//            ret += tmp;
+//            for (auto ch : edges[tmp])
+//            {
+//                if (--in[ch] == 0)
+//                    q.push(ch);
+//            }
+//        }
+//        for (auto& [a, b] : in)
+//        {
+//            if (b)   return "";
+//        }
+//        return ret;
+//    }
+//
+//    void add(string& s1, string& s2)
+//    {
+//        int n = min(s1.size(), s2.size());
+//        int i = 0;
+//        for (i = 0; i < n; i++)
+//        {
+//            if (s1[i] != s2[i])
+//            {
+//                char a = s1[i], b = s2[i];
+//                if (!edges.count(a) || !edges[a].count(b))
+//                {
+//                    edges[a].insert(b);
+//                    in[b]++;
+//                }
+//                break;
+//            }
+//        }
+//        if (i == s2.size() && i < s1.size()) flag = true;
+//    }
+//};
