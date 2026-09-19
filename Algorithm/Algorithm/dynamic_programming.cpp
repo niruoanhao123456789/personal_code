@@ -23,6 +23,10 @@ using namespace std;
 //	  滚动数组
 
 
+// 背包问题
+
+
+
 // https://leetcode.cn/problems/n-th-tribonacci-number/
 //class Solution {
 //public:
@@ -1452,3 +1456,64 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// 0-1背包问题 
+// https://www.nowcoder.com/practice/fd55637d3f24484e96dad9e992d3f62e?tpId=230&tqId=2032484&ru=/exam/oj&qru=/ta/dynamic-programming/question-ranking&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D196
+//#include <iostream>
+//#include <vector>
+//#include <algorithm>
+//using namespace std;
+//
+//const int N = 1010;
+//
+//int main()
+//{
+//    int n, V;
+//    cin >> n >> V;
+//    vector<int> v(n);
+//    vector<int> w(n);
+//    for (int i = 0;i < n;i++)
+//    {
+//        cin >> v[i] >> w[i];
+//    }
+//
+//    vector<vector<int>> dp(n + 1, vector<int>(V + 1));
+//	  // dp[i][j]  表⽰：从前  i  个物品中挑选，总体积「不超过」  j ，所有的选法中，能挑选出来的最⼤价值
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = 0;j < V + 1;j++)
+//        {
+//            dp[i][j] = dp[i - 1][j];
+//            if (j >= v[i - 1])
+//                dp[i][j] = max(dp[i][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
+//        }
+//    }
+//    cout << dp[n][V] << endl;
+//
+// 
+//	  // dp[i][j]  表⽰：从前  i  个物品中挑选，总体积「正好」等于  j ，所有的选法中，能挑选出来的最⼤价值
+//    for (int i = 0;i < n + 1;i++)
+//    {
+//        for (int j = 0;j < V + 1;j++)
+//        {
+//            dp[i][j] = 0;
+//        }
+//    }
+//    for (int j = 1;j < V + 1;j++)
+//        dp[0][j] = -1;
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = 0;j < V + 1;j++)
+//        {
+//            dp[i][j] = dp[i - 1][j];
+//            if (j >= v[i - 1] && dp[i - 1][j - v[i - 1]] != -1)
+//                dp[i][j] = max(dp[i][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
+//        }
+//    }
+//    cout << (dp[n][V] == -1 ? 0 : dp[n][V]) << endl;
+//
+//    return 0;
+//}
+// 
+// 一维空间优化后
