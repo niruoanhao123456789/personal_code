@@ -17,7 +17,7 @@ using namespace std;
 // 贪心算法的特点：
 // 贪心策略的提出是没有标准与模板的，每一题的贪心策略都不同
 
-// 如何真正意义上确定贪心策略的正确，需要数学证明
+// 如何真正意义上确定贪心策略的正确，需要数学证明（交换、数学归纳、反证法）
 
 // https://leetcode.cn/problems/lexicographically-smallest-permutation-greater-than-target/description/
 //class Solution {
@@ -70,4 +70,63 @@ using namespace std;
 //};
 
 
-// 
+// https://leetcode.cn/problems/lemonade-change/description/
+//class Solution {
+//public:
+//    bool lemonadeChange(vector<int>& bills) {
+//        int five = 0, ten = 0;
+//        for (auto& e : bills)
+//        {
+//            if (e == 5)
+//                five++;
+//            else if (e == 10)
+//            {
+//                if (!five)
+//                    return false;
+//                ten++;
+//                five--;
+//            }
+//            else
+//            {
+//                if (ten && five)
+//                {
+//                    ten--;
+//                    five--;
+//                }
+//                else if (!ten && five >= 3)
+//                {
+//                    five -= 3;
+//                }
+//                else
+//                    return false;
+//            }
+//        }
+//        return true;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-operations-to-halve-array-sum/description/
+//class Solution {
+//public:
+//    int halveArray(vector<int>& nums) {
+//        int count = 0;
+//        double sum = 0;
+//        priority_queue<double> heap;
+//        for (auto& n : nums)
+//        {
+//            sum += n;
+//            heap.push(n);
+//        }
+//        double aim = sum / 2;
+//        while (sum > aim)
+//        {
+//            double tmp = heap.top() / 2;
+//            heap.pop();
+//            heap.push(tmp);
+//            sum -= (tmp);
+//            count++;
+//        }
+//        return count;
+//    }
+//};

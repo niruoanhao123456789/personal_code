@@ -1479,7 +1479,7 @@ using namespace std;
 //    }
 //
 //    vector<vector<int>> dp(n + 1, vector<int>(V + 1));
-//	  // dp[i][j]  表⽰：从前  i  个物品中挑选，总体积「不超过」  j ，所有的选法中，能挑选出来的最⼤价值
+//	  // dp[i][j]  表示：从前  i  个物品中挑选，总体积「不超过」  j ，所有的选法中，能挑选出来的最⼤价值
 //    for (int i = 1;i < n + 1;i++)
 //    {
 //        for (int j = 0;j < V + 1;j++)
@@ -1492,7 +1492,7 @@ using namespace std;
 //    cout << dp[n][V] << endl;
 //
 // 
-//	  // dp[i][j]  表⽰：从前  i  个物品中挑选，总体积「正好」等于  j ，所有的选法中，能挑选出来的最⼤价值
+//	  // dp[i][j]  表示：从前  i  个物品中挑选，总体积「正好」等于  j ，所有的选法中，能挑选出来的最⼤价值
 //    for (int i = 0;i < n + 1;i++)
 //    {
 //        for (int j = 0;j < V + 1;j++)
@@ -1517,3 +1517,102 @@ using namespace std;
 //}
 // 
 // 一维空间优化后
+//int main()
+//{
+//    int n, V;
+//    cin >> n >> V;
+//    vector<int> v(n);
+//    vector<int> w(n);
+//    for (int i = 0;i < n;i++)
+//    {
+//        cin >> v[i] >> w[i];
+//    }
+//
+//    vector<int> dp(V + 1);
+//    // dp[i][j]  表示：从前  i  个物品中挑选，总体积「不超过」  j ，所有的选法中，能挑选出来的最⼤价值
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = V + 1;j >= v[i - 1];j--)
+//        {
+//                dp[j] = max(dp[j], dp[j - v[i - 1]] + w[i - 1]);
+//        }
+//    }
+//    cout << dp[V] << endl;
+//
+//
+//    // dp[i][j]  表示：从前  i  个物品中挑选，总体积「正好」等于  j ，所有的选法中，能挑选出来的最⼤价值
+//    dp[0] = 0;
+//    for (int j = 1;j < V + 1;j++)
+//        dp[j] = -1;
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = V + 1;j >= v[i - 1];j--)
+//        {
+//            if (dp[j - v[i - 1]] != -1)
+//                dp[j] = max(dp[j], dp[j - v[i - 1]] + w[i - 1]);
+//        }
+//    }
+//    cout << (dp[V] == -1 ? 0 : dp[V]) << endl;
+//
+//    return 0;
+//}
+
+
+
+// https://leetcode.cn/problems/partition-equal-subset-sum/description/
+//class Solution {
+//public:
+//    bool canPartition(vector<int>& nums) {
+//        int sum = 0;
+//        for (auto& v : nums)
+//        {
+//            sum += v;
+//        }
+//        if (sum % 2)
+//            return false;
+//        int n = nums.size();
+//        int target = sum / 2;
+//        vector<vector<bool>> dp(n + 1, vector<bool>(target + 1));
+//        for (int i = 0;i < n + 1;i++)
+//        {
+//            dp[i][0] = true;
+//        }
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = 0;j <= target;j++)
+//            {
+//                dp[i][j] = dp[i - 1][j];
+//                if (j >= nums[i - 1])
+//                    dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]];
+//            }
+//        }
+//
+//        return dp[n][target];
+//    }
+//};
+//
+// 优化后
+//class Solution {
+//public:
+//    bool canPartition(vector<int>& nums) {
+//        int sum = 0;
+//        for (auto& e : nums)
+//        {
+//            sum += e;
+//        }
+//        if (sum % 2)
+//            return false;
+//        int tagert = sum / 2;
+//        int n = nums.size();
+//        vector<bool> dp(tagert + 1);
+//        dp[0] = true;
+//        for (int i = 1;i <= n;i++)
+//        {
+//            for (int j = tagert;j >= nums[i - 1];j--)
+//            {
+//                dp[j] = dp[j] || dp[j - nums[i - 1]];
+//            }
+//        }
+//        return dp[tagert];
+//    }
+//};
