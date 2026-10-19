@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 #include<queue>
 #include<vector>
 #include<list>
@@ -128,5 +129,24 @@ using namespace std;
 //            count++;
 //        }
 //        return count;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/largest-number/description/
+//class Solution {
+//public:
+//    string largestNumber(vector<int>& nums) {
+//        sort(nums.begin(), nums.end(), [](int left, int right) {
+//            return to_string(left) + to_string(right) > to_string(right) + to_string(left);
+//            });
+//        if (nums[0] == 0)
+//            return "0";
+//        string ret;
+//        for (auto& e : nums)
+//        {
+//            ret += to_string(e);
+//        }
+//        return ret;
 //    }
 //};

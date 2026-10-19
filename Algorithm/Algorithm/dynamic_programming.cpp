@@ -1616,3 +1616,61 @@ using namespace std;
 //        return dp[tagert];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/target-sum/description/
+//class Solution {
+//public:
+//    int findTargetSumWays(vector<int>& nums, int target) {
+//        // 设定所有+数的和为a
+//        int sum = 0;
+//        for (auto& e : nums)
+//        {
+//            sum += e;
+//        }
+//        int a = (sum + target) / 2;
+//        if (a < 0 || (sum + target) % 2)
+//            return 0;
+//        int n = nums.size();
+//        // 此时状态表示为选择加上nums里第i个数后等于j的方法数
+//        vector<vector<int>> dp(n + 1, vector<int>(a + 1));
+//        dp[0][0] = 1;
+//        for (int i = 1;i <= n;i++)
+//        {
+//            for (int j = 0;j <= a;j++)
+//            {
+//                dp[i][j] = dp[i - 1][j];
+//                if (j >= nums[i - 1])
+//                    dp[i][j] += dp[i - 1][j - nums[i - 1]];
+//            }
+//        }
+//        return dp[n][a];
+//    }
+//};
+//
+// 空间优化后
+//class Solution {
+//public:
+//    int findTargetSumWays(vector<int>& nums, int target) {
+//        // 设定所有+数的和为a
+//        int sum = 0;
+//        for (auto& e : nums)
+//        {
+//            sum += e;
+//        }
+//        int a = (sum + target) / 2;
+//        if (a < 0 || (sum + target) % 2)
+//            return 0;
+//        int n = nums.size();
+//        vector<int> dp(a + 1);
+//        dp[0] = 1;
+//        for (int i = 1;i <= n;i++)
+//        {
+//            for (int j = a;j >= nums[i - 1];j--)
+//            {
+//                dp[j] += dp[j - nums[i - 1]];
+//            }
+//        }
+//        return dp[a];
+//    }
+//};
