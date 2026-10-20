@@ -1674,3 +1674,60 @@ using namespace std;
 //        return dp[a];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/last-stone-weight-ii/description/
+//class Solution {
+//public:
+//    int lastStoneWeightII(vector<int>& stones) {
+//        // 注意到两个数相减所得的差最小时，这两个数是接近于这两个数相加的和的一半的
+//        // 所以有以下状态表示
+//        int n = stones.size();
+//        int sum = 0;
+//        for (auto& e : stones)
+//        {
+//            sum += e;
+//        }
+//        int aim = sum / 2;
+//        // dp表示在不超过j的情况下到i位置的最大和
+//        // 此时dp[n][aim]表示石头总和分成两份后较小的那份
+//        vector<vector<int>> dp(n + 1, vector<int>(aim + 1));
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = 1;j < aim + 1;j++)
+//            {
+//                dp[i][j] = dp[i - 1][j];
+//                if (j >= stones[i - 1])
+//                    dp[i][j] = max(dp[i][j], dp[i - 1][j - stones[i - 1]] + stones[i - 1]);
+//            }
+//        }
+//        return sum - 2 * dp[n][aim];
+//    }
+//};
+//
+// 优化后
+//class Solution {
+//public:
+//    int lastStoneWeightII(vector<int>& stones) {
+//        // 注意到两个数相减所得的差最小时，这两个数是接近于这两个数相加的和的一半的
+//        // 所以有以下状态表示
+//        int n = stones.size();
+//        int sum = 0;
+//        for (auto& e : stones)
+//        {
+//            sum += e;
+//        }
+//        int aim = sum / 2;
+//        // dp表示在不超过j的情况下到i位置的最大和
+//        // 此时dp[n][aim]表示石头总和分成两份后较小的那份
+//        vector<int> dp(aim + 1);
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = aim;j >= stones[i - 1];j--)
+//            {
+//                dp[j] = max(dp[j], dp[j - stones[i - 1]] + stones[i - 1]);
+//            }
+//        }
+//        return sum - 2 * dp[aim];
+//    }
+//};
