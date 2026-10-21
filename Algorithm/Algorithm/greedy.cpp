@@ -150,3 +150,28 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/wiggle-subsequence/description/
+//class Solution {
+//public:
+//    int wiggleMaxLength(vector<int>& nums) {
+//        int n = nums.size();
+//        if (n < 2)
+//            return n;
+//        int ret = 0, left = 0;
+//        for (int i = 0;i < n - 1;i++)
+//        {
+//            // 计算接下来的趋势
+//            int right = nums[i + 1] - nums[i];
+//            // 水平段直接跳过
+//            if (!right)
+//                continue;
+//            // 出现拐点，累加波峰与波谷
+//            if (right * left <= 0)
+//                ret++;
+//            left = right;
+//        }
+//        return ret + 1;
+//    }
+//};

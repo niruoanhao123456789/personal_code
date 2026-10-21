@@ -1709,6 +1709,7 @@ using namespace std;
 //class Solution {
 //public:
 //    int lastStoneWeightII(vector<int>& stones) {
+//		  // 本题对石头的操作可以理解为在各个数量的石头前添加正负号使得到的结果越小
 //        // 注意到两个数相减所得的差最小时，这两个数是接近于这两个数相加的和的一半的
 //        // 所以有以下状态表示
 //        int n = stones.size();
