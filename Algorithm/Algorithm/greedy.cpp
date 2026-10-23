@@ -175,3 +175,40 @@ using namespace std;
 //        return ret + 1;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/longest-increasing-subsequence/description/
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> len;
+        len.push_back(nums[0]);
+        for (int i = 1;i < n;i++)
+        {
+            // 此时在递增的情况下能直接接上的情况下就直接接上
+            if (nums[i] > len.back())
+                len.push_back(nums[i]);
+            else
+            {
+                // 通过二分查找来定位要被更新的位置，
+                // 在不能接上最后一个位置的情况下，每个位置上的数应为该位置可放的最小值，
+                // 因为再要求序列最长的情况下，比这个最小值还要大的数一定可以被接到其后面
+                int left = 0, right = len.size() - 1;
+                while (left < right)
+                {
+                    int mid = (left + right) >> 1;
+                    if (len[mid] < nums[i])
+                        left = mid + 1;
+                    else
+                        right = mid;
+                }
+                len[left] = nums[i];
+
+            }
+
+        }
+        return len.size();
+
+    }
+};
