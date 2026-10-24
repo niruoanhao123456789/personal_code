@@ -1732,3 +1732,144 @@ using namespace std;
 //        return sum - 2 * dp[aim];
 //    }
 //};
+
+
+// 完全背包
+//
+// https://www.nowcoder.com/practice/237ae40ea1e84d8980c1d5666d1c53bc?tpId=230&tqId=2032575&ru=/exam/oj&qru=/ta/dynamic-programming/question-ranking&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D196
+//#include <iostream>
+//#include <vector>
+//#include <algorithm>
+//using namespace std;
+//
+//int main()
+//{
+//    int n, V;
+//    cin >> n >> V;
+//    vector<int> w(n + 1), v(n + 1);
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        cin >> v[i] >> w[i];
+//    }
+//
+//    // 第一问
+//    vector<vector<int>> dp(n + 1, vector<int>(V + 1));
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = 0;j < V + 1;j++)
+//        {
+//            dp[i][j] = dp[i - 1][j];
+//            if (j >= v[i])
+//                dp[i][j] = max(dp[i][j], dp[i][j - v[i]] + w[i]);
+//        }
+//    }
+//    cout << dp[n][V] << endl;
+//
+//    // 第二题
+//    for (int i = 0;i < n + 1;i++)
+//    {
+//        for (int j = 0;j < V + 1;j++)
+//        {
+//            dp[i][j] = 0;
+//        }
+//    }
+//    for (int j = 1; j <= V; j++) dp[0][j] = -1;
+//
+//    for (int i = 1; i <= n; i++)
+//    {
+//        for (int j = 1; j <= V; j++)
+//        {
+//            dp[i][j] = dp[i - 1][j];
+//            if (j >= v[i] && dp[i][j - v[i]] != -1)
+//                dp[i][j] = max(dp[i][j], dp[i][j - v[i]] + w[i]);
+//        }
+//    }
+//
+//    cout << ((dp[n][V] == -1) ? 0 : dp[n][V]) << endl;
+//
+//    return 0;
+//}
+//
+// 空间优化版本
+//int main()
+//{
+//    int n, V;
+//    cin >> n >> V;
+//    vector<int> w(n + 1), v(n + 1);
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        cin >> v[i] >> w[i];
+//    }
+//
+//    // 第一问
+//    vector<int> dp(V + 1);
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = v[i];j < V + 1;j++)
+//        {
+//            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+//        }
+//    }
+//    cout << dp[V] << endl;
+//
+//    // 第二题
+//    for (int i = 1;i < V + 1;i++)
+//    {
+//        dp[i] = -1;
+//    }
+//
+//    for (int i = 1; i <= n; i++)
+//    {
+//        for (int j = v[i]; j <= V; j++)
+//        {
+//            if (dp[j - v[i]] != -1)
+//                dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+//        }
+//    }
+//
+//    cout << ((dp[V] == -1) ? 0 : dp[V]) << endl;
+//
+//    return 0;
+//}
+// 
+// 代码写法优化
+// 
+//int main()
+//{
+//    int n, V;
+//    cin >> n >> V;
+//    vector<int> w(n + 1), v(n + 1);
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        cin >> v[i] >> w[i];
+//    }
+//
+//    // 第一问
+//    vector<int> dp(V + 1);
+//    for (int i = 1;i < n + 1;i++)
+//    {
+//        for (int j = v[i];j < V + 1;j++)
+//        {
+//            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+//        }
+//    }
+//    cout << dp[V] << endl;
+//
+//    // 第二题
+//    for (int i = 1;i < V + 1;i++)
+//    {
+//        dp[i] = -0x3f3f3f3f;
+//    }
+//
+//    for (int i = 1; i <= n; i++)
+//    {
+//        for (int j = v[i]; j <= V; j++)
+//        {
+//            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+//        }
+//    }
+//
+//    cout << ((dp[V] < 0) ? 0 : dp[V]) << endl;
+//
+//    return 0;
+//}
