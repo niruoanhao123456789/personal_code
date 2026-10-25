@@ -1873,3 +1873,53 @@ using namespace std;
 //
 //    return 0;
 //}
+
+
+// https://leetcode.cn/problems/coin-change/description/
+//class Solution {
+//public:
+//    const int INF = 0x3f3f3f3f;
+//    int coinChange(vector<int>& coins, int amount) {
+//        int n = coins.size();
+//        // 表示从前i个硬币中挑选出，价值不超过j的硬币最小数量
+//        vector<vector<int>> dp(n + 1, vector<int>(amount + 1));
+//        for (int j = 1;j < amount + 1;j++)
+//            dp[0][j] = INF;
+//
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = 0;j < amount + 1;j++)
+//            {
+//                dp[i][j] = dp[i - 1][j];
+//
+//                if (j >= coins[i - 1])
+//                    dp[i][j] = min(dp[i][j], dp[i][j - coins[i - 1]] + 1);
+//
+//            }
+//        }
+//        return dp[n][amount] >= INF ? -1 : dp[n][amount];
+//    }
+//};
+//
+// 优化后的版本
+//class Solution {
+//public:
+//    const int INF = 0x3f3f3f3f;
+//    int coinChange(vector<int>& coins, int amount) {
+//        int n = coins.size();
+//        // 表示从前i个硬币中挑选出，价值不超过j的硬币最小数量
+//        vector<int> dp(amount + 1);
+//        for (int j = 1;j < amount + 1;j++)
+//            dp[j] = INF;
+//
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            for (int j = coins[i - 1];j < amount + 1;j++)
+//            {
+//                dp[j] = min(dp[j], dp[j - coins[i - 1]] + 1);
+//
+//            }
+//        }
+//        return dp[amount] >= INF ? -1 : dp[amount];
+//    }
+//};
