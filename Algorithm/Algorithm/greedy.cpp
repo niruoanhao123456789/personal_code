@@ -234,3 +234,47 @@ using namespace std;
 //        return false;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/longest-continuous-increasing-subsequence/description/
+//class Solution {
+//public:
+//    int findLengthOfLCIS(vector<int>& nums) {
+//        int n = nums.size();
+//        if (n == 1)
+//            return 1;
+//        int l = 0, r = 1;
+//        int ret = 0;
+//        while (r < n)
+//        {
+//            if (nums[r] > nums[r - 1])
+//            {
+//                r++;
+//            }
+//            else
+//            {
+//                ret = max(ret, r - l);
+//                l = r++;
+//            }
+//        }
+//        ret = max(ret, r - l);
+//
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/description/
+//class Solution {
+//public:
+//    int maxProfit(vector<int>& prices) {
+//        int minCost = INT_MAX;
+//        int maxprofit = 0;
+//        for (auto e : prices)
+//        {
+//            maxprofit = max(e - minCost, maxprofit);
+//            minCost = min(minCost, e);
+//        }
+//        return maxprofit;
+//    }
+//};
