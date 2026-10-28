@@ -1923,3 +1923,53 @@ using namespace std;
 //        return dp[amount] >= INF ? -1 : dp[amount];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/minimum-xor-path-in-a-grid/description/
+//class Solution {
+//public:
+//    int minCost(vector<vector<int>>& grid) {
+//        int n = grid.size(), m = grid[0].size();
+//
+//        // 计算网格中可能的最大异或值范围
+//        int maxVal = 0;
+//        for (auto& row : grid) {
+//            for (int val : row) {
+//                maxVal = max(maxVal, val);
+//            }
+//        }
+//        // 找到比 maxVal 大的下一个 2 的次幂作为状态空间大小
+//        int maxXor = 1;
+//        while (maxXor <= maxVal) maxXor <<= 1;
+//
+//        // dp[i][j][k] 表示从 (0,0) 到 (i,j) 是否存在异或值为 k 的路径
+//        vector<vector<vector<bool>>> dp(n, vector<vector<bool>>(m, vector<bool>(maxXor, false)));
+//
+//        dp[0][0][grid[0][0]] = true;
+//
+//        for (int i = 0; i < n; i++) {
+//            for (int j = 0; j < m; j++) {
+//                if (i == 0 && j == 0) continue;
+//
+//                // 遍历所有可能的异或值
+//                for (int k = 0; k < maxXor; k++) {
+//                    // 如果上方或左侧能到达状态 k
+//                    bool reachable = false;
+//                    if (i > 0 && dp[i - 1][j][k]) reachable = true;
+//                    if (!reachable && j > 0 && dp[i][j - 1][k]) reachable = true;
+//
+//                    // 如果可达，则异或当前格子的值
+//                    if (reachable) {
+//                        dp[i][j][k ^ grid[i][j]] = true;
+//                    }
+//                }
+//            }
+//        }
+//
+//        // 从 0 开始找最小的可达异或值
+//        for (int k = 0; k < maxXor; k++) {
+//            if (dp[n - 1][m - 1][k]) return k;
+//        }
+//        return -1;
+//    }
+//};
