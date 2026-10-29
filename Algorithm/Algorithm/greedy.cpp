@@ -278,3 +278,53 @@ using namespace std;
 //        return maxprofit;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/description/
+//class Solution {
+//public:
+//    int maxProfit(vector<int>& prices) {
+//        int ret = 0;
+//        int n = prices.size();
+//        if (n < 2)
+//            return 0;
+//        for (int buy = 0;buy < n;buy++)
+//        {
+//            int sell = buy;
+//            while (sell + 1 < n && prices[sell + 1] > prices[sell])
+//            {
+//                sell++;
+//            }
+//            ret += prices[sell] - prices[buy];
+//            buy = sell;
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/description/
+//class Solution {
+//public:
+//    int largestSumAfterKNegations(vector<int>& nums, int k) {
+//        int sum = 0;
+//        int MinPositive = INT_MAX;
+//        sort(nums.begin(), nums.end());
+//        for (auto& e : nums)
+//        {
+//            if (e < 0 && k>0)
+//            {
+//                k--;
+//                e = -e;
+//            }
+//            sum += e;
+//            MinPositive = min(MinPositive, e);
+//        }
+//        if (k > 0 && (k % 2))
+//        {
+//            sum -= 2 * MinPositive;
+//        }
+//
+//        return sum;
+//    }
+//};
