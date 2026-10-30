@@ -1973,3 +1973,20 @@ using namespace std;
 //        return -1;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/coin-change-ii/description/
+//class Solution {
+//public:
+//    int change(int amount, vector<int>& coins) {
+//        // dp[i][j] 表示从前i种挑选硬币总金额为j的方法数
+//        vector<size_t> dp(amount + 1);
+//        dp[0] = 1;
+//        for (auto& coin : coins)
+//        {
+//            for (size_t j = coin;j < amount + 1;j++)
+//                dp[j] += dp[j - coin];
+//        }
+//        return dp[amount];
+//    }
+//};
