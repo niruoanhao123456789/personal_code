@@ -328,3 +328,27 @@ using namespace std;
 //        return sum;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/sort-the-people/description/
+//class Solution {
+//public:
+//    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+//        int n = names.size();
+//        vector<int> index(n);
+//        for (int i = 0;i < n;i++)
+//        {
+//            index[i] = i;
+//        }
+//        // 对下标进行排序
+//        sort(index.begin(), index.end(), [&](int left, int right) {
+//            return heights[left] > heights[right];
+//            });
+//        vector<string> ret;
+//        for (auto& i : index)
+//        {
+//            ret.push_back(names[i]);
+//        }
+//        return ret;
+//    }
+//};
