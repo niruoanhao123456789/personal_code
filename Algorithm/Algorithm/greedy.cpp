@@ -352,3 +352,31 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/advantage-shuffle/description/
+// 思路：田忌赛马
+//class Solution {
+//public:
+//    vector<int> advantageCount(vector<int>& nums1, vector<int>& nums2) {
+//        int n = nums1.size();
+//        vector<int> index(n), ret(n);
+//        for (int i = 0;i < n;i++)
+//        {
+//            index[i] = i;
+//        }
+//        sort(nums1.begin(), nums1.end());
+//        sort(index.begin(), index.end(), [&](int left, int right) {
+//            return nums2[left] < nums2[right];
+//            });
+//        int left = 0, right = n - 1;
+//        for (auto& e : nums1)
+//        {
+//            if (e <= nums2[index[left]])
+//                ret[index[right--]] = e;
+//            else
+//                ret[index[left++]] = e;
+//        }
+//        return ret;
+//    }
+//};
