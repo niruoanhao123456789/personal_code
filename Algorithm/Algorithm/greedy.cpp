@@ -380,3 +380,24 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/longest-palindrome/description/
+//class Solution {
+//public:
+//    int longestPalindrome(string s) {
+//        int ret = 0;
+//        unordered_map<char, int> hash;
+//        for (auto& ch : s)
+//        {
+//            hash[ch]++;
+//        }
+//        for (auto& [key, val] : hash)
+//        {
+//            ret += val / 2 * 2;
+//        }
+//        if (ret < s.size())
+//            ret++;
+//        return ret;
+//    }
+//};
