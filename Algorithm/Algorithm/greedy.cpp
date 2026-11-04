@@ -401,3 +401,29 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/di-string-match/description/
+//class Solution {
+//public:
+//    vector<int> diStringMatch(string s) {
+//        int Min = 0, Max = s.size();
+//        vector<int> ret(Max + 1);
+//        int i = 0;
+//        for (auto& ch : s)
+//        {
+//            if (ch == 'I')
+//            {
+//                ret[i++] = Min;
+//                Min++;
+//            }
+//            else if (ch == 'D')
+//            {
+//                ret[i++] = Max;
+//                Max--;
+//            }
+//        }
+//        ret[i] = Max;
+//        return ret;
+//    }
+//};
