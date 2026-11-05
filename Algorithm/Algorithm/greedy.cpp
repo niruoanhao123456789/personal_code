@@ -427,3 +427,29 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/assign-cookies/description/
+//class Solution {
+//public:
+//    int findContentChildren(vector<int>& g, vector<int>& s) {
+//        int ret = 0;
+//        sort(g.begin(), g.end());
+//        sort(s.begin(), s.end());
+//        int i = 0, j = 0;
+//        while (j < s.size() && i < g.size())
+//        {
+//            if (s[j] >= g[i])
+//            {
+//                i++;
+//                ret++;
+//                j++;
+//            }
+//            else
+//            {
+//                j++;
+//            }
+//        }
+//        return ret;
+//    }
+//};
