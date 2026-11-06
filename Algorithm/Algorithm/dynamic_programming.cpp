@@ -1990,3 +1990,47 @@ using namespace std;
 //        return dp[amount];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/perfect-squares/description/
+// class Solution {
+//public:
+//    int numSquares(int n) {
+//        int m = sqrt(n);
+//        // dp[i][j]表示从请前i个完全平方数中挑选，总和等于j的最少数量
+//        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+//        const int INF = 0x3f3f3f3f;
+//        for (int j = 1;j < n + 1;j++)
+//        {
+//            dp[0][j] = INF;
+//        }
+//        for (int i = 1;i < m + 1;i++)
+//        {
+//            for (int j = 1;j < n + 1;j++)
+//            {
+//                dp[i][j] = dp[i - 1][j];
+//                if (j >= i * i)
+//                    dp[i][j] = min(dp[i][j], dp[i][j - i * i] + 1);
+//            }
+//        }
+//        return dp[m][n];
+//    }
+//};
+// 
+//class Solution {
+//public:
+//    int numSquares(int n) {
+//        int m = sqrt(n);
+//        // dp[i][j]表示从请前i个完全平方数中挑选，总和等于j的最少数量
+//        vector<int> dp(n + 1, 0x3f3f3f3f);
+//        dp[0] = 0;
+//        for (int i = 1;i < m + 1;i++)
+//        {
+//            for (int j = i * i;j < n + 1;j++)
+//            {
+//                dp[j] = min(dp[j], dp[j - i * i] + 1);
+//            }
+//        }
+//        return dp[n];
+//    }
+//};
