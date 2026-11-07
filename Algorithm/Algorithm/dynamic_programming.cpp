@@ -2034,3 +2034,33 @@ using namespace std;
 //        return dp[n];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/ones-and-zeroes/description/
+//class Solution {
+//public:
+//    int findMaxForm(vector<string>& strs, int m, int n) {
+//        // dp[i][j][k]表示从前i个字符串中挑选，字符0的个数不超过j ，字符1的个数不超过k，所有的选法中，最大的长度
+//        int len = strs.size();
+//        vector<vector<int>> dp(m + 1,
+//            vector<int>(n + 1));
+//        for (int i = 1; i <= len; i++)
+//        {
+//            // 统计⼀下 0 1 的个数
+//            int a = 0, b = 0;
+//            for (auto ch : strs[i - 1])
+//            {
+//                if (ch == '0') a++;
+//                else b++;
+//            }
+//            for (int j = m; j >= a; j--)
+//            {
+//                for (int k = n; k >= b; k--)
+//                {
+//                    dp[j][k] = max(dp[j][k], dp[j - a][k - b] + 1);
+//                }
+//            }
+//        }
+//        return dp[m][n];
+//    }
+//};
