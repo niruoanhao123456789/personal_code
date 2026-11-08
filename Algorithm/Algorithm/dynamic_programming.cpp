@@ -2064,3 +2064,57 @@ using namespace std;
 //        return dp[m][n];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/profitable-schemes/description/
+//class Solution {
+//public:
+//    int profitableSchemes(int n, int minProfit, vector<int>& group, vector<int>& profit) {
+//        int len = group.size();
+//        // dp[i][j][k]表示：从前i个计划中挑选，总人数不超过j ，总利润至少为k ，一共有多少种选法
+//        vector<vector<vector<int>>> dp(len + 1, vector<vector<int>>(n + 1, vector<int>(minProfit + 1)));
+//        for (int j = 0;j < n + 1;j++)
+//        {
+//            dp[0][j][0] = 1;
+//        }
+//        for (int i = 1;i < len + 1;i++)
+//        {
+//            for (int j = 0;j < n + 1;j++)
+//            {
+//                for (int k = 0;k < minProfit + 1;k++)
+//                {
+//                    dp[i][j][k] = dp[i - 1][j][k];
+//                    if (j >= group[i - 1])
+//                        dp[i][j][k] += dp[i - 1][j - group[i - 1]][max(0, k - profit[i - 1])];
+//                    dp[i][j][k] %= (long long)1e9 + 7;
+//                }
+//            }
+//        }
+//        return dp[len][n][minProfit];
+//    }
+//};
+//
+//class Solution {
+//public:
+//    int profitableSchemes(int n, int minProfit, vector<int>& group, vector<int>& profit) {
+//        int len = group.size();
+//        // dp[i][j][k]表示：从前i个计划中挑选，总人数不超过j ，总利润至少为k ，一共有多少种选法
+//        vector<vector<int>> dp(n + 1, vector<int>(minProfit + 1));
+//        for (int j = 0;j < n + 1;j++)
+//        {
+//            dp[j][0] = 1;
+//        }
+//        for (int i = 1;i < len + 1;i++)
+//        {
+//            for (int j = n;j >= group[i - 1];j--)
+//            {
+//                for (int k = minProfit;k >= 0;k--)
+//                {
+//                    dp[j][k] += dp[j - group[i - 1]][max(0, k - profit[i - 1])];
+//                    dp[j][k] %= (long long)1e9 + 7;
+//                }
+//            }
+//        }
+//        return dp[n][minProfit];
+//    }
+//};
