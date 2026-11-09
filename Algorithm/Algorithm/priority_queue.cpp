@@ -2,6 +2,7 @@
 #include<queue>
 #include<vector>
 #include<list>
+#include<numeric>
 #include<algorithm>
 using namespace std;
 
@@ -101,3 +102,55 @@ using namespace std;
 //            return (double)left.top();
 //    }
 //};
+
+
+// https://leetcode.cn/problems/process-tasks-using-servers/description/
+//class Solution {
+//public:
+//    vector<int> assignTasks(vector<int>& servers, vector<int>& tasks) {
+//        int n = servers.size(), m = tasks.size();
+//        vector<int> ret;
+//
+//        // t, id
+//        priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<>> busy;
+//
+//        // weight , id
+//        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> idle;
+//        for (int i = 0;i < n;i++)
+//        {
+//            idle.emplace(servers[i], i);
+//        }
+//
+//        long long now = 0;
+//        // 把已经完成任务的服务器从 busy 移至 idle的仿函数
+//        auto release = [&]() {
+//            while (!busy.empty() && busy.top().first <= now)
+//            {
+//                auto&& [_, i] = busy.top();
+//                idle.emplace(servers[i], i);
+//                busy.pop();
+//            }
+//            };
+//
+//        // 处理任务
+//        for (int i = 0;i < m;i++)
+//        {
+//            now = max(now, static_cast<long long>(i));
+//            release();
+//            if (idle.empty())
+//            {
+//                now = busy.top().first;
+//                release();
+//            }
+//            auto&& [_, index] = idle.top();
+//            ret.emplace_back(index);
+//            busy.emplace(now + tasks[i], index);
+//            idle.pop();
+//        }
+//
+//        return ret;
+//    }
+//};
+
+
+// 
