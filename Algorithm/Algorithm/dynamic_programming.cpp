@@ -125,6 +125,20 @@ using namespace std;
 //};
 
 
+// https://leetcode.cn/problems/climbing-stairs-ii/description/
+//class Solution {
+//public:
+//    int climbStairs(int n, vector<int>& costs) {
+//        vector<int> dp(n + 3);
+//        for (int i = 3;i < n + 3;i++)
+//        {
+//            dp[i] = costs[i - 3] + min(dp[i - 1] + 1, min(dp[i - 2] + 4, dp[i - 3] + 9));
+//        }
+//        return dp[n + 2];
+//    }
+//};
+
+
 // https://leetcode.cn/problems/decode-ways/description/
 //class Solution {
 //public:
@@ -2118,3 +2132,6 @@ using namespace std;
 //        return dp[n][minProfit];
 //    }
 //};
+
+
+// 
