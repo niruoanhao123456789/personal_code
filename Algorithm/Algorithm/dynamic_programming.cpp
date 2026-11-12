@@ -2134,4 +2134,21 @@ using namespace std;
 //};
 
 
-// 
+// https://leetcode.cn/problems/combination-sum-iv/description/
+//class Solution {
+//public:
+//    int combinationSum4(vector<int>& nums, int target) {
+//        // dp[i]表示要总和为i的排列数的和
+//        vector<size_t> dp(target + 1);
+//        dp[0] = 1;
+//        for (int i = 1;i <= target;i++)
+//        {
+//            for (auto& e : nums)
+//            {
+//                if (e <= i)
+//                    dp[i] += dp[i - e];
+//            }
+//        }
+//        return dp[target];
+//    }
+//};
