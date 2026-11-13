@@ -453,3 +453,125 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/optimal-division/description/
+//class Solution {
+//public:
+//    string optimalDivision(vector<int>& nums) {
+//        int n = nums.size();
+//        if (n == 1)
+//            return to_string(nums[0]);
+//        else if (n == 2)
+//        {
+//            return to_string(nums[0]) + "/" + to_string(nums[1]);
+//        }
+//
+//        string ret = to_string(nums[0]) + "/" + "(";
+//        for (int i = 1;i < n - 1;i++)
+//        {
+//            ret += to_string(nums[i]);
+//            ret += "/";
+//        }
+//        ret += to_string(nums[n - 1]) + ")";
+//
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/jump-game-ii/description/
+//class Solution {
+//public:
+//    int jump(vector<int>& nums) {
+//        int n = nums.size();
+//        int max_pos = 0, ret = 0, end = 0;
+//        for (int i = 0;i < n - 1;i++)
+//        {
+//            max_pos = max(max_pos, i + nums[i]);
+//            if (i == end)
+//            {
+//                end = max_pos;
+//                ret++;
+//            }
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/jump-game/description/
+//class Solution {
+//public:
+//    bool canJump(vector<int>& nums) {
+//        int n = nums.size();
+//        if (n == 1)
+//            return true;
+//        int endPos = nums[0];
+//        for (int i = 0;i <= endPos;i++)
+//        {
+//            endPos = max(i + nums[i], endPos);
+//            if (endPos >= n - 1)
+//                return true;
+//        }
+//        return false;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-cost-to-acquire-required-items/description/
+//class Solution {
+//public:
+//    long long minimumCost(int cost1, int cost2, int costBoth, int need1, int need2) {
+//        long long ret1 = (long long)cost1 * need1 + (long long)cost2 * need2;
+//        long long moreneed = need1, morecost = cost1;
+//        long long lessneed = need2, lesscost = cost2;
+//        if (need1 < need2)
+//        {
+//            moreneed = need2;
+//            morecost = cost2;
+//            lessneed = need1;
+//            lesscost = cost1;
+//        }
+//        long long ret2 = moreneed * costBoth;
+//        long long ret3 = costBoth * lessneed + morecost * (moreneed - lessneed);
+//        return min(ret1, min(ret2, ret3));
+//    }
+//};
+
+
+// https://leetcode.cn/problems/gas-station/description/
+//class Solution {
+//public:
+//    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+//        int n = gas.size(), sum = 0;
+//        vector<int> diff(n);
+//        for (int i = 0;i < n;i++)
+//        {
+//            diff[i] = gas[i] - cost[i];
+//            sum += diff[i];
+//        }
+//        if (sum < 0)
+//            return -1;
+//
+//        for (int i = 0;i < n;i++)
+//        {
+//            if (diff[i] < 0)
+//                continue;
+//            int cur = 0, j = i;
+//            for (;j < 2 * n;j++)
+//            {
+//                cur += diff[j % n];
+//                if (cur < 0)
+//                {
+//                    break;
+//                }
+//            }
+//            if (cur >= 0)
+//                return i;
+//            // 找规律的贪心优化
+//            i = j;
+//        }
+//        return -1;
+//    }
+//};
