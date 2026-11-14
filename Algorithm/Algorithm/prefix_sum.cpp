@@ -213,3 +213,28 @@ using namespace std;
 //        return answer;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/minimum-positive-sum-subarray/description/
+//class Solution {
+//public:
+//    int minimumSumSubarray(vector<int>& nums, int l, int r) {
+//        int n = nums.size();
+//        vector<int> presum(n + 1);
+//        for (int i = 1;i < n + 1;i++)
+//        {
+//            presum[i] = presum[i - 1] + nums[i - 1];
+//        }
+//        int ret = INT_MAX;
+//        for (int len = l;len <= r;len++)
+//        {
+//            for (int begin = 0;begin + len <= n;begin++)
+//            {
+//                int sum = presum[begin + len] - presum[begin];
+//                if (sum > 0)
+//                    ret = min(ret, sum);
+//            }
+//        }
+//        return ret == INT_MAX ? -1 : ret;
+//    }
+//};
