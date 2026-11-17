@@ -615,3 +615,31 @@ using namespace std;
 //        return ret + startValue - target;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/merge-intervals/description/
+//class Solution {
+//public:
+//    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+//        sort(intervals.begin(), intervals.end());
+//        vector<vector<int>> ret;
+//        int left = intervals[0][0], right = intervals[0][1];
+//        for (int i = 1;i < intervals.size();i++)
+//        {
+//            int a = intervals[i][0], b = intervals[i][1];
+//            if (a <= right)
+//            {
+//                right = max(right, b);
+//            }
+//            else
+//            {
+//                ret.push_back({ left,right });
+//                left = a;
+//                right = b;
+//            }
+//        }
+//        ret.push_back({ left,right });
+//
+//        return ret;
+//    }
+//};
