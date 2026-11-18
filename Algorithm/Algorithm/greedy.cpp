@@ -643,3 +643,66 @@ using namespace std;
 //        return ret;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/non-overlapping-intervals/description/
+//class Solution {
+//public:
+//    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+//        int n = intervals.size(), ret = 0;
+//        sort(intervals.begin(), intervals.end());
+//        int right = intervals[0][1];
+//        for (int i = 1;i < n;i++)
+//        {
+//            int a = intervals[i][0], b = intervals[i][1];
+//            if (a < right)
+//            {
+//                ret++;
+//                right = min(right, b);
+//            }
+//            else
+//            {
+//                right = b;
+//            }
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-number-of-changes-to-make-binary-string-beautiful/description/
+//class Solution {
+//public:
+//    int minChanges(string s) {
+//        int ret = 0;
+//        for (int i = 0;i < s.size() - 1;i += 2)
+//        {
+//            ret += s[i] != s[i + 1];
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/description/
+//class Solution {
+//public:
+//    int findMinArrowShots(vector<vector<int>>& points) {
+//        int n = points.size();
+//        int ret = 0;
+//        sort(points.begin(), points.end());
+//        int left = points[0][0], right = points[0][1];
+//        for (int i = 1;i < n;i++)
+//        {
+//            int a = points[i][0], b = points[i][1];
+//            if (a <= right)
+//                right = min(right, b);
+//            else
+//            {
+//                right = b;
+//                ret++;
+//            }
+//        }
+//        return ++ret;
+//    }
+//};
