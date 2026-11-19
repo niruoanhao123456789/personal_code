@@ -2152,3 +2152,24 @@ using namespace std;
 //        return dp[target];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/unique-binary-search-trees/description/
+//class Solution {
+//public:
+//    int numTrees(int n) {
+//        // 根据分析过程中所发现的子问题，抽象出状态表示
+//        // dp[i]表示当中间节点的值为i时，一共有多少颗二叉搜索树。
+//        // 二叉搜索树节点特点：左子节点 < 根节点 < 右字节点
+//        vector<int> dp(n + 1);
+//        dp[0] = 1;
+//        for (int i = 1;i <= n;i++)
+//        {
+//            for (int j = 1;j <= i;j++)
+//            {
+//                dp[i] += dp[j - 1] * dp[i - j];
+//            }
+//        }
+//        return dp[n];
+//    }
+//};
