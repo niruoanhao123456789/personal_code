@@ -1524,3 +1524,31 @@ using namespace std;
 //        return record[i][j];
 //    }
 //};
+
+
+// https://leetcode.cn/problems/integer-replacement/description/
+//class Solution {
+//public:
+//    unordered_map<long long, int> hash;
+//    int integerReplacement(int n) {
+//        return dfs(n);
+//    }
+//
+//    int dfs(long long n)
+//    {
+//        if (n == 1)
+//            return 0;
+//        if (hash.count(n))
+//            return hash[n];
+//        if (n % 2)
+//        {
+//            hash[n] = min(dfs(n + 1), dfs(n - 1)) + 1;
+//            return hash[n];
+//        }
+//        else
+//        {
+//            hash[n] = dfs(n / 2) + 1;
+//            return hash[n];
+//        }
+//    }
+//};
