@@ -706,3 +706,67 @@ using namespace std;
 //        return ++ret;
 //    }
 //};
+
+// https://leetcode.cn/problems/integer-replacement/description/
+//class Solution {
+//public:
+//    int integerReplacement(int n) {
+//        int ret = 0;
+//        while (n > 1)
+//        {
+//            if (n % 2)
+//            {
+//                if (n == 3)
+//                    n = 1;
+//                else if (n % 4 == 1)
+//                    n = n / 2;
+//                else if (n % 4 == 3)
+//                    n = n / 2 + 1;
+//                ret += 2;
+//            }
+//            else
+//            {
+//                n /= 2;
+//                ret++;
+//            }
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/russian-doll-envelopes/description/
+//class Solution {
+//public:
+//    int maxEnvelopes(vector<vector<int>>& envelopes) {
+//        // 对envelopes进行排序
+//        sort(envelopes.begin(), envelopes.end(), [&](const vector<int>& x, const vector<int>& y) {
+//            return x[0] != y[0] ? x[0] < y[0] : x[1] > y[1];
+//            });
+//
+//        // 贪心与二分
+//        vector<int> ret;
+//        ret.emplace_back(envelopes[0][1]);
+//
+//        for (int i = 1; i < envelopes.size(); i++)
+//        {
+//            int tmp = envelopes[i][1];
+//            if (tmp > ret.back())
+//            {
+//                ret.push_back(tmp);
+//            }
+//            else
+//            {
+//                int left = 0, right = ret.size() - 1;
+//                while (left < right)
+//                {
+//                    int mid = (left + right) / 2;
+//                    if (ret[mid] >= tmp) right = mid;
+//                    else left = mid + 1;
+//                }
+//                ret[left] = tmp;
+//            }
+//        }
+//        return ret.size();
+//    }
+//};
