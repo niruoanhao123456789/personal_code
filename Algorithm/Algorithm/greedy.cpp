@@ -770,3 +770,41 @@ using namespace std;
 //        return ret.size();
 //    }
 //};
+
+
+// https://leetcode.cn/problems/greatest-sum-divisible-by-three/description/
+//class Solution {
+//public:
+//    int maxSumDivThree(vector<int>& nums) {
+//        const int INF = 0x3f3f3f3f;
+//        // x表示%3==1的数的最小值，y表示%3==2的数的最小值
+//        // 其编号表示最小与次最小
+//        int sum = 0, x1 = INF, x2 = INF, y1 = INF, y2 = INF;
+//        for (auto& e : nums)
+//        {
+//            sum += e;
+//            if (e % 3 == 1)
+//            {
+//                if (x1 > e)
+//                    x2 = x1, x1 = e;
+//                else if (x2 > e)
+//                    x2 = e;
+//            }
+//            else if (e % 3 == 2)
+//            {
+//                if (y1 > e)
+//                    y2 = y1, y1 = e;
+//                else if (y2 > e)
+//                    y2 = e;
+//            }
+//        }
+//        if (sum % 3 == 0)
+//            return sum;
+//        else if (sum % 3 == 1)
+//            return max(sum - x1, sum - y1 - y2);
+//        else
+//            return max(sum - x1 - x2, sum - y1);
+//    }
+//};
+
+
