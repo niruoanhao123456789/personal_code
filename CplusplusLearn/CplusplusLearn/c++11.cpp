@@ -997,26 +997,26 @@ using namespace std;
 //	}
 //};
 //
-class Plus
-{
-public:
-	Plus(int n = 10)
-		:_n(n)
-	{
-	}
-
-	static int plusi(int a, int b)
-	{
-		return a + b;
-	}
-
-	double plusd(double a, double b)
-	{
-		return (a + b) * _n;
-	}
-private:
-	int _n;
-};
+//class Plus
+//{
+//public:
+//	Plus(int n = 10)
+//		:_n(n)
+//	{
+//	}
+//
+//	static int plusi(int a, int b)
+//	{
+//		return a + b;
+//	}
+//
+//	double plusd(double a, double b)
+//	{
+//		return (a + b) * _n;
+//	}
+//private:
+//	int _n;
+//};
 //
 //int main()
 //{
@@ -1201,133 +1201,133 @@ private:
 // 一般大型项目程序才会使用异常，下面我们模拟设计一个服务的几个模块
 // 每个模块的继承都是Exception的派生类，每个模块可以添加自己的数据
 // 最后捕获时，我们捕获基类就可以
-class Exception
-{
-public:
-	Exception(const string& errmsg, int id)
-		:_errmsg(errmsg)
-		, _id(id)
-	{
-	}
-
-	virtual string what() const
-	{
-		return _errmsg;
-	}
-
-	int getid() const
-	{
-		return _id;
-	}
-protected:
-	string _errmsg;
-	int _id;
-};
-
-class SqlException : public Exception
-{
-public:
-	SqlException(const string& errmsg, int id, const string& sql)
-		:Exception(errmsg, id)
-		, _sql(sql)
-	{
-	}
-
-	virtual string what() const
-	{
-		string str = "SqlException:";
-		str += _errmsg;
-		str += "->";
-		str += _sql;
-		return str;
-	}
-private:
-	const string _sql;
-};
-
-class CacheException : public Exception
-{
-public:
-	CacheException(const string& errmsg, int id)
-		:Exception(errmsg, id)
-	{
-	}
-
-	virtual string what() const
-	{
-		string str = "CacheException:";
-		str += _errmsg;
-		return str;
-	}
-};
-
-class HttpException : public Exception
-{
-public:
-	HttpException(const string& errmsg, int id, const string& type)
-		:Exception(errmsg, id)
-		, _type(type)
-	{
-	}
-
-	virtual string what() const
-	{
-		string str = "HttpException:";
-		str += _type;
-		str += ":";
-		str += _errmsg;
-		return str;
-	}
-
-private:
-	const string _type;
-};
-
-void SQLMgr()
-{
-	if (rand() % 7 == 0)
-	{
-		throw SqlException("权限不足", 100, "select * from name = '张三'");
-	}
-	else
-	{
-		cout << "SQLMgr 调用成功" << endl;
-	}
-}
-
-void CacheMgr()
-{
-	if (rand() % 5 == 0)
-	{
-		throw CacheException("权限不足", 100);
-	}
-	else if (rand() % 6 == 0)
-	{
-		throw CacheException("数据不存在", 101);
-	}
-	else
-	{
-		cout << "CacheMgr 调用成功" << endl;
-	}
-	SQLMgr();
-}
-
-void HttpServer()
-{
-	if (rand() % 3 == 0)
-	{
-		throw HttpException("请求资源不存在", 100, "get");
-	}
-	else if (rand() % 4 == 0)
-	{
-		throw HttpException("权限不足", 101, "post");
-	}
-	else
-	{
-		cout << "HttpServer调用成功" << endl;
-	}
-	CacheMgr();
-}
+//class Exception
+//{
+//public:
+//	Exception(const string& errmsg, int id)
+//		:_errmsg(errmsg)
+//		, _id(id)
+//	{
+//	}
+//
+//	virtual string what() const
+//	{
+//		return _errmsg;
+//	}
+//
+//	int getid() const
+//	{
+//		return _id;
+//	}
+//protected:
+//	string _errmsg;
+//	int _id;
+//};
+//
+//class SqlException : public Exception
+//{
+//public:
+//	SqlException(const string& errmsg, int id, const string& sql)
+//		:Exception(errmsg, id)
+//		, _sql(sql)
+//	{
+//	}
+//
+//	virtual string what() const
+//	{
+//		string str = "SqlException:";
+//		str += _errmsg;
+//		str += "->";
+//		str += _sql;
+//		return str;
+//	}
+//private:
+//	const string _sql;
+//};
+//
+//class CacheException : public Exception
+//{
+//public:
+//	CacheException(const string& errmsg, int id)
+//		:Exception(errmsg, id)
+//	{
+//	}
+//
+//	virtual string what() const
+//	{
+//		string str = "CacheException:";
+//		str += _errmsg;
+//		return str;
+//	}
+//};
+//
+//class HttpException : public Exception
+//{
+//public:
+//	HttpException(const string& errmsg, int id, const string& type)
+//		:Exception(errmsg, id)
+//		, _type(type)
+//	{
+//	}
+//
+//	virtual string what() const
+//	{
+//		string str = "HttpException:";
+//		str += _type;
+//		str += ":";
+//		str += _errmsg;
+//		return str;
+//	}
+//
+//private:
+//	const string _type;
+//};
+//
+//void SQLMgr()
+//{
+//	if (rand() % 7 == 0)
+//	{
+//		throw SqlException("权限不足", 100, "select * from name = '张三'");
+//	}
+//	else
+//	{
+//		cout << "SQLMgr 调用成功" << endl;
+//	}
+//}
+//
+//void CacheMgr()
+//{
+//	if (rand() % 5 == 0)
+//	{
+//		throw CacheException("权限不足", 100);
+//	}
+//	else if (rand() % 6 == 0)
+//	{
+//		throw CacheException("数据不存在", 101);
+//	}
+//	else
+//	{
+//		cout << "CacheMgr 调用成功" << endl;
+//	}
+//	SQLMgr();
+//}
+//
+//void HttpServer()
+//{
+//	if (rand() % 3 == 0)
+//	{
+//		throw HttpException("请求资源不存在", 100, "get");
+//	}
+//	else if (rand() % 4 == 0)
+//	{
+//		throw HttpException("权限不足", 101, "post");
+//	}
+//	else
+//	{
+//		cout << "HttpServer调用成功" << endl;
+//	}
+//	CacheMgr();
+//}
 
 //int main()
 //{
@@ -1480,6 +1480,65 @@ void HttpServer()
 //	cout << noexcept(Divide(1, 0)) << endl;
 //	cout << noexcept(Func()) << endl;
 //	cout << noexcept(++i) << endl;
+//
+//	return 0;
+//}
+
+
+// decltype 
+// 如果我们希望⽤表达式推出变量的类型，但是不想⽤表达式的值初始化变量，那么这时可以使⽤decltype
+// decltype 处理const和引⽤的⽅式和auto也有所不同， 
+// decltype(const变量表达式) x ，x的类型推出类型为const T，decltype会保留顶层const； d
+// ecltype(引⽤变量表达式) x ，x的类型推出类型为T& ，decltype会保留引⽤，而auto不能
+//
+//int main()
+//{
+//	int i = 0;
+//	const int ci = 0;
+//	const int& rci = 0;
+//
+//	decltype(i) m = 1;  // int
+//	decltype(ci) x = 1; // const int
+//	++m;
+//	// ++x; // 报错
+//
+//	decltype(rci) y = x; // const int& 
+//	// ++y
+//	// decltype(rci) z;  // 报错
+//
+//	int* p1 = &i;
+//	decltype(p1) p2 = nullptr; // int*
+//	// 特殊处理
+//	decltype(*p1) r1 = i;      // int&，解引⽤表达式推导出的内容是引⽤
+//	decltype(i) r2;			   // int
+//	decltype((i)) r3 = i;	   // int&, (i)是⼀个表达式，变量是⼀种可以赋值特殊表达式，所以会推出引⽤类型
+//
+//	return 0;
+//}
+
+
+// static_assert()
+// 允许开发者在编译期间检查条件是否满⾜，如果条件不满⾜，则会导致编译错误
+// 与运⾏时assert的区别:
+// static_assert 编译时检查，表达式不符合则编译错误，表达式必须为编译时常量表达式
+// assert 运行时检查，表达式不符合程序终止，表达式为任何表达式
+
+
+// tuple 元组
+// 允许将多个不同类型的值组合成⼀个单⼀的对象。tuple（元组）是⼀个固定⼤⼩的异构值集合，可以包含不同类型的元素
+// 其是  std::pair  的泛化版本， pair  只能保存两个元素，⽽  tuple  可以保存任意数量的元素。
+//
+// 创建Tuple
+//#include <tuple>
+//int main()
+//{
+//	tuple<int, double, string> t1(10, 3.14, "hello");
+//
+//	// make_tuple
+//	auto t2 = make_tuple(20, 2.718, "world");
+//
+//	// C++17起可以用类参数推导
+//	tuple t3(30, 1.618, "cpp"); // // ⾃动推导为tuple<int, double, const char* >
 //
 //	return 0;
 //}
