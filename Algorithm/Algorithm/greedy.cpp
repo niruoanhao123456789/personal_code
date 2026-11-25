@@ -808,3 +808,87 @@ using namespace std;
 //};
 
 
+// https://leetcode.cn/problems/distant-barcodes/description/
+//class Solution {
+//public:
+//    vector<int> rearrangeBarcodes(vector<int>& barcodes) {
+//        // 先处理个数最多的个数，从左往右按题目要求每隔一个位置就放一个数
+//        // 因为答案是一定存在的，所以可以证明最多的个数一定是小于(n-1)/2
+//        int n = barcodes.size();
+//        unordered_map<int, int> hash;
+//        int maxVal = 0, maxCount = 0;
+//        for (auto& e : barcodes)
+//        {
+//            hash[e]++;
+//            if (hash[e] > maxCount)
+//            {
+//                maxCount = hash[e];
+//                maxVal = e;
+//            }
+//        }
+//        vector<int> ret(n);
+//        int index = 0;
+//        for (int i = 0;i < maxCount;i++)
+//        {
+//            ret[index] = maxVal;
+//            index += 2;
+//        }
+//
+//        hash.erase(maxVal);
+//        for (auto& [k, v] : hash)
+//        {
+//            for (int cnt = 0;cnt < v;cnt++)
+//            {
+//                if (index >= n)
+//                    index = 1;
+//                ret[index] = k;
+//                index += 2;
+//            }
+//        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/reorganize-string/description/
+//class Solution {
+//public:
+//    string reorganizeString(string s) {
+//        int n = s.size();
+//        char maxVal = 0;
+//        int maxCount = 0;
+//        unordered_map<char, int> hash;
+//        for (auto& ch : s)
+//        {
+//            ++hash[ch];
+//            if (hash[ch] > maxCount)
+//            {
+//                maxCount = hash[ch];
+//                maxVal = ch;
+//            }
+//        }
+//
+//        // 根据鸽巢原理，可证明要存在答案要求本题中元素的最大数量 < (n+1)/2
+//        if (maxCount > (n + 1) / 2)
+//            return "";
+//        int index = 0;
+//        for (int i = 0;i < maxCount;i++)
+//        {
+//            s[index] = maxVal;
+//            index += 2;
+//        }
+//
+//        hash.erase(maxVal);
+//        for (auto& [k, v] : hash)
+//        {
+//            for (int i = 0;i < v;i++)
+//            {
+//                if (index >= n)
+//                    index = 1;
+//                s[index] = k;
+//                index += 2;
+//            }
+//        }
+//        return s;
+//    }
+//};
