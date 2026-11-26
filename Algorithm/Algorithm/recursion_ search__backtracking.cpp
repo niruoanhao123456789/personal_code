@@ -1552,3 +1552,26 @@ using namespace std;
 //        }
 //    }
 //};
+
+
+// https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/description/
+//class Solution {
+//public:
+//    TreeNode* sortedArrayToBST(vector<int>& nums) {
+//        return BuildBSTree(nums, 0, nums.size() - 1);
+//    }
+//
+//    TreeNode* BuildBSTree(vector<int>& nums, int left, int right)
+//    {
+//        if (left > right)
+//            return nullptr;
+//
+//        // 选择中间位置左边的数字作为根节点
+//        int mid = (right - left) / 2 + left;
+//
+//        TreeNode* root = new TreeNode(nums[mid]);
+//        root->left = BuildBSTree(nums, left, mid - 1);
+//        root->right = BuildBSTree(nums, mid + 1, right);
+//        return root;
+//    }
+//};
