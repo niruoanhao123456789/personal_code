@@ -7,6 +7,7 @@
 #include<map>
 #include<stack>
 #include<list>
+#include<type_traits>
 using namespace std;
 
 // 右值引用和移动语句
@@ -1542,3 +1543,303 @@ using namespace std;
 //
 //	return 0;
 //}
+
+
+// 模板元编程
+// 其核心在于：编译期计算、类型操作（模板参数推导和类型萃取来操作类型）、递归模板实例化、零运⾏时开销（结果在编译时确定）
+
+// 编译期值计算 与 递归模板实例化
+// 用模板元编程计算阶乘
+//template<unsigned int N>
+//struct Factorial
+//{
+//	static const unsigned int val = N * Factorial<N - 1>::val;
+//};
+//
+//// 终止条件特化
+//template<>
+//struct Factorial<0>
+//{
+//	static const unsigned int val = 1;
+//};
+//
+//int main()
+//{
+//	constexpr unsigned int fact = Factorial<5>::val;
+//
+//	return 0;
+//}
+
+
+// 编译期类型计算
+// 编译时获取或修改类型信息的操作
+//
+//namespace my
+//{
+//	// 主模板
+//	template<typename T>
+//	struct is_pointer {
+//		static constexpr bool val = false;
+//	};
+//
+//	// 指针类型的偏特化
+//	template<typename T>
+//	struct is_pointer<T*>
+//	{
+//		static constexpr bool val = true;
+//	};
+//
+//	// 主模板，默认情况类型不同
+//	template<typename T, typename U>
+//	struct is_same {
+//		static constexpr bool value = false;
+//	};
+//
+//	// 特化版本，当两个类型相同时
+//	template<typename T>
+//	struct is_same<T, T>
+//	{
+//		static constexpr bool value = true;
+//	};
+//
+//	// 移除 const
+//	// 主模板，默认情况下不改变类型
+//	template <typename T>
+//	struct remove_const {
+//		using type = T;
+//	};
+//
+//	// 针对 const T 的特化版本，移除 const
+//	template <typename T>
+//	struct remove_const<const T> {
+//		using type = T;
+//	};
+//
+//	// 移除 指针
+//	template <typename T>
+//	struct remove_pointer {
+//		using type = T;
+//	};
+//
+//	template <typename T>
+//	struct remove_pointer<T*> {
+//		using type = T;
+//	};
+//
+//	template <typename T>
+//	struct remove_pointer<T* const> {
+//		using type = T;
+//	};
+//
+//	void func()
+//	{
+//		static_assert(is_pointer<int*>::val, "int* is a pointer");
+//		// static_assert(bit::is_pointer<int>::value, "int is not a pointer");
+//		static_assert(is_same<int, int>::value, "int and int should be thesame");
+//		// static_assert(is_same<int, float>::value, "int and float should bedifferent");
+//		static_assert(is_same<remove_pointer<int*>::type, int>::value, "int and int should be the same");
+//		static_assert(is_same<remove_const<const int>::type, int>::value, "int and int should be the same");
+//	}
+//
+//}
+//
+//int main()
+//{
+//	my::func();
+//
+//	return 0;
+//}
+
+
+// 类型萃取 type_traits
+// 类型萃取是C++模板元编程中的核⼼技术，它允许在编译时检查和修改类型特性
+//
+// 1、基础类型检查
+//std::is_void<void>::value_type;
+//std::is_integral<int>::value_type;
+//std::is_floating_point<float>::value_type;
+//std::is_pointer<int*>::value_type;
+//std::is_reference<int&>::value_type;
+//std::is_const<const int>::value_type;
+//
+//// 2、复合类型检查
+//std::is_function<void()>::value_type;
+//std::is_member_object_pointer<int(Foo::*)>::value_type; // true
+//std::is_compound<std::string>::value_type; // true (⾮基础类型)
+//
+//// 3、类型关系检查
+//std::is_same<int, int32_t>::value_type; // 取决于平台
+//std::is_base_of<Base, Derived>::value_type;
+//std::is_convertible<From, To>::value_type;
+//
+//// 4、类型修改
+//std::add_const<int>::type; // const int
+//std::add_pointer<int>::type; // int*
+//std::add_lvalue_reference<int>::type; // int&
+//
+//std::remove_const<const int>::type; // int
+//std::remove_pointer<int*>::type; // int
+//std::remove_reference<int&>::type; // int
+//
+//// 4、条件类型选择
+//std::conditional<true, int, float>::type; // int
+//std::conditional<false, int, float>::type; // float
+//
+//// 5、类型推导
+//// 函数的返回结果类型
+//template<class F, class... Args>
+//std::invoke_result<F, Args...>::type f; // c++17
+//
+// C++17 为类型萃取添加了  _v  和  _t  后缀的便利变量模板和类型别名 
+// C++11⽅式
+//std::is_integral<int>::value_type;
+//std::remove_const<const int>::type;
+//// C++14、C++17 更简洁的⽅式
+//static_assert(std::is_integral_v<int>, "int must be an integral type");
+//std::remove_const_t<const int>;
+
+//template<typename T>
+//void process(T value)
+//{
+//	if constexpr (std::is_pointer_v<T>)
+//	{
+//		cout<< << "Processing pointer: " << *value << std::endl;
+//	}
+//	else if constexpr (std::is_integral_v<T>)
+//	{
+//		std::cout << "Processing integer: " << value * 2 << std::endl;
+//	}
+//	else if constexpr (std::is_floating_point_v<T>) {
+//		// 浮点类型的处理
+//		std::cout << "Processing float: " << value / 2.0 << std::endl;
+//	}
+//	else{
+//		// 默认处理
+//		std::cout << "Processing unknown type" << std::endl;
+//	}
+//}
+//
+//#if defined(_WIN32)
+//	#include<WinSock2.h>
+//	using socket_t = SOCKET;
+//#else
+//	using socket_t = int;
+//#endif
+//
+//template<typename T>
+//void close_handle(T handle)
+//{
+//	if constexpr (std::is_same_v<T, socket_t>)
+//		closesocket(handle);
+//	else
+//		close(handle);
+//}
+//
+//int main()
+//{
+//	// 使⽤
+//	int i = 42;
+//	process(i); // Processing integer: 84
+//	process(&i); // Processing pointer: 42
+//	process(3.14); // Processing float: 1.57
+//	process("hello"); // Processing unknown type
+//
+//	return 0;
+//}
+
+
+// SFINAE是Substitution Failure Is Not An Error⾸字⺟缩写，意思是"替换失败不是错误"
+// 在模板参数推导或替换时，如果某个候选模板导致编译错误（如类型不匹配、⽆效表达式等），
+// 编译器不会直接报错，⽽是跳过该候选，尝试其他可⾏的版本。如果最后都没匹配到合适的版本，再进⾏报错
+
+// 版本1：仅适⽤于可递增的类型
+//template<typename T>
+//auto foo(T x) -> decltype(++x, void())
+//{
+//	cout << "foo(T): " << x << " (can be incremented)\n";
+//}
+//
+//// C++17 用void_t优化上面的写法
+////template<typename T>
+////auto foo(T x) -> std::void_t<decltype(++x)> {
+//// std::cout << "foo(T): " << x << " (can be incremented)\n";
+////}
+//
+//// 版本2：回退版本
+//void foo(...) {
+//	cout << "foo(...): fallback (cannot increment)\n";
+//}
+//
+//int main()
+//{
+//	foo(42); // 调用版本1
+//	foo(string("1111")); // 调用版本2
+//
+//	return 0;
+//}
+
+// std::enable_if 是⼀个类型萃取，是 SFINAE 的典型应⽤，⽤于在编译时启⽤ / 禁⽤函数模板
+// 对于整数类型启⽤此重载
+//template<typename T>
+//typename std::enable_if_t<std::is_integral_v<T>, T>
+//	add_one(T t) {
+//		return t + 1;
+//}
+//
+//// 对于浮点类型启⽤此重载
+//template<typename T>
+//typename std::enable_if_t<std::is_floating_point_v<T>, T>
+//	add_one(T t) {
+//	return t + 2.0;
+//} 
+//
+//// 模板参数的检查
+//template<typename T,
+//	typename = std::enable_if_t<std::is_integral_v<T>>>
+//	void process_integer(T value) {
+//		// 只接受整数类型
+//} 
+//int main() {
+//	std::cout << add_one(5) << "\n"; // 调⽤整数版本，输出6
+//	std::cout << add_one(3.14) << "\n"; // 调⽤浮点版本，输出4.14
+//	// add_one("hello"); // 编译错误，没有匹配的重载
+//	process_integer(1);
+//	// process_integer(1.1); // 编译错误，没有匹配的重载
+//
+//	return 0;
+//}
+
+// 许多模板元编程任务可以⽤constexpr函数替代，
+// 允许函数和变量在编译期求值，替代部分传统模板元编程的递归实例化
+//
+//constexpr int factorial(int n)
+//{
+//	return n <= 1 ? 1 : n * factorial(n - 1);
+//}
+//
+//constexpr int x = factorial(5);
+
+// if constexpr C++17
+// 在编译期根据条件选择代码路径，避免⽣成⽆效代码分⽀，简化SFINAE和模板特化的复杂逻辑，提升可读性
+//template<typename T>
+//auto process(T value)
+//{
+//	if constexpr (std::is_integral_v<T>)
+//		return value * 2;
+//	else if constexpr (std::is_floating_point_v<T>)
+//		return value / 2;
+//	else
+//		return value;
+//}
+
+// 模板元编程优缺点
+// 优点：
+// 1. 零运⾏时开销：所有计算在编译期完成
+// 2. 类型安全：编译期类型检查
+// 3. ⾼度抽象：可构建灵活通⽤的库
+//
+// 缺点：
+// 1. 编译时间⻓：复杂的模板实例化会增加编译时间
+// 2. 学习成本增加：很多模板元编程的写法晦涩难懂，⼤⼤增加学习成本
+// 3. 错误信息晦涩：模板错误通常难以理解
+// 4. 调试困难：难以调试编译期计算
