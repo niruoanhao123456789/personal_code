@@ -1747,6 +1747,60 @@ using namespace std;
 //    }
 //};
 
+// https://leetcode.cn/problems/maximum-number-of-items-from-sale-i/description/
+//class Solution {
+//public:
+//    int maximumSaleItems(vector<vector<int>>& items, int budget) {
+//        int max_factor = 0;
+//        int min_price = INT_MAX;
+//        for (auto& e : items)
+//        {
+//            max_factor = max(max_factor, e[0]);
+//            min_price = min(min_price, e[1]);
+//        }
+//
+//        vector<int> cnt_factor(max_factor + 1);
+//        for (auto& e : items)
+//        {
+//            cnt_factor[e[0]]++;
+//        }
+//
+//        vector<int> cnt_multi(max_factor + 1);
+//        vector<int> f(budget + 1);
+//        int sum_price = 0;
+//
+//        for (auto& e : items)
+//        {
+//            int factor = e[0], price = e[1];
+//
+//            int& cnt = cnt_multi[factor];
+//            if (cnt == 0)
+//            {
+//                for (int j = factor;j <= max_factor;j += factor)
+//                {
+//                    cnt += cnt_factor[j];
+//                }
+//            }
+//
+//            // 看作一个体积为price，价值为cnt的物品
+//            // 已遍历的物品的体积和至多为 sum_price，大于这个值的体积和无法凑出来
+//            sum_price = min(sum_price + price, budget);
+//            for (int j = sum_price;j >= price;j--)
+//            {
+//                f[j] = max(f[j], f[j - price] + cnt);
+//            }
+//        }
+//
+//        int ret = 0;
+//        for (int i = 0;i <= budget;i++)
+//        {
+//            ret = max(ret, f[i] + (budget - i) / min_price);
+//        }
+//
+//        return ret;
+//    }
+//};
+
 
 // 完全背包
 //

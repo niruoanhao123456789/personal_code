@@ -2,6 +2,8 @@
 #include<algorithm>
 #include<vector>
 #include<unordered_map>
+#include<deque>
+#include<queue>
 using namespace std;
 
 // 滑动窗口，即同向双指针
@@ -403,6 +405,108 @@ using namespace std;
 //            }
 //            right++;
 //        }
+//        return ret;
+//    }
+//};
+
+
+// https://leetcode.cn/problems/sliding-window-maximum/description/
+// 方法一 优先级队列
+//class Solution {
+//public:
+//    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+//        // 用优先级队列来记录最大值
+//        priority_queue<pair<int, int>> q;
+//        int n = nums.size();
+//        for (int i = 0;i < k;i++)
+//        {
+//            q.emplace(nums[i], i);
+//        }
+//        vector<int> ret = { q.top().first };
+//        for (int i = k;i < n;i++)
+//        {
+//            q.emplace(nums[i], i);
+//            // 确保窗口最大值始终在窗口范围内
+//            while (q.top().second <= i - k)
+//            {
+//                q.pop();
+//            }
+//            ret.emplace_back(q.top().first);
+//        }
+//        return ret;
+//    }
+//};
+
+// 法二 单调队列
+//class Solution {
+//public:
+//    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+//        int n = nums.size();
+//        // 双端队列里存放的是数组的下标，所以天然具有单调性，单调队列
+//        deque<int> q;
+//        for (int i = 0;i < k;i++)
+//        {
+//            // 确保窗口内最大的元素在队首
+//            while (!q.empty() && nums[i] >= nums[q.back()])
+//            {
+//                q.pop_back();
+//            }
+//            q.push_back(i);
+//        }
+//
+//        vector<int> ret = { nums[q.front()] };
+//        for (int i = k;i < n;i++)
+//        {
+//            while (!q.empty() && nums[i] >= nums[q.back()])
+//            {
+//                q.pop_back();
+//            }
+//            q.push_back(i);
+//            while (q.front() <= i - k)
+//            {
+//                q.pop_front();
+//            }
+//            ret.push_back(nums[q.front()]);
+//        }
+//        return ret;
+//    }
+//};
+//
+// 方法三
+//class Solution {
+//public:
+//    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+//        int n = nums.size();
+//        vector<int> prefixMax(n), suffixMax(n);
+//        for (int i = 0;i < n;i++)
+//        {
+//            if (i % k)
+//            {
+//                prefixMax[i] = max(prefixMax[i - 1], nums[i]);
+//            }
+//            else
+//            {
+//                prefixMax[i] = nums[i];
+//            }
+//        }
+//        for (int i = n - 1;i >= 0;i--)
+//        {
+//            if (i == n - 1 || (i + 1) % k == 0)
+//            {
+//                suffixMax[i] = nums[i];
+//            }
+//            else
+//            {
+//                suffixMax[i] = max(suffixMax[i + 1], nums[i]);
+//            }
+//        }
+//
+//        vector<int> ret;
+//        for (int i = 0;i <= n - k;i++)
+//        {
+//            ret.emplace_back(max(suffixMax[i], prefixMax[i - 1 + k]));
+//        }
+//
 //        return ret;
 //    }
 //};
