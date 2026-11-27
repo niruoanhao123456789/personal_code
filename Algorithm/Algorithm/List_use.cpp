@@ -261,3 +261,73 @@ struct ListNode {
 //        return cur;
 //    }
 //};
+
+
+// https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
+// 方法一：
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+//class Solution {
+//public:
+//    ListNode* removeNthFromEnd(ListNode* head, int n) {
+//        int len = getLen(head);
+//        if (len == 1)
+//            return nullptr;
+//        ListNode* cur = head;
+//        ListNode* prev = head;
+//        for (int i = 1;i < len - n + 1;i++)
+//        {
+//            prev = cur;
+//            cur = cur->next;
+//        }
+//        ListNode* next = cur->next;
+//        prev->next = next;
+//        if (cur == head)
+//            return head->next;
+//
+//        return head;
+//    }
+//
+//    int getLen(ListNode* head)
+//    {
+//        int cnt = 0;
+//        ListNode* cur = head;
+//        while (cur)
+//        {
+//            cnt++;
+//            cur = cur->next;
+//        }
+//        return cnt;
+//    }
+//};
+//
+// 方法二：利用栈
+//class Solution {
+//public:
+//    ListNode* removeNthFromEnd(ListNode* head, int n) {
+//        stack<ListNode*> st;
+//        ListNode* cur = head;
+//        while (cur) {
+//            st.push(cur);
+//            cur = cur->next;
+//        }
+//        for (int i = 0;i < n;i++)
+//        {
+//            st.pop();
+//        }
+//        if (st.empty())
+//            return head->next;
+//        ListNode* prev = st.top();
+//        prev->next = prev->next->next;
+//
+//        return head;
+//    }
+//};
