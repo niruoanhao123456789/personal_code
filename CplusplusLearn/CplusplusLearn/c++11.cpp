@@ -1681,11 +1681,11 @@ using namespace std;
 //std::remove_pointer<int*>::type; // int
 //std::remove_reference<int&>::type; // int
 //
-//// 4、条件类型选择
+//// 5、条件类型选择
 //std::conditional<true, int, float>::type; // int
 //std::conditional<false, int, float>::type; // float
 //
-//// 5、类型推导
+//// 6、类型推导
 //// 函数的返回结果类型
 //template<class F, class... Args>
 //std::invoke_result<F, Args...>::type f; // c++17
@@ -1840,6 +1840,6 @@ using namespace std;
 //
 // 缺点：
 // 1. 编译时间⻓：复杂的模板实例化会增加编译时间
-// 2. 学习成本增加：很多模板元编程的写法晦涩难懂，⼤⼤增加学习成本
+// 2. 学习成本增加：很多模板元编程的写法晦涩难懂，增加学习成本
 // 3. 错误信息晦涩：模板错误通常难以理解
 // 4. 调试困难：难以调试编译期计算
